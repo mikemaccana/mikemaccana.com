@@ -46,7 +46,7 @@ nav {
 }
 
 /* ☰ button */
-.nav-link {
+.hamburger {
   z-index: 1;
   display: none;
   top: 0;
@@ -143,7 +143,7 @@ nav.vertical {
   }
 }
 
-body, nav, .nav-link, .content {
+body, nav, .hamburger, .content {
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -ms-transition: all 0.2s ease-out;
@@ -167,7 +167,7 @@ body {
   font-weight: 100;
   color: @darkgrey;
   overflow-x: hidden;
-
+  background-image: url('/images/lil_fiber.png')
 }
 
 .content {
@@ -185,7 +185,7 @@ body {
 .stuff {
   width: 100%;
   overflow-x: scroll;
-  margin: 100px 0;
+  margin-top: 50px;
   .works {
     list-style-type: none;
     display: block;

@@ -3,17 +3,23 @@ requirejs.config({
   baseUrl: 'js'
 });
 
-requirejs(["ie9classlist", "agave"], function(unused, agave) {
+define(function(require){
+  "use strict";
+  var log = console.log.bind(console);
+
+  var unused = require("ie9classlist"),
+    agave = require("agave"),
+    $ = require("jquery")
+
   agave.enable('av');
-  var $ = function(selector) { return document.querySelector(selector) };
-  var $all = function(selector) { return document.querySelectorAll(selector) };
 
   // Clicking ☰ button displays nav
-  $('.nav-link').addEventListener('click', function (event) {
-    $all('nav, body, .nav-link, .content').avforEach(function(element){
+  $('.hamburger').on('click', function(event) {
+    $('nav, body, .hamburger, .content').each(function(index, element){
       element.avtoggleClass('menu-active');
     });
     event.preventDefault();
   });
+
 })
 
