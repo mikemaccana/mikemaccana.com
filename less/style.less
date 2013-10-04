@@ -1,9 +1,9 @@
 @import "normalize.less";
 @import "fonts.less";
 
-@gingreen: #003700;
-@ginsilver: #d6d6d5;
-@ginred: #b90f00;
+@darkcolor: rgb(0, 59, 165);
+@lightcolor: #d6d6d5;
+@otherdarkcolor: #b90f00;
 @darkgrey: #222;
 @skin: #F3DB2D;
 @shadedgrey: rgba(0,0,0,0.7);
@@ -16,10 +16,11 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 a, a:hover, a:active, a:visited {
-  color: @gingreen;
+  color: @darkcolor;
   text-decoration: none;
 }
 
@@ -29,6 +30,12 @@ a, a:hover, a:active, a:visited {
   -ms-transform: @string;
   -o-transform: @string;
   transform: @string;
+}
+
+.notlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 nav {
@@ -63,7 +70,7 @@ nav.horizontal {
   overflow: hidden;
   text-align: center;
   ul, li {
-    list-style: none;
+    .notlist;
   }
   ul {
     overflow: hidden;
@@ -108,8 +115,9 @@ nav.vertical {
   @media (max-width: @single-column-threshold) {
     left: 0;
   }
+
   ul, li {
-    list-style: none;
+    .notlist;
   }
   ul {
     padding-left: 10px;
@@ -121,8 +129,8 @@ nav.vertical {
     display: block;
   }
   a:hover {
-    background-color: @ginsilver;
-    color: @gingreen;
+    background-color: @lightcolor;
+    color: @darkcolor;
   }
   li.object {
     text-transform: uppercase;
@@ -144,27 +152,29 @@ body, nav, .nav-link, .content {
 }
 
 strong {
-  color: @ginred;
+  color: @otherdarkcolor;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
+  color: @darkcolor;
 }
 
 body {
-  padding-left: 0;
   left: 0;
   margin: 0;
   font-family: "Open Sans", sans-serif;
   font-weight: 100;
   color: @darkgrey;
   overflow-x: hidden;
-  @media (max-width: @single-column-threshold) {
-    padding-left: 0;
-  }
+
 }
 
 .content {
+  padding: 20px;
+  ul, li {
+    .notlist;
+  }
   &.menu-active {
     @media (max-width: @single-column-threshold) {
       .transform(translateX(@sidebar-width));
@@ -172,3 +182,29 @@ body {
   }
 }
 
+.stuff {
+  width: 100%;
+  overflow-x: scroll;
+  margin: 100px 0;
+  .works {
+    list-style-type: none;
+    display: block;
+    height: 390px;
+    width: 9999px;
+    .work {
+      list-style-type: none;
+      float: left;
+      margin: 20px;
+    }
+  }
+}
+
+.links {
+  width: 300px;
+  float: right;
+  margin-top: 50px;
+  img {
+    float: right;
+    margin-left: 10px;
+  }
+}
