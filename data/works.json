@@ -1,101 +1,24 @@
 {
   "works": [
     {
-      "slug": "google-10th-birthday-germany",
-      "previewImage": "google-10th-birthday-germany.png",
-      "title": "Google 10th Birthday Germany",
-      "pubDate": "Sun, 31 Mar 2013 19:07:48 +0000",
-      "content": "<p>A rich, interactive site created to showcase Google's work over the last decade in Germany. </p><p></p><ul><li>Client: Google</li><li>Built in a weekend, advertised nationally on on German TV</li><li>Custom HTML5 canvas and s<span style=\"line-height: 24px; font-size: 14px;\">cenegraph work</span></li><li><a href=\"http://www.10jahregoogle.de/\">http://www.10jahregoogle.de/</a>&nbsp;</li></ul>"
-    },
-    {
-      "slug": "python-docx",
-      "previewImage": "python-docx.png",
-      "title": "Python Docx",
-      "pubDate": "Fri, 30 Aug 2013 14:05:05 +0000",
-      "content": "<p>The first native Python module for the current XML based Microsoft Word document format.</p><ul><li>Thousand of users, and over 650 stars on Github</li><li>LXML, OpenXML</li><li><a href=\"https://github.com/mikemaccana/python-docx\" target=\"_blank\">https://github.com/mikemaccana/python-docx&nbsp;</a></li></ul><p>&nbsp;</p>"
-    },
-    {
-      "slug": "google-getting-american-business-online",
-      "previewImage": "google-getting-american-business-online.png",
-      "title": "Google Getting American Business Online",
-      "pubDate": "Sun, 31 Mar 2013 19:26:13 +0000",
-      "content": "<p>Google's worldwide programme to get businesses online, aiming to substantially reduce the count of all businesses that don't have an internet presence.</p><ul><li>Custom layout engine to allow local Google teams to customize the site to their own market (a US state or a country).</li><li><a href=\"http://www.gybo.com/\">http://www.gybo.com/</a></li></ul><p></p>"
-    },
-    {
-      "slug": "youtube-world-view",
-      "previewImage": "youtube-world-view.png",
-      "title": "YouTube World View",
-      "pubDate": "Mon, 23 Sep 2013 14:03:55 +0000",
+      "slug": "firework",
+      "previewImage": "firework.png",
+      "title": "Firework",
+      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
       "content": ""
     },
     {
-      "slug": "doom-the-path",
-      "previewImage": "doom-the-path.png",
-      "title": "Doom: The Path",
-      "pubDate": "Sun, 31 Mar 2013 19:09:01 +0000",
-      "content": "<p>Released in 1996, one of the most critically acclaimed (and largest) Doom II PWADs (levels) of all time. &nbsp;</p><ul><li><span style=\"font-size: 14px; line-height: 24px;\">Deep water, filling water tanks, toilets and urinals, floating platforms, and other advanced techniques.</span><br></li><li>Custom textures and sounds.</li><li><span style=\"line-height: 24px; font-size: 14px;\">Built when I was 15, with a computer that couldn't edit the entire level at once. I built individual chunks, my friend John Graham assembled these together into a full level on his more powerful computer.&nbsp;</span></li><li><a href=\"http://www.doomworld.com/idgames/?id=7427\">Download from DoomWorld</a></li></ul>"
-    },
-    {
-      "slug": "agave-js",
-      "previewImage": "agave-js.png",
-      "title": "Agave JS",
-      "pubDate": "Fri, 30 Aug 2013 14:00:16 +0000",
-      "content": "<p>Safe native methods for ES5.</p><ul><li>One of the first JS libraries to safely extend native methods.</li><li>Method names are namespaced to avoid conflicts</li><li>All methods are non-enumerable using ES5 defineProperty()</li><li><a href=\"http://agavejs.org\">http://agavejs.org</a></li></ul>"
-    },
-    {
-      "slug": "feature-writer-apc-magazine",
-      "previewImage": "feature-writer-apc-magazine.jpeg",
-      "title": "Tech Journalism",
-      "pubDate": "Sun, 31 Mar 2013 21:23:34 +0000",
-      "content": "<p>Writing for various Asia Pacific print magazines on Linux, servers, mobile, blogging, gaming, audiovisual, and other topics of interest to readers.</p><p></p><h2>Feature Writer, APC Magazine</h2><p>Regular pieces for the largest computer magazine in Asia Pacific, circulation 75,000.</p><h2>Columnist, PC Authority Magazine</h2><p>Monthly column in Australian/New Zealand computer magazine, circulation 55,000, on Linux, servers, 3G, content management, and other topics of interest to readers.Linux PocketBook 3rd Edition<br></p><p class=\"year\"><span style=\"line-height: 24px; font-size: 14px;\">Wrote over 40,000 words for this accessible and fun guide to Linux. Sold at a premium price (twenty Australian dollars), over 20,000 copies were sold.</span></p><p></p><h2>Founding Editor, Australian Linux Journal</h2><p class=\"description\">Sourced writers, provided briefs, copy-edited, and interviewed for the first two issues of this Asia/Pacific magazine focusing on Linux and Open Source.</p><h2>Other Media</h2><p>Writing and speaking roles for newspapers (Sydney Morning Herald), and radio (3RRR Melbourne).</p><p></p><p></p>"
-    },
-    {
-      "slug": "im-everyone",
-      "previewImage": "im-everyone.png",
-      "title": "I'm Everyone",
-      "pubDate": "Sun, 31 Mar 2013 19:53:58 +0000",
-      "content": "<div class=\"sqs-video-opaque\"></div><div class=\"sqs-video-icon\"></div></div></div></div></div>"
-    },
-    {
-      "slug": "social-deployer",
-      "previewImage": "social-deployer.png",
-      "title": "Social Deployer",
-      "pubDate": "Mon, 12 Aug 2013 08:51:10 +0000",
-      "content": "<p>Deploy new software from Github to Amazon EC2 from a single drop down.</p><ul><li>Client: Bazaarvoice</li><li>Automatically deploys, tests and images commits as soon as they're made</li><li>Builds autoscaled, load-balanced EC2 environments without any end user input&nbsp;</li><li>Live updated on progress and other relevant events</li><li>Async using NodeJS &amp; client side JS.&nbsp;Uses Github, Amazon EC2 libraries, Agave.JS, HTML5 server-sent events.</li></ul><p><br></p><p>&nbsp;</p>"
-    },
-    {
-      "slug": "google-android-4-launch",
-      "previewImage": "google-android-4-launch.png",
-      "title": "Android 4 Worldwide Launch",
-      "pubDate": "Tue, 13 Aug 2013 10:39:45 +0000",
-      "content": "<p>Launch of Android 4 (Ice Cream Sandwich) and the Samsung Galaxy Nexus phone.</p><ul><li>Worldwide phone retailer education for Android 4 and Galaxy nexus</li><li>Quiz and results reporting</li><li>Entire site internationalized to every Google market</li><li><a href=\"#\">http://android-ambassador.appspot.com/</a></li></ul><p></p><p></p>"
-    },
-    {
-      "slug": "ginjs",
-      "previewImage": "ginjs.png",
-      "title": "Gin.JS",
-      "pubDate": "Thu, 03 Oct 2013 16:04:11 +0000",
+      "slug": "microsoft-bemore",
+      "previewImage": "microsoft-bemore.png",
+      "title": "Microsoft Be More",
+      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
       "content": ""
     },
     {
-      "slug": "pamplemousse-js",
-      "previewImage": "pamplemousse-js.png",
-      "title": "Pamplemousse JS",
-      "pubDate": "Fri, 30 Aug 2013 13:57:49 +0000",
-      "content": "<p>Pamplemousse is a simple set of two modules to handle HTML5 server sent events. It's supplied as a RequireJS module, and takes care of:</p><ul><li>Encoding things in SSE format</li><li>Mime types</li><li>Updating message IDs</li><li>Timeouts</li><li>JSON in, JSON out<span style=\"font-size: 14px; line-height: 1.68em;\">&nbsp;</span></li><li><a href=\"http://pamplemoussejs.org\">http://pamplemoussejs.org</a>&nbsp;</li></ul><p></p><p>&nbsp;<span style=\"line-height: 24px; font-size: 14px;\">&nbsp;</span></p>"
-    },
-    {
-      "slug": "bazaarvoice-questions-and-answers",
-      "previewImage": "bazaarvoice-questions-and-answers.png",
-      "title": "Bazaarvoice Questions and Answers",
-      "pubDate": "Fri, 30 Aug 2013 14:17:04 +0000",
-      "content": "<p>Connecting customers with company staff and the wider product community to answer product questions.&nbsp; Facebook platform, leaderboards, responsive design.&nbsp;</p>"
-    },
-    {
-      "slug": "facebook-stories",
-      "previewImage": "facebook-stories.png",
-      "title": "Bazaarvoice Stories",
-      "pubDate": "Mon, 12 Aug 2013 08:45:37 +0000",
+      "slug": "bazaarvoice-tips",
+      "previewImage": "bazaarvoice-tips.png",
+      "title": "Bazaarvoice Tips",
+      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
       "content": ""
     },
     {
@@ -106,11 +29,102 @@
       "content": ""
     },
     {
-      "slug": "bazaarvoice-tips",
-      "previewImage": "bazaarvoice-tips.png",
-      "title": "Bazaarvoice Tips",
-      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+      "slug": "facebook-stories",
+      "previewImage": "facebook-stories.png",
+      "title": "Bazaarvoice Stories",
+      "pubDate": "Mon, 12 Aug 2013 08:45:37 +0000",
       "content": ""
+    },
+    {
+      "slug": "social-deployer",
+      "previewImage": "social-deployer.png",
+      "title": "Social Deployer",
+      "pubDate": "Mon, 12 Aug 2013 08:51:10 +0000",
+      "content": "<p>Deploy new software from Github to Amazon EC2 from a single drop down.</p><ul><li>Client: Bazaarvoice</li><li>Automatically deploys, tests and images commits as soon as they're made</li><li>Builds autoscaled, load-balanced EC2 environments without any end user input&nbsp;</li><li>Live updated on progress and other relevant events</li><li>Async using NodeJS &amp; client side JS.&nbsp;Uses Github, Amazon EC2 libraries, Agave.JS, HTML5 server-sent events.</li></ul><p><br></p><p>&nbsp;</p>"
+    },
+    {
+      "slug": "bazaarvoice-questions-and-answers",
+      "previewImage": "bazaarvoice-questions-and-answers.png",
+      "title": "Bazaarvoice Questions and Answers",
+      "pubDate": "Fri, 30 Aug 2013 14:17:04 +0000",
+      "content": "<p>Connecting customers with company staff and the wider product community to answer product questions.&nbsp; Facebook platform, leaderboards, responsive design.&nbsp;</p>"
+    },
+    {
+      "slug": "pamplemousse-js",
+      "previewImage": "pamplemousse-js.png",
+      "title": "Pamplemousse JS",
+      "pubDate": "Fri, 30 Aug 2013 13:57:49 +0000",
+      "content": "<p>Pamplemousse is a simple set of two modules to handle HTML5 server sent events. It's supplied as a RequireJS module, and takes care of:</p><ul><li>Encoding things in SSE format</li><li>Mime types</li><li>Updating message IDs</li><li>Timeouts</li><li>JSON in, JSON out<span style=\"font-size: 14px; line-height: 1.68em;\">&nbsp;</span></li><li><a href=\"http://pamplemoussejs.org\">http://pamplemoussejs.org</a>&nbsp;</li></ul><p></p><p>&nbsp;<span style=\"line-height: 24px; font-size: 14px;\">&nbsp;</span></p>"
+    },
+    {
+      "slug": "ginjs",
+      "previewImage": "ginjs.png",
+      "title": "Gin.JS",
+      "pubDate": "Thu, 03 Oct 2013 16:04:11 +0000",
+      "content": ""
+    },
+    {
+      "slug": "google-android-4-launch",
+      "previewImage": "google-android-4-launch.png",
+      "title": "Android 4 Worldwide Launch",
+      "pubDate": "Tue, 13 Aug 2013 10:39:45 +0000",
+      "content": "<p>Launch of Android 4 (Ice Cream Sandwich) and the Samsung Galaxy Nexus phone.</p><ul><li>Worldwide phone retailer education for Android 4 and Galaxy nexus</li><li>Quiz and results reporting</li><li>Entire site internationalized to every Google market</li><li><a href=\"#\">http://android-ambassador.appspot.com/</a></li></ul><p></p><p></p>"
+    },
+    {
+      "slug": "agave-js",
+      "previewImage": "agave-js.png",
+      "title": "Agave JS",
+      "pubDate": "Fri, 30 Aug 2013 14:00:16 +0000",
+      "content": "<p>Safe native methods for ES5.</p><ul><li>One of the first JS libraries to safely extend native methods.</li><li>Method names are namespaced to avoid conflicts</li><li>All methods are non-enumerable using ES5 defineProperty()</li><li><a href=\"http://agavejs.org\">http://agavejs.org</a></li></ul>"
+    },
+    {
+      "slug": "youtube-world-view",
+      "previewImage": "youtube-world-view.png",
+      "title": "YouTube World View",
+      "pubDate": "Mon, 23 Sep 2013 14:03:55 +0000",
+      "content": ""
+    },
+    {
+      "slug": "google-getting-american-business-online",
+      "previewImage": "google-getting-american-business-online.png",
+      "title": "Google Getting American Business Online",
+      "pubDate": "Sun, 31 Mar 2013 19:26:13 +0000",
+      "content": "<p>Google's worldwide programme to get businesses online, aiming to substantially reduce the count of all businesses that don't have an internet presence.</p><ul><li>Custom layout engine to allow local Google teams to customize the site to their own market (a US state or a country).</li><li><a href=\"http://www.gybo.com/\">http://www.gybo.com/</a></li></ul><p></p>"
+    },
+    {
+      "slug": "google-10th-birthday-germany",
+      "previewImage": "google-10th-birthday-germany.png",
+      "title": "Google 10th Birthday Germany",
+      "pubDate": "Sun, 31 Mar 2013 19:07:48 +0000",
+      "content": "<p>A rich, interactive site created to showcase Google's work over the last decade in Germany. </p><p></p><ul><li>Client: Google</li><li>Built in a weekend, advertised nationally on on German TV</li><li>Custom HTML5 canvas and s<span style=\"line-height: 24px; font-size: 14px;\">cenegraph work</span></li><li><a href=\"http://www.10jahregoogle.de/\">http://www.10jahregoogle.de/</a>&nbsp;</li></ul>"
+    },
+    {
+      "slug": "im-everyone",
+      "previewImage": "im-everyone.png",
+      "title": "I'm Everyone",
+      "pubDate": "Sun, 31 Mar 2013 19:53:58 +0000",
+      "content": "<div class=\"sqs-video-opaque\"></div><div class=\"sqs-video-icon\"></div></div></div></div></div>"
+    },
+    {
+      "slug": "python-docx",
+      "previewImage": "python-docx.png",
+      "title": "Python Docx",
+      "pubDate": "Fri, 30 Aug 2013 14:05:05 +0000",
+      "content": "<p>The first native Python module for the current XML based Microsoft Word document format.</p><ul><li>Thousand of users, and over 650 stars on Github</li><li>LXML, OpenXML</li><li><a href=\"https://github.com/mikemaccana/python-docx\" target=\"_blank\">https://github.com/mikemaccana/python-docx&nbsp;</a></li></ul><p>&nbsp;</p>"
+    },
+    {
+      "slug": "feature-writer-apc-magazine",
+      "previewImage": "feature-writer-apc-magazine.jpeg",
+      "title": "Tech Journalism",
+      "pubDate": "Sun, 31 Mar 2013 21:23:34 +0000",
+      "content": "<p>Writing for various Asia Pacific print magazines on Linux, servers, mobile, blogging, gaming, audiovisual, and other topics of interest to readers.</p><p></p><h2>Feature Writer, APC Magazine</h2><p>Regular pieces for the largest computer magazine in Asia Pacific, circulation 75,000.</p><h2>Columnist, PC Authority Magazine</h2><p>Monthly column in Australian/New Zealand computer magazine, circulation 55,000, on Linux, servers, 3G, content management, and other topics of interest to readers.Linux PocketBook 3rd Edition<br></p><p class=\"year\"><span style=\"line-height: 24px; font-size: 14px;\">Wrote over 40,000 words for this accessible and fun guide to Linux. Sold at a premium price (twenty Australian dollars), over 20,000 copies were sold.</span></p><p></p><h2>Founding Editor, Australian Linux Journal</h2><p class=\"description\">Sourced writers, provided briefs, copy-edited, and interviewed for the first two issues of this Asia/Pacific magazine focusing on Linux and Open Source.</p><h2>Other Media</h2><p>Writing and speaking roles for newspapers (Sydney Morning Herald), and radio (3RRR Melbourne).</p><p></p><p></p>"
+    },
+    {
+      "slug": "doom-the-path",
+      "previewImage": "doom-the-path.png",
+      "title": "Doom: The Path",
+      "pubDate": "Sun, 31 Mar 2013 19:09:01 +0000",
+      "content": "<p>Released in 1996, one of the most critically acclaimed (and largest) Doom II PWADs (levels) of all time. &nbsp;</p><ul><li><span style=\"font-size: 14px; line-height: 24px;\">Deep water, filling water tanks, toilets and urinals, floating platforms, and other advanced techniques.</span><br></li><li>Custom textures and sounds.</li><li><span style=\"line-height: 24px; font-size: 14px;\">Built when I was 15, with a computer that couldn't edit the entire level at once. I built individual chunks, my friend John Graham assembled these together into a full level on his more powerful computer.&nbsp;</span></li><li><a href=\"http://www.doomworld.com/idgames/?id=7427\">Download from DoomWorld</a></li></ul>"
     }
   ]
 }

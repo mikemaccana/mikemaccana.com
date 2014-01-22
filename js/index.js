@@ -39,7 +39,7 @@ define(function(require){
 
   var selected = 1;
 
-  var max = 24;
+  var max = worksData.works.length;
 
   var $window = $(window)
   var $works = $('.work')
