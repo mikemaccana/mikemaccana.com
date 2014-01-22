@@ -33,6 +33,7 @@ define(function(require){
   document.onkeydown = function(event) {
     if (event.keyCode == ARROWS.LEFT) {
       if ( selected > 1 ) {
+        unselect(selected);
         selected--;
         log('left')
         select(selected)
@@ -40,6 +41,7 @@ define(function(require){
     }
     else if (event.keyCode == ARROWS.RIGHT) {
       if ( selected < max ) {
+        unselect(selected);
         selected++;
         log('right')
         select(selected)
@@ -52,6 +54,11 @@ define(function(require){
     var $work = $('.work:nth-child('+index+')')
     log($work[0])
     $work.addClass('selected')
+  }
+
+  var unselect = function(index){
+    var $work = $('.work:nth-child('+index+')')
+    $work.removeClass('selected')
   }
 
   select(selected);
