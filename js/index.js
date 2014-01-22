@@ -19,14 +19,14 @@ define(function(require){
     Ractive = require("ractive"),
     $ = require("jquery"),
     worksTemplate = require("text!/views/works.html"),
-    worksData = require("text!/data/works.json")
+    worksData = JSON.parse(require("text!/data/works.json"))
 
   agave.enable('av');
 
   var worksRactive = new Ractive({
     el: '.stuff',
     template: worksTemplate,
-    data: JSON.parse(worksData)
+    data: worksData
   });
 
   // Clicking ☰ button displays nav
@@ -44,6 +44,9 @@ define(function(require){
   var $window = $(window)
   var $works = $('.work')
   var $stuff = $('.stuff')
+  var $workTitle = $('.work-title')
+  var $workClient = $('.work-client')
+  var $workContent = $('.work-content')
 
   document.onkeydown = function(event) {
     if ( event.keyCode == ARROWS.LEFT ) {
@@ -82,7 +85,6 @@ define(function(require){
     $stuff.animate({
         scrollLeft: amount
      }, 100);
-    // $stuff.scrollLeft(amount);
   }
 
   var select = function(index){
@@ -90,6 +92,10 @@ define(function(require){
     var $work = $('.work:nth-child('+index+')')
     log($work[0])
     $work.addClass('selected')
+
+    var workData = worksData.works[(index - 1)]
+    $workTitle.text(workData.title)
+    $workContent.html(workData.content)
   }
 
   var unselect = function(index){
