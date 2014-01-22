@@ -502,7 +502,6 @@ body {
   font-weight: 100;
   color: #222222;
   overflow-x: hidden;
-  background-image: url('/images/lil_fiber.png');
 }
 .content {
   padding: 24px;
@@ -530,17 +529,22 @@ body {
   display: block;
   height: 390px;
   width: 9999px;
-  -webkit-transform: matrix(1, 0, -0.2, 1, 10, 0);
-  -ms-transform: matrix(1, 0, -0.2, 1, 10, 0);
-  transform: matrix(1, 0, -0.2, 1, 10, 0);
+  -webkit-transform: matrix(1, 0, -0.2, 1, 24, 0);
+  -ms-transform: matrix(1, 0, -0.2, 1, 24, 0);
+  transform: matrix(1, 0, -0.2, 1, 24, 0);
 }
 .stuff .works .work {
   list-style-type: none;
   float: left;
   margin: 6px;
+  width: 180px;
+  height: 290px;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  background-position: center center;
 }
 .stuff .works .work.selected {
-  background-color: blue;
+  width: 400px;
 }
 .links {
   width: 300px;

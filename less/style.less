@@ -155,7 +155,6 @@ body {
   font-weight: 100;
   color: @darkgrey;
   overflow-x: hidden;
-  background-image: url('/images/lil_fiber.png')
 }
 
 .content {
@@ -179,13 +178,17 @@ body {
     display: block;
     height: 390px;
     width: 9999px;
-    transform: matrix(1, 0, -0.2, 1, 10, 0);
+    transform: matrix(1, 0, -0.2, 1, 24, 0);
     .work {
       list-style-type: none;
       float: left;
       margin: @spacing / 4;
+      width: 180px;
+      height: 290px;
+      transition: all 0.1s ease-out;
+      background-position: center center;
       &.selected {
-        background-color: blue;
+        width: 400px;
       }
     }
   }
