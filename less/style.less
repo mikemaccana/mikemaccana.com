@@ -24,14 +24,6 @@ a, a:hover, a:active, a:visited {
   text-decoration: none;
 }
 
-.transform(@string){
-  -webkit-transform: @string;
-  -moz-transform: @string;
-  -ms-transform: @string;
-  -o-transform: @string;
-  transform: @string;
-}
-
 .notlist {
   list-style: none;
   padding: 0;
@@ -107,7 +99,7 @@ nav.vertical {
   font-size: 20px;
   &.menu-active {
     @media (max-width: @single-column-threshold) {
-      .transform(translateX(0));
+      transform: translateX(0);
       width: @sidebar-width;
       left: @sidebar-width;
     }
@@ -144,10 +136,6 @@ nav.vertical {
 }
 
 body, nav, .hamburger, .content {
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
 
@@ -177,7 +165,7 @@ body {
   }
   &.menu-active {
     @media (max-width: @single-column-threshold) {
-      .transform(translateX(@sidebar-width));
+      transform: translateX(@sidebar-width);
     }
   }
 }
