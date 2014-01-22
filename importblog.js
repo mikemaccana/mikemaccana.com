@@ -60,8 +60,6 @@ parseString(xml, function (err, result) {
                   }
               });
             }
-
-
           }
         );
       } else {

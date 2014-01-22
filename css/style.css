@@ -542,6 +542,7 @@ body {
   -webkit-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
   background-position: center center;
+  background-size: cover;
 }
 .stuff .works .work.selected {
   width: 400px;

@@ -16,9 +16,18 @@ define(function(require){
 
   var unused = require("ie9classlist"),
     agave = require("agave"),
-    $ = require("jquery")
+    Ractive = require("ractive"),
+    $ = require("jquery"),
+    worksTemplate = require("text!/views/works.html"),
+    worksData = require("text!/data/works.json")
 
   agave.enable('av');
+
+  var worksRactive = new Ractive({
+    el: '.stuff',
+    template: worksTemplate,
+    data: JSON.parse(worksData)
+  });
 
   // Clicking ☰ button displays nav
   $('.hamburger').on('click', function(event) {
@@ -73,6 +82,7 @@ define(function(require){
     $stuff.animate({
         scrollLeft: amount
      }, 100);
+    // $stuff.scrollLeft(amount);
   }
 
   var select = function(index){
