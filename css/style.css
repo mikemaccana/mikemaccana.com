@@ -429,7 +429,7 @@ nav.vertical {
   z-index: 1;
   background: #222222;
   overflow-y: auto;
-  font-size: 20px;
+  font-size: 24px;
 }
 @media (max-width: 770px) {
   nav.vertical.menu-active {
@@ -473,7 +473,7 @@ nav.vertical li.object {
   margin: 20px 0 5px 0;
 }
 nav.vertical li.object li.navitem {
-  font-size: 14px;
+  font-size: 12px;
   margin: 5px;
 }
 body,
@@ -505,7 +505,7 @@ body {
   background-image: url('/images/lil_fiber.png');
 }
 .content {
-  padding: 20px;
+  padding: 24px;
 }
 .content ul,
 .content li {
@@ -530,11 +530,17 @@ body {
   display: block;
   height: 390px;
   width: 9999px;
+  -webkit-transform: matrix(1, 0, -0.2, 1, 10, 0);
+  -ms-transform: matrix(1, 0, -0.2, 1, 10, 0);
+  transform: matrix(1, 0, -0.2, 1, 10, 0);
 }
 .stuff .works .work {
   list-style-type: none;
   float: left;
-  margin: 20px;
+  margin: 6px;
+}
+.stuff .works .work.selected {
+  background-color: blue;
 }
 .links {
   width: 300px;
@@ -543,5 +549,5 @@ body {
 }
 .links img {
   float: right;
-  margin-left: 10px;
+  margin-left: 12px;
 }
