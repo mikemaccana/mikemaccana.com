@@ -7,6 +7,11 @@ define(function(require){
   "use strict";
   var log = console.log.bind(console);
 
+  var ARROWS = {
+    LEFT: 37,
+    RIGHT: 39
+  }
+
   var unused = require("ie9classlist"),
     agave = require("agave"),
     $ = require("jquery")
@@ -20,6 +25,36 @@ define(function(require){
     });
     event.preventDefault();
   });
+
+  var selected = 1;
+
+  var max = 24;
+
+  document.onkeydown = function(event) {
+    if (event.keyCode == ARROWS.LEFT) {
+      if ( selected > 1 ) {
+        selected--;
+        log('left')
+        select(selected)
+      }
+    }
+    else if (event.keyCode == ARROWS.RIGHT) {
+      if ( selected < max ) {
+        selected++;
+        log('right')
+        select(selected)
+      }
+    }
+  }
+
+  var select = function(index){
+    log('selecting', index)
+    var $work = $('.work:nth-child('+index+')')
+    log($work[0])
+    $work.addClass('selected')
+  }
+
+  select(selected);
 
 })
 
