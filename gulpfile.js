@@ -34,3 +34,15 @@ gulp.task('default', function() {
   });
 });
 
+gulp.task('develop', function () {
+  nodemon({
+    script: 'server.js',
+    ext: 'html js',
+    ignore: ['./public/**'],
+    nodeArgs: ['--harmony']
+  })
+  .on('change', ['lint'])
+  .on('restart', function () {
+    console.log('restarted!')
+  })
+})
