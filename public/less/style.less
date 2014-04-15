@@ -13,8 +13,6 @@
 @vertical-rhythm: 14px;
 
 *, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -31,7 +29,6 @@ a, a:hover, a:active, a:visited {
 }
 
 nav {
-  font-family: 'Maven Pro';
   font-size: @spacing / 2;
   line-height: @vertical-rhythm;
   text-transform: uppercase;
@@ -151,7 +148,8 @@ h1, h2, h3, h4, h5, h6 {
 body {
   left: 0;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  background-color: whiteSmoke;
+  font-family: "Lato", sans-serif;
   font-weight: 100;
   color: @darkgrey;
   overflow-x: hidden;
@@ -176,23 +174,32 @@ body {
   .works {
     list-style-type: none;
     display: block;
-    height: 390px;
-    width: 9999px;
+    height: 330px;
+    width: 4000px;
     transform: matrix(1, 0, -0.2, 1, 24, 0);
     .work {
+      border: 1px solid #CCC;
       list-style-type: none;
       float: left;
       margin: @spacing / 4;
       width: 180px;
       height: 290px;
       transition: all 0.1s ease-out;
+      transform: scale(0.95) translateZ(0); // Zoom effect
       background-position: center center;
       background-size: cover;
       &.selected {
         width: 400px;
+        height: 310px;
       }
     }
   }
+}
+
+.work-description {
+  text-align: center;
+  max-width: 600px;
+  margin: 0px auto;
 }
 
 .links {
@@ -204,3 +211,52 @@ body {
     margin-left: @spacing / 2;
   }
 }
+
+// body {
+//   padding: 80px;
+//   font: 16px Helvetica, Arial;
+// }
+
+// h1 {
+//   font-size: 2em;
+// }
+
+// h2 {
+//   font-size: 1.2em;
+// }
+
+// #posts {
+//   margin: 0;
+//   padding: 0;
+// }
+
+// #posts li {
+//   margin: 40px 0;
+//   padding: 0;
+//   padding-bottom: 20px;
+//   border-bottom: 1px solid #eee;
+//   list-style: none;
+// }
+
+// #posts li:last-child {
+//   border-bottom: none;
+// }
+
+// textarea {
+//   width: 500px;
+//   height: 300px;
+// }
+
+// input[type=text],
+// textarea {
+//   border: 1px solid #eee;
+//   border-top-color: #ddd;
+//   border-left-color: #ddd;
+//   border-radius: 2px;
+//   padding: 15px;
+//   font-size: .8em;
+// }
+
+// input[type=text] {
+//   width: 500px;
+// }

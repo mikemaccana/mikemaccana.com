@@ -95,6 +95,7 @@ define(function(require){
 
     var workData = worksData.works[(index - 1)]
     $workTitle.text(workData.title)
+    $workClient.text('Client : '+workData.client)
     $workContent.html(workData.content)
   }
 
@@ -103,9 +104,6 @@ define(function(require){
     $work.removeClass('selected')
   }
 
-
-
   select(selected);
-
 })
 

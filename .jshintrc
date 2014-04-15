@@ -4,5 +4,6 @@
     "define",
     "require"
   ],
-  "asi" : true // Tolerate Automatic Semicolon Insertion (no semicolons).
+  "asi" : true, // Tolerate Automatic Semicolon Insertion (no semicolons).
+  "esnext": true
 }

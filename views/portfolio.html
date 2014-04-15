@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <title>Mike MacCana</title>
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="icon" type="image/png" href="images/favicon.png"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <meta charset="utf-8">
-</head>
+{% extends 'layout.html' %}
 
-<body>
+{% block title %}Portfolio{% endblock %}
 
+{% block content %}
   <a href="#menu" class="hamburger">
     <img src="./images/navicon-png2x.png" width="20" alt="Menu toggle">
   </a>
@@ -40,11 +32,12 @@
     <h3>A few of the things I've made over the last couple of decades...</h3>
 
     <div class="stuff"></div>
-
-    <h3 class="work-title"></h3>
-    <p class="work-client"></p>
-    <p class="work-content"></p>
+    <div class="work-description">
+      <h3 class="work-title"></h3>
+      <p class="work-client"></p>
+      <p class="work-content"></p>
+    </div>
 
   </div>
   <script data-main="js/index" src="js/require.js"></script>
-</body>
+{% endblock %}
