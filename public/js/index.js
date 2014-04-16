@@ -17,11 +17,13 @@ define(function(require){
   var unused = require("ie9classlist"),
     agave = require("agave"),
     Ractive = require("ractive"),
-    $ = require("jquery"),
     worksTemplate = require("text!/views/works.html"),
     worksData = JSON.parse(require("text!/data/works.json"))
 
   agave.enable('av');
+
+  var $ = document.querySelector.bind(document);
+  var $all = document.querySelectorAll.bind(document);
 
   var worksRactive = new Ractive({
     el: '.stuff',
@@ -29,10 +31,17 @@ define(function(require){
     data: worksData
   });
 
+  var $works = $all('.work'),
+    $worksArea = $('.stuff'),
+    $workTitle = $('.work-title'),
+    $workClient = $('.work-client'),
+    $workContent = $('.work-content'),
+    menuToggledElements = $('nav, body, .hamburger, .content');
+
   // Clicking ☰ button displays nav
-  $('.hamburger').on('click', function(event) {
-    $('nav, body, .hamburger, .content').each(function(index, element){
-      element.avtoggleClass('menu-active');
+  $('.hamburger').addEventListener('click', function(event) {
+    menuToggledElements.each(function(index, element){
+      element.classList.toggle('menu-active');
     });
     event.preventDefault();
   });
@@ -41,14 +50,13 @@ define(function(require){
 
   var max = worksData.works.length;
 
-  var $window = $(window)
-  var $works = $('.work')
-  var $stuff = $('.stuff')
-  var $workTitle = $('.work-title')
-  var $workClient = $('.work-client')
-  var $workContent = $('.work-content')
-
-  document.onkeydown = function(event) {
+  document.addEventListener('keydown', function(event) {
+    log('keydown!')
+    var scroll = function(index){
+      var amount = ( ITEM_WIDTH * (index - 1) );
+      log(amount)
+      $worksArea.scrollLeft = amount;
+    }
     if ( event.keyCode == ARROWS.LEFT ) {
       if ( selected > 1 ) {
         unselect(selected);
@@ -67,41 +75,36 @@ define(function(require){
         select(selected)
       }
     }
-  }
+  });
 
-  $works.on('mouseover', function(event){
-    log('hover')
-    unselect(selected);
-    var thisWork = $(event.target).closest('.work')
-    log('thisWork', thisWork[0])
-    var index = $works.index(thisWork) + 1;
-    selected = index;
-    select(index);
-    log('hovered on ', index)
+  $works.avforEach(function($work){
+    $work.addEventListener('mouseover', function(event){
+      log('hover', event.target)
+      unselect(selected);
+      var thisWork = event.target
+      log('thisWork', thisWork)
+      var index = thisWork.avgetParentIndex() + 1;
+      selected = index;
+      select(index);
+      log('hovered on ', index)
+    });
   })
-
-  var scroll = function(index){
-    var amount = ( ITEM_WIDTH * (index - 1) );
-    $stuff.animate({
-        scrollLeft: amount
-     }, 100);
-  }
 
   var select = function(index){
     log('selecting', index)
     var $work = $('.work:nth-child('+index+')')
-    log($work[0])
-    $work.addClass('selected')
+    log($work)
+    $work.classList.add('selected')
 
     var workData = worksData.works[(index - 1)]
-    $workTitle.text(workData.title)
-    $workClient.text('Client : '+workData.client)
-    $workContent.html(workData.content)
+    $workTitle.textContent = workData.title;
+    $workClient.textContent = 'Client : '+workData.client;
+    $workContent.htmlContent = workData.content;
   }
 
   var unselect = function(index){
     var $work = $('.work:nth-child('+index+')')
-    $work.removeClass('selected')
+    $work.classList.remove('selected')
   }
 
   select(selected);
