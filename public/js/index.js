@@ -12,7 +12,11 @@ define(function(require){
     RIGHT: 39
   }
 
-  var ITEM_WIDTH = 180;
+  var ITEM_WIDTH = {
+    selected: 400,
+    margin: 6,
+    unselected: 180
+  };
 
   var unused = require("ie9classlist"),
     agave = require("agave"),
@@ -22,8 +26,8 @@ define(function(require){
 
   agave.enable('av');
 
-  var $ = document.querySelector.bind(document);
-  var $all = document.querySelectorAll.bind(document);
+  var $ = document.querySelector.bind(document),
+    $all = document.querySelectorAll.bind(document);
 
   var worksRactive = new Ractive({
     el: '.stuff',
@@ -46,16 +50,14 @@ define(function(require){
     event.preventDefault();
   });
 
-  var selected = 1;
-
-  var max = worksData.works.length;
+  var selected = 1,
+    max = worksData.works.length;
 
   document.addEventListener('keydown', function(event) {
     // log('keydown!')
     var scroll = function(index){
-      var amount = ( ITEM_WIDTH * (index - 1) );
-      // Disabled, we need to pad list so first item shows in center first
-      var centerInWindow = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH/2) ); // Keeps current item centered in window
+      var itemFullWidth = ITEM_WIDTH.unselected + (ITEM_WIDTH.margin * 2)
+      var amount = ( itemFullWidth * (index - 1) );
       $worksArea.scrollLeft = amount; // + centerInWindow
     }
     if ( event.keyCode == ARROWS.LEFT ) {
@@ -96,6 +98,7 @@ define(function(require){
     var $work = $('.work:nth-child('+index+')')
     log($work)
     $work.classList.add('selected')
+    $work.style['background-image'] = $work.dataset.screenshot;
 
     var workData = worksData.works[(index - 1)]
     $workTitle.textContent = workData.title;
@@ -107,6 +110,10 @@ define(function(require){
     var $work = $('.work:nth-child('+index+')')
     $work.classList.remove('selected')
   }
+
+  // We need to pad first item is list, so it shows in center
+  var centerInWindow = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH.selected/2) ); // Keeps current item centered in window
+  $works[0].style['margin-left'] = centerInWindow+'px';
 
   select(selected);
 })

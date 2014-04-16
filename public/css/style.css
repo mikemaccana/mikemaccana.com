@@ -546,16 +546,24 @@ body {
   -ms-transform: scale(0.95) translateZ(0);
   transform: scale(0.95) translateZ(0);
   background-position: center center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: contain;
 }
 .stuff .works .work.selected {
   width: 400px;
   height: 310px;
 }
 .work-description {
-  text-align: center;
+  text-align: left;
   max-width: 600px;
   margin: 0px auto;
+}
+.work-description .work-title {
+  font-size: 26pt;
+}
+.work-description .work-client {
+  font-size: 10pt;
 }
 .links {
   width: 300px;
