@@ -51,17 +51,18 @@ define(function(require){
   var max = worksData.works.length;
 
   document.addEventListener('keydown', function(event) {
-    log('keydown!')
+    // log('keydown!')
     var scroll = function(index){
       var amount = ( ITEM_WIDTH * (index - 1) );
-      log(amount)
-      $worksArea.scrollLeft = amount;
+      // Disabled, we need to pad list so first item shows in center first
+      var centerInWindow = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH/2) ); // Keeps current item centered in window
+      $worksArea.scrollLeft = amount; // + centerInWindow
     }
     if ( event.keyCode == ARROWS.LEFT ) {
       if ( selected > 1 ) {
         unselect(selected);
         selected--;
-        log('left')
+        //log('left')
         scroll(selected)
         select(selected)
       }
@@ -70,7 +71,7 @@ define(function(require){
       if ( selected < max ) {
         unselect(selected);
         selected++;
-        log('right')
+        //log('right')
         scroll(selected)
         select(selected)
       }
@@ -99,7 +100,7 @@ define(function(require){
     var workData = worksData.works[(index - 1)]
     $workTitle.textContent = workData.title;
     $workClient.textContent = 'Client : '+workData.client;
-    $workContent.htmlContent = workData.content;
+    $workContent.innerHTML = workData.content;
   }
 
   var unselect = function(index){
