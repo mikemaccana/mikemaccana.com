@@ -40,11 +40,11 @@ define(function(require){
     $workTitle = $('.work-title'),
     $workClient = $('.work-client'),
     $workContent = $('.work-content'),
-    menuToggledElements = $('nav, body, .hamburger, .content');
+    $menuToggledElements = $all('nav, body, .hamburger, .content');
 
   // Clicking ☰ button displays nav
   $('.hamburger').addEventListener('click', function(event) {
-    menuToggledElements.each(function(index, element){
+    $menuToggledElements.avforEach(function(element, index){
       element.classList.toggle('menu-active');
     });
     event.preventDefault();

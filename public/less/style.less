@@ -86,6 +86,7 @@ nav.horizontal {
 }
 
 nav.vertical {
+  background: @shadedgrey;
   margin-left: -@sidebar-width;
   width: 0;
   position: fixed;
@@ -93,7 +94,6 @@ nav.vertical {
   left: @sidebar-width;
   bottom: 0;
   z-index: 1;
-  background: @darkgrey;
   overflow-y: auto;
   font-size: @spacing;
   &.menu-active {
@@ -123,14 +123,10 @@ nav.vertical {
     background-color: @lightcolor;
     color: @textcolor;
   }
-  li.object {
+  li {
     text-transform: uppercase;
     font-size: @spacing / 2;
-    margin: 20px 0 5px 0;
-    li.navitem {
-      font-size: @spacing / 2;
-      margin: 5px;
-    }
+    margin: @spacing;
   }
 }
 

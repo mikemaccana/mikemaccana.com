@@ -426,6 +426,7 @@ nav.horizontal a:visited {
   }
 }
 nav.vertical {
+  background: rgba(0, 0, 0, 0.7);
   margin-left: -150px;
   width: 0;
   position: fixed;
@@ -433,7 +434,6 @@ nav.vertical {
   left: 150px;
   bottom: 0;
   z-index: 1;
-  background: #222222;
   overflow-y: auto;
   font-size: 24px;
 }
@@ -473,14 +473,10 @@ nav.vertical a:hover {
   background-color: #b7b7b7;
   color: #b7b7b7;
 }
-nav.vertical li.object {
+nav.vertical li {
   text-transform: uppercase;
   font-size: 12px;
-  margin: 20px 0 5px 0;
-}
-nav.vertical li.object li.navitem {
-  font-size: 12px;
-  margin: 5px;
+  margin: 24px;
 }
 body,
 nav,
