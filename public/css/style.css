@@ -337,6 +337,14 @@ table {
   font-weight: 400;
   src: local("Open Sans"), local("OpenSans"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/K88pR3goAWT7BTt32Z01mz8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
+@font-face {
+  font-family: 'Mono Social Icons Font';
+  src: url('/fonts/MonoSocialIconsFont-1.10.eot');
+  src: url('/fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'), url('/fonts/MonoSocialIconsFont-1.10.woff') format('woff'), url('/fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'), url('/fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+  src: url('/fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 *,
 *:before,
 *:after {
@@ -534,7 +542,8 @@ body {
 .stuff {
   width: 100%;
   overflow-x: scroll;
-  margin-top: 50px;
+  overflow-y: hidden;
+  overflow-y: scroll;
 }
 .stuff .works {
   list-style-type: none;
@@ -578,6 +587,9 @@ body {
 .work-description .work-client {
   font-size: 10pt;
 }
+.work-description .work-content p {
+  margin: 6px 0;
+}
 .links {
   width: 300px;
   float: right;
@@ -586,4 +598,30 @@ body {
 .links img {
   float: right;
   margin-left: 12px;
+}
+.symbol,
+a.symbol:before {
+  font-family: 'Mono Social Icons Font';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+a.symbol:before {
+  content: attr(title);
+  margin-right: 0.3em;
+  font-size: 130%;
+}
+.elsewhere {
+  text-align: right;
+  margin-top: 24px;
+  padding: 24px 12px;
+  font-size: 24pt;
+  border-top: 1px solid #b7b7b7;
 }

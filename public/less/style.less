@@ -185,7 +185,8 @@ body {
 .stuff {
   width: 100%;
   overflow-x: scroll;
-  margin-top: 50px;
+  overflow-y: hidden;
+  overflow-y: scroll;
   .works {
     list-style-type: none;
     display: block;
@@ -224,6 +225,11 @@ body {
   .work-client {
     font-size: 10pt;
   }
+  .work-content {
+    p {
+      margin: @spacing / 4 0;
+    }
+  }
 }
 
 .links {
@@ -235,6 +241,35 @@ body {
     margin-left: @spacing / 2;
   }
 }
+
+.symbol, a.symbol:before {
+  font-family: 'Mono Social Icons Font';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+a.symbol:before {
+  content: attr(title);
+  margin-right: 0.3em;
+  font-size: 130%;
+}
+
+.elsewhere {
+  text-align: right;
+  margin-top: @spacing;
+  padding: @spacing @spacing / 2;
+  font-size: 24pt;
+  border-top: 1px solid @lightgrey;
+}
+
 
 // body {
 //   padding: 80px;
