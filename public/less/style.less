@@ -1,12 +1,15 @@
 @import "normalize.less";
 @import "fonts.less";
 
-@darkcolor: rgb(0, 59, 165);
-@lightcolor: #d6d6d5;
-@otherdarkcolor: #b90f00;
+@lightgrey: #B7B7B7;
 @darkgrey: #222;
-@skin: #F3DB2D;
+@scaryred: #b90f00;
 @shadedgrey: rgba(0,0,0,0.7);
+
+@textcolor: @lightgrey;
+@lightcolor: @lightgrey;
+@othertextcolor: @scaryred;
+
 @spacing: 24px;
 @sidebar-width: 150px;
 @single-column-threshold: 770px;
@@ -18,7 +21,7 @@
 }
 
 a, a:hover, a:active, a:visited {
-  color: @darkcolor;
+  color: @textcolor;
   text-decoration: none;
 }
 
@@ -119,7 +122,7 @@ nav.vertical {
   }
   a:hover {
     background-color: @lightcolor;
-    color: @darkcolor;
+    color: @textcolor;
   }
   li.object {
     text-transform: uppercase;
@@ -137,18 +140,18 @@ body, nav, .hamburger, .content {
 }
 
 strong {
-  color: @otherdarkcolor;
+  color: @othertextcolor;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
-  color: @darkcolor;
+  color: @textcolor;
 }
 
 body {
   left: 0;
   margin: 0;
-  background-color: whiteSmoke;
+  background-color: @darkgrey;
   font-family: "Lato", sans-serif;
   font-weight: 100;
   color: @darkgrey;

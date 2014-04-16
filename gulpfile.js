@@ -10,38 +10,36 @@ var gulp = require('gulp'),
 
 var path = require('path');
 
+var log = console.log.bind(console);
+
 gulp.task('less', function () {
+  log('Rebuilding less')
   gulp
-    .src('./less/style.less')
+    .src('./public/less/style.less')
     .pipe(less({
-      paths: ['less']
+      paths: ['public/less']
     }))
     .pipe(prefixer('last 2 versions', 'ie 9'))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./public/css'))
     .pipe(livereload(livereloadServer));
 });
 
 // The default task (called when you run `gulp`)
-gulp.task('default', function() {
-  gulp.run('less');
+gulp.task('default', ['less'], function() {
   livereloadServer.listen(35729, function (err) {
-    if (err) return console.log(err);
-
+    if (err) return log(err);
     // Watch files and run tasks if they change
-    gulp.watch('./less/*.less', function(event) {
+    gulp.watch('public/less/*.less', function(event){
+      log('Less files have changed');
       gulp.run('less');
     });
   });
-});
-
-gulp.task('develop', function () {
   nodemon({
     script: 'server.js',
     ext: 'html js',
     ignore: ['./public/**'],
     nodeArgs: ['--harmony']
   })
-  .on('change', ['lint'])
   .on('restart', function () {
     console.log('restarted!')
   })

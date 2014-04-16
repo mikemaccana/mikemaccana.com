@@ -1,7 +1,6 @@
 #!/usr/bin/env node --harmony
 
 // Module dependencies
-
 var render = require('./lib/render');
 var logger = require('koa-logger');
 var route = require('koa-route');
