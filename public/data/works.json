@@ -3,10 +3,10 @@
     {
       "slug": "firework",
       "previewImage": "firework.png",
-      "client": "FireworkIO Inc",
-      "title":"Firework",
+      "client": "Firework",
+      "title": "Firework",
       "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
-      "content": ""
+      "content": "Getting the right code to your customers as fast as possible. Firework combines data from version control, deployment, logs, and CI into a single place to help developers understand what version of the code belongs in their environments, then uses best-of-breed deployment techniques to turn minutes into milliseconds."
     },
     {
       "slug": "microsoft-bemore",
@@ -59,7 +59,7 @@
     {
       "slug": "pamplemousse-js",
       "previewImage": "pamplemousse-js.png",
-      "client": "Open Source Project",
+      "client": "OpenSource",
       "title":"Pamplemousse JS",
       "pubDate": "Fri, 30 Aug 2013 13:57:49 +0000",
       "content": "<p>Pamplemousse is a simple set of two modules to handle HTML5 server sent events. It's supplied as a RequireJS module, and takes care of:</p><ul><li>Encoding things in SSE format</li><li>Mime types</li><li>Updating message IDs</li><li>Timeouts</li><li>JSON in, JSON out<span style=\"font-size: 14px; line-height: 1.68em;\">&nbsp;</span></li><li><a href=\"http://pamplemoussejs.org\">http://pamplemoussejs.org</a>&nbsp;</li></ul><p></p><p>&nbsp;<span style=\"line-height: 24px; font-size: 14px;\">&nbsp;</span></p>"
@@ -67,10 +67,10 @@
     {
       "slug": "ginjs",
       "previewImage": "ginjs.png",
-      "client": "Community Event",
-      "title":"Gin.JS",
+      "client": "JS",
+      "title":"gin.js",
       "pubDate": "Thu, 03 Oct 2013 16:04:11 +0000",
-      "content": ""
+      "content": "A regular meetup for London based JavaScript developers. I founded the event and organize the venue, mailing list, sponsors, and conduct."
     },
     {
       "slug": "google-android-4-launch",

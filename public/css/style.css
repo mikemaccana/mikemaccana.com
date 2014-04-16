@@ -504,7 +504,7 @@ body {
   overflow-x: hidden;
 }
 .content {
-  padding: 24px;
+  padding: 24px 0;
 }
 .content ul,
 .content li {
@@ -518,6 +518,18 @@ body {
     -ms-transform: translateX(150px);
     transform: translateX(150px);
   }
+}
+.content .intro {
+  padding: 24px;
+  text-align: center;
+}
+.content .work-description {
+  padding: 0 24px;
+}
+.content .help {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 6pt;
 }
 .stuff {
   width: 100%;
@@ -561,6 +573,7 @@ body {
 }
 .work-description .work-title {
   font-size: 26pt;
+  margin: 12px 0;
 }
 .work-description .work-client {
   font-size: 10pt;

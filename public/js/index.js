@@ -108,7 +108,8 @@ define(function(require){
 
   var unselect = function(index){
     var $work = $('.work:nth-child('+index+')')
-    $work.classList.remove('selected')
+    $work.classList.remove('selected');
+    $work.style['background-image'] = $work.dataset.logo;
   }
 
   // We need to pad first item is list, so it shows in center

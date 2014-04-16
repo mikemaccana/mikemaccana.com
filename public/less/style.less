@@ -159,7 +159,7 @@ body {
 }
 
 .content {
-  padding: @spacing;
+  padding: @spacing 0; // No left/right padding because works should bleed all the way to the edges
   ul, li {
     .notlist;
   }
@@ -167,6 +167,18 @@ body {
     @media (max-width: @single-column-threshold) {
       transform: translateX(@sidebar-width);
     }
+  }
+  .intro {
+    padding: @spacing;
+    text-align: center;
+  }
+  .work-description {
+    padding: 0 @spacing;
+  }
+  .help {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 6pt;
   }
 }
 
@@ -207,6 +219,7 @@ body {
   margin: 0px auto;
   .work-title {
     font-size: 26pt;
+    margin: @spacing / 2 0;
   }
   .work-client {
     font-size: 10pt;
