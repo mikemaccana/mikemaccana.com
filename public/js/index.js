@@ -18,7 +18,7 @@ define(function(require){
     unselected: 180
   };
 
-  var unused = require("ie9classlist"),
+  var unused = require("classlist"),
     agave = require("agave"),
     Ractive = require("ractive"),
     worksTemplate = require("text!/views/works.html"),
