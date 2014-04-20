@@ -39,6 +39,7 @@ define(function(require){
     $worksArea = $('.stuff'),
     $workTitle = $('.work-title'),
     $workClient = $('.work-client'),
+    $workLogo = $('.work-logo'),
     $workContent = $('.work-content'),
     $menuToggledElements = $all('nav, body, .hamburger, .content');
 
@@ -58,7 +59,7 @@ define(function(require){
     var scroll = function(index){
       var itemFullWidth = ITEM_WIDTH.unselected + (ITEM_WIDTH.margin * 2)
       var amount = ( itemFullWidth * (index - 1) );
-      $worksArea.scrollLeft = amount; // + centerInWindow
+      $worksArea.scrollLeft = amount;
     }
     if ( event.keyCode == ARROW_KEYS.LEFT ) {
       if ( selected > 1 ) {
@@ -98,10 +99,9 @@ define(function(require){
     var $work = $('.work:nth-child('+index+')')
     log($work)
     $work.classList.add('selected')
-    $work.style['background-image'] = $work.dataset.screenshot;
-
     var workData = worksData.works[(index - 1)]
     $workTitle.textContent = workData.title;
+    $workLogo.src = $work.dataset.logo;
     $workClient.textContent = 'Client : '+workData.client;
     $workContent.innerHTML = workData.content;
   }
@@ -109,7 +109,6 @@ define(function(require){
   var unselect = function(index){
     var $work = $('.work:nth-child('+index+')')
     $work.classList.remove('selected');
-    $work.style['background-image'] = $work.dataset.logo;
   }
 
   // We need to pad first item is list, so it shows in center
