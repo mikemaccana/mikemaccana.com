@@ -39,6 +39,7 @@ define(function(require){
     event.preventDefault();
   });
 
+  // Portfolio page stuff
   if ( window.location.pathname === '/' ) {
     var worksRactive = new Ractive({
       el: '.stuff',
@@ -46,7 +47,8 @@ define(function(require){
       data: worksData
     });
 
-    var $works = $all('.work'),
+    var $body = $('body'),
+      $works = $all('.work'),
       $worksArea = $('.stuff'),
       $workTitle = $('.work-title'),
       $workClient = $('.work-client'),
@@ -71,8 +73,7 @@ define(function(require){
           scroll(selected)
           select(selected)
         }
-      }
-      else if ( event.keyCode == ARROW_KEYS.RIGHT ) {
+      } else if ( event.keyCode == ARROW_KEYS.RIGHT ) {
         if ( selected < max ) {
           unselect(selected);
           selected++;
@@ -94,6 +95,18 @@ define(function(require){
         select(index);
         log('hovered on ', index)
       });
+
+      $work.addEventListener('click', function(event){
+        log('Clicked yaay!')
+        var thisWork = event.target
+        log('thisWork', thisWork)
+        var index = thisWork.avgetParentIndex() + 1;
+        $body.classList.add('modal-enabled');
+        // Make dialog show the work at this index
+        // thisWork.style.height = '100%';
+        // thisWork.style.position = 'fixed';
+        // thisWork.style.width = '100%';
+      })
     })
 
     var select = function(index){
