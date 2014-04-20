@@ -584,9 +584,15 @@ body {
 .work-description .work-title {
   font-size: 26pt;
   margin: 6px 0;
+  width: 70%;
 }
-.work-description .work-client {
-  font-size: 10pt;
+.work-description .work-logo {
+  width: 30%;
+}
+.work-description .work-title,
+.work-description .work-logo,
+.work-description .work-content {
+  float: left;
 }
 .work-description .work-content p {
   margin: 6px 0;
