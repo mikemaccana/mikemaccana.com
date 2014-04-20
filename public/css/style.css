@@ -389,6 +389,7 @@ nav {
   }
 }
 nav.horizontal {
+  height: 5vh;
   display: block;
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
@@ -507,7 +508,8 @@ body {
   overflow-x: hidden;
 }
 .content {
-  padding: 24px 0;
+  height: 85vh;
+  padding: 0;
 }
 .content ul,
 .content li {
@@ -523,8 +525,13 @@ body {
   }
 }
 .content .intro {
-  padding: 24px;
+  padding: 0 24px;
   text-align: center;
+}
+.content .intro h1,
+.content .intro h2,
+.content .intro h3 {
+  margin: 12px 0;
 }
 .content .work-description {
   padding: 0 24px;
@@ -594,29 +601,21 @@ body {
   float: right;
   margin-left: 12px;
 }
-.symbol,
-a.symbol:before {
+footer {
+  height: 10vh;
+  text-align: right;
+  padding: 12px;
+  font-size: 24pt;
+  border-top: 1px solid #b7b7b7;
+}
+footer .symbol,
+footer a.symbol:before {
   font-family: 'Mono Social Icons Font';
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  -ms-text-rendering: optimizeLegibility;
-  -o-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -ms-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
-a.symbol:before {
+footer a.symbol:before {
   content: attr(title);
   margin-right: 0.3em;
   font-size: 130%;
-}
-.elsewhere {
-  text-align: right;
-  margin-top: 24px;
-  padding: 24px 12px;
-  font-size: 24pt;
-  border-top: 1px solid #b7b7b7;
 }

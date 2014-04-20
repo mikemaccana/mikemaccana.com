@@ -56,6 +56,7 @@ nav {
 }
 
 nav.horizontal {
+  height: 5vh;
   display: block;
   width: 100%;
   background: @shadedgrey;
@@ -154,7 +155,8 @@ body {
 }
 
 .content {
-  padding: @spacing 0; // No left/right padding because works should bleed all the way to the edges
+  height: 85vh;
+  padding: 0; // No left/right padding because works should bleed all the way to the edges
   ul, li {
     .notlist;
   }
@@ -164,8 +166,11 @@ body {
     }
   }
   .intro {
-    padding: @spacing;
+    padding: 0 @spacing;
     text-align: center;
+    h1, h2, h3 {
+      margin: @spacing / 2 0;
+    }
   }
   .work-description {
     padding: 0 @spacing;
