@@ -7,7 +7,7 @@ define(function(require){
   "use strict";
   var log = console.log.bind(console);
 
-  var ARROWS = {
+  var ARROW_KEYS = {
     LEFT: 37,
     RIGHT: 39
   }
@@ -60,7 +60,7 @@ define(function(require){
       var amount = ( itemFullWidth * (index - 1) );
       $worksArea.scrollLeft = amount; // + centerInWindow
     }
-    if ( event.keyCode == ARROWS.LEFT ) {
+    if ( event.keyCode == ARROW_KEYS.LEFT ) {
       if ( selected > 1 ) {
         unselect(selected);
         selected--;
@@ -69,7 +69,7 @@ define(function(require){
         select(selected)
       }
     }
-    else if ( event.keyCode == ARROWS.RIGHT ) {
+    else if ( event.keyCode == ARROW_KEYS.RIGHT ) {
       if ( selected < max ) {
         unselect(selected);
         selected++;
