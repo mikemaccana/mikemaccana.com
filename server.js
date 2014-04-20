@@ -1,13 +1,13 @@
 #!/usr/bin/env node --harmony
 
 // Module dependencies
-var render = require('./lib/render');
-var logger = require('koa-logger');
-var route = require('koa-route');
-var serve = require('koa-static');
-var parse = require('co-body');
-var koa = require('koa');
-var app = koa();
+var render = require('./lib/render'),
+  logger = require('koa-logger'),
+  route = require('koa-route'),
+  serve = require('koa-static'),
+  parse = require('co-body'),
+  koa = require('koa'),
+  app = koa();
 
 // "database"
 var posts = [];
