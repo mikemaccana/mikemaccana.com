@@ -263,6 +263,11 @@ footer {
     margin-right: 0.3em;
     font-size: 130%;
   }
+  &.menu-active {
+    @media (max-width: @single-column-threshold) {
+      transform: translateX(@sidebar-width);
+    }
+  }
 }
 
 

@@ -29,7 +29,7 @@ define(function(require){
   var $ = document.querySelector.bind(document),
     $all = document.querySelectorAll.bind(document);
 
-  var $menuToggledElements = $all('nav, body, .hamburger, .content');
+  var $menuToggledElements = $all('nav, body, .hamburger, .content, footer');
 
   // Clicking ☰ button displays nav
   $('.hamburger').addEventListener('click', function(event) {

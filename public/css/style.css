@@ -624,3 +624,10 @@ footer a.symbol:before {
   margin-right: 0.3em;
   font-size: 130%;
 }
+@media (max-width: 770px) {
+  footer.menu-active {
+    -webkit-transform: translateX(150px);
+    -ms-transform: translateX(150px);
+    transform: translateX(150px);
+  }
+}
