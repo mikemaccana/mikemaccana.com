@@ -6,7 +6,7 @@
 @scaryred: #b90f00;
 @shadedgrey: rgba(0,0,0,0.7);
 
-@works-total-width: 4300px;
+@works-total-width: 4400px;
 
 @textcolor: @lightgrey;
 @lightcolor: @lightgrey;
@@ -316,6 +316,16 @@ body.modal-enabled > *:not(.modal-parent) {
             position: absolute;
             right: @spacing;
             top: @spacing;
+          }
+          .screenshot-container {
+            max-width: 100%;
+            overflow: scroll;
+            .screenshots {
+              width: 4000px;
+              img.screenshot {
+                max-height: 30vh;
+              }
+            }
           }
           padding: @spacing;
           max-width: @single-column-threshold;

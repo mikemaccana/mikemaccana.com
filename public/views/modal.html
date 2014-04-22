@@ -1,0 +1,10 @@
+<img class="close" src="/images/icons/close.png"/>
+<h1>{{ title }}</h1>
+<div class="screenshot-container">
+  <div class="screenshots">
+    {{#screenshots:index}}
+      <img class="screenshot" src="/images/work/screenshots/{{slug}}-{{index}}.png">
+    {{/screenshots}}
+  </div>
+</div>
+<div class="description">{{{ description }}}</div>

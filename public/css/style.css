@@ -556,7 +556,7 @@ body {
 .stuff .works {
   list-style-type: none;
   display: block;
-  width: 4300px;
+  width: 4400px;
   height: 310px;
   -webkit-transform: matrix(1, 0, -0.2, 1, 24, 0);
   -ms-transform: matrix(1, 0, -0.2, 1, 24, 0);
@@ -677,6 +677,16 @@ body.modal-enabled > *:not(.modal-parent) {
   position: absolute;
   right: 24px;
   top: 24px;
+}
+.modal-parent .modal .modal-content .message .text .screenshot-container {
+  max-width: 100%;
+  overflow: scroll;
+}
+.modal-parent .modal .modal-content .message .text .screenshot-container .screenshots {
+  width: 4000px;
+}
+.modal-parent .modal .modal-content .message .text .screenshot-container .screenshots img.screenshot {
+  max-height: 30vh;
 }
 .modal-parent .modal .modal-content .message button {
   border: 1px solid whiteSmoke;

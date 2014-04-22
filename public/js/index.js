@@ -23,6 +23,7 @@ define(function(require){
     Ractive = require("ractive"),
     worksTemplate = require("text!/views/works.html"),
     workDescriptionTemplate = require("text!/views/workdescription.html"),
+    modalTemplate = require("text!/views/modal.html"),
     worksData = JSON.parse(require("text!/data/works.json"))
 
   agave.enable('av');
@@ -55,6 +56,15 @@ define(function(require){
         title: null,
         logo: null,
         lede: null
+      }
+    })
+
+    var modalRactive = new Ractive({
+      el: '.modal .text',
+      template: modalTemplate,
+      data: {
+        title: null,
+        message: null
       }
     })
 
@@ -128,8 +138,13 @@ define(function(require){
     var enableModal = function(work){
       $body.classList.toggle('modal-enabled');
       $modalParent.style.display = 'inline';
-      $modalTitle.textContent = work.title;
-      $modalDescription.innerHTML = work.description;
+      log('SWAG')
+      modalRactive.set({
+        title: work.title,
+        slug: work.slug,
+        description: work.description,
+        screenshots: new Array(5)//new Array(work.screenshotCount)
+      })
     }
 
     var disableModal = function(){
