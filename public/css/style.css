@@ -352,7 +352,7 @@ table {
   box-sizing: border-box;
   overflow: hidden;
 }
-.verticalcenterchild {
+.vertical-center-child {
   display: table-cell;
   vertical-align: middle;
 }
@@ -375,6 +375,7 @@ nav {
 }
 /* ☰ button */
 .hamburger {
+  cursor: pointer;
   z-index: 1;
   display: none;
   top: 0;
@@ -555,13 +556,14 @@ body {
 .stuff .works {
   list-style-type: none;
   display: block;
-  width: 4000px;
-  height: 300px;
+  width: 4300px;
+  height: 310px;
   -webkit-transform: matrix(1, 0, -0.2, 1, 24, 0);
   -ms-transform: matrix(1, 0, -0.2, 1, 24, 0);
   transform: matrix(1, 0, -0.2, 1, 24, 0);
 }
 .stuff .works .work {
+  cursor: pointer;
   border: 1px solid #CCC;
   list-style-type: none;
   float: left;
@@ -597,10 +599,10 @@ body {
 }
 .work-description .work-title,
 .work-description .work-logo,
-.work-description .work-content {
+.work-description .work-lede {
   float: left;
 }
-.work-description .work-content p {
+.work-description .work-lede p {
   margin: 6px 0;
 }
 .links {
@@ -637,36 +639,45 @@ footer a.symbol:before {
     transform: translateX(150px);
   }
 }
-body.modal-enabled > *:not(.modalparent) {
+body.modal-enabled > *:not(.modal-parent) {
   -webkit-filter: blur(2px);
   filter: blur(2px);
 }
-.modal {
+.modal-parent {
+  display: none;
+}
+.modal-parent .modal {
   z-index: 3;
   left: 0;
   top: 0;
   width: 100%;
   position: absolute;
   height: 100%;
-  background-color: rgba(128, 128, 128, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   display: table;
 }
-.modal .modalcontent {
+.modal-parent .modal .modal-content {
   display: table-cell;
   vertical-align: middle;
 }
-.modal .modalcontent .message {
-  height: 300px;
+.modal-parent .modal .modal-content .message {
+  min-height: 300px;
   background-color: #222222;
 }
-.modal .modalcontent .message .text {
-  padding: 20px;
-  width: 770px;
-  max-width: 100%;
+.modal-parent .modal .modal-content .message .text {
+  position: relative;
+  padding: 24px;
+  max-width: 770px;
   height: 100%;
   color: whitesmoke;
   margin: 0 auto;
 }
-.modal .modalcontent .message button {
+.modal-parent .modal .modal-content .message .text .close {
+  cursor: pointer;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+}
+.modal-parent .modal .modal-content .message button {
   border: 1px solid whiteSmoke;
 }

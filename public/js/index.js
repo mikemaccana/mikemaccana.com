@@ -53,7 +53,11 @@ define(function(require){
       $workTitle = $('.work-title'),
       $workClient = $('.work-client'),
       $workLogo = $('.work-logo'),
-      $workContent = $('.work-content')
+      $workLede = $('.work-lede'),
+      $modalParent = $('.modal-parent'),
+      $modalTitle = $('.modal-parent').querySelector('h1'),
+      $modalDescription = $('.modal-parent').querySelector('.description'),
+      $close = $('.close');
 
     var selected = 1,
       max = worksData.works.length;
@@ -100,14 +104,28 @@ define(function(require){
         log('Clicked yaay!')
         var thisWork = event.target
         log('thisWork', thisWork)
-        var index = thisWork.avgetParentIndex() + 1;
-        $body.classList.add('modal-enabled');
+        var indexZero = thisWork.avgetParentIndex();
+        enableModal(worksData.works[indexZero])
         // Make dialog show the work at this index
-        // thisWork.style.height = '100%';
-        // thisWork.style.position = 'fixed';
-        // thisWork.style.width = '100%';
       })
     })
+
+    $close.addEventListener('click', function(event){
+      disableModal();
+    })
+
+    var enableModal = function(work){
+      $body.classList.toggle('modal-enabled');
+      $modalParent.style.display = 'inline';
+      $modalTitle.textContent = work.title;
+      $modalDescription.innerHTML = work.description;
+    }
+
+
+    var disableModal = function(){
+      $body.classList.toggle('modal-enabled');
+      $modalParent.style.display = 'none';
+    }
 
     var select = function(index){
       log('selecting', index)
@@ -117,7 +135,7 @@ define(function(require){
       var workData = worksData.works[(index - 1)]
       $workTitle.textContent = workData.title;
       $workLogo.src = $work.dataset.logo;
-      $workContent.innerHTML = workData.content;
+      $workLede.innerHTML = workData.lede;
     }
 
     var unselect = function(index){

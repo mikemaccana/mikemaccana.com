@@ -6,6 +6,8 @@
 @scaryred: #b90f00;
 @shadedgrey: rgba(0,0,0,0.7);
 
+@works-total-width: 4300px;
+
 @textcolor: @lightgrey;
 @lightcolor: @lightgrey;
 @othertextcolor: @scaryred;
@@ -14,7 +16,7 @@
 @sidebar-width: 150px;
 @single-column-threshold: 770px;
 @vertical-rhythm: 14px;
-@selected-item-height: 300px;
+@selected-item-height: 310px;
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -22,11 +24,11 @@
 }
 
 // Never mind Flexbox. Spec changes too much and docs are hard to find.
-.verticalcenterparent() {
+.vertical-center-parent() {
   display: table;
 }
 
-.verticalcenterchild {
+.vertical-center-child {
   display: table-cell;
   vertical-align: middle;
 }
@@ -50,6 +52,7 @@ nav {
 
 /* ☰ button */
 .hamburger {
+  cursor: pointer;
   z-index: 1;
   display: none;
   top: 0;
@@ -202,10 +205,11 @@ body {
   .works {
     list-style-type: none;
     display: block;
-    width: 4000px;
+    width: @works-total-width;
     height: @selected-item-height;
     transform: matrix(1, 0, -0.2, 1, 24, 0);
     .work {
+      cursor: pointer;
       border: 1px solid #CCC;
       list-style-type: none;
       float: left;
@@ -238,10 +242,10 @@ body {
   .work-logo {
     width: 30%;
   }
-  .work-title, .work-logo, .work-content {
+  .work-title, .work-logo, .work-lede {
     float: left;
   }
-  .work-content {
+  .work-lede {
     p {
       margin: @spacing / 4 0;
     }
@@ -284,35 +288,44 @@ footer {
 }
 
 // http://taitems.github.io/UX-Lab/ModalBlur/index.html
-body.modal-enabled > *:not(.modalparent) {
+body.modal-enabled > *:not(.modal-parent) {
   filter: blur(2px);
 }
 
-.modal {
-  z-index: 3;
-  left: 0;
-  top: 0;
-  width: 100%;
-  position: absolute;
-  height: 100%;
-  background-color: rgba(128, 128, 128, 0.6);
-  .verticalcenterparent();
-  // Pardon the extra div here, but http://stackoverflow.com/questions/6977313/can-you-use-display-table-cell-and-have-a-fixed-width-height
-  .modalcontent {
-    .verticalcenterchild();
-    .message {
-      height: 300px;
-      background-color: @darkgrey;
-      .text {
-        padding: 20px;
-        width: @single-column-threshold;
-        max-width: 100%;
-        height: 100%;
-        color: whitesmoke;
-        margin: 0 auto;
-      }
-      button {
-        border: 1px solid whiteSmoke;
+.modal-parent {
+  display: none;
+  .modal {
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-color: @shadedgrey;
+    .vertical-center-parent();
+    // Pardon the extra div here, but http://stackoverflow.com/questions/6977313/can-you-use-display-table-cell-and-have-a-fixed-width-height
+    .modal-content {
+      .vertical-center-child();
+      .message {
+        min-height: 300px;
+        background-color: @darkgrey;
+        .text {
+          position: relative;
+          .close {
+            cursor: pointer;
+            position: absolute;
+            right: @spacing;
+            top: @spacing;
+          }
+          padding: @spacing;
+          max-width: @single-column-threshold;
+          height: 100%;
+          color: whitesmoke;
+          margin: 0 auto;
+        }
+        button {
+          border: 1px solid whiteSmoke;
+        }
       }
     }
   }
