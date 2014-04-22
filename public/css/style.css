@@ -345,6 +345,9 @@ table {
   font-weight: normal;
   font-style: normal;
 }
+li {
+  overflow: visible;
+}
 *,
 *:before,
 *:after {
@@ -558,13 +561,16 @@ body {
   display: block;
   width: 4400px;
   height: 310px;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-transform: matrix(1, 0, -0.2, 1, 24, 0);
   -ms-transform: matrix(1, 0, -0.2, 1, 24, 0);
   transform: matrix(1, 0, -0.2, 1, 24, 0);
 }
 .stuff .works .work {
   cursor: pointer;
-  border: 1px solid #CCC;
+  border: 1px solid #b7b7b7;
   list-style-type: none;
   float: left;
   margin: 0 6px;
@@ -685,8 +691,15 @@ body.modal-enabled > *:not(.modal-parent) {
 }
 .modal-parent .modal .modal-content .message .text .screenshot-container .screenshots {
   width: 2000px;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: matrix(1, 0, -0.2, 1, 24, 0);
+  -ms-transform: matrix(1, 0, -0.2, 1, 24, 0);
+  transform: matrix(1, 0, -0.2, 1, 24, 0);
 }
 .modal-parent .modal .modal-content .message .text .screenshot-container .screenshots img.screenshot {
+  border: 1px solid #b7b7b7;
   max-height: 30vh;
 }
 .modal-parent .modal .modal-content .message button {

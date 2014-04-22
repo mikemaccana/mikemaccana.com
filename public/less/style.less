@@ -20,6 +20,15 @@
 @vertical-rhythm: 14px;
 @selected-item-height: 310px;
 
+.slant() {
+  backface-visibility: hidden; // Seems to fix flashing when scrolling with transform below on.
+  transform: matrix(1, 0, -0.2, 1, 24, 0);
+}
+
+li {
+  overflow: visible;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
   overflow: hidden;
@@ -209,10 +218,10 @@ body {
     display: block;
     width: @works-total-width;
     height: @selected-item-height;
-    transform: matrix(1, 0, -0.2, 1, 24, 0);
+    .slant();
     .work {
       cursor: pointer;
-      border: 1px solid #CCC;
+      border: 1px solid @lightgrey;
       list-style-type: none;
       float: left;
       margin: 0 @spacing / 4;
@@ -325,7 +334,9 @@ body.modal-enabled > *:not(.modal-parent) {
             overflow: scroll;
             .screenshots {
               width: @screenshots-total-width;
+              .slant();
               img.screenshot {
+                border: 1px solid @lightgrey;
                 max-height: 30vh;
               }
             }

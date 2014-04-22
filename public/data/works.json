@@ -31,7 +31,7 @@
       "title": "Bazaarvoice Tips",
       "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
       "lede": "Concieved, and developed a major new application in Bazaarvoice suite.",
-      "description": "<p>A place for potential and existing customers of Bazaarvoice brands and retailers to trade tips, and receive recognition from their peers and the brand.</p><ul><li>Conceived and developed new from-scratch product.</li><li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li><li>Uses acombinationof JQuery Masonry, JQuery TilesGallery and AngularJS</li></ul>"
+      "description": "<p>A place for potential and existing customers of Bazaarvoice brands and retailers to trade tips, and receive recognition from their peers and the brand.</p><ul><li>Conceived and developed new from-scratch product.</li><li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li><li>Uses a combination of jQuery Masonry, jQuery TilesGallery and AngularJS</li></ul>"
     },
     {
       "slug": "facebook-ratings-and-reviews",
@@ -53,7 +53,7 @@
       "title": "Bazaarvoice Stories",
       "pubDate": "Mon, 12 Aug 2013 08:45:37 +0000",
       "lede": "A photo-centric Facebook app.",
-      "description": "<p>A photo-centric Facebook app. Current live sitesinclude Behr Paint and Thomas Cook travel.</p><ul><li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li><li>Uses acombinationof JQuery Masonry, JQuery TilesGallery and Mike's PhotoCollage (my own custom-written JQuery Plugin) for tiled layouts.</li></ul><p></p>"
+      "description": "<p>A photo-centric Facebook app. Current live sitesinclude Behr Paint and Thomas Cook travel.</p><ul><li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li><li>Uses acombinationof jQuery Masonry, jQuery TilesGallery and Mike's PhotoCollage (my own custom-written jQuery Plugin) for tiled layouts.</li></ul><p></p>"
     },
     {
       "slug": "social-deployer",
@@ -182,7 +182,7 @@
       "title": "A decade of Linux",
       "pubDate": "Fri, 30 Aug 2013 14:05:05 +0000",
       "lede": "Before web development, I spent a decade as a Linux and Python engineer.",
-      "description": "<p>Before going into web development full time, I spent a decade as a Linux and Python engineer. This includes working as a trainer and consultant at Red Hat (yes, that's me in the default sudoers file), IBM Global Services dedicated Linux team, and a variety of financial organizations doing interesting things with Linux.</p>"
+      "description": "<p>Before going into web development full time, I spent a decade as a Linux and Python engineer. </p><p>This includes working as a trainer and consultant at Red Hat (yes, that's me in the default sudoers file), IBM Global Services dedicated Linux team, and a variety of financial organizations doing interesting things with Linux.</p>"
     },
     {
       "slug": "feature-writer-apc-magazine",
