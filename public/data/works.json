@@ -3,7 +3,8 @@
     {
       "slug": "firework",
       "previewImage": "firework.png",
-      "screenshotcount": 5,
+      "screenshotCount": 3,
+      "imageExtension": "png",
       "client": "Firework",
       "title": "Firework",
       "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
@@ -13,7 +14,8 @@
     {
       "slug": "uncompromise",
       "previewImage": "uncompromise.png",
-      "screenshotcount": 5,
+      "screenshotCount": 7,
+      "imageExtension": "png",
       "client": "Microsoft",
       "title": "Uncompromise",
       "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
@@ -23,7 +25,8 @@
     {
       "slug": "bazaarvoice-tips",
       "previewImage": "bazaarvoice-tips.png",
-      "screenshotcount": 5,
+      "screenshotCount": 5,
+      "imageExtension": "png",
       "client": "Bazaarvoice",
       "title": "Bazaarvoice Tips",
       "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
@@ -33,7 +36,8 @@
     {
       "slug": "facebook-ratings-and-reviews",
       "previewImage": "facebook-ratings-and-reviews.png",
-      "screenshotcount": 5,
+      "screenshotCount": 2,
+      "imageExtension": "png",
       "client": "Bazaarvoice",
       "title": "Bazaarvoice Ratings and Reviews",
       "pubDate": "Fri, 30 Aug 2013 14:34:59 +0000",
@@ -43,7 +47,8 @@
     {
       "slug": "facebook-stories",
       "previewImage": "facebook-stories.png",
-      "screenshotcount": 5,
+      "screenshotCount": 2,
+      "imageExtension": "png",
       "client": "Bazaarvoice",
       "title": "Bazaarvoice Stories",
       "pubDate": "Mon, 12 Aug 2013 08:45:37 +0000",
@@ -53,7 +58,8 @@
     {
       "slug": "social-deployer",
       "previewImage": "social-deployer.png",
-      "screenshotcount": 5,
+      "screenshotCount": 1,
+      "imageExtension": "png",
       "client": "Bazaarvoice",
       "title": "Social Deployer",
       "pubDate": "Mon, 12 Aug 2013 08:51:10 +0000",
@@ -63,7 +69,8 @@
     {
       "slug": "bazaarvoice-questions-and-answers",
       "previewImage": "bazaarvoice-questions-and-answers.png",
-      "screenshotcount": 5,
+      "screenshotCount": 1,
+      "imageExtension": "png",
       "client": "Bazaarvoice",
       "title": "Bazaarvoice Questions and Answers",
       "pubDate": "Fri, 30 Aug 2013 14:17:04 +0000",
@@ -73,7 +80,8 @@
     {
       "slug": "pamplemousse-js",
       "previewImage": "pamplemousse-js.png",
-      "screenshotcount": 5,
+      "screenshotCount": 1,
+      "imageExtension": "png",
       "client": "OpenSource",
       "title": "Pamplemousse JS",
       "pubDate": "Fri, 30 Aug 2013 13:57:49 +0000",
@@ -83,17 +91,19 @@
     {
       "slug": "ginjs",
       "previewImage": "ginjs.png",
-      "screenshotcount": 5,
+      "screenshotCount": 2,
+      "imageExtension": "png",
       "client": "JS",
       "title": "gin.js",
       "pubDate": "Thu, 03 Oct 2013 16:04:11 +0000",
       "lede": "A regular meetup for London based JavaScript developers. I founded the event and organize the venue, mailing list, ticketing and sponsors.",
-      "description": "<p>A regular meetup for London based JavaScript developers. I founded the event and organize the venue, mailing list, ticketing and sponsors.</p>"
+      "description": "<p>A regular meetup for London based JavaScript developers. I founded the event, designed the lovely (responsive) site, and organize the venue, mailing list, ticketing and sponsors.</p>"
     },
     {
       "slug": "google-android-4-launch",
       "previewImage": "google-android-4-launch.png",
-      "screenshotcount": 5,
+      "screenshotCount": 3,
+      "imageExtension": "png",
       "client": "Google",
       "title": "Android 4 Worldwide Launch",
       "pubDate": "Tue, 13 Aug 2013 10:39:45 +0000",
@@ -103,7 +113,8 @@
     {
       "slug": "agave-js",
       "previewImage": "agave-js.png",
-      "screenshotcount": 5,
+      "screenshotCount": 1,
+      "imageExtension": "png",
       "client": "Google",
       "title": "Agave JS",
       "pubDate": "Fri, 30 Aug 2013 14:00:16 +0000",
@@ -113,7 +124,8 @@
     {
       "slug": "youtube-world-view",
       "previewImage": "youtube-world-view.png",
-      "screenshotcount": 5,
+      "screenshotCount": 4,
+      "imageExtension": "png",
       "client": "Google",
       "title": "YouTube World View",
       "pubDate": "Mon, 23 Sep 2013 14:03:55 +0000",
@@ -123,7 +135,8 @@
     {
       "slug": "google-getting-american-business-online",
       "previewImage": "google-getting-american-business-online.png",
-      "screenshotcount": 5,
+      "screenshotCount": 3,
+      "imageExtension": "png",
       "client": "Google",
       "title": "Google Getting American Business Online",
       "lede": "Google's worldwide programme to get businesses online",
@@ -132,7 +145,8 @@
     {
       "slug": "google-10th-birthday-germany",
       "previewImage": "google-10th-birthday-germany.png",
-      "screenshotcount": 5,
+      "screenshotCount": 2,
+      "imageExtension": "png",
       "client": "Google",
       "title": "Google 10th Birthday Germany",
       "lede": "A rich, interactive site created to showcase Google's work over the last decade in Germany. ",
@@ -141,7 +155,8 @@
     {
       "slug": "im-everyone",
       "previewImage": "im-everyone.png",
-      "screenshotcount": 5,
+      "screenshotCount": 3,
+      "imageExtension": "png",
       "client": "ImEveryone",
       "title": "I'm Everyone",
       "lede": "A realtime, threaded, anonymous communication platform.",
@@ -150,7 +165,8 @@
     {
       "slug": "python-docx",
       "previewImage": "python-docx.png",
-      "screenshotcount": 5,
+      "screenshotCount": 1,
+      "imageExtension": "png",
       "client": "OpenSource",
       "title": "Python Docx",
       "pubDate": "Fri, 30 Aug 2013 14:05:05 +0000",
@@ -160,7 +176,8 @@
     {
       "slug": "linux-and-python",
       "previewImage": "redhat.png",
-      "screenshotcount": 5,
+      "screenshotCount": 1,
+      "imageExtension": "png",
       "client": "redhat",
       "title": "A decade of Linux",
       "pubDate": "Fri, 30 Aug 2013 14:05:05 +0000",
@@ -170,7 +187,8 @@
     {
       "slug": "feature-writer-apc-magazine",
       "previewImage": "feature-writer-apc-magazine.jpeg",
-      "screenshotcount": 5,
+      "screenshotCount": 4,
+      "imageExtension": "jpeg",
       "client": "APC",
       "title": "Tech Journalism",
       "lede": "Writing for various Asia Pacific print magazines on Linux, servers, mobile, blogging, gaming, audiovisual, and other topics of interest to readers.",
@@ -179,7 +197,8 @@
     {
       "slug": "doom-the-path",
       "previewImage": "doom-the-path.png",
-      "screenshotcount": 5,
+      "screenshotCount": 4,
+      "imageExtension": "png",
       "client": "OpenSource",
       "title": "Doom: The Path",
       "lede": "Released in 1996, one of the most critically acclaimed (and largest) Doom II PWADs (levels) of all time.",

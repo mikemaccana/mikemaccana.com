@@ -7,6 +7,8 @@
 @shadedgrey: rgba(0,0,0,0.7);
 
 @works-total-width: 4400px;
+@screenshots-total-width: 2000px;
+
 
 @textcolor: @lightgrey;
 @lightcolor: @lightgrey;
@@ -308,6 +310,7 @@ body.modal-enabled > *:not(.modal-parent) {
       .vertical-center-child();
       .message {
         min-height: 300px;
+        max-height: 80vh;
         background-color: @darkgrey;
         .text {
           position: relative;
@@ -321,7 +324,7 @@ body.modal-enabled > *:not(.modal-parent) {
             max-width: 100%;
             overflow: scroll;
             .screenshots {
-              width: 4000px;
+              width: @screenshots-total-width;
               img.screenshot {
                 max-height: 30vh;
               }

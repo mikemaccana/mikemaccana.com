@@ -138,12 +138,12 @@ define(function(require){
     var enableModal = function(work){
       $body.classList.toggle('modal-enabled');
       $modalParent.style.display = 'inline';
-      log('SWAG')
       modalRactive.set({
         title: work.title,
+        imageExtension: work.imageExtension,
         slug: work.slug,
         description: work.description,
-        screenshots: new Array(5)//new Array(work.screenshotCount)
+        screenshots: new Array(work.screenshotCount)
       })
     }
 

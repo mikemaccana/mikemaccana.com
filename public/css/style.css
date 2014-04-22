@@ -662,6 +662,7 @@ body.modal-enabled > *:not(.modal-parent) {
 }
 .modal-parent .modal .modal-content .message {
   min-height: 300px;
+  max-height: 80vh;
   background-color: #222222;
 }
 .modal-parent .modal .modal-content .message .text {
@@ -683,7 +684,7 @@ body.modal-enabled > *:not(.modal-parent) {
   overflow: scroll;
 }
 .modal-parent .modal .modal-content .message .text .screenshot-container .screenshots {
-  width: 4000px;
+  width: 2000px;
 }
 .modal-parent .modal .modal-content .message .text .screenshot-container .screenshots img.screenshot {
   max-height: 30vh;
