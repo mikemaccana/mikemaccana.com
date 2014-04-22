@@ -22,6 +22,7 @@ define(function(require){
     agave = require("agave"),
     Ractive = require("ractive"),
     worksTemplate = require("text!/views/works.html"),
+    workDescriptionTemplate = require("text!/views/workdescription.html"),
     worksData = JSON.parse(require("text!/data/works.json"))
 
   agave.enable('av');
@@ -46,6 +47,16 @@ define(function(require){
       template: worksTemplate,
       data: worksData
     });
+
+    var workDescriptionRactive = new Ractive({
+      el: '.work-description',
+      template: workDescriptionTemplate,
+      data: {
+        title: null,
+        logo: null,
+        lede: null
+      }
+    })
 
     var $body = $('body'),
       $works = $all('.work'),
@@ -121,7 +132,6 @@ define(function(require){
       $modalDescription.innerHTML = work.description;
     }
 
-
     var disableModal = function(){
       $body.classList.toggle('modal-enabled');
       $modalParent.style.display = 'none';
@@ -133,9 +143,11 @@ define(function(require){
       log($work)
       $work.classList.add('selected')
       var workData = worksData.works[(index - 1)]
-      $workTitle.textContent = workData.title;
-      $workLogo.src = $work.dataset.logo;
-      $workLede.innerHTML = workData.lede;
+      workDescriptionRactive.set({
+        title: workData.title,
+        logo: $work.dataset.logo,
+        lede: workData.lede
+      })
     }
 
     var unselect = function(index){
