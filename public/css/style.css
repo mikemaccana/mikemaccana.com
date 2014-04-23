@@ -345,15 +345,17 @@ table {
   font-weight: normal;
   font-style: normal;
 }
-li {
-  overflow: visible;
-}
 *,
 *:before,
 *:after {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   overflow: hidden;
+}
+* li,
+*:before li,
+*:after li {
+  overflow: visible;
 }
 .vertical-center-child {
   display: table-cell;
@@ -516,6 +518,8 @@ body {
   overflow-x: hidden;
 }
 .content {
+  background-image: url('/images/me.jpg');
+  background-size: cover;
   height: 85vh;
   padding: 0;
   position: relative;
@@ -678,6 +682,9 @@ body.modal-enabled > *:not(.modal-parent) {
   height: 100%;
   color: whitesmoke;
   margin: 0 auto;
+}
+.modal-parent .modal .modal-content .message .text h1 {
+  margin: 0 0 24px 0;
 }
 .modal-parent .modal .modal-content .message .text .close {
   cursor: pointer;

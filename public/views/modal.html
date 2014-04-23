@@ -3,7 +3,9 @@
 <div class="screenshot-container">
   <div class="screenshots">
     {{#screenshots:index}}
-      <img class="screenshot" src="/images/work/screenshots/{{slug}}-{{index}}.{{imageExtension}}">
+      <a href="/images/work/screenshots/{{slug}}-{{index}}.{{imageExtension}}" target="_blank">
+        <img class="screenshot" src="/images/work/screenshots/{{slug}}-{{index}}.{{imageExtension}}">
+      </a>
     {{/screenshots}}
   </div>
 </div>

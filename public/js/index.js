@@ -26,6 +26,7 @@ define(function(require){
     modalTemplate = require("text!/views/modal.html"),
     worksData = JSON.parse(require("text!/data/works.json"))
 
+
   agave.enable('av');
 
   var $ = document.querySelector.bind(document),
@@ -84,7 +85,7 @@ define(function(require){
       max = worksData.works.length;
 
     document.addEventListener('keydown', function(event) {
-      // log('keydown!')
+      // // log('keydown!')
       var scroll = function(index){
         var itemFullWidth = ITEM_WIDTH.unselected + (ITEM_WIDTH.margin * 2)
         var amount = ( itemFullWidth * (index - 1) );
@@ -94,7 +95,7 @@ define(function(require){
         if ( selected > 1 ) {
           unselect(selected);
           selected--;
-          //log('left')
+          //// log('left')
           scroll(selected)
           select(selected)
         }
@@ -102,7 +103,7 @@ define(function(require){
         if ( selected < max ) {
           unselect(selected);
           selected++;
-          //log('right')
+          //// log('right')
           scroll(selected)
           select(selected)
         }
@@ -111,20 +112,20 @@ define(function(require){
 
     $works.avforEach(function($work){
       $work.addEventListener('mouseover', function(event){
-        log('hover', event.target)
+        // log('hover', event.target)
         unselect(selected);
         var thisWork = event.target
-        log('thisWork', thisWork)
+        // log('thisWork', thisWork)
         var index = thisWork.avgetParentIndex() + 1;
         selected = index;
         select(index);
-        log('hovered on ', index)
+        // log('hovered on ', index)
       });
 
       $work.addEventListener('click', function(event){
-        log('Clicked yaay!')
+        // log('Clicked yaay!')
         var thisWork = event.target
-        log('thisWork', thisWork)
+        //// log('thisWork', thisWork)
         var indexZero = thisWork.avgetParentIndex();
         enableModal(worksData.works[indexZero])
         // Make dialog show the work at this index
@@ -153,9 +154,9 @@ define(function(require){
     }
 
     var select = function(index){
-      log('selecting', index)
+      // log('selecting', index)
       var $work = $('.work:nth-child('+index+')')
-      log($work)
+      // log($work)
       $work.classList.add('selected')
       var workData = worksData.works[(index - 1)]
       workDescriptionRactive.set({
@@ -171,9 +172,17 @@ define(function(require){
     }
 
     // We need to pad first item is list, so it shows in center
-    var centerInWindow = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH.selected/2) ); // Keeps current item centered in window
-    $works[0].style['margin-left'] = centerInWindow+'px';
+    var padFirstWorkItem = function(){
+      log('Adjusting padding')
+      var centerInWindow = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH.selected/2) ); // Keeps current item centered in window
+      $works[0].style['margin-left'] = centerInWindow+'px';
+    }
 
+    // Re-run layout padding when window resizes, but wait until the user has stopped
+    // resizing the window for 500ms first
+    window.addEventListener("resize", padFirstWorkItem.avthrottle(500));
+
+    padFirstWorkItem()
     select(selected);
   }
 })

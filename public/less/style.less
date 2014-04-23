@@ -25,13 +25,12 @@
   transform: matrix(1, 0, -0.2, 1, 24, 0);
 }
 
-li {
-  overflow: visible;
-}
-
 *, *:before, *:after {
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: hidden; // Everything has layout by default. No clear fixes.
+  li {
+    overflow: visible;
+  }
 }
 
 // Never mind Flexbox. Spec changes too much and docs are hard to find.
@@ -180,6 +179,8 @@ body {
 }
 
 .content {
+  background-image: url('/images/me.jpg');
+  background-size: cover;
   height: 85vh;
   padding: 0; // No left/right padding because works should bleed all the way to the edges
   position: relative;
@@ -323,6 +324,9 @@ body.modal-enabled > *:not(.modal-parent) {
         background-color: @darkgrey;
         .text {
           position: relative;
+          h1 {
+            margin: 0 0 @spacing 0;
+          }
           .close {
             cursor: pointer;
             position: absolute;
