@@ -563,7 +563,6 @@ body {
 .stuff .works {
   list-style-type: none;
   display: block;
-  width: 4400px;
   height: 310px;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -697,6 +696,7 @@ body.modal-enabled > *:not(.modal-parent) {
   overflow: scroll;
 }
 .modal-parent .modal .modal-content .message .text .screenshot-container .screenshots {
+  height: 30vh;
   width: 2000px;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -707,7 +707,7 @@ body.modal-enabled > *:not(.modal-parent) {
 }
 .modal-parent .modal .modal-content .message .text .screenshot-container .screenshots img.screenshot {
   border: 1px solid #b7b7b7;
-  max-height: 30vh;
+  height: 30vh;
 }
 .modal-parent .modal .modal-content .message button {
   border: 1px solid whiteSmoke;

@@ -6,7 +6,6 @@
 @scaryred: #b90f00;
 @shadedgrey: rgba(0,0,0,0.7);
 
-@works-total-width: 4400px;
 @screenshots-total-width: 2000px;
 
 
@@ -217,7 +216,7 @@ body {
   .works {
     list-style-type: none;
     display: block;
-    width: @works-total-width;
+    // width: Set dynamically by JS
     height: @selected-item-height;
     .slant();
     .work {
@@ -337,11 +336,12 @@ body.modal-enabled > *:not(.modal-parent) {
             max-width: 100%;
             overflow: scroll;
             .screenshots {
+              height: 30vh;
               width: @screenshots-total-width;
               .slant();
               img.screenshot {
                 border: 1px solid @lightgrey;
-                max-height: 30vh;
+                height: 30vh;
               }
             }
           }

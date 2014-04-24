@@ -24,8 +24,8 @@ define(function(require){
     worksTemplate = require("text!/views/works.html"),
     workDescriptionTemplate = require("text!/views/workdescription.html"),
     modalTemplate = require("text!/views/modal.html"),
+    imagesLoaded = require("imagesloaded"),
     worksData = JSON.parse(require("text!/data/works.json"))
-
 
   agave.enable('av');
 
@@ -71,6 +71,7 @@ define(function(require){
 
     var $body = $('body'),
       $works = $all('.work'),
+      $worksAll = $('.works'),
       $worksArea = $('.stuff'),
       $workTitle = $('.work-title'),
       $workClient = $('.work-client'),
@@ -95,7 +96,7 @@ define(function(require){
         if ( selected > 1 ) {
           unselect(selected);
           selected--;
-          //// log('left')
+          // log('left')
           scroll(selected)
           select(selected)
         }
@@ -103,7 +104,7 @@ define(function(require){
         if ( selected < max ) {
           unselect(selected);
           selected++;
-          //// log('right')
+          // log('right')
           scroll(selected)
           select(selected)
         }
@@ -125,7 +126,7 @@ define(function(require){
       $work.addEventListener('click', function(event){
         // log('Clicked yaay!')
         var thisWork = event.target
-        //// log('thisWork', thisWork)
+        // log('thisWork', thisWork)
         var indexZero = thisWork.avgetParentIndex();
         enableModal(worksData.works[indexZero])
         // Make dialog show the work at this index
@@ -145,13 +146,21 @@ define(function(require){
         slug: work.slug,
         description: work.description,
         screenshots: new Array(work.screenshotCount)
-      })
+      });
+      imagesLoaded('.screenshots img', function() {
+        var screenshotsWidth = 0;
+        $all('.screenshots img').avforEach(function(image){
+          screenshotsWidth += image.clientWidth + ( 2 * 1 )
+        });
+        log('Setting screenshotsWidth to:', screenshotsWidth);
+        $('.screenshots').style.width = screenshotsWidth+'px';
+      });
     }
 
     var disableModal = function(){
       $body.classList.toggle('modal-enabled');
       $modalParent.style.display = 'none';
-    }
+    };
 
     var select = function(index){
       // log('selecting', index)
@@ -176,6 +185,13 @@ define(function(require){
       log('Adjusting padding')
       var centerInWindow = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH.selected/2) ); // Keeps current item centered in window
       $works[0].style['margin-left'] = centerInWindow+'px';
+
+      // Adjust width of .works for the amount of works we have
+      var normalWorkItemWidth = 180 + 2 * 6;
+      var normalItemsWidth = ( worksData.works.length - 1 ) * normalWorkItemWidth
+      var selectedItemWidth = 400 + 2 * 6
+      $worksAll.style.width = normalItemsWidth + selectedItemWidth + centerInWindow
+      log('Works is now', normalItemsWidth + selectedItemWidth + centerInWindow)
     }
 
     // Re-run layout padding when window resizes, but wait until the user has stopped
