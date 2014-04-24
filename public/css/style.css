@@ -705,9 +705,15 @@ body.modal-enabled > *:not(.modal-parent) {
   -ms-transform: matrix(1, 0, -0.2, 1, 24, 0);
   transform: matrix(1, 0, -0.2, 1, 24, 0);
 }
-.modal-parent .modal .modal-content .message .text .screenshot-container .screenshots img.screenshot {
+.modal-parent .modal .modal-content .message .text .screenshot-container .screenshots a.screenshot {
+  display: block;
+  float: left;
   border: 1px solid #b7b7b7;
   height: 30vh;
+  margin: 6px;
+}
+.modal-parent .modal .modal-content .message .text .screenshot-container .screenshots img {
+  height: 100%;
 }
 .modal-parent .modal .modal-content .message button {
   border: 1px solid whiteSmoke;

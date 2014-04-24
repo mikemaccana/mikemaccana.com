@@ -149,8 +149,9 @@ define(function(require){
       });
       imagesLoaded('.screenshots img', function() {
         var screenshotsWidth = 0;
-        $all('.screenshots img').avforEach(function(image){
-          screenshotsWidth += image.clientWidth + ( 2 * 1 )
+        $all('.screenshots .screenshot').avforEach(function(image){
+          screenshotsWidth += image.clientWidth + ( 2 * 1 ) + ( 2 * 6 )
+          log('Added ', image.clientWidth + ( 2 * 1 ) + ( 2 * 6 ))
         });
         log('Setting screenshotsWidth to:', screenshotsWidth);
         $('.screenshots').style.width = screenshotsWidth+'px';

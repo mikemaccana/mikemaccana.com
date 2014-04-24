@@ -339,9 +339,15 @@ body.modal-enabled > *:not(.modal-parent) {
               height: 30vh;
               width: @screenshots-total-width;
               .slant();
-              img.screenshot {
+              a.screenshot {
+                display: block;
+                float: left;
                 border: 1px solid @lightgrey;
                 height: 30vh;
+                margin: @spacing / 4;
+              }
+              img {
+                height: 100%;
               }
             }
           }
