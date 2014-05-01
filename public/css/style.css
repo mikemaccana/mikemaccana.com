@@ -565,6 +565,14 @@ body {
 .content-wrapper .content .intro h2,
 .content-wrapper .content .intro h3 {
   margin: 6px 0;
+  opacity: 0;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+.content-wrapper .content .intro h1.visible,
+.content-wrapper .content .intro h2.visible,
+.content-wrapper .content .intro h3.visible {
+  opacity: 1;
 }
 .content-wrapper .content .work-description {
   padding: 0 24px;

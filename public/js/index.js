@@ -16,10 +16,12 @@ define(function(require){
   var unused = require("classlist"),
     agave = require("agave"),
     Ractive = require("ractive"),
+    imagesLoaded = require("imagesloaded"),
+    Snap = require("snap"),
     worksTemplate = require("text!/views/works.html"),
     workDescriptionTemplate = require("text!/views/workdescription.html"),
     modalTemplate = require("text!/views/modal.html"),
-    imagesLoaded = require("imagesloaded"),
+
     worksData = JSON.parse(require("text!/data/works.json"))
 
   agave.enable('av');
@@ -164,12 +166,42 @@ define(function(require){
       log('Works is now', normalItemsWidth + selectedItemWidth + centerInWindow)
     }
 
+
+    var drawMongogram = function(){
+      log('Drawing mongogram')
+      var monogram = Snap.select(".monogram")
+      var bigM = monogram.select('#big-m');
+      var smallM = monogram.select('#small-m');
+      var title = $('.intro h1');
+      var sub = $('.intro h2');
+      // See http://raphaeljs.com/reference.html#Element.transform for transform syntax
+      setTimeout(function(){
+        bigM.animate({
+          transform: "T70,0",
+          opacity: 0.6,
+          fill: 'whiteSmoke'
+        }, 200, mina.easeout)
+        smallM.animate({
+          transform: "T0,70",
+          opacity: 0.6,
+          fill: 'white'
+        }, 250, mina.easeout)
+      }, 500)
+      setTimeout(function(){
+        title.classList.toggle('visible');
+      }, 750)
+      setTimeout(function(){
+        sub.classList.toggle('visible');
+      }, 1000)
+
+    }
+
     // Re-run layout padding when window resizes, but wait until the user has stopped
     // resizing the window for 500ms first
     window.addEventListener("resize", padFirstWorkItem.avthrottle(500));
-
     padFirstWorkItem()
     select(selected);
+    drawMongogram();
   }
 })
 
