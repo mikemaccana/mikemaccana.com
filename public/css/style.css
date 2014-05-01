@@ -403,7 +403,7 @@ nav {
 }
 nav.horizontal {
   height: 5vh;
-  display: block;
+  display: table;
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
   overflow: hidden;
@@ -416,10 +416,11 @@ nav.horizontal li {
   margin: 0;
 }
 nav.horizontal ul {
+  display: table-cell;
+  vertical-align: middle;
   overflow: hidden;
   margin: 0 auto;
   padding: 12px 0;
-  display: inline-block;
 }
 nav.horizontal li {
   float: left;
@@ -495,7 +496,8 @@ nav.vertical li {
 body,
 nav,
 .hamburger,
-.content {
+.content,
+.symbol {
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
@@ -522,57 +524,60 @@ body {
   background-image: url('/images/me.jpg');
   background-size: cover;
 }
-.content {
+.content-wrapper {
+  display: table;
   height: 85vh;
-  padding: 0;
-  position: relative;
 }
 @media (max-width: 770px) {
-  .content {
+  .content-wrapper {
     height: 90vh;
   }
 }
-.content ul,
-.content li {
+.content-wrapper .content {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0;
+  position: relative;
+}
+.content-wrapper .content ul,
+.content-wrapper .content li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 @media (max-width: 770px) {
-  .content.menu-active {
+  .content-wrapper .content.menu-active {
     -webkit-transform: translateX(150px);
     -ms-transform: translateX(150px);
     transform: translateX(150px);
   }
 }
-.content .intro {
-  height: 15vh;
+.content-wrapper .content .intro {
   padding: 0 24px;
   text-align: center;
 }
-.content .intro .monogram {
-  padding-top: 12px;
+.content-wrapper .content .intro .monogram {
+  margin-top: 12px;
   height: 60px;
   width: 60px;
 }
-.content .intro h1,
-.content .intro h2,
-.content .intro h3 {
+.content-wrapper .content .intro h1,
+.content-wrapper .content .intro h2,
+.content-wrapper .content .intro h3 {
   margin: 6px 0;
 }
-.content .intro h2 {
-  font-size: 0.8em;
-}
-.content .work-description {
+.content-wrapper .content .work-description {
   padding: 0 24px;
 }
-.content .help {
+.content-wrapper .content .help {
   text-align: center;
   text-transform: uppercase;
   font-size: 6pt;
 }
 .works-wrapper {
-  height: 50vh;
+  width: 100vw;
+  margin: 0;
+  overflow: scroll;
 }
 .works-wrapper .works-container {
   width: 100%;
@@ -650,15 +655,18 @@ footer {
   background-color: rgba(0, 0, 0, 0.7);
 }
 footer .symbol,
-footer a.symbol:before {
+footer a .symbol:before {
   font-family: 'Mono Social Icons Font';
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased;
 }
-footer a.symbol:before {
+footer a .symbol:before {
   content: attr(title);
   margin-right: 0.3em;
   font-size: 130%;
+}
+footer a .symbol:hover {
+  color: white;
 }
 @media (max-width: 770px) {
   footer.menu-active {

@@ -79,7 +79,7 @@ nav {
 
 nav.horizontal {
   height: 5vh;
-  display: block;
+  .vertical-center-parent();
   width: 100%;
   background: @shadedgrey;
   overflow: hidden;
@@ -88,10 +88,10 @@ nav.horizontal {
     .notlist;
   }
   ul {
+    .vertical-center-child();
     overflow: hidden;
     margin: 0 auto;
     padding: @spacing / 2 0;
-    display: inline-block;
   }
   li {
     float: left;
@@ -153,7 +153,7 @@ nav.vertical {
   }
 }
 
-body, nav, .hamburger, .content {
+body, nav, .hamburger, .content, .symbol {
   transition: all 0.2s ease-out;
 }
 
@@ -178,50 +178,53 @@ body {
   background-size: cover;
 }
 
-.content {
+
+
+.content-wrapper {
+  .vertical-center-parent();
   height: 85vh;
   @media (max-width: @single-column-threshold) {
     height: 90vh;
   }
-  padding: 0; // No left/right padding because works should bleed all the way to the edges
-  position: relative;
-  ul, li {
-    .notlist;
-  }
-  &.menu-active {
-    @media (max-width: @single-column-threshold) {
-      transform: translateX(@sidebar-width);
+  .content {
+    .vertical-center-child();
+    padding: 0; // No left/right padding because works should bleed all the way to the edges
+    position: relative;
+    ul, li {
+      .notlist;
     }
-  }
-  .intro {
-    height: 15vh;
-    padding: 0 @spacing;
-    .monogram {
-      padding-top: @spacing / 2;
-      height: 60px;
-      width: 60px;
+    &.menu-active {
+      @media (max-width: @single-column-threshold) {
+        transform: translateX(@sidebar-width);
+      }
     }
-    text-align: center;
-    h1, h2, h3 {
-      margin: @spacing / 4 0;
+    .intro {
+      padding: 0 @spacing;
+      .monogram {
+        margin-top: @spacing / 2;
+        height: 60px;
+        width: 60px;
+      }
+      text-align: center;
+      h1, h2, h3 {
+        margin: @spacing / 4 0;
+      }
     }
-
-    h2 {
-      font-size: 0.8em;
+    .work-description {
+      padding: 0 @spacing;
     }
-  }
-  .work-description {
-    padding: 0 @spacing;
-  }
-  .help {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 6pt;
+    .help {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 6pt;
+    }
   }
 }
 
 .works-wrapper {
-  height: 50vh;
+  width: 100vw;
+  margin: 0;
+  overflow: scroll;
   .works-container {
     width: 100%;
     overflow: scroll;
@@ -256,7 +259,7 @@ body {
 
 
 .work-description {
-  height: 20vh;
+  height: 20vh; // Must be consistent so that vertically centered ares doesn't move around
   text-align: left;
   max-width: 600px;
   margin: 0px auto;
@@ -295,16 +298,19 @@ footer {
   font-size: 24pt;
   background-color: @shadedgrey;
   // Icons
-  .symbol, a.symbol:before {
+  .symbol, a .symbol:before {
     font-family: 'Mono Social Icons Font';
     text-rendering: optimizeLegibility;
     font-smoothing: antialiased;
   }
   // More icon styling
-  a.symbol:before {
+  a .symbol:before {
     content: attr(title);
     margin-right: 0.3em;
     font-size: 130%;
+  }
+  a .symbol:hover {
+    color: white;
   }
   &.menu-active {
     @media (max-width: @single-column-threshold) {
