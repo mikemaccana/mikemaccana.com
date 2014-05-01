@@ -7,11 +7,6 @@ define(function(require){
   "use strict";
   var log = console.log.bind(console);
 
-  var ARROW_KEYS = {
-    LEFT: 37,
-    RIGHT: 39
-  }
-
   var ITEM_WIDTH = {
     selected: 400,
     margin: 6,
@@ -84,32 +79,6 @@ define(function(require){
 
     var selected = 1,
       max = worksData.works.length;
-
-    document.addEventListener('keydown', function(event) {
-      // // log('keydown!')
-      var scroll = function(index){
-        var itemFullWidth = ITEM_WIDTH.unselected + (ITEM_WIDTH.margin * 2)
-        var amount = ( itemFullWidth * (index - 1) );
-        $worksArea.scrollLeft = amount;
-      }
-      if ( event.keyCode == ARROW_KEYS.LEFT ) {
-        if ( selected > 1 ) {
-          unselect(selected);
-          selected--;
-          // log('left')
-          scroll(selected)
-          select(selected)
-        }
-      } else if ( event.keyCode == ARROW_KEYS.RIGHT ) {
-        if ( selected < max ) {
-          unselect(selected);
-          selected++;
-          // log('right')
-          scroll(selected)
-          select(selected)
-        }
-      }
-    });
 
     $works.avforEach(function($work){
       $work.addEventListener('mouseover', function(event){
