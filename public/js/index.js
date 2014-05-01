@@ -45,7 +45,7 @@ define(function(require){
   // Portfolio page stuff
   if ( window.location.pathname === '/' ) {
     var worksRactive = new Ractive({
-      el: '.stuff',
+      el: '.works-container',
       template: worksTemplate,
       data: worksData
     });
@@ -72,7 +72,7 @@ define(function(require){
     var $body = $('body'),
       $works = $all('.work'),
       $worksAll = $('.works'),
-      $worksArea = $('.stuff'),
+      $worksArea = $('.works-container'),
       $workTitle = $('.work-title'),
       $workClient = $('.work-client'),
       $workLogo = $('.work-logo'),

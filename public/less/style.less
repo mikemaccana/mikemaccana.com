@@ -5,7 +5,6 @@
 @darkgrey: #222;
 @scaryred: #b90f00;
 @shadedgrey: rgba(0,0,0,0.7);
-
 @screenshots-total-width: 2000px;
 
 
@@ -33,7 +32,7 @@
 }
 
 // Never mind Flexbox. Spec changes too much and docs are hard to find.
-.vertical-center-parent() {
+.vertical-center-parent {
   display: table;
 }
 
@@ -175,12 +174,15 @@ body {
   font-weight: 100;
   color: @textcolor;
   overflow-x: hidden;
+  background-image: url('/images/me.jpg');
+  background-size: cover;
 }
 
 .content {
-  background-image: url('/images/me.jpg');
-  background-size: cover;
   height: 85vh;
+  @media (max-width: @single-column-threshold) {
+    height: 90vh;
+  }
   padding: 0; // No left/right padding because works should bleed all the way to the edges
   position: relative;
   ul, li {
@@ -192,10 +194,20 @@ body {
     }
   }
   .intro {
+    height: 15vh;
     padding: 0 @spacing;
+    .monogram {
+      padding-top: @spacing / 2;
+      height: 60px;
+      width: 60px;
+    }
     text-align: center;
     h1, h2, h3 {
       margin: @spacing / 4 0;
+    }
+
+    h2 {
+      font-size: 0.8em;
     }
   }
   .work-description {
@@ -208,40 +220,43 @@ body {
   }
 }
 
-.stuff {
-  width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  overflow-y: scroll;
-  .works {
-    list-style-type: none;
-    display: block;
-    // width: Set dynamically by JS
-    height: @selected-item-height;
-    .slant();
-    .work {
-      cursor: pointer;
-      border: 1px solid @lightgrey;
+.works-wrapper {
+  height: 50vh;
+  .works-container {
+    width: 100%;
+    overflow: scroll;
+    .works {
       list-style-type: none;
-      float: left;
-      margin: 0 @spacing / 4;
-      width: 180px;
-      height: 290px;
-      transition: all 0.1s ease-out;
-      transform: scale(0.95) translateZ(0); // Zoom effect
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: black;
-      background-size: contain;
-      &.selected {
-        width: 400px;
-        height: 310px;
+      display: block;
+      // width: Set dynamically by JS
+      height: @selected-item-height;
+      .slant();
+      .work {
+        cursor: pointer;
+        border: 1px solid @lightgrey;
+        list-style-type: none;
+        float: left;
+        margin: 0 @spacing / 4;
+        width: 180px;
+        height: 290px;
+        transition: all 0.1s ease-out;
+        transform: scale(0.95) translateZ(0); // Zoom effect
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: black;
+        background-size: contain;
+        &.selected {
+          width: 400px;
+          height: 310px;
+        }
       }
     }
   }
 }
 
+
 .work-description {
+  height: 20vh;
   text-align: left;
   max-width: 600px;
   margin: 0px auto;
@@ -278,7 +293,7 @@ footer {
   text-align: right;
   padding: @spacing / 2;
   font-size: 24pt;
-  border-top: 1px solid @lightgrey;
+  background-color: @shadedgrey;
   // Icons
   .symbol, a.symbol:before {
     font-family: 'Mono Social Icons Font';
