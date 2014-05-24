@@ -7,12 +7,6 @@ define(function(require){
   "use strict";
   var log = console.log.bind(console);
 
-  var ITEM_WIDTH = {
-    selected: 400,
-    margin: 6,
-    unselected: 180
-  };
-
   var unused = require("classlist"),
     agave = require("agave"),
     Ractive = require("ractive"),
@@ -21,13 +15,18 @@ define(function(require){
     worksTemplate = require("text!/views/works.html"),
     workDescriptionTemplate = require("text!/views/workdescription.html"),
     modalTemplate = require("text!/views/modal.html"),
-
     worksData = JSON.parse(require("text!/data/works.json"))
 
   agave.enable('av');
 
   var $ = document.querySelector.bind(document),
     $all = document.querySelectorAll.bind(document);
+
+  var ITEM_WIDTH = {
+    selected: 400,
+    margin: 6,
+    unselected: 180
+  };
 
   var $menuToggledElements = $all('nav, body, .hamburger, .content, footer');
 
@@ -172,6 +171,8 @@ define(function(require){
       var monogram = Snap.select(".monogram")
       var bigM = monogram.select('#big-m');
       var smallM = monogram.select('#small-m');
+      var works = $all('.works .work')
+      var workDescription = $('.work-description')
       var title = $('.intro h1');
       var sub = $('.intro h2');
       // See http://raphaeljs.com/reference.html#Element.transform for transform syntax
@@ -180,12 +181,12 @@ define(function(require){
           transform: "T70,0",
           opacity: 0.6,
           fill: 'whiteSmoke'
-        }, 200, mina.easeout)
+        }, 1000, mina.easeout)
         smallM.animate({
           transform: "T0,70",
           opacity: 0.6,
           fill: 'white'
-        }, 250, mina.easeout)
+        }, 1500, mina.easeout)
       }, 500)
       setTimeout(function(){
         title.classList.toggle('visible');
@@ -194,6 +195,18 @@ define(function(require){
         sub.classList.toggle('visible');
       }, 1000)
 
+
+      imagesLoaded('.works .work', function(event) {
+        log('works loaded');
+        works.avforEach(function(element, index){
+          setTimeout(function(){
+            element.classList.toggle('visible');
+          }, 1000 + (index * 250))
+        })
+        setTimeout(function(){
+          workDescription.classList.toggle('visible');
+        }, 1000)
+      })
     }
 
     // Re-run layout padding when window resizes, but wait until the user has stopped

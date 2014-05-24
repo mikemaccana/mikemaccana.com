@@ -1,5 +1,7 @@
 #!/usr/bin/env node --harmony
 
+var log = console.log.bind(console);
+
 // Module dependencies
 var render = require('./lib/render'),
   logger = require('koa-logger'),
