@@ -19,8 +19,8 @@ define(function(require){
 
   agave.enable('av');
 
-  var $ = document.querySelector.bind(document),
-    $all = document.querySelectorAll.bind(document);
+  var query = document.querySelector.bind(document),
+    queryAll = document.querySelectorAll.bind(document);
 
   var ITEM_WIDTH = {
     selected: 400,
@@ -28,11 +28,11 @@ define(function(require){
     unselected: 180
   };
 
-  var $menuToggledElements = $all('nav, body, .hamburger, .content, footer');
+  var menuToggledElements = queryAll('nav, body, .hamburger, .content, footer');
 
   // Clicking ☰ button displays nav
-  $('.hamburger').addEventListener('click', function(event) {
-    $menuToggledElements.avforEach(function(element, index){
+  query('.hamburger').addEventListener('click', function(event) {
+    menuToggledElements.avforEach(function(element, index){
       element.classList.toggle('menu-active');
     });
     event.preventDefault();
@@ -65,24 +65,24 @@ define(function(require){
       }
     })
 
-    var $body = $('body'),
-      $works = $all('.work'),
-      $worksAll = $('.works'),
-      $worksArea = $('.works-container'),
-      $workTitle = $('.work-title'),
-      $workClient = $('.work-client'),
-      $workLogo = $('.work-logo'),
-      $workLede = $('.work-lede'),
-      $modalParent = $('.modal-parent'),
-      $modalTitle = $('.modal-parent').querySelector('h1'),
-      $modalDescription = $('.modal-parent').querySelector('.description'),
-      $close = $('.close');
+    var body = query('body'),
+      works = queryAll('.work'),
+      worksAll = query('.works'),
+      worksArea = query('.works-container'),
+      workTitle = query('.work-title'),
+      workClient = query('.work-client'),
+      workLogo = query('.work-logo'),
+      workLede = query('.work-lede'),
+      modalParent = query('.modal-parent'),
+      modalTitle = query('.modal-parent').querySelector('h1'),
+      modalDescription = query('.modal-parent').querySelector('.description'),
+      close = query('.close');
 
     var selected = 1,
       max = worksData.works.length;
 
-    $works.avforEach(function($work){
-      $work.addEventListener('mouseover', function(event){
+    works.avforEach(function(work){
+      work.addEventListener('mouseover', function(event){
         // log('hover', event.target)
         unselect(selected);
         var thisWork = event.target
@@ -93,7 +93,7 @@ define(function(require){
         // log('hovered on ', index)
       });
 
-      $work.addEventListener('click', function(event){
+      work.addEventListener('click', function(event){
         // log('Clicked yaay!')
         var thisWork = event.target
         // log('thisWork', thisWork)
@@ -103,13 +103,13 @@ define(function(require){
       })
     })
 
-    $close.addEventListener('click', function(event){
+    close.addEventListener('click', function(event){
       disableModal();
     })
 
     var enableModal = function(work){
-      $body.classList.toggle('modal-enabled');
-      $modalParent.style.display = 'inline';
+      body.classList.toggle('modal-enabled');
+      modalParent.style.display = 'inline';
       modalRactive.set({
         title: work.title,
         imageExtension: work.imageExtension,
@@ -119,49 +119,49 @@ define(function(require){
       });
       imagesLoaded('.screenshots img', function() {
         var screenshotsWidth = 0;
-        $all('.screenshots .screenshot').avforEach(function(image){
+        queryAll('.screenshots .screenshot').avforEach(function(image){
           screenshotsWidth += image.clientWidth + ( 2 * 1 ) + ( 2 * 6 )
           log('Added ', image.clientWidth + ( 2 * 1 ) + ( 2 * 6 ))
         });
         log('Setting screenshotsWidth to:', screenshotsWidth);
-        $('.screenshots').style.width = screenshotsWidth+'px';
+        ('.screenshots').style.width = screenshotsWidth+'px';
       });
     }
 
     var disableModal = function(){
-      $body.classList.toggle('modal-enabled');
-      $modalParent.style.display = 'none';
+      body.classList.toggle('modal-enabled');
+      modalParent.style.display = 'none';
     };
 
     var select = function(index){
       // log('selecting', index)
-      var $work = $('.work:nth-child('+index+')')
-      // log($work)
-      $work.classList.add('selected')
+      var work = query('.work:nth-child('+index+')')
+      // log(work)
+      work.classList.add('selected')
       var workData = worksData.works[(index - 1)]
       workDescriptionRactive.set({
         title: workData.title,
-        logo: $work.dataset.logo,
+        logo: work.dataset.logo,
         lede: workData.lede
       })
     }
 
     var unselect = function(index){
-      var $work = $('.work:nth-child('+index+')')
-      $work.classList.remove('selected');
+      var work = query('.work:nth-child('+index+')')
+      work.classList.remove('selected');
     }
 
     // We need to pad first item is list, so it shows in center
     var padFirstWorkItem = function(){
       log('Adjusting padding')
       var centerInWindow = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH.selected/2) ); // Keeps current item centered in window
-      $works[0].style['margin-left'] = centerInWindow+'px';
+      works[0].style['margin-left'] = centerInWindow+'px';
 
       // Adjust width of .works for the amount of works we have
       var normalWorkItemWidth = 180 + 2 * 6;
       var normalItemsWidth = ( worksData.works.length - 1 ) * normalWorkItemWidth
       var selectedItemWidth = 400 + 2 * 6
-      $worksAll.style.width = normalItemsWidth + selectedItemWidth + centerInWindow
+      worksAll.style.width = normalItemsWidth + selectedItemWidth + centerInWindow
       log('Works is now', normalItemsWidth + selectedItemWidth + centerInWindow)
     }
 
@@ -171,10 +171,10 @@ define(function(require){
       var monogram = Snap.select(".monogram")
       var bigM = monogram.select('#big-m');
       var smallM = monogram.select('#small-m');
-      var works = $all('.works .work')
-      var workDescription = $('.work-description')
-      var title = $('.intro h1');
-      var sub = $('.intro h2');
+      var works = queryAll('.works .work')
+      var workDescription = query('.work-description')
+      var title = query('.intro h1');
+      var sub = query('.intro h2');
       // See http://raphaeljs.com/reference.html#Element.transform for transform syntax
       setTimeout(function(){
         bigM.animate({
