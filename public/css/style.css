@@ -409,23 +409,22 @@ nav.horizontal {
   overflow: hidden;
   text-align: center;
 }
-nav.horizontal .nav-items {
+nav.horizontal .nav-items-wrapper {
   display: table-cell;
   vertical-align: middle;
+}
+nav.horizontal .nav-items-wrapper .nav-items {
   overflow: hidden;
   margin: 0 auto;
   padding: 12px 0;
 }
-nav.horizontal .nav-items a {
-  display: block;
+nav.horizontal .nav-items-wrapper .nav-items a {
   margin: 0 30px;
-  float: left;
-  width: 200px;
 }
-nav.horizontal .nav-items a,
-nav.horizontal .nav-items a:hover,
-nav.horizontal .nav-items a:active,
-nav.horizontal .nav-items a:visited {
+nav.horizontal .nav-items-wrapper .nav-items a,
+nav.horizontal .nav-items-wrapper .nav-items a:hover,
+nav.horizontal .nav-items-wrapper .nav-items a:active,
+nav.horizontal .nav-items-wrapper .nav-items a:visited {
   color: whiteSmoke;
 }
 @media (max-width: 770px) {
