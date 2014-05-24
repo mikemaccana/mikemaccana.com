@@ -84,25 +84,22 @@ nav.horizontal {
   background: @shadedgrey;
   overflow: hidden;
   text-align: center;
-  ul, li {
-    .notlist;
-  }
-  ul {
+  .nav-items {
     .vertical-center-child();
     overflow: hidden;
     margin: 0 auto;
     padding: @spacing / 2 0;
+    a {
+      display: block;
+      margin: 0 30px;
+      float: left;
+      width: 200px;
+    }
+    a, a:hover, a:active, a:visited {
+      color: whiteSmoke;
+    }
   }
-  li {
-    float: left;
-    margin: 0 30px;
-  }
-  a, a:hover, a:active, a:visited {
-    color: whiteSmoke;
-    text-decoration: none;
-    width: 100%;
-    display: block;
-  }
+
   @media (max-width: @single-column-threshold) {
     display: none;
   }
@@ -128,13 +125,6 @@ nav.vertical {
   }
   @media (max-width: @single-column-threshold) {
     left: 0;
-  }
-
-  ul, li {
-    .notlist;
-  }
-  ul {
-    padding-left: 10px;
   }
   a, a:hover, a:active, a:visited {
     color: whiteSmoke;
@@ -253,6 +243,10 @@ body {
         background-repeat: no-repeat;
         background-color: black;
         background-size: contain;
+        opacity: 0;
+        &.visible {
+          opacity: 1;
+        }
         &.selected {
           width: 400px;
           height: 310px;
@@ -268,6 +262,10 @@ body {
   text-align: left;
   max-width: 600px;
   margin: 0px auto;
+  opacity: 0;
+  &.visible {
+    opacity: 1;
+  }
   .work-title {
     font-size: 26pt;
     margin: @spacing / 4 0;

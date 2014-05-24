@@ -409,31 +409,24 @@ nav.horizontal {
   overflow: hidden;
   text-align: center;
 }
-nav.horizontal ul,
-nav.horizontal li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-nav.horizontal ul {
+nav.horizontal .nav-items {
   display: table-cell;
   vertical-align: middle;
   overflow: hidden;
   margin: 0 auto;
   padding: 12px 0;
 }
-nav.horizontal li {
-  float: left;
-  margin: 0 30px;
-}
-nav.horizontal a,
-nav.horizontal a:hover,
-nav.horizontal a:active,
-nav.horizontal a:visited {
-  color: whiteSmoke;
-  text-decoration: none;
-  width: 100%;
+nav.horizontal .nav-items a {
   display: block;
+  margin: 0 30px;
+  float: left;
+  width: 200px;
+}
+nav.horizontal .nav-items a,
+nav.horizontal .nav-items a:hover,
+nav.horizontal .nav-items a:active,
+nav.horizontal .nav-items a:visited {
+  color: whiteSmoke;
 }
 @media (max-width: 770px) {
   nav.horizontal {
@@ -465,15 +458,6 @@ nav.vertical {
   nav.vertical {
     left: 0;
   }
-}
-nav.vertical ul,
-nav.vertical li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-nav.vertical ul {
-  padding-left: 10px;
 }
 nav.vertical a,
 nav.vertical a:hover,
@@ -619,6 +603,10 @@ body {
   background-repeat: no-repeat;
   background-color: black;
   background-size: contain;
+  opacity: 0;
+}
+.works-wrapper .works-container .works .work.visible {
+  opacity: 1;
 }
 .works-wrapper .works-container .works .work.selected {
   width: 400px;
@@ -629,6 +617,10 @@ body {
   text-align: left;
   max-width: 600px;
   margin: 0px auto;
+  opacity: 0;
+}
+.work-description.visible {
+  opacity: 1;
 }
 .work-description .work-title {
   font-size: 26pt;
