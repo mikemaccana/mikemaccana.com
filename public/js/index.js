@@ -179,12 +179,12 @@ define(function(require){
       setTimeout(function(){
         bigM.animate({
           transform: "T70,0",
-          opacity: 0.6,
+          opacity: 1,
           fill: 'whiteSmoke'
         }, 1000, mina.easeout)
         smallM.animate({
           transform: "T0,70",
-          opacity: 0.6,
+          opacity: 1,
           fill: 'white'
         }, 1500, mina.easeout)
       }, 500)

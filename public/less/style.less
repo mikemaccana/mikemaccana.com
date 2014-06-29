@@ -64,19 +64,19 @@ nav {
   z-index: 1;
   display: none;
   top: 0;
-  left: @sidebar-width;
   background-color: black;
   padding: 1em;
 
   .hamburger-top, .hamburger-middle, .hamburger-bottom {
     transition: all .5s;
     display: block;
-    height: 2px;
-    width: 19px;
+    height: 1px;
+    width: @spacing;
     background: #fff;
     margin: 4px auto;
   }
 
+  // 360 + 45 = 405
   &.menu-active .hamburger-top {
     transform: rotate(405deg) translate(4px,4px);
   }
@@ -85,16 +85,17 @@ nav {
     opacity: 0;
   }
 
+  // 360 + 45 = 405
   &.menu-active .hamburger-bottom {
-    -webkit-transform: rotate(-405deg) translate(4.5px,-4.5px);
+    transform: rotate(-405deg) translate(4.5px,-4.5px);
   }
 
   @media (max-width: @single-column-threshold) {
     position: fixed;
-    left: 0;
+    right: 0;
     display: block;
     &.menu-active {
-      left: @sidebar-width;
+      right: @sidebar-width;
     }
   }
 }
@@ -128,11 +129,11 @@ nav.horizontal {
 
 nav.vertical {
   background-color: black;
-  margin-left: -@sidebar-width;
+  margin-right: -@sidebar-width;
   width: 0;
   position: fixed;
   top: 0;
-  left: @sidebar-width;
+  right: @sidebar-width;
   bottom: 0;
   z-index: 1;
   overflow-y: auto;
@@ -140,11 +141,11 @@ nav.vertical {
     @media (max-width: @single-column-threshold) {
       transform: translateX(0);
       width: @sidebar-width;
-      left: @sidebar-width;
+      right: @sidebar-width;
     }
   }
   @media (max-width: @single-column-threshold) {
-    left: 0;
+    right: 0;
   }
   a, a:hover, a:active, a:visited {
     color: whiteSmoke;
@@ -203,7 +204,7 @@ body {
     }
     &.menu-active {
       @media (max-width: @single-column-threshold) {
-        transform: translateX(@sidebar-width);
+        transform: translateX(-@sidebar-width);
       }
     }
     .intro {

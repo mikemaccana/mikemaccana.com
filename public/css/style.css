@@ -387,7 +387,6 @@ nav {
   z-index: 1;
   display: none;
   top: 0;
-  left: 150px;
   background-color: black;
   padding: 1em;
 }
@@ -397,8 +396,8 @@ nav {
   -webkit-transition: all .5s;
   transition: all .5s;
   display: block;
-  height: 2px;
-  width: 19px;
+  height: 1px;
+  width: 24px;
   background: #fff;
   margin: 4px auto;
 }
@@ -412,15 +411,17 @@ nav {
 }
 .hamburger.menu-active .hamburger-bottom {
   -webkit-transform: rotate(-405deg) translate(4.5px, -4.5px);
+  -ms-transform: rotate(-405deg) translate(4.5px, -4.5px);
+  transform: rotate(-405deg) translate(4.5px, -4.5px);
 }
 @media (max-width: 770px) {
   .hamburger {
     position: fixed;
-    left: 0;
+    right: 0;
     display: block;
   }
   .hamburger.menu-active {
-    left: 150px;
+    right: 150px;
   }
 }
 nav.horizontal {
@@ -456,11 +457,11 @@ nav.horizontal .nav-items-wrapper .nav-items a:visited {
 }
 nav.vertical {
   background-color: black;
-  margin-left: -150px;
+  margin-right: -150px;
   width: 0;
   position: fixed;
   top: 0;
-  left: 150px;
+  right: 150px;
   bottom: 0;
   z-index: 1;
   overflow-y: auto;
@@ -471,12 +472,12 @@ nav.vertical {
     -ms-transform: translateX(0);
     transform: translateX(0);
     width: 150px;
-    left: 150px;
+    right: 150px;
   }
 }
 @media (max-width: 770px) {
   nav.vertical {
-    left: 0;
+    right: 0;
   }
 }
 nav.vertical a,
@@ -549,9 +550,9 @@ body {
 }
 @media (max-width: 770px) {
   .content-wrapper .content.menu-active {
-    -webkit-transform: translateX(150px);
-    -ms-transform: translateX(150px);
-    transform: translateX(150px);
+    -webkit-transform: translateX(-150px);
+    -ms-transform: translateX(-150px);
+    transform: translateX(-150px);
   }
 }
 .content-wrapper .content .intro {
