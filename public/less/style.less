@@ -2,8 +2,7 @@
 @import "fonts.less";
 
 @lightgrey: #B7B7B7;
-@midgrey: #333;
-@darkgrey: #111;
+@midgrey: #222;
 @scaryred: #b90f00;
 @shadedgrey: rgba(0,0,0,0.7);
 @screenshots-total-width: 2000px;
@@ -66,8 +65,30 @@ nav {
   display: none;
   top: 0;
   left: @sidebar-width;
-  background: @shadedgrey;
+  background-color: black;
   padding: 1em;
+
+  .hamburger-top, .hamburger-middle, .hamburger-bottom {
+    transition: all .5s;
+    display: block;
+    height: 2px;
+    width: 19px;
+    background: #fff;
+    margin: 4px auto;
+  }
+
+  &.menu-active .hamburger-top {
+    transform: rotate(405deg) translate(4px,4px);
+  }
+
+  &.menu-active .hamburger-middle {
+    opacity: 0;
+  }
+
+  &.menu-active .hamburger-bottom {
+    -webkit-transform: rotate(-405deg) translate(4.5px,-4.5px);
+  }
+
   @media (max-width: @single-column-threshold) {
     position: fixed;
     left: 0;
@@ -106,7 +127,7 @@ nav.horizontal {
 }
 
 nav.vertical {
-  background-color: @darkgrey;
+  background-color: black;
   margin-left: -@sidebar-width;
   width: 0;
   position: fixed;
@@ -132,11 +153,10 @@ nav.vertical {
     display: block;
     padding: @spacing;
     text-transform: uppercase;
-    font-size: @spacing;
+    font-size: @spacing * 3 / 4;
     border-bottom: 1px solid @midgrey;
   }
   a:hover {
-    background-color: @lightcolor;
     color: @textcolor;
   }
 }
@@ -157,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
   left: 0;
   margin: 0;
-  background-color: @darkgrey;
+  background-color: black;
   font-family: "Lato", sans-serif;
   font-weight: 100;
   color: @textcolor;
@@ -342,7 +362,7 @@ body.modal-enabled > *:not(.modal-parent) {
       .message {
         min-height: 300px;
         max-height: 80vh;
-        background-color: @darkgrey;
+        background-color: black;
         .text {
           position: relative;
           h1 {
