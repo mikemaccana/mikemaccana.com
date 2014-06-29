@@ -52,21 +52,19 @@ a, a:hover, a:active, a:visited {
   margin: 0;
 }
 
-nav {
-  font-size: @spacing / 2;
-  line-height: @vertical-rhythm;
-  text-transform: uppercase;
-}
-
 /* ☰ button */
 .hamburger {
   cursor: pointer;
   z-index: 1;
-  display: none;
   top: 0;
   background-color: black;
   padding: 1em;
-
+  position: fixed;
+  right: 0;
+  display: block;
+  &.menu-active {
+    right: @sidebar-width;
+  }
   .hamburger-top, .hamburger-middle, .hamburger-bottom {
     transition: all .5s;
     display: block;
@@ -89,63 +87,26 @@ nav {
   &.menu-active .hamburger-bottom {
     transform: rotate(-405deg) translate(4.5px,-4.5px);
   }
-
-  @media (max-width: @single-column-threshold) {
-    position: fixed;
-    right: 0;
-    display: block;
-    &.menu-active {
-      right: @sidebar-width;
-    }
-  }
 }
 
-nav.horizontal {
-  height: 5vh;
-  .vertical-center-parent();
-  width: 100%;
-  background: @shadedgrey;
-  overflow: hidden;
-  text-align: center;
-  .nav-items-wrapper {
-    .vertical-center-child();
-    .nav-items {
-      overflow: hidden;
-      margin: 0 auto;
-      padding: @spacing / 2 0;
-      a {
-        margin: 0 30px;
-      }
-      a, a:hover, a:active, a:visited {
-        color: whiteSmoke;
-      }
-    }
-  }
-
-  @media (max-width: @single-column-threshold) {
-    display: none;
-  }
-}
-
-nav.vertical {
+nav {
+  font-size: @spacing / 2;
+  font-weight: 400;
+  line-height: @vertical-rhythm;
+  text-transform: uppercase;
   background-color: black;
   margin-right: -@sidebar-width;
   width: 0;
   position: fixed;
   top: 0;
-  right: @sidebar-width;
+  right: 0;
   bottom: 0;
   z-index: 1;
   overflow-y: auto;
   &.menu-active {
-    @media (max-width: @single-column-threshold) {
-      transform: translateX(0);
-      width: @sidebar-width;
-      right: @sidebar-width;
-    }
-  }
-  @media (max-width: @single-column-threshold) {
-    right: 0;
+    transform: translateX(0);
+    width: @sidebar-width;
+    right: @sidebar-width;
   }
   a, a:hover, a:active, a:visited {
     color: whiteSmoke;
@@ -153,12 +114,12 @@ nav.vertical {
     width: 100%;
     display: block;
     padding: @spacing;
-    text-transform: uppercase;
-    font-size: @spacing * 3 / 4;
     border-bottom: 1px solid @midgrey;
   }
   a:hover {
     color: @textcolor;
+    transition: all 0.2s ease-out;
+    transform: translateX(5px);
   }
 }
 
@@ -191,10 +152,7 @@ body {
 
 .content-wrapper {
   .vertical-center-parent();
-  height: 85vh;
-  @media (max-width: @single-column-threshold) {
-    height: 90vh;
-  }
+  height: 95vh;
   .content {
     .vertical-center-child();
     padding: 0; // No left/right padding because works should bleed all the way to the edges
@@ -314,26 +272,12 @@ body {
 }
 
 footer {
-  height: 10vh;
+  height: 5vh;
   text-align: right;
   padding: @spacing / 2;
   font-size: 24pt;
   background-color: @shadedgrey;
-  // Icons
-  .symbol, a .symbol:before {
-    font-family: 'Mono Social Icons Font';
-    text-rendering: optimizeLegibility;
-    font-smoothing: antialiased;
-  }
-  // More icon styling
-  a .symbol:before {
-    content: attr(title);
-    margin-right: 0.3em;
-    font-size: 130%;
-  }
-  a .symbol:hover {
-    color: white;
-  }
+
   &.menu-active {
     @media (max-width: @single-column-threshold) {
       transform: translateX(@sidebar-width);
