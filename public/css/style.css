@@ -433,7 +433,7 @@ nav.horizontal .nav-items-wrapper .nav-items a:visited {
   }
 }
 nav.vertical {
-  background: rgba(0, 0, 0, 0.7);
+  background-color: #111111;
   margin-left: -150px;
   width: 0;
   position: fixed;
@@ -442,7 +442,6 @@ nav.vertical {
   bottom: 0;
   z-index: 1;
   overflow-y: auto;
-  font-size: 24px;
 }
 @media (max-width: 770px) {
   nav.vertical.menu-active {
@@ -466,15 +465,14 @@ nav.vertical a:visited {
   text-decoration: none;
   width: 100%;
   display: block;
+  padding: 24px;
+  text-transform: uppercase;
+  font-size: 24px;
+  border-bottom: 1px solid #333333;
 }
 nav.vertical a:hover {
   background-color: #b7b7b7;
   color: #b7b7b7;
-}
-nav.vertical li {
-  text-transform: uppercase;
-  font-size: 12px;
-  margin: 24px;
 }
 body,
 nav,
@@ -499,7 +497,7 @@ h6 {
 body {
   left: 0;
   margin: 0;
-  background-color: #222222;
+  background-color: #111111;
   font-family: "Lato", sans-serif;
   font-weight: 100;
   color: #b7b7b7;
@@ -579,7 +577,6 @@ body {
   display: block;
   height: 310px;
   -webkit-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: matrix(1, 0, -0.2, 1, 24, 0);
   -ms-transform: matrix(1, 0, -0.2, 1, 24, 0);
@@ -596,7 +593,6 @@ body {
   -webkit-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
   -webkit-transform: scale(0.95) translateZ(0);
-  -ms-transform: scale(0.95) translateZ(0);
   transform: scale(0.95) translateZ(0);
   background-position: center center;
   background-repeat: no-repeat;
@@ -698,7 +694,7 @@ body.modal-enabled > *:not(.modal-parent) {
 .modal-parent .modal .modal-content .message {
   min-height: 300px;
   max-height: 80vh;
-  background-color: #222222;
+  background-color: #111111;
 }
 .modal-parent .modal .modal-content .message .text {
   position: relative;
@@ -725,7 +721,6 @@ body.modal-enabled > *:not(.modal-parent) {
   height: 30vh;
   width: 2000px;
   -webkit-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: matrix(1, 0, -0.2, 1, 24, 0);
   -ms-transform: matrix(1, 0, -0.2, 1, 24, 0);

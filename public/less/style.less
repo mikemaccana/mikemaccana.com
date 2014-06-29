@@ -2,7 +2,8 @@
 @import "fonts.less";
 
 @lightgrey: #B7B7B7;
-@darkgrey: #222;
+@midgrey: #333;
+@darkgrey: #111;
 @scaryred: #b90f00;
 @shadedgrey: rgba(0,0,0,0.7);
 @screenshots-total-width: 2000px;
@@ -105,7 +106,7 @@ nav.horizontal {
 }
 
 nav.vertical {
-  background: @shadedgrey;
+  background-color: @darkgrey;
   margin-left: -@sidebar-width;
   width: 0;
   position: fixed;
@@ -114,7 +115,6 @@ nav.vertical {
   bottom: 0;
   z-index: 1;
   overflow-y: auto;
-  font-size: @spacing;
   &.menu-active {
     @media (max-width: @single-column-threshold) {
       transform: translateX(0);
@@ -130,15 +130,14 @@ nav.vertical {
     text-decoration: none;
     width: 100%;
     display: block;
+    padding: @spacing;
+    text-transform: uppercase;
+    font-size: @spacing;
+    border-bottom: 1px solid @midgrey;
   }
   a:hover {
     background-color: @lightcolor;
     color: @textcolor;
-  }
-  li {
-    text-transform: uppercase;
-    font-size: @spacing / 2;
-    margin: @spacing;
   }
 }
 
