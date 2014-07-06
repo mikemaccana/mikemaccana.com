@@ -14,6 +14,8 @@ var render = require('./lib/render'),
 // "database"
 var posts = [];
 
+var PORT = 3000;
+
 // middleware
 app.use(logger());
 
@@ -55,5 +57,9 @@ app.use(route.get('/about', function *() {
 
 app.use(serve(__dirname + '/public'));
 
-app.listen(3000);
-console.log('listening on port 3000');
+if ( app.env === 'production') {
+ PORT = 80
+}
+
+app.listen(PORT);
+log('listening on port', PORT);
