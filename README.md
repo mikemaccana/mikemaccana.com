@@ -1,4 +1,11 @@
-# Hello there
+# My personal blog
 
-Simply adding a README.md file will not fix it, you should write something inside it; at least the project title and a brief description is good for people! But for NPM, one byte may be enough...
-Doing so should stop showing the warnings.
+Deploy with http://nodejs.org/dist/v0.11.12/node-v0.11.12-linux-x64.tar.gz
+
+Set up node/npm in /usr/local/bin
+
+  cp mikemaccana.com.service /etc/systemd/system
+
+  systemctl enable mikemaccana.com.service
+
+  systemctl start mikemaccana.com.service
