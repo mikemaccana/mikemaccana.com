@@ -3,13 +3,17 @@
 var log = console.log.bind(console);
 
 // Module dependencies
-var render = require('./lib/render'),
+var setupRenderer = require('./lib/render'),
   logger = require('koa-logger'),
   route = require('koa-route'),
   serve = require('koa-static'),
   parse = require('co-body'),
   koa = require('koa'),
   app = koa();
+
+var render = setupRenderer(app)
+
+var PORT = 3000;
 
 // "database"
 var posts = [];
@@ -55,5 +59,5 @@ app.use(route.get('/about', function *() {
 
 app.use(serve(__dirname + '/public'));
 
-app.listen(3000);
-console.log('listening on port 3000');
+app.listen(PORT);
+console.log('Server running in env', app.env, 'listening on port', PORT);
