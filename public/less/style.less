@@ -153,6 +153,7 @@ body {
 .content-wrapper {
   .vertical-center-parent();
   height: 95vh;
+  width: 100%;
   .content {
     .vertical-center-child();
     padding: 0; // No left/right padding because works should bleed all the way to the edges
@@ -288,6 +289,11 @@ footer {
 // http://taitems.github.io/UX-Lab/ModalBlur/index.html
 body.modal-enabled > *:not(.modal-parent) {
   filter: blur(2px);
+}
+
+.about-me {
+  margin: 0 auto;
+  max-width: @single-column-threshold;
 }
 
 .modal-parent {

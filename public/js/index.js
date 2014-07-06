@@ -165,56 +165,56 @@ define(function(require){
       log('Works is now', normalItemsWidth + selectedItemWidth + centerInWindow)
     }
 
-
-    var drawMongogram = function(){
-      log('Drawing mongogram')
-      var monogram = Snap.select(".monogram")
-      var bigM = monogram.select('#big-m');
-      var smallM = monogram.select('#small-m');
-      var works = queryAll('.works .work')
-      var workDescription = query('.work-description')
-      var title = query('.intro h1');
-      var sub = query('.intro h2');
-      // See http://raphaeljs.com/reference.html#Element.transform for transform syntax
-      setTimeout(function(){
-        bigM.animate({
-          transform: "T70,0",
-          opacity: 1,
-          fill: 'whiteSmoke'
-        }, 1000, mina.easeout)
-        smallM.animate({
-          transform: "T0,70",
-          opacity: 1,
-          fill: 'white'
-        }, 1500, mina.easeout)
-      }, 500)
-      setTimeout(function(){
-        title.classList.toggle('visible');
-      }, 750)
-      setTimeout(function(){
-        sub.classList.toggle('visible');
-      }, 1000)
-
-
-      imagesLoaded('.works .work', function(event) {
-        log('works loaded');
-        works.avforEach(function(element, index){
-          setTimeout(function(){
-            element.classList.toggle('visible');
-          }, 1000 + (index * 250))
-        })
-        setTimeout(function(){
-          workDescription.classList.toggle('visible');
-        }, 1000)
-      })
-    }
-
     // Re-run layout padding when window resizes, but wait until the user has stopped
     // resizing the window for 500ms first
     window.addEventListener("resize", padFirstWorkItem.avthrottle(500));
     padFirstWorkItem()
     select(selected);
-    drawMongogram();
   }
+
+  var drawMongogram = function(){
+    log('Drawing mongogram')
+    var monogram = Snap.select(".monogram")
+    var bigM = monogram.select('#big-m');
+    var smallM = monogram.select('#small-m');
+    var works = queryAll('.works .work')
+    var workDescription = query('.work-description')
+    var title = query('.intro h1');
+    var sub = query('.intro h2');
+    // See http://raphaeljs.com/reference.html#Element.transform for transform syntax
+    setTimeout(function(){
+      bigM.animate({
+        transform: "T70,0",
+        opacity: 1,
+        fill: 'whiteSmoke'
+      }, 1000, mina.easeout)
+      smallM.animate({
+        transform: "T0,70",
+        opacity: 1,
+        fill: 'white'
+      }, 1500, mina.easeout)
+    }, 500)
+    setTimeout(function(){
+      title.classList.toggle('visible');
+    }, 750)
+    setTimeout(function(){
+      sub.classList.toggle('visible');
+    }, 1000)
+
+
+    imagesLoaded('.works .work', function(event) {
+      log('works loaded');
+      works.avforEach(function(element, index){
+        setTimeout(function(){
+          element.classList.toggle('visible');
+        }, 1000 + (index * 250))
+      })
+      setTimeout(function(){
+        workDescription.classList.toggle('visible');
+      }, 1000)
+    })
+  }
+
+  drawMongogram();
 })
 

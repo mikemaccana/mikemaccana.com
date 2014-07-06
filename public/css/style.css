@@ -489,6 +489,7 @@ body {
 .content-wrapper {
   display: table;
   height: 95vh;
+  width: 100%;
 }
 .content-wrapper .content {
   display: table-cell;
@@ -635,6 +636,10 @@ footer {
 body.modal-enabled > *:not(.modal-parent) {
   -webkit-filter: blur(2px);
   filter: blur(2px);
+}
+.about-me {
+  margin: 0 auto;
+  max-width: 770px;
 }
 .modal-parent {
   display: none;
