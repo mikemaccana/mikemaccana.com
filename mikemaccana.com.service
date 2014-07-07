@@ -1,8 +1,6 @@
 [Service]
 ExecStart=/usr/local/bin/node --harmony /var/www/mikemaccana.com/server.js
 Restart=always
-StandardOutput=syslog
-SyslogIdentifier=mikemaccana.com
 User=nobody
 Group=nobody
 Environment=PATH=/usr/bin:/usr/local/bin
