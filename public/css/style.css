@@ -363,11 +363,6 @@ a, a:hover, a:active, a:visited {
   color: #B7B7B7;
   text-decoration: none; }
 
-body.loading .content {
-  -webkit-transform: translateY(-10%); }
-body.loading .works-wrapper, body.loading .work-description {
-  visibility: hidden; }
-
 /* ☰ button */
 .hamburger {
   cursor: pointer;
@@ -435,8 +430,8 @@ nav {
     transform: translateX(5px); }
 
 body, nav, .hamburger, .content, .symbol {
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out; }
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out; }
 
 strong {
   color: #b90f00; }
@@ -454,7 +449,10 @@ body {
   color: #B7B7B7;
   overflow-x: hidden;
   background-image: url('/images/pattern.jpg');
-  background-size: cover; }
+  background-size: cover;
+  -webkit-transform: all 2s ease-in-out;
+  -ms-transform: all 2s ease-in-out;
+  transform: all 2s ease-in-out; }
 
 .content-wrapper {
   -webkit-transform-style: preserve-3d;
@@ -475,9 +473,13 @@ body {
       margin: 0; }
     @media (max-width: 770px) {
       .content-wrapper .content.menu-active {
-        -webkit-transform: translateX(-150px);
-        -ms-transform: translateX(-150px);
-        transform: translateX(-150px); } }
+        -webkit-transform: translate(-150px, -50%);
+        -ms-transform: translate(-150px, -50%);
+        transform: translate(-150px, -50%); } }
+    .content-wrapper .content.loading {
+      -webkit-transform: translateY(-10%);
+      -ms-transform: translateY(-10%);
+      transform: translateY(-10%); }
     .content-wrapper .content .intro {
       padding: 0 24px;
       text-align: center; }
@@ -503,6 +505,8 @@ body {
   width: 100vw;
   margin: 0;
   overflow: scroll; }
+  .works-wrapper.loading {
+    visibility: hidden; }
   .works-wrapper .works-container {
     width: 100%;
     overflow: scroll; }
@@ -543,6 +547,8 @@ body {
   max-width: 600px;
   margin: 0px auto;
   opacity: 0; }
+  .work-description.loading {
+    visibility: hidden; }
   .work-description.visible {
     opacity: 1; }
   .work-description .work-title {
