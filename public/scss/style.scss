@@ -32,13 +32,15 @@ $selected-item-height: 310px;
 }
 
 // Never mind Flexbox. Spec changes too much and docs are hard to find.
+// http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
 @mixin vertical-center-parent() {
-  display: table;
+  transform-style: preserve-3d;
 }
 
 @mixin vertical-center-child() {
-  display: table-cell;
-  vertical-align: middle;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 a, a:hover, a:active, a:visited {

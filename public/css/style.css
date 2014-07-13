@@ -452,12 +452,16 @@ body {
   background-size: cover; }
 
 .content-wrapper {
-  display: table;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   height: 95vh;
   width: 100%; }
   .content-wrapper .content {
-    display: table-cell;
-    vertical-align: middle;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
     padding: 0;
     position: relative; }
     .content-wrapper .content ul, .content-wrapper .content li {
@@ -586,10 +590,14 @@ body.modal-enabled > *:not(.modal-parent) {
     position: absolute;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    display: table; }
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
     .modal-parent .modal .modal-content {
-      display: table-cell;
-      vertical-align: middle; }
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%); }
       .modal-parent .modal .modal-content .message {
         min-height: 300px;
         max-height: 80vh;
