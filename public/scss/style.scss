@@ -221,7 +221,6 @@ body {
       @include slant();
       .work {
         cursor: pointer;
-        border: 1px solid $lightgrey;
         list-style-type: none;
         float: left;
         margin: 0 $spacing / 4;
