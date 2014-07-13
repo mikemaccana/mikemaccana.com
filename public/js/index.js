@@ -182,7 +182,7 @@ define(function(require){
     var title = query('.intro h1');
     var sub = query('.intro h2');
     // See http://raphaeljs.com/reference.html#Element.transform for transform syntax
-    setTimeout(function(){
+
       bigM.animate({
         transform: "T70,0",
         opacity: 1,
@@ -193,7 +193,6 @@ define(function(require){
         opacity: 1,
         fill: 'white'
       }, 1500, mina.easeout)
-    }, 500)
     setTimeout(function(){
       title.classList.toggle('visible');
     }, 750)
@@ -201,6 +200,9 @@ define(function(require){
       sub.classList.toggle('visible');
     }, 1000)
 
+    setTimeout(function(){
+      body.classList.remove('loading');
+    }, 1500)
 
     imagesLoaded('.works .work', function(event) {
       log('works loaded');

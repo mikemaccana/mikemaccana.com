@@ -54,6 +54,16 @@ a, a:hover, a:active, a:visited {
   margin: 0;
 }
 
+// Centers monogram until content has loaded
+body.loading {
+  .content {
+    -webkit-transform: translateY(-10%);
+  }
+  .works-wrapper, .work-description {
+    visibility: hidden;
+  }
+}
+
 /* ☰ button */
 .hamburger {
   cursor: pointer;
@@ -238,7 +248,7 @@ body {
 
 
 .work-description {
-  height: 20vh; // Must be consistent so that vertically centered ares doesn't move around
+  height: 150px; // Must be consistent so that vertically centered areas doesn't move around
   text-align: left;
   max-width: 600px;
   margin: 0px auto;

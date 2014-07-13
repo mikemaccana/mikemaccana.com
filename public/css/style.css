@@ -363,6 +363,11 @@ a, a:hover, a:active, a:visited {
   color: #B7B7B7;
   text-decoration: none; }
 
+body.loading .content {
+  -webkit-transform: translateY(-10%); }
+body.loading .works-wrapper, body.loading .work-description {
+  visibility: hidden; }
+
 /* ☰ button */
 .hamburger {
   cursor: pointer;
@@ -534,7 +539,7 @@ body {
           height: 310px; }
 
 .work-description {
-  height: 20vh;
+  height: 150px;
   text-align: left;
   max-width: 600px;
   margin: 0px auto;
