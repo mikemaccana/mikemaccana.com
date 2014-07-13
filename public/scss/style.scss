@@ -175,13 +175,12 @@ body {
     }
     .intro {
       padding: 0 $spacing;
-
+      text-align: center;
       .monogram {
         margin-top: $spacing / 2;
         height: 60px;
         width: 60px;
       }
-      text-align: center;
       h1, h2, h3 {
         margin: $spacing / 4 0;
         opacity: 0;

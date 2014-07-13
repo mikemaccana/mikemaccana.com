@@ -208,21 +208,19 @@ define(function(require){
     }, 1500)
 
     setTimeout(function(){
-      worksWrapper.classList.remove('loading');
-      workDescription.classList.remove('loading');
+      imagesLoaded('.works .work', function(event) {
+        worksWrapper.classList.remove('loading');
+        workDescription.classList.remove('loading');
+        // Fade in each item individually
+        works.avforEach(function(element, index){
+          setTimeout(function(){
+            element.classList.toggle('visible');
+          }, index * 300)
+        })
+        workDescription.classList.toggle('visible');
+      })
     }, 2000)
 
-    imagesLoaded('.works .work', function(event) {
-      log('works loaded');
-      works.avforEach(function(element, index){
-        setTimeout(function(){
-          element.classList.toggle('visible');
-        }, 1000 + (index * 250))
-      })
-      setTimeout(function(){
-        workDescription.classList.toggle('visible');
-      }, 1000)
-    })
   }
 
   drawMongogram();
