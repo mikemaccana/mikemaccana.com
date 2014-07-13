@@ -1,24 +1,24 @@
-@import "normalize.less";
-@import "fonts.less";
+@import "normalize.scss";
+@import "fonts.scss";
 
-@lightgrey: #B7B7B7;
-@midgrey: #222;
-@scaryred: #b90f00;
-@shadedgrey: rgba(0,0,0,0.7);
-@screenshots-total-width: 2000px;
+$lightgrey: #B7B7B7;
+$midgrey: #222;
+$scaryred: #b90f00;
+$shadedgrey: rgba(0,0,0,0.7);
+$screenshots-total-width: 2000px;
 
 
-@textcolor: @lightgrey;
-@lightcolor: @lightgrey;
-@othertextcolor: @scaryred;
+$textcolor: $lightgrey;
+$lightcolor: $lightgrey;
+$othertextcolor: $scaryred;
 
-@spacing: 24px;
-@sidebar-width: 150px;
-@single-column-threshold: 770px;
-@vertical-rhythm: 14px;
-@selected-item-height: 310px;
+$spacing: 24px;
+$sidebar-width: 150px;
+$single-column-threshold: 770px;
+$vertical-rhythm: 14px;
+$selected-item-height: 310px;
 
-.slant() {
+@mixin slant() {
   backface-visibility: hidden; // Seems to fix flashing when scrolling with transform below on.
   transform: matrix(1, 0, -0.2, 1, 24, 0);
 }
@@ -32,21 +32,21 @@
 }
 
 // Never mind Flexbox. Spec changes too much and docs are hard to find.
-.vertical-center-parent {
+@mixin vertical-center-parent() {
   display: table;
 }
 
-.vertical-center-child {
+@mixin vertical-center-child() {
   display: table-cell;
   vertical-align: middle;
 }
 
 a, a:hover, a:active, a:visited {
-  color: @textcolor;
+  color: $textcolor;
   text-decoration: none;
 }
 
-.notlist {
+@mixin notlist {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -63,13 +63,13 @@ a, a:hover, a:active, a:visited {
   right: 0;
   display: block;
   &.menu-active {
-    right: @sidebar-width;
+    right: $sidebar-width;
   }
   .hamburger-top, .hamburger-middle, .hamburger-bottom {
     transition: all .5s;
     display: block;
     height: 1px;
-    width: @spacing;
+    width: $spacing;
     background: #fff;
     margin: 4px auto;
   }
@@ -90,12 +90,12 @@ a, a:hover, a:active, a:visited {
 }
 
 nav {
-  font-size: @spacing / 2;
+  font-size: $spacing / 2;
   font-weight: 400;
-  line-height: @vertical-rhythm;
+  line-height: $vertical-rhythm;
   text-transform: uppercase;
   background-color: black;
-  margin-right: -@sidebar-width;
+  margin-right: -$sidebar-width;
   width: 0;
   position: fixed;
   top: 0;
@@ -105,19 +105,19 @@ nav {
   overflow-y: auto;
   &.menu-active {
     transform: translateX(0);
-    width: @sidebar-width;
-    right: @sidebar-width;
+    width: $sidebar-width;
+    right: $sidebar-width;
   }
   a, a:hover, a:active, a:visited {
     color: whiteSmoke;
     text-decoration: none;
     width: 100%;
     display: block;
-    padding: @spacing;
-    border-bottom: 1px solid @midgrey;
+    padding: $spacing;
+    border-bottom: 1px solid $midgrey;
   }
   a:hover {
-    color: @textcolor;
+    color: $textcolor;
     transition: all 0.2s ease-out;
     transform: translateX(5px);
   }
@@ -128,12 +128,12 @@ body, nav, .hamburger, .content, .symbol {
 }
 
 strong {
-  color: @othertextcolor;
+  color: $othertextcolor;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
-  color: @textcolor;
+  color: $textcolor;
 }
 
 body {
@@ -142,7 +142,7 @@ body {
   background-color: black;
   font-family: "Lato", sans-serif;
   font-weight: 100;
-  color: @textcolor;
+  color: $textcolor;
   overflow-x: hidden;
   background-image: url('/images/me.jpg');
   background-size: cover;
@@ -151,31 +151,31 @@ body {
 
 
 .content-wrapper {
-  .vertical-center-parent();
+  @include vertical-center-parent();
   height: 95vh;
   width: 100%;
   .content {
-    .vertical-center-child();
+    @include vertical-center-child();
     padding: 0; // No left/right padding because works should bleed all the way to the edges
     position: relative;
     ul, li {
-      .notlist;
+      @include notlist();
     }
     &.menu-active {
-      @media (max-width: @single-column-threshold) {
-        transform: translateX(-@sidebar-width);
+      @media (max-width: $single-column-threshold) {
+        transform: translateX(-$sidebar-width);
       }
     }
     .intro {
-      padding: 0 @spacing;
+      padding: 0 $spacing;
       .monogram {
-        margin-top: @spacing / 2;
+        margin-top: $spacing / 2;
         height: 60px;
         width: 60px;
       }
       text-align: center;
       h1, h2, h3 {
-        margin: @spacing / 4 0;
+        margin: $spacing / 4 0;
         opacity: 0;
         transition: all 0.1s ease-out;
         &.visible {
@@ -184,7 +184,7 @@ body {
       }
     }
     .work-description {
-      padding: 0 @spacing;
+      padding: 0 $spacing;
     }
     .help {
       text-align: center;
@@ -205,14 +205,14 @@ body {
       list-style-type: none;
       display: block;
       // width: Set dynamically by JS
-      height: @selected-item-height;
-      .slant();
+      height: $selected-item-height;
+      @include slant();
       .work {
         cursor: pointer;
-        border: 1px solid @lightgrey;
+        border: 1px solid $lightgrey;
         list-style-type: none;
         float: left;
-        margin: 0 @spacing / 4;
+        margin: 0 $spacing / 4;
         width: 180px;
         height: 290px;
         transition: all 0.1s ease-out;
@@ -246,7 +246,7 @@ body {
   }
   .work-title {
     font-size: 26pt;
-    margin: @spacing / 4 0;
+    margin: $spacing / 4 0;
     width: 70%;
   }
   .work-logo {
@@ -257,7 +257,7 @@ body {
   }
   .work-lede {
     p {
-      margin: @spacing / 4 0;
+      margin: $spacing / 4 0;
     }
   }
 }
@@ -268,20 +268,20 @@ body {
   margin-top: 50px;
   img {
     float: right;
-    margin-left: @spacing / 2;
+    margin-left: $spacing / 2;
   }
 }
 
 footer {
   height: 5vh;
   text-align: right;
-  padding: @spacing / 2;
+  padding: $spacing / 2;
   font-size: 24pt;
-  background-color: @shadedgrey;
+  background-color: $shadedgrey;
 
   &.menu-active {
-    @media (max-width: @single-column-threshold) {
-      transform: translateX(@sidebar-width);
+    @media (max-width: $single-column-threshold) {
+      transform: translateX($sidebar-width);
     }
   }
 }
@@ -293,7 +293,7 @@ body.modal-enabled > *:not(.modal-parent) {
 
 .about-me {
   margin: 0 auto;
-  max-width: @single-column-threshold;
+  max-width: $single-column-threshold;
 }
 
 .modal-parent {
@@ -305,11 +305,11 @@ body.modal-enabled > *:not(.modal-parent) {
     width: 100%;
     position: absolute;
     height: 100%;
-    background-color: @shadedgrey;
-    .vertical-center-parent();
+    background-color: $shadedgrey;
+    @include vertical-center-parent();
     // Pardon the extra div here, but http://stackoverflow.com/questions/6977313/can-you-use-display-table-cell-and-have-a-fixed-width-height
     .modal-content {
-      .vertical-center-child();
+      @include vertical-center-child();
       .message {
         min-height: 300px;
         max-height: 80vh;
@@ -317,35 +317,35 @@ body.modal-enabled > *:not(.modal-parent) {
         .text {
           position: relative;
           h1 {
-            margin: 0 0 @spacing 0;
+            margin: 0 0 $spacing 0;
           }
           .close {
             cursor: pointer;
             position: absolute;
-            right: @spacing;
-            top: @spacing;
+            right: $spacing;
+            top: $spacing;
           }
           .screenshot-container {
             max-width: 100%;
             overflow: scroll;
             .screenshots {
               height: 30vh;
-              width: @screenshots-total-width;
-              .slant();
+              width: $screenshots-total-width;
+              @include slant();
               a.screenshot {
                 display: block;
                 float: left;
-                border: 1px solid @lightgrey;
+                border: 1px solid $lightgrey;
                 height: 30vh;
-                margin: @spacing / 4;
+                margin: $spacing / 4;
               }
               img {
                 height: 100%;
               }
             }
           }
-          padding: @spacing;
-          max-width: @single-column-threshold;
+          padding: $spacing;
+          max-width: $single-column-threshold;
           height: 100%;
           color: whitesmoke;
           margin: 0 auto;
