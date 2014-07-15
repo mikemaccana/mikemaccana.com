@@ -31,6 +31,11 @@ $selected-item-height: 310px;
   }
 }
 
+// No scrollbars
+::-webkit-scrollbar {
+  display: none;
+}
+
 // Never mind Flexbox. Spec changes too much and docs are hard to find.
 // http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
 @mixin vertical-center-parent() {

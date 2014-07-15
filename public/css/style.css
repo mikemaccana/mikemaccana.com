@@ -359,6 +359,9 @@ td, th {
   * li, *:before li, *:after li {
     overflow: visible; }
 
+::-webkit-scrollbar {
+  display: none; }
+
 a, a:hover, a:active, a:visited {
   color: #B7B7B7;
   text-decoration: none; }
