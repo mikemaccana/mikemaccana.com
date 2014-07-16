@@ -11,6 +11,7 @@ define(function(require){
     agave = require("agave"),
     Ractive = require("ractive"),
     imagesLoaded = require("imagesloaded"),
+    Hammer = require("hammer"),
     Snap = require("snap"),
     worksTemplate = require("text!/views/works.html"),
     workDescriptionTemplate = require("text!/views/workdescription.html"),
@@ -87,9 +88,8 @@ define(function(require){
         unselect(selected);
         var thisWork = event.target
         // log('thisWork', thisWork)
-        var index = thisWork.avgetParentIndex() + 1;
-        selected = index;
-        select(index);
+        selected = thisWork.avgetParentIndex() + 1;
+        select(selected);
         // log('hovered on ', index)
       });
 
@@ -102,6 +102,39 @@ define(function(require){
         // Make dialog show the work at this index
       })
     })
+
+    var scroll = function(index){
+      var itemFullWidth = ITEM_WIDTH.unselected + (ITEM_WIDTH.margin * 2)
+      var amount = ( itemFullWidth * (index - 1) );
+      worksArea.scrollLeft = amount;
+    }
+
+    var worksHammertime = new Hammer(worksAll);
+    worksHammertime.on('panleft', function(ev) {
+      log('left')
+      if ( selected < max ) {
+        unselect(selected);
+        selected++;
+        // log('right')
+        scroll(selected)
+        select(selected)
+      }
+    });
+
+    worksHammertime.on('panright', function(ev) {
+      log('right')
+
+      if ( selected > 1 ) {
+        unselect(selected);
+        selected--;
+        // log('left')
+        scroll(selected)
+        select(selected)
+      }
+    });
+
+
+
 
     close.addEventListener('click', function(event){
       disableModal();
