@@ -644,7 +644,7 @@ body.modal-enabled > *:not(.modal-parent) {
               .modal-parent .modal .modal-content .message .text .screenshot-container .screenshots a.screenshot {
                 display: block;
                 float: left;
-                border: 1px solid #B7B7B7;
+                background-color: white;
                 height: 30vh;
                 margin: 6px; }
               .modal-parent .modal .modal-content .message .text .screenshot-container .screenshots img {

@@ -355,7 +355,7 @@ body.modal-enabled > *:not(.modal-parent) {
               a.screenshot {
                 display: block;
                 float: left;
-                border: 1px solid $lightgrey;
+                background-color: white;
                 height: 30vh;
                 margin: $spacing / 4;
               }
