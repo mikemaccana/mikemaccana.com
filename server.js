@@ -5,11 +5,13 @@ var log = console.log.bind(console);
 // Module dependencies
 var setupRenderer = require('./lib/render'),
   logger = require('koa-logger'),
+  gzip = require('koa-gzip'),
   route = require('koa-route'),
   serve = require('koa-static'),
   parse = require('co-body'),
-  koa = require('koa'),
-  app = koa();
+  koa = require('koa');
+
+var app = koa();
 
 var render = setupRenderer(app)
 
@@ -19,6 +21,7 @@ var PORT = 3000;
 var posts = [];
 
 // middleware
+app.use(gzip());
 app.use(logger());
 
 // Show all posts
