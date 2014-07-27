@@ -11,7 +11,6 @@ define(function(require){
     agave = require("agave"),
     Ractive = require("ractive"),
     imagesLoaded = require("imagesloaded"),
-    Hammer = require("hammer"),
     Snap = require("snap"),
     worksTemplate = require("text!/views/works.html"),
     workDescriptionTemplate = require("text!/views/workdescription.html"),
@@ -20,8 +19,8 @@ define(function(require){
 
   agave.enable('av');
 
-  var query = document.querySelector.bind(document),
-    queryAll = document.querySelectorAll.bind(document);
+  window.query = document.querySelector.bind(document),
+    window.queryAll = document.querySelectorAll.bind(document);
 
   var ITEM_WIDTH = {
     selected: 400,
@@ -109,32 +108,15 @@ define(function(require){
       worksArea.scrollLeft = amount;
     }
 
-    var worksHammertime = new Hammer(worksAll);
-    worksHammertime.on('panleft', function(ev) {
-      log('left')
-      if ( selected < max ) {
-        unselect(selected);
-        selected++;
-        // log('right')
-        scroll(selected)
-        select(selected)
-      }
+    worksArea.addEventListener('touchend', function(ev){
+      var changedTouches = ev.changedTouches[0];
+      var elem = document.elementFromPoint(changedTouches.pageX, changedTouches.pageY);
+      var itemNumber = elem.avgetParentIndex()
+      unselect(selected);
+      selected = itemNumber;
+      log('Selected element', itemNumber)
+      select(itemNumber)
     });
-
-    worksHammertime.on('panright', function(ev) {
-      log('right')
-
-      if ( selected > 1 ) {
-        unselect(selected);
-        selected--;
-        // log('left')
-        scroll(selected)
-        select(selected)
-      }
-    });
-
-
-
 
     close.addEventListener('click', function(event){
       disableModal();
@@ -181,21 +163,25 @@ define(function(require){
 
     var unselect = function(index){
       var work = query('.work:nth-child('+index+')')
-      work.classList.remove('selected');
+      if ( work ) {
+        work.classList.remove('selected');
+      } else {
+        log('Could not find a work with index', index)
+      }
     }
 
     // We need to pad first item is list, so it shows in center
     var padFirstWorkItem = function(){
       log('Adjusting padding')
-      var centerInWindow = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH.selected/2) ); // Keeps current item centered in window
-      works[0].style['margin-left'] = centerInWindow+'px';
+      var worksOffset = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH.selected/2) ); // Keeps current item centered in window
+      works[0].style['margin-left'] = worksOffset+'px';
 
       // Adjust width of .works for the amount of works we have
       var normalWorkItemWidth = 180 + 2 * 6;
       var normalItemsWidth = ( worksData.works.length - 1 ) * normalWorkItemWidth
       var selectedItemWidth = 400 + 2 * 6
-      worksAll.style.width = normalItemsWidth + selectedItemWidth + centerInWindow
-      log('Works is now', normalItemsWidth + selectedItemWidth + centerInWindow)
+      worksAll.style.width = normalItemsWidth + selectedItemWidth + worksOffset
+      log('Works is now', normalItemsWidth + selectedItemWidth + worksOffset)
     }
 
     // Re-run layout padding when window resizes, but wait until the user has stopped
@@ -206,7 +192,7 @@ define(function(require){
   }
 
   var drawMongogram = function(){
-    log('Drawing mongogram')
+    log('Drawing monogram')
     var monogram = Snap.select(".monogram")
     var bigM = monogram.select('#big-m');
     var smallM = monogram.select('#small-m');
