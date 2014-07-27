@@ -535,7 +535,6 @@ body {
         transform: scale(0.95) translateZ(0);
         background-position: center center;
         background-repeat: no-repeat;
-        background-color: black;
         background-size: contain;
         opacity: 0; }
         .works-wrapper .works-container .works .work.visible {
