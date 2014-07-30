@@ -451,7 +451,7 @@ body {
   font-weight: 100;
   color: #B7B7B7;
   overflow-x: hidden;
-  background-image: url('/images/pattern.jpg');
+  background-image: url('/images/pattern.png');
   background-repeat: repeat;
   -webkit-transform: all 2s ease-in-out;
   -ms-transform: all 2s ease-in-out;
