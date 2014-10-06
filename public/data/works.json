@@ -1,6 +1,28 @@
 {
   "works": [
     {
+      "slug": "waves",
+      "previewImage": "waves.png",
+      "screenshotCount": 1,
+      "imageExtension": "png",
+      "client": "sandpit-lab",
+      "title": "Waves",
+      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+      "lede": "Live alerts for significant changes in Twitter",
+      "description": "<p>Given a keyword, hashtag or user, Waves monitors Twitter for significant changes in sentiment, volume and related words. </p><p>Waves alerts to events before you hear about them - eg, when the Prime Minister of the Ukraine resigned, Waves sent out alerts 40 minutes before BBC and Sky had published a story.</p>"
+    },
+    {
+      "slug": "online-wednesday",
+      "previewImage": "online-wednesday.png",
+      "screenshotCount": 3,
+      "imageExtension": "png",
+      "client": "sandpit-lab",
+      "title": "Online Wednesday",
+      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+      "lede": "The products people are talking about right now",
+      "description": "<p>Getting the right code to your customers as fast as possible. </p><p>Firework combines data from version control, deployment, logs, and CI into a single place to help developers understand what version of the code belongs in their environments, then uses best-of-breed deployment techniques to turn minutes into milliseconds.</p>"
+    },
+    {
       "slug": "firework",
       "previewImage": "firework.png",
       "screenshotCount": 3,
