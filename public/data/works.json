@@ -8,8 +8,8 @@
       "client": "sandpit-lab",
       "title": "Waves",
       "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
-      "lede": "Live alerts for significant changes in Twitter",
-      "description": "<p>Given a keyword, hashtag or user, Waves monitors Twitter for significant changes in sentiment, volume and related words. </p><p>Waves alerts to events before you hear about them - eg, when the Prime Minister of the Ukraine resigned, Waves sent out alerts 40 minutes before BBC and Sky had published a story.</p>"
+      "lede": "Live alerts for significant changes in Twitter.",
+      "description": "<p>Given a keyword, hashtag or user, Waves monitors Twitter for significant changes in sentiment, volume and related words. </p><p>Waves alerts to events before you hear about them. When the Prime Minister of the Ukraine resigned, Waves sent out alerts 40 minutes before BBC and Sky had published a story.</p>"
     },
     {
       "slug": "online-wednesday",
@@ -19,8 +19,8 @@
       "client": "sandpit-lab",
       "title": "Online Wednesday",
       "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
-      "lede": "The products people are talking about right now",
-      "description": "<p>Online Wednesday is an internal tool used by American Express to discover new products and rank public interest of them using Facebook and Twitter.</p>"
+      "lede": "The products people are talking about right now.",
+      "description": "<p>Online Wednesday is an internal tool used by American Express to discover new products and rank interest in them using Facebook and Twitter.</p>"
     },
     {
       "slug": "firework",
