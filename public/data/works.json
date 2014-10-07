@@ -14,13 +14,13 @@
     {
       "slug": "online-wednesday",
       "previewImage": "online-wednesday.png",
-      "screenshotCount": 3,
+      "screenshotCount": 1,
       "imageExtension": "png",
       "client": "sandpit-lab",
       "title": "Online Wednesday",
       "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
       "lede": "The products people are talking about right now",
-      "description": "<p>Getting the right code to your customers as fast as possible. </p><p>Firework combines data from version control, deployment, logs, and CI into a single place to help developers understand what version of the code belongs in their environments, then uses best-of-breed deployment techniques to turn minutes into milliseconds.</p>"
+      "description": "<p>Online Wednesday is an internal tool used by American Express to discover new products and rank public interest of them using Facebook and Twitter.</p>"
     },
     {
       "slug": "firework",
