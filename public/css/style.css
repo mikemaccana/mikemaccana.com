@@ -431,6 +431,8 @@ nav {
     -webkit-transform: translateX(5px);
     -ms-transform: translateX(5px);
     transform: translateX(5px); }
+  nav .linkedin-tracker {
+    display: none; }
 
 body, nav, .hamburger, .content, .symbol {
   -webkit-transition: all 0.4s ease-out;
