@@ -184,10 +184,26 @@ define(function(require){
       log('Works is now', normalItemsWidth + selectedItemWidth + worksOffset)
     }
 
+    // Some people don't have mice that can scroll left and right
+    // So make mousewheel up and down do it.
+    var scrollingGoesLeftAndRight = function(){
+      body.addEventListener("mousewheel", function(event){
+        // IE
+        if (body.doScroll)
+          worksArea.doScroll(event.wheelDelta > 0 ? "left":"right");
+        else if ((event.wheelDelta || event.detail) > 0)
+          worksArea.scrollLeft -= 10;
+        else
+          worksArea.scrollLeft += 10;
+        event.preventDefault();
+      });
+    }
+
     // Re-run layout padding when window resizes, but wait until the user has stopped
     // resizing the window for 500ms first
     window.addEventListener("resize", padFirstWorkItem.avthrottle(500));
     padFirstWorkItem()
+    scrollingGoesLeftAndRight();
     select(selected);
   }
 
@@ -243,5 +259,7 @@ define(function(require){
   }
 
   drawMongogram();
+
+
 })
 
