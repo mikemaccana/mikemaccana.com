@@ -19,8 +19,8 @@ define(function(require){
 
   agave.enable('av');
 
-  window.query = document.querySelector.bind(document),
-    window.queryAll = document.querySelectorAll.bind(document);
+  var query = document.querySelector.bind(document),
+    queryAll = document.querySelectorAll.bind(document);
 
   var ITEM_WIDTH = {
     selected: 400,
@@ -209,15 +209,16 @@ define(function(require){
 
   var drawMongogram = function(){
     log('Drawing monogram')
-    var monogram = Snap.select(".monogram")
-    var bigM = monogram.select('#big-m');
-    var smallM = monogram.select('#small-m');
-    var works = queryAll('.works .work')
-    var worksWrapper = query('.works-wrapper')
-    var workDescription = query('.work-description')
-    var content = query('.content')
-    var title = query('.intro h1');
-    var sub = query('.intro h2');
+    var monogram = Snap.select(".monogram"),
+      bigM = monogram.select('#big-m'),
+      smallM = monogram.select('#small-m'),
+      works = queryAll('.works .work'),
+      worksWrapper = query('.works-wrapper'),
+      workDescription = query('.work-description'),
+      content = query('.content'),
+      title = query('.intro h1'),
+      sub = query('.intro h2');
+
     // See http://raphaeljs.com/reference.html#Element.transform for transform syntax
     bigM.animate({
       transform: "T70,0",
