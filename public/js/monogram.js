@@ -42,7 +42,7 @@ define(function(){
         worksWrapper.classList.remove('loading');
         workDescription.classList.remove('loading');
         // Fade in each item individually
-        works.avforEach(function(element, index){
+        works.forEach(function(element, index){
           setTimeout(function(){
             element.classList.toggle('visible');
           }, index * 300)
