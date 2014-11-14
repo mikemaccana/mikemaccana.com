@@ -492,6 +492,10 @@ body {
         margin-top: 12px;
         height: 60px;
         width: 60px; }
+      .content-wrapper .content .intro h1 {
+        font-family: "garamond";
+        text-transform: uppercase;
+        font-size: 32pt; }
       .content-wrapper .content .intro h1, .content-wrapper .content .intro h2, .content-wrapper .content .intro h3 {
         margin: 6px 0;
         opacity: 0;
