@@ -1,5 +1,11 @@
-define(function(){
-  var Snap = require("snap");
+define(function(require){
+  var Snap = require("snap"),
+    imagesLoaded = require("imagesloaded");
+
+  var query = document.querySelector.bind(document),
+    queryAll = document.querySelectorAll.bind(document),
+    log = console.log.bind(console);
+
 
   var drawMongogram = function(){
     log('Drawing monogram')

@@ -16,12 +16,6 @@ define(function(require){
 
   NodeList.prototype.forEach = Array.prototype.forEach;
 
-  var ITEM_WIDTH = {
-    selected: 400,
-    margin: 6,
-    unselected: 180
-  };
-
   var menuToggledElements = queryAll('nav, body, .hamburger, .content, footer');
 
   // Clicking ☰ button displays nav
