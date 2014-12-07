@@ -4,7 +4,6 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   livereload = require('gulp-livereload'),
   nodemon = require('gulp-nodemon'),
-  jshint = require('gulp-jshint'),
   livereloadServer = require('tiny-lr')()
 
 var path = require('path');
