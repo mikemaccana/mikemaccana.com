@@ -19,362 +19,362 @@ $vertical-rhythm: 14px;
 $selected-item-height: 310px;
 
 @mixin slant() {
-  backface-visibility: hidden; // Seems to fix flashing when scrolling with transform below on.
-  transform: matrix(1, 0, -0.2, 1, 24, 0);
+	backface-visibility: hidden; // Seems to fix flashing when scrolling with transform below on.
+	transform: matrix(1, 0, -0.2, 1, 24, 0);
 }
 
 *, *:before, *:after {
-  box-sizing: border-box;
-  overflow: hidden; // Everything has layout by default. No clear fixes.
-  li {
-    overflow: visible;
-  }
+	box-sizing: border-box;
+	overflow: hidden; // Everything has layout by default. No clear fixes.
+	li {
+		overflow: visible;
+	}
 }
 
 // No scrollbars
 ::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 // Never mind Flexbox. Spec changes too much and docs are hard to find.
 // http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
 @mixin vertical-center-parent() {
-  transform-style: preserve-3d;
+	transform-style: preserve-3d;
 }
 
 @mixin vertical-center-child() {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 a, a:hover, a:active, a:visited {
-  color: $textcolor;
-  text-decoration: none;
+	color: $textcolor;
+	text-decoration: none;
 }
 
 @mixin notlist {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 /* ☰ button */
 .hamburger {
-  cursor: pointer;
-  z-index: 1;
-  top: 0;
-  background-color: black;
-  padding: 1em;
-  position: fixed;
-  right: 0;
-  display: block;
-  &.menu-active {
-    right: $sidebar-width;
-  }
-  .hamburger-top, .hamburger-middle, .hamburger-bottom {
-    transition: all .5s;
-    display: block;
-    height: 1px;
-    width: $spacing;
-    background: #fff;
-    margin: 4px auto;
-  }
+	cursor: pointer;
+	z-index: 1;
+	top: 0;
+	background-color: black;
+	padding: 1em;
+	position: fixed;
+	right: 0;
+	display: block;
+	&.menu-active {
+		right: $sidebar-width;
+	}
+	.hamburger-top, .hamburger-middle, .hamburger-bottom {
+		transition: all .5s;
+		display: block;
+		height: 1px;
+		width: $spacing;
+		background: #fff;
+		margin: 4px auto;
+	}
 
-  // 360 + 45 = 405
-  &.menu-active .hamburger-top {
-    transform: rotate(405deg) translate(4px,4px);
-  }
+	// 360 + 45 = 405
+	&.menu-active .hamburger-top {
+		transform: rotate(405deg) translate(4px,4px);
+	}
 
-  &.menu-active .hamburger-middle {
-    opacity: 0;
-  }
+	&.menu-active .hamburger-middle {
+		opacity: 0;
+	}
 
-  // 360 + 45 = 405
-  &.menu-active .hamburger-bottom {
-    transform: rotate(-405deg) translate(4.5px,-4.5px);
-  }
+	// 360 + 45 = 405
+	&.menu-active .hamburger-bottom {
+		transform: rotate(-405deg) translate(4.5px,-4.5px);
+	}
 }
 
 nav {
-  font-size: $spacing / 2;
-  font-weight: 400;
-  line-height: $vertical-rhythm;
-  text-transform: uppercase;
-  background-color: black;
-  margin-right: -$sidebar-width;
-  width: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  overflow-y: auto;
-  &.menu-active {
-    transform: translateX(0);
-    width: $sidebar-width;
-    right: $sidebar-width;
-  }
-  a, a:hover, a:active, a:visited {
-    color: whiteSmoke;
-    text-decoration: none;
-    width: 100%;
-    display: block;
-    padding: $spacing;
-    border-bottom: 1px solid $midgrey;
-  }
-  a:hover {
-    color: $textcolor;
-    transition: all 0.2s ease-out;
-    transform: translateX(5px);
-  }
-  .linkedin-tracker {
-    display: none;
-  }
+	font-size: $spacing / 2;
+	font-weight: 400;
+	line-height: $vertical-rhythm;
+	text-transform: uppercase;
+	background-color: black;
+	margin-right: -$sidebar-width;
+	width: 0;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	overflow-y: auto;
+	&.menu-active {
+		transform: translateX(0);
+		width: $sidebar-width;
+		right: $sidebar-width;
+	}
+	a, a:hover, a:active, a:visited {
+		color: whiteSmoke;
+		text-decoration: none;
+		width: 100%;
+		display: block;
+		padding: $spacing;
+		border-bottom: 1px solid $midgrey;
+	}
+	a:hover {
+		color: $textcolor;
+		transition: all 0.2s ease-out;
+		transform: translateX(5px);
+	}
+	.linkedin-tracker {
+		display: none;
+	}
 }
 
 body, nav, .hamburger, .content, .symbol {
-  transition: all 0.4s ease-out;
+	transition: all 0.4s ease-out;
 }
 
 strong {
-  color: $othertextcolor;
+	color: $othertextcolor;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 100;
-  color: $textcolor;
+	font-weight: 100;
+	color: $textcolor;
 }
 
 body {
-  left: 0;
-  margin: 0;
-  background-color: black;
-  font-family: "Lato", sans-serif;
-  font-weight: 100;
-  color: $textcolor;
-  overflow-x: hidden;
-  background-image: url('/images/pattern.png');
-  background-repeat: repeat;
-  transform: all 2s ease-in-out;
+	left: 0;
+	margin: 0;
+	background-color: black;
+	font-family: "Lato", sans-serif;
+	font-weight: 100;
+	color: $textcolor;
+	overflow-x: hidden;
+	background-image: url('/images/pattern.png');
+	background-repeat: repeat;
+	transform: all 2s ease-in-out;
 }
 
 
 
 .content-wrapper {
-  @include vertical-center-parent();
-  height: 95vh;
-  width: 100%;
-  .content {
-    @include vertical-center-child();
-    padding: 0; // No left/right padding because works should bleed all the way to the edges
-    position: relative;
-    ul, li {
-      @include notlist();
-    }
-    &.menu-active {
-      @media (max-width: $single-column-threshold) {
-        transform: translate(-$sidebar-width, -50%);
-      }
-    }
-    &.loading {
-      // Centers monogram until content has loaded
-      transform: translateY(-10%);
-    }
-    .intro {
-      padding: 0 $spacing;
-      text-align: center;
-      .monogram {
-        margin-top: $spacing / 2;
-        height: 60px;
-        width: 60px;
-      }
-      h1, h2, h3 {
-        margin: $spacing / 4 0;
-        opacity: 0;
-        transition: all 0.1s ease-out;
-        &.visible {
-          opacity: 1;
-        }
-      }
-    }
-    .work-description {
-      padding: 0 $spacing;
-    }
-    .help {
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 6pt;
-    }
-  }
+	@include vertical-center-parent();
+	height: 95vh;
+	width: 100%;
+	.content {
+		@include vertical-center-child();
+		padding: 0; // No left/right padding because works should bleed all the way to the edges
+		position: relative;
+		ul, li {
+			@include notlist();
+		}
+		&.menu-active {
+			@media (max-width: $single-column-threshold) {
+				transform: translate(-$sidebar-width, -50%);
+			}
+		}
+		&.loading {
+			// Centers monogram until content has loaded
+			transform: translateY(-10%);
+		}
+		.intro {
+			padding: 0 $spacing;
+			text-align: center;
+			.monogram {
+				margin-top: $spacing / 2;
+				height: 60px;
+				width: 60px;
+			}
+			h1, h2, h3 {
+				margin: $spacing / 4 0;
+				opacity: 0;
+				transition: all 0.1s ease-out;
+				&.visible {
+					opacity: 1;
+				}
+			}
+		}
+		.work-description {
+			padding: 0 $spacing;
+		}
+		.help {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 6pt;
+		}
+	}
 }
 
 .works-wrapper {
-  width: 100vw;
-  margin: 0;
-  overflow: scroll;
-  &.loading {
-    // Show once monogram has loaded
-    visibility: hidden;
-  }
-  .works-container {
-    width: 100%;
-    overflow: scroll;
-    .works {
-      list-style-type: none;
-      display: block;
-      // width: Set dynamically by JS
-      height: $selected-item-height;
-      @include slant();
-      .work {
-        cursor: pointer;
-        list-style-type: none;
-        float: left;
-        margin: 0 $spacing / 4;
-        width: 180px;
-        height: 290px;
-        transition: all 0.1s ease-out;
-        transform: scale(0.95) translateZ(0); // Zoom effect
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        opacity: 0;
-        &.visible {
-          opacity: 1;
-        }
-        &.selected {
-          width: 400px;
-          height: 310px;
-        }
-      }
-    }
-  }
+	width: 100vw;
+	margin: 0;
+	overflow: scroll;
+	&.loading {
+		// Show once monogram has loaded
+		visibility: hidden;
+	}
+	.works-container {
+		width: 100%;
+		overflow: scroll;
+		.works {
+			list-style-type: none;
+			display: block;
+			// width: Set dynamically by JS
+			height: $selected-item-height;
+			@include slant();
+			.work {
+				cursor: pointer;
+				list-style-type: none;
+				float: left;
+				margin: 0 $spacing / 4;
+				width: 180px;
+				height: 290px;
+				transition: all 0.1s ease-out;
+				transform: scale(0.95) translateZ(0); // Zoom effect
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				opacity: 0;
+				&.visible {
+					opacity: 1;
+				}
+				&.selected {
+					width: 400px;
+					height: 310px;
+				}
+			}
+		}
+	}
 }
 
 
 .work-description {
-  height: 150px; // Must be consistent so that vertically centered areas doesn't move around
-  text-align: left;
-  max-width: 600px;
-  margin: 0px auto;
-  opacity: 0;
-  // Show once monogram has loaded
-  &.loading {
-    visibility: hidden;
-  }
-  &.visible {
-    opacity: 1;
-  }
-  .work-title {
-    font-size: 26pt;
-    margin: $spacing / 4 0;
-    width: 70%;
-  }
-  .work-logo {
-    width: 30%;
-  }
-  .work-title, .work-logo, .work-lede {
-    float: left;
-  }
-  .work-lede {
-    p {
-      margin: $spacing / 4 0;
-    }
-  }
+	height: 150px; // Must be consistent so that vertically centered areas doesn't move around
+	text-align: left;
+	max-width: 600px;
+	margin: 0px auto;
+	opacity: 0;
+	// Show once monogram has loaded
+	&.loading {
+		visibility: hidden;
+	}
+	&.visible {
+		opacity: 1;
+	}
+	.work-title {
+		font-size: 26pt;
+		margin: $spacing / 4 0;
+		width: 70%;
+	}
+	.work-logo {
+		width: 30%;
+	}
+	.work-title, .work-logo, .work-lede {
+		float: left;
+	}
+	.work-lede {
+		p {
+			margin: $spacing / 4 0;
+		}
+	}
 }
 
 .links {
-  width: 300px;
-  float: right;
-  margin-top: 50px;
-  img {
-    float: right;
-    margin-left: $spacing / 2;
-  }
+	width: 300px;
+	float: right;
+	margin-top: 50px;
+	img {
+		float: right;
+		margin-left: $spacing / 2;
+	}
 }
 
 footer {
-  height: 5vh;
-  text-align: right;
-  padding: $spacing / 2;
-  font-size: 24pt;
-  background-color: $shadedgrey;
+	height: 5vh;
+	text-align: right;
+	padding: $spacing / 2;
+	font-size: 24pt;
+	background-color: $shadedgrey;
 
-  &.menu-active {
-    @media (max-width: $single-column-threshold) {
-      transform: translateX($sidebar-width);
-    }
-  }
+	&.menu-active {
+		@media (max-width: $single-column-threshold) {
+			transform: translateX($sidebar-width);
+		}
+	}
 }
 
 // http://taitems.github.io/UX-Lab/ModalBlur/index.html
 body.modal-enabled > *:not(.modal-parent) {
-  filter: blur(2px);
+	filter: blur(2px);
 }
 
 .about-me {
-  margin: 0 auto;
-  max-width: $single-column-threshold;
+	margin: 0 auto;
+	max-width: $single-column-threshold;
 }
 
 .modal-parent {
-  display: none;
-  .modal {
-    z-index: 3;
-    left: 0;
-    top: 0;
-    width: 100%;
-    position: absolute;
-    height: 100%;
-    background-color: $shadedgrey;
-    @include vertical-center-parent();
-    // Pardon the extra div here, but http://stackoverflow.com/questions/6977313/can-you-use-display-table-cell-and-have-a-fixed-width-height
-    .modal-content {
-      @include vertical-center-child();
-      .message {
-        min-height: 300px;
-        max-height: 80vh;
-        background-color: black;
-        .text {
-          position: relative;
-          h1 {
-            margin: 0 0 $spacing 0;
-          }
-          .close {
-            cursor: pointer;
-            position: absolute;
-            right: $spacing;
-            top: $spacing;
-          }
-          .screenshot-container {
-            max-width: 100%;
-            overflow: scroll;
-            .screenshots {
-              height: 30vh;
-              width: $screenshots-total-width;
-              @include slant();
-              a.screenshot {
-                display: block;
-                float: left;
-                background-color: white;
-                height: 30vh;
-                margin: $spacing / 4;
-              }
-              img {
-                height: 100%;
-              }
-            }
-          }
-          padding: $spacing;
-          max-width: $single-column-threshold;
-          height: 100%;
-          color: whitesmoke;
-          margin: 0 auto;
-        }
-        button {
-          border: 1px solid whiteSmoke;
-        }
-      }
-    }
-  }
+	display: none;
+	.modal {
+		z-index: 3;
+		left: 0;
+		top: 0;
+		width: 100%;
+		position: absolute;
+		height: 100%;
+		background-color: $shadedgrey;
+		@include vertical-center-parent();
+		// Pardon the extra div here, but http://stackoverflow.com/questions/6977313/can-you-use-display-table-cell-and-have-a-fixed-width-height
+		.modal-content {
+			@include vertical-center-child();
+			.message {
+				min-height: 300px;
+				max-height: 80vh;
+				background-color: black;
+				.text {
+					position: relative;
+					h1 {
+						margin: 0 0 $spacing 0;
+					}
+					.close {
+						cursor: pointer;
+						position: absolute;
+						right: $spacing;
+						top: $spacing;
+					}
+					.screenshot-container {
+						max-width: 100%;
+						overflow: scroll;
+						.screenshots {
+							height: 30vh;
+							width: $screenshots-total-width;
+							@include slant();
+							a.screenshot {
+								display: block;
+								float: left;
+								background-color: white;
+								height: 30vh;
+								margin: $spacing / 4;
+							}
+							img {
+								height: 100%;
+							}
+						}
+					}
+					padding: $spacing;
+					max-width: $single-column-threshold;
+					height: 100%;
+					color: whitesmoke;
+					margin: 0 auto;
+				}
+				button {
+					border: 1px solid whiteSmoke;
+				}
+			}
+		}
+	}
 }
