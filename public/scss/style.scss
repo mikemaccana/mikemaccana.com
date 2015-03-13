@@ -98,6 +98,7 @@ a, a:hover, a:active, a:visited {
 
 nav {
 	font-size: $spacing / 2;
+	cursor: pointer;
 	font-weight: 400;
 	line-height: $vertical-rhythm;
 	text-transform: uppercase;
