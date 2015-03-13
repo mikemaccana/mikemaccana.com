@@ -155,12 +155,20 @@ body {
 	font-weight: 300;
 	color: $textcolor;
 	overflow-x: hidden;
-	background-image: url('/images/pattern.png');
+	background-size: cover;
+	background-image: url('/images/vanda.jpg');
 	background-repeat: repeat;
 	transform: all 2s ease-in-out;
+	&::before {
+	  background-color: rgba(0, 0, 0, 0.85);
+	  content: '';
+	  display: block;
+	  height: 100%;
+	  position: absolute;
+	  width: 100%;
+	}
+
 }
-
-
 
 .content-wrapper {
 	@include vertical-center-parent();
