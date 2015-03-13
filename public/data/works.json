@@ -1,230 +1,241 @@
 {
-  "works": [
-    {
-      "slug": "waves",
-      "previewImage": "waves.png",
-      "screenshotCount": 5,
-      "imageExtension": "png",
-      "client": "sandpit-lab",
-      "title": "Waves",
-      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
-      "lede": "Live alerts for significant changes in Twitter.",
-      "description": "<p>Given a keyword, hashtag or user, Waves monitors Twitter for significant changes in sentiment, volume and related words. </p><p>Waves alerts to events before you hear about them. When the Prime Minister of the Ukraine resigned, Waves sent out alerts 40 minutes before BBC and Sky had published a story.</p>"
-    },
-    {
-      "slug": "online-wednesday",
-      "previewImage": "online-wednesday.png",
-      "screenshotCount": 1,
-      "imageExtension": "png",
-      "client": "sandpit-lab",
-      "title": "Online Wednesday",
-      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
-      "lede": "The products people are talking about right now.",
-      "description": "<p>Online Wednesday is an internal tool used by American Express to discover new products and rank interest in them using Facebook and Twitter.</p>"
-    },
-    {
-      "slug": "firework",
-      "previewImage": "firework.png",
-      "screenshotCount": 3,
-      "imageExtension": "png",
-      "client": "firework",
-      "title": "Firework",
-      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
-      "lede": "Cloud deployment startup, getting the right code to your customers as fast as possible. ",
-      "description": "<p>Getting the right code to your customers as fast as possible. </p><p>Firework combines data from version control, deployment, logs, and CI into a single place to help developers understand what version of the code belongs in their environments, then uses best-of-breed deployment techniques to turn minutes into milliseconds.</p>"
-    },
-    {
-      "slug": "uncompromise",
-      "previewImage": "uncompromise.png",
-      "screenshotCount": 5,
-      "imageExtension": "png",
-      "client": "microsoft",
-      "title": "Uncompromise",
-      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
-      "lede": "Microsite for the Surface 2 UK launch.",
-      "description": "<p>Microsite for the Surface 2 UK launch.</p> <p>Lots of CSS3, node.js, Twitter & Instagram APIs and Azure. Now running at <a href='http://surface.theguardian.com'>surface.theguardian.com</a></p>"
-    },
-    {
-      "slug": "bazaarvoice-tips",
-      "previewImage": "bazaarvoice-tips.png",
-      "screenshotCount": 5,
-      "imageExtension": "png",
-      "client": "bazaarvoice",
-      "title": "Bazaarvoice Tips",
-      "pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
-      "lede": "Concieved, and developed a major new application in Bazaarvoice suite.",
-      "description": "<p>A place for potential and existing customers of Bazaarvoice brands and retailers to trade tips, and receive recognition from their peers and the brand.</p><ul><li>Conceived and developed new from-scratch product.</li><li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li><li>Uses a combination of jQuery Masonry, jQuery TilesGallery and AngularJS</li></ul>"
-    },
-    {
-      "slug": "facebook-ratings-and-reviews",
-      "previewImage": "facebook-ratings-and-reviews.png",
-      "screenshotCount": 2,
-      "imageExtension": "png",
-      "client": "bazaarvoice",
-      "title": "Bazaarvoice Ratings and Reviews",
-      "pubDate": "Fri, 30 Aug 2013 14:34:59 +0000",
-      "lede": "A Facebook version of Bazaarvoice's popular and award-winning Ratings and Reviews app, used on major retailers and brands worldwide.",
-      "description": "<p>A Facebook version of Bazaarvoice's popular and award-winning Ratings and Reviews app.</p><ul><li>Responsive design across Mobile, Facebook Page Tab,and Facebook Canvas</li><li>Async using Tornado and JS</li></ul>"
-    },
-    {
-      "slug": "facebook-stories",
-      "previewImage": "facebook-stories.png",
-      "screenshotCount": 2,
-      "imageExtension": "png",
-      "client": "bazaarvoice",
-      "title": "Bazaarvoice Stories",
-      "pubDate": "Mon, 12 Aug 2013 08:45:37 +0000",
-      "lede": "A photo-centric Facebook app.",
-      "description": "<p>A photo-centric Facebook app. Current live sitesinclude Behr Paint and Thomas Cook travel.</p><ul><li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li><li>Uses acombinationof jQuery Masonry, jQuery TilesGallery and Mike's PhotoCollage (my own custom-written jQuery Plugin) for tiled layouts.</li></ul><p></p>"
-    },
-    {
-      "slug": "social-deployer",
-      "previewImage": "social-deployer.png",
-      "screenshotCount": 1,
-      "imageExtension": "png",
-      "client": "bazaarvoice",
-      "title": "Social Deployer",
-      "pubDate": "Mon, 12 Aug 2013 08:51:10 +0000",
-      "lede": "Deploy new software from Github to Amazon EC2 from a single drop down.",
-      "description": "<p>Deploy new software from Github to Amazon EC2 from a single drop down.</p><ul><li>Automatically deploys, tests and images commits as soon as they're made</li><li>Builds autoscaled, load-balanced EC2 environments without any end user input</li><li>Live updated on progress and other relevant events</li><li>Async using NodeJS &amp; client side JS.Uses Github, Amazon EC2 libraries, Agave.JS, HTML5 server-sent events.</li></ul>"
-    },
-    {
-      "slug": "bazaarvoice-questions-and-answers",
-      "previewImage": "bazaarvoice-questions-and-answers.png",
-      "screenshotCount": 1,
-      "imageExtension": "png",
-      "client": "bazaarvoice",
-      "title": "Bazaarvoice Questions and Answers",
-      "pubDate": "Fri, 30 Aug 2013 14:17:04 +0000",
-      "lede": "Connecting customers with company staff and the wider product community to answer product questions.",
-      "description": "<p>Connecting customers with company staff and the wider product community to answer product questions.</p><p>Facebook platform, leaderboards, responsive design.</p>"
-    },
-    {
-      "slug": "pamplemousse-js",
-      "previewImage": "pamplemousse-js.png",
-      "screenshotCount": 1,
-      "imageExtension": "png",
-      "client": "opensource",
-      "title": "Pamplemousse JS",
-      "pubDate": "Fri, 30 Aug 2013 13:57:49 +0000",
-      "lede": "An OpenSource project for simple realtime communication",
-      "description": "<p>Pamplemousse is a simple set of two modules to handle HTML5 server sent events. It's supplied as a RequireJS module, and takes care of:</p><ul><li>Encoding things in SSE format</li><li>Mime types</li><li>Updating message IDs</li><li>Timeouts</li><li>JSON in, JSON out</li><li><a href=\"http://pamplemoussejs.org\">http://pamplemoussejs.org</a></li></ul>"
-    },
-    {
-      "slug": "ginjs",
-      "previewImage": "ginjs.png",
-      "screenshotCount": 2,
-      "imageExtension": "png",
-      "client": "js",
-      "title": "gin.js",
-      "pubDate": "Thu, 03 Oct 2013 16:04:11 +0000",
-      "lede": "A regular meetup for London based JavaScript developers. I founded the event and organize the venue, mailing list, ticketing and sponsors.",
-      "description": "<p>A regular meetup for London based JavaScript developers. I founded the event, designed the lovely (responsive) site, and organize the venue, mailing list, ticketing and sponsors.</p>"
-    },
-    {
-      "slug": "google-android-4-launch",
-      "previewImage": "google-android-4-launch.png",
-      "screenshotCount": 3,
-      "imageExtension": "png",
-      "client": "google",
-      "title": "Android 4 Worldwide Launch",
-      "pubDate": "Tue, 13 Aug 2013 10:39:45 +0000",
-      "lede": "Launch of Android 4 (Ice Cream Sandwich) and the Samsung Galaxy Nexus phone.",
-      "description": "<p>Launch of Android 4 (Ice Cream Sandwich) and the Samsung Galaxy Nexus phone.</p><ul><li>Worldwide phone retailer education for Android 4 and Galaxy nexus</li><li>Quiz and results reporting</li><li>Entire site internationalized to every Google market</li><li><a href=\"#\">http://android-ambassador.appspot.com/</a></li></ul>"
-    },
-    {
-      "slug": "agave-js",
-      "previewImage": "agave-js.png",
-      "screenshotCount": 1,
-      "imageExtension": "png",
-      "client": "google",
-      "title": "Agave JS",
-      "pubDate": "Fri, 30 Aug 2013 14:00:16 +0000",
-      "lede": "Safe native methods for modern JavaScript environments.",
-      "description": "<p>Safe native methods for ES5.</p><ul><li>One of the first JS libraries to safely extend native methods.</li><li>Method names are namespaced to avoid conflicts</li><li>All methods are non-enumerable using ES5 defineProperty()</li><li><a href=\"http://agavejs.org\">http://agavejs.org</a></li></ul>"
-    },
-    {
-      "slug": "youtube-world-view",
-      "previewImage": "youtube-world-view.png",
-      "screenshotCount": 4,
-      "imageExtension": "png",
-      "client": "google",
-      "title": "YouTube World View",
-      "pubDate": "Mon, 23 Sep 2013 14:03:55 +0000",
-      "lede": "An app to allow citizens all over the world to address questions directly to world leaders.",
-      "description": "<p>An app to collect questions from citizens all over the world, and addressed those questions to world leaders - including Barack Obama, Bono, David Cameron, Angela Merkel and Nicholas Sarkozy.</p><ul><li>Client: Google</li><li>YouTube API, Google Moderator API, Google Accounts OAuth</li><li>Live YouTube interviews watched by millions of people</li><li>First use of the YouTube Live API</li><li><a href='http://youtube.com/worldview'>http://youtube.com/worldview</a></li><li><a href='https://code.google.com/p/social-interviews/'>Source code</a></li></ul>"
-    },
-    {
-      "slug": "google-getting-american-business-online",
-      "previewImage": "google-getting-american-business-online.png",
-      "screenshotCount": 3,
-      "imageExtension": "png",
-      "client": "google",
-      "title": "Google Getting American Business Online",
-      "lede": "Google's worldwide programme to get businesses online",
-      "description": "<p>Google's worldwide programme to get businesses online, aiming to substantially reduce the count of all businesses that don't have an internet presence.</p><ul><li>Custom layout engine to allow local Google teams to customize the site to their own market (a US state or a country).</li><li><a href=\"http://www.gybo.com/\">http://www.gybo.com/</a></li></ul><p></p>"
-    },
-    {
-      "slug": "google-10th-birthday-germany",
-      "previewImage": "google-10th-birthday-germany.png",
-      "screenshotCount": 2,
-      "imageExtension": "png",
-      "client": "google",
-      "title": "Google 10th Birthday Germany",
-      "lede": "A rich, interactive site created to showcase Google's work over the last decade in Germany. ",
-      "description": "<p>A rich, interactive site created to showcase Google's work over the last decade in Germany. </p><p></p><ul><li>Client: Google</li><li>Built in a weekend, advertised nationally on on German TV</li><li>Custom HTML5 canvas and scenegraph work</li><li><a href=\"http://www.10jahregoogle.de/\">http://www.10jahregoogle.de/</a></li></ul>"
-    },
-    {
-      "slug": "im-everyone",
-      "previewImage": "im-everyone.png",
-      "screenshotCount": 3,
-      "imageExtension": "png",
-      "client": "imeveryone",
-      "title": "I'm Everyone",
-      "lede": "A realtime, threaded, anonymous communication platform.",
-      "description": "<p>A realtime, threaded, anonymous communication platform.</p><ul><li>Completely realtime: both new posts and new comments are constantly pushed to browsers.</li><li>No logins: each unique participant in a conversation is given an an animal avatar to identify themselves. Outside of that single thread that</li><li>Front page of Hacker News, Reddit, tweeted by @smashingmagazine.</li><li>Site is closed down - moderation is  required to provide a safe environment.</li></ul>"
-    },
-    {
-      "slug": "python-docx",
-      "previewImage": "python-docx.png",
-      "screenshotCount": 1,
-      "imageExtension": "png",
-      "client": "opensource",
-      "title": "Python Docx",
-      "pubDate": "Fri, 30 Aug 2013 14:05:05 +0000",
-      "lede": "The native Python module for the current XML based Microsoft Word document format.",
-      "description": "<p>The native Python module for the current XML based Microsoft Word document format.</p><ul><li>Thousand of users, and over 650 stars on Github</li><li>LXML, OpenXML</li><li><a href=\"https://github.com/mikemaccana/python-docx\" target=\"_blank\">https://github.com/mikemaccana/python-docx</a></li></ul><p></p>"
-    },
-    {
-      "slug": "linux-and-python",
-      "previewImage": "redhat.png",
-      "screenshotCount": 1,
-      "imageExtension": "png",
-      "client": "redhat",
-      "title": "A decade of Linux",
-      "pubDate": "Fri, 30 Aug 2013 14:05:05 +0000",
-      "lede": "Before web development, I spent a decade as a Linux and Python engineer.",
-      "description": "<p>Before going into web development full time, I spent a decade as a Linux and Python engineer. </p><p>This includes working as a trainer and consultant at Red Hat (yes, that's me in the default sudoers file), IBM Global Services dedicated Linux team, and a variety of financial organizations doing interesting things with Linux.</p>"
-    },
-    {
-      "slug": "feature-writer-apc-magazine",
-      "previewImage": "feature-writer-apc-magazine.jpeg",
-      "screenshotCount": 4,
-      "imageExtension": "jpeg",
-      "client": "apc",
-      "title": "Tech Journalism",
-      "lede": "Writing for various Asia Pacific print magazines on Linux, servers, mobile, blogging, gaming, audiovisual, and other topics of interest to readers.",
-      "description": "<p>Writing for various Asia Pacific print magazines on Linux, servers, mobile, blogging, gaming, audiovisual, and other topics of interest to readers.</p><p></p><h2>Feature Writer, APC Magazine</h2><p>Regular pieces for the largest computer magazine in Asia Pacific, circulation 75,000.</p><h2>Columnist, PC Authority Magazine</h2><p>Monthly column in Australian/New Zealand computer magazine, circulation 55,000, on Linux, servers, 3G, content management, and other topics of interest to readers.Linux PocketBook 3rd Edition<br></p><p class=\"year\">Wrote over 40,000 words for this accessible and fun guide to Linux. Sold at a premium price (twenty Australian dollars), over 20,000 copies were sold.</p><p></p><h2>Founding Editor, Australian Linux Journal</h2><p class=\"description\">Sourced writers, provided briefs, copy-edited, and interviewed for the first two issues of this Asia/Pacific magazine focusing on Linux and Open Source.</p><h2>Other Media</h2><p>Writing and speaking roles for newspapers (Sydney Morning Herald), and radio (3RRR Melbourne).</p><p></p><p></p>"
-    },
-    {
-      "slug": "doom-the-path",
-      "previewImage": "doom-the-path.png",
-      "screenshotCount": 4,
-      "imageExtension": "png",
-      "client": "doom",
-      "title": "Doom: The Path",
-      "lede": "Released in 1996, one of the most critically acclaimed (and largest) Doom II PWADs (levels) of all time.",
-      "description": "<p>Released in 1996, one of the most critically acclaimed (and largest) Doom II PWADs (levels) of all time. </p><ul><li>Deep water, filling water tanks, toilets and urinals, floating platforms, and other advanced techniques.<br></li><li>Custom textures and sounds.</li><li>Built when I was 15, with a computer that couldn't edit the entire level at once. I built individual chunks, my friend John Graham assembled these together into a full level on his more powerful computer.</li><li><a href=\"http://www.doomworld.com/idgames/?id=7427\">Download from DoomWorld</a></li></ul>"
-    }
-  ]
+	"works": [
+		{
+			"slug": "mycognition",
+			"previewImage": "mycognition.png",
+			"screenshotCount": 5,
+			"imageExtension": "png",
+			"client": "mycognition-rise",
+			"title": "MyCognition Rise",
+			"pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+			"lede": "Customer onboarding for cognitive learning product",
+			"description": "<p>A site to promote MyCognition's 'Rise' cognitive development product, and the associated payment and user signup workflow. </p><p>The billing site used CSS3 transitions, ideal postcodes for automatic address retrieval, Stripe for payment, quaderno for invoicing and EU VAT calculation, and node/express.js for the backend.</p>"
+		},
+		{
+			"slug": "waves",
+			"previewImage": "waves.png",
+			"screenshotCount": 5,
+			"imageExtension": "png",
+			"client": "sandpit-lab",
+			"title": "Waves",
+			"pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+			"lede": "Live alerts for significant changes in Twitter.",
+			"description": "<p>Given a keyword, hashtag or user, Waves monitors Twitter for significant changes in sentiment, volume and related words. </p><p>Waves alerts to events before you hear about them. When the Prime Minister of the Ukraine resigned, Waves sent out alerts 40 minutes before BBC and Sky had published a story.</p>"
+		},
+		{
+			"slug": "online-wednesday",
+			"previewImage": "online-wednesday.png",
+			"screenshotCount": 1,
+			"imageExtension": "png",
+			"client": "sandpit-lab",
+			"title": "Online Wednesday",
+			"pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+			"lede": "The products people are talking about right now.",
+			"description": "<p>Online Wednesday is an internal tool used by American Express to discover new products and rank interest in them using Facebook and Twitter.</p>"
+		},
+		{
+			"slug": "firework",
+			"previewImage": "firework.png",
+			"screenshotCount": 3,
+			"imageExtension": "png",
+			"client": "firework",
+			"title": "Firework",
+			"pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+			"lede": "Cloud deployment startup, getting the right code to your customers as fast as possible. ",
+			"description": "<p>Getting the right code to your customers as fast as possible. </p><p>Firework combines data from version control, deployment, logs, and CI into a single place to help developers understand what version of the code belongs in their environments, then uses best-of-breed deployment techniques to turn minutes into milliseconds.</p>"
+		},
+		{
+			"slug": "uncompromise",
+			"previewImage": "uncompromise.png",
+			"screenshotCount": 5,
+			"imageExtension": "png",
+			"client": "microsoft",
+			"title": "Uncompromise",
+			"pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+			"lede": "Microsite for the Surface 2 UK launch.",
+			"description": "<p>Microsite for the Surface 2 UK launch.</p> <p>Lots of CSS3, node.js, Twitter & Instagram APIs and Azure. Now running at <a href='http://surface.theguardian.com'>surface.theguardian.com</a></p>"
+		},
+		{
+			"slug": "bazaarvoice-tips",
+			"previewImage": "bazaarvoice-tips.png",
+			"screenshotCount": 5,
+			"imageExtension": "png",
+			"client": "bazaarvoice",
+			"title": "Bazaarvoice Tips",
+			"pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+			"lede": "Concieved, and developed a major new application in Bazaarvoice suite.",
+			"description": "<p>A place for potential and existing customers of Bazaarvoice brands and retailers to trade tips, and receive recognition from their peers and the brand.</p><ul><li>Conceived and developed new from-scratch product.</li><li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li><li>Uses a combination of jQuery Masonry, jQuery TilesGallery and AngularJS</li></ul>"
+		},
+		{
+			"slug": "facebook-ratings-and-reviews",
+			"previewImage": "facebook-ratings-and-reviews.png",
+			"screenshotCount": 2,
+			"imageExtension": "png",
+			"client": "bazaarvoice",
+			"title": "Bazaarvoice Ratings and Reviews",
+			"pubDate": "Fri, 30 Aug 2013 14:34:59 +0000",
+			"lede": "A Facebook version of Bazaarvoice's popular and award-winning Ratings and Reviews app, used on major retailers and brands worldwide.",
+			"description": "<p>A Facebook version of Bazaarvoice's popular and award-winning Ratings and Reviews app.</p><ul><li>Responsive design across Mobile, Facebook Page Tab,and Facebook Canvas</li><li>Async using Tornado and JS</li></ul>"
+		},
+		{
+			"slug": "facebook-stories",
+			"previewImage": "facebook-stories.png",
+			"screenshotCount": 2,
+			"imageExtension": "png",
+			"client": "bazaarvoice",
+			"title": "Bazaarvoice Stories",
+			"pubDate": "Mon, 12 Aug 2013 08:45:37 +0000",
+			"lede": "A photo-centric Facebook app.",
+			"description": "<p>A photo-centric Facebook app. Current live sitesinclude Behr Paint and Thomas Cook travel.</p><ul><li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li><li>Uses acombinationof jQuery Masonry, jQuery TilesGallery and Mike's PhotoCollage (my own custom-written jQuery Plugin) for tiled layouts.</li></ul><p></p>"
+		},
+		{
+			"slug": "social-deployer",
+			"previewImage": "social-deployer.png",
+			"screenshotCount": 1,
+			"imageExtension": "png",
+			"client": "bazaarvoice",
+			"title": "Social Deployer",
+			"pubDate": "Mon, 12 Aug 2013 08:51:10 +0000",
+			"lede": "Deploy new software from Github to Amazon EC2 from a single drop down.",
+			"description": "<p>Deploy new software from Github to Amazon EC2 from a single drop down.</p><ul><li>Automatically deploys, tests and images commits as soon as they're made</li><li>Builds autoscaled, load-balanced EC2 environments without any end user input</li><li>Live updated on progress and other relevant events</li><li>Async using NodeJS &amp; client side JS.Uses Github, Amazon EC2 libraries, Agave.JS, HTML5 server-sent events.</li></ul>"
+		},
+		{
+			"slug": "bazaarvoice-questions-and-answers",
+			"previewImage": "bazaarvoice-questions-and-answers.png",
+			"screenshotCount": 1,
+			"imageExtension": "png",
+			"client": "bazaarvoice",
+			"title": "Bazaarvoice Questions and Answers",
+			"pubDate": "Fri, 30 Aug 2013 14:17:04 +0000",
+			"lede": "Connecting customers with company staff and the wider product community to answer product questions.",
+			"description": "<p>Connecting customers with company staff and the wider product community to answer product questions.</p><p>Facebook platform, leaderboards, responsive design.</p>"
+		},
+		{
+			"slug": "pamplemousse-js",
+			"previewImage": "pamplemousse-js.png",
+			"screenshotCount": 1,
+			"imageExtension": "png",
+			"client": "opensource",
+			"title": "Pamplemousse JS",
+			"pubDate": "Fri, 30 Aug 2013 13:57:49 +0000",
+			"lede": "An OpenSource project for simple realtime communication",
+			"description": "<p>Pamplemousse is a simple set of two modules to handle HTML5 server sent events. It's supplied as a RequireJS module, and takes care of:</p><ul><li>Encoding things in SSE format</li><li>Mime types</li><li>Updating message IDs</li><li>Timeouts</li><li>JSON in, JSON out</li><li><a href=\"http://pamplemoussejs.org\">http://pamplemoussejs.org</a></li></ul>"
+		},
+		{
+			"slug": "ginjs",
+			"previewImage": "ginjs.png",
+			"screenshotCount": 2,
+			"imageExtension": "png",
+			"client": "js",
+			"title": "gin.js",
+			"pubDate": "Thu, 03 Oct 2013 16:04:11 +0000",
+			"lede": "A regular meetup for London based JavaScript developers. I founded the event and organize the venue, mailing list, ticketing and sponsors.",
+			"description": "<p>A regular meetup for London based JavaScript developers. I founded the event, designed the lovely (responsive) site, and organize the venue, mailing list, ticketing and sponsors.</p>"
+		},
+		{
+			"slug": "google-android-4-launch",
+			"previewImage": "google-android-4-launch.png",
+			"screenshotCount": 3,
+			"imageExtension": "png",
+			"client": "google",
+			"title": "Android 4 Worldwide Launch",
+			"pubDate": "Tue, 13 Aug 2013 10:39:45 +0000",
+			"lede": "Launch of Android 4 (Ice Cream Sandwich) and the Samsung Galaxy Nexus phone.",
+			"description": "<p>Launch of Android 4 (Ice Cream Sandwich) and the Samsung Galaxy Nexus phone.</p><ul><li>Worldwide phone retailer education for Android 4 and Galaxy nexus</li><li>Quiz and results reporting</li><li>Entire site internationalized to every Google market</li><li><a href=\"#\">http://android-ambassador.appspot.com/</a></li></ul>"
+		},
+		{
+			"slug": "agave-js",
+			"previewImage": "agave-js.png",
+			"screenshotCount": 1,
+			"imageExtension": "png",
+			"client": "google",
+			"title": "Agave JS",
+			"pubDate": "Fri, 30 Aug 2013 14:00:16 +0000",
+			"lede": "Safe native methods for modern JavaScript environments.",
+			"description": "<p>Safe native methods for ES5.</p><ul><li>One of the first JS libraries to safely extend native methods.</li><li>Method names are namespaced to avoid conflicts</li><li>All methods are non-enumerable using ES5 defineProperty()</li><li><a href=\"http://agavejs.org\">http://agavejs.org</a></li></ul>"
+		},
+		{
+			"slug": "youtube-world-view",
+			"previewImage": "youtube-world-view.png",
+			"screenshotCount": 4,
+			"imageExtension": "png",
+			"client": "google",
+			"title": "YouTube World View",
+			"pubDate": "Mon, 23 Sep 2013 14:03:55 +0000",
+			"lede": "An app to allow citizens all over the world to address questions directly to world leaders.",
+			"description": "<p>An app to collect questions from citizens all over the world, and addressed those questions to world leaders - including Barack Obama, Bono, David Cameron, Angela Merkel and Nicholas Sarkozy.</p><ul><li>Client: Google</li><li>YouTube API, Google Moderator API, Google Accounts OAuth</li><li>Live YouTube interviews watched by millions of people</li><li>First use of the YouTube Live API</li><li><a href='http://youtube.com/worldview'>http://youtube.com/worldview</a></li><li><a href='https://code.google.com/p/social-interviews/'>Source code</a></li></ul>"
+		},
+		{
+			"slug": "google-getting-american-business-online",
+			"previewImage": "google-getting-american-business-online.png",
+			"screenshotCount": 3,
+			"imageExtension": "png",
+			"client": "google",
+			"title": "Google Getting American Business Online",
+			"lede": "Google's worldwide programme to get businesses online",
+			"description": "<p>Google's worldwide programme to get businesses online, aiming to substantially reduce the count of all businesses that don't have an internet presence.</p><ul><li>Custom layout engine to allow local Google teams to customize the site to their own market (a US state or a country).</li><li><a href=\"http://www.gybo.com/\">http://www.gybo.com/</a></li></ul><p></p>"
+		},
+		{
+			"slug": "google-10th-birthday-germany",
+			"previewImage": "google-10th-birthday-germany.png",
+			"screenshotCount": 2,
+			"imageExtension": "png",
+			"client": "google",
+			"title": "Google 10th Birthday Germany",
+			"lede": "A rich, interactive site created to showcase Google's work over the last decade in Germany. ",
+			"description": "<p>A rich, interactive site created to showcase Google's work over the last decade in Germany. </p><p></p><ul><li>Client: Google</li><li>Built in a weekend, advertised nationally on on German TV</li><li>Custom HTML5 canvas and scenegraph work</li><li><a href=\"http://www.10jahregoogle.de/\">http://www.10jahregoogle.de/</a></li></ul>"
+		},
+		{
+			"slug": "im-everyone",
+			"previewImage": "im-everyone.png",
+			"screenshotCount": 3,
+			"imageExtension": "png",
+			"client": "imeveryone",
+			"title": "I'm Everyone",
+			"lede": "A realtime, threaded, anonymous communication platform.",
+			"description": "<p>A realtime, threaded, anonymous communication platform.</p><ul><li>Completely realtime: both new posts and new comments are constantly pushed to browsers.</li><li>No logins: each unique participant in a conversation is given an an animal avatar to identify themselves. Outside of that single thread that</li><li>Front page of Hacker News, Reddit, tweeted by @smashingmagazine.</li><li>Site is closed down - moderation is  required to provide a safe environment.</li></ul>"
+		},
+		{
+			"slug": "python-docx",
+			"previewImage": "python-docx.png",
+			"screenshotCount": 1,
+			"imageExtension": "png",
+			"client": "opensource",
+			"title": "Python Docx",
+			"pubDate": "Fri, 30 Aug 2013 14:05:05 +0000",
+			"lede": "The native Python module for the current XML based Microsoft Word document format.",
+			"description": "<p>The native Python module for the current XML based Microsoft Word document format.</p><ul><li>Thousand of users, and over 650 stars on Github</li><li>LXML, OpenXML</li><li><a href=\"https://github.com/mikemaccana/python-docx\" target=\"_blank\">https://github.com/mikemaccana/python-docx</a></li></ul><p></p>"
+		},
+		{
+			"slug": "linux-and-python",
+			"previewImage": "redhat.png",
+			"screenshotCount": 1,
+			"imageExtension": "png",
+			"client": "redhat",
+			"title": "A decade of Linux",
+			"pubDate": "Fri, 30 Aug 2013 14:05:05 +0000",
+			"lede": "Before web development, I spent a decade as a Linux and Python engineer.",
+			"description": "<p>Before going into web development full time, I spent a decade as a Linux and Python engineer. </p><p>This includes working as a trainer and consultant at Red Hat (yes, that's me in the default sudoers file), IBM Global Services dedicated Linux team, and a variety of financial organizations doing interesting things with Linux.</p>"
+		},
+		{
+			"slug": "feature-writer-apc-magazine",
+			"previewImage": "feature-writer-apc-magazine.jpeg",
+			"screenshotCount": 4,
+			"imageExtension": "jpeg",
+			"client": "apc",
+			"title": "Tech Journalism",
+			"lede": "Writing for various Asia Pacific print magazines on Linux, servers, mobile, blogging, gaming, audiovisual, and other topics of interest to readers.",
+			"description": "<p>Writing for various Asia Pacific print magazines on Linux, servers, mobile, blogging, gaming, audiovisual, and other topics of interest to readers.</p><p></p><h2>Feature Writer, APC Magazine</h2><p>Regular pieces for the largest computer magazine in Asia Pacific, circulation 75,000.</p><h2>Columnist, PC Authority Magazine</h2><p>Monthly column in Australian/New Zealand computer magazine, circulation 55,000, on Linux, servers, 3G, content management, and other topics of interest to readers.Linux PocketBook 3rd Edition<br></p><p class=\"year\">Wrote over 40,000 words for this accessible and fun guide to Linux. Sold at a premium price (twenty Australian dollars), over 20,000 copies were sold.</p><p></p><h2>Founding Editor, Australian Linux Journal</h2><p class=\"description\">Sourced writers, provided briefs, copy-edited, and interviewed for the first two issues of this Asia/Pacific magazine focusing on Linux and Open Source.</p><h2>Other Media</h2><p>Writing and speaking roles for newspapers (Sydney Morning Herald), and radio (3RRR Melbourne).</p><p></p><p></p>"
+		},
+		{
+			"slug": "doom-the-path",
+			"previewImage": "doom-the-path.png",
+			"screenshotCount": 4,
+			"imageExtension": "png",
+			"client": "doom",
+			"title": "Doom: The Path",
+			"lede": "Released in 1996, one of the most critically acclaimed (and largest) Doom II PWADs (levels) of all time.",
+			"description": "<p>Released in 1996, one of the most critically acclaimed (and largest) Doom II PWADs (levels) of all time. </p><ul><li>Deep water, filling water tanks, toilets and urinals, floating platforms, and other advanced techniques.<br></li><li>Custom textures and sounds.</li><li>Built when I was 15, with a computer that couldn't edit the entire level at once. I built individual chunks, my friend John Graham assembled these together into a full level on his more powerful computer.</li><li><a href=\"http://www.doomworld.com/idgames/?id=7427\">Download from DoomWorld</a></li></ul>"
+		}
+	]
 }
