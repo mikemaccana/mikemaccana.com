@@ -460,13 +460,6 @@ body {
   -webkit-transform: all 2s ease-in-out;
   -ms-transform: all 2s ease-in-out;
   transform: all 2s ease-in-out; }
-  body::before {
-    background-color: rgba(0, 0, 0, 0.85);
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%; }
 
 .content-wrapper {
   -webkit-transform-style: preserve-3d;
