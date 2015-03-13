@@ -5,6 +5,7 @@ User=nobody
 Group=nobody
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=NODE_ENV=production
+WorkingDirectory=/var/www/mikemaccana.com
 
 [Install]
 WantedBy=multi-user.target
