@@ -30,9 +30,9 @@ define(function(require){
 			el: '.work-description',
 			template: workDescriptionTemplate,
 			data: {
-			title: null,
-			logo: null,
-			lede: null
+				title: null,
+				logo: null,
+				lede: null
 			}
 		})
 
