@@ -168,14 +168,23 @@ define(function(require){
 		// So make mousewheel up and down do it.
 		var scrollingGoesLeftAndRight = function(){
 			body.addEventListener("mousewheel", function(event){
-			// IE
-			if (body.doScroll)
-				worksArea.doScroll(event.wheelDelta > 0 ? "left":"right");
-			else if ((event.wheelDelta || event.detail) > 0)
-				worksArea.scrollLeft -= 10;
-			else
-				worksArea.scrollLeft += 10;
-			event.preventDefault();
+				// Ignore horizontal movement (eg, magic mouse scrolling)
+				if ( event.wheelDeltaY > 0 ) {
+					if (body.doScroll) {
+						// IE
+						worksArea.doScroll(event.wheelDelta > 0 ? "left":"right");
+					} else {
+						if ((event.wheelDelta || event.detail) > 0) {
+							log('A', event)
+
+							worksArea.scrollLeft -= 10;
+						}	else {
+							log('B', event)
+							worksArea.scrollLeft += 10;
+						}
+					}
+					event.preventDefault();
+				}
 			});
 		}
 
