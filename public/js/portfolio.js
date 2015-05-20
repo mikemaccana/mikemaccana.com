@@ -119,7 +119,7 @@ define(function(require){
 					log('Added ', image.clientWidth + ( 2 * 1 ) + ( 2 * 6 ))
 				});
 				log('Setting screenshotsWidth to:', screenshotsWidth);
-				('.screenshots').style.width = screenshotsWidth+'px';
+				query('.screenshots').style.width = screenshotsWidth+'px';
 			});
 		}
 
