@@ -1,6 +1,17 @@
 {
 	"works": [
 		{
+			"slug": "certsimple",
+			"previewImage": "certsimple.png",
+			"screenshotCount": 5,
+			"imageExtension": "png",
+			"client": "certsimple",
+			"title": "CertSimple",
+			"pubDate": "Fri, 30 Aug 2013 14:30:14 +0000",
+			"lede": "The fastest, simplest way for any company to prove their identity online",
+			"description": "<p>EV (green bar) SSL certificates are the only way for a website to prove a company's identity. But due to the verification involved, the average time to get a certificate is 7-10 days. CertSimple uses great UI and live checking of details to issue EV certificates in an average of 5 hours, 40x the speed of the rest of the industry.</p>"
+		},
+		{
 			"slug": "mycognition",
 			"previewImage": "mycognition.png",
 			"screenshotCount": 5,
