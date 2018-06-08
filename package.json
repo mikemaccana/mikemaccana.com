@@ -1,45 +1,18 @@
 {
   "name": "mikemaccana.com",
-  "version": "1.0.0",
   "description": "Portfolio site",
-  "repository": "https://github.com/mikemaccana/deneckbeard.git",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "dependencies": {
-    "co": "^3.1.0",
-    "co-body": "0.0.1",
-    "co-busboy": "^1.0.2",
-    "co-fs": "==1.2.0",
-    "co-views": "==0.2.0",
-    "ejs": "==1.0.0",
-    "finished": "^1.2.2",
-    "koa": "^0.5.5",
-    "koa-basic-auth": "^1.1.1",
-    "koa-compose": "^2.3.0",
-    "koa-csrf": "^1.1.1",
-    "koa-gzip": "^0.1.0",
-    "koa-logger": "^1.2.2",
-    "koa-route": "^1.1.4",
-    "koa-session": "==2.0.0",
-    "koa-static": "^1.4.7",
-    "node-sass": "^0.9.6",
-    "raw-body": "^1.3.1",
-    "save-to": "^1.0.3",
-    "streaming-json-stringify": "^1.0.0",
-    "swig": "^1.4.2"
-  },
-  "devDependencies": {
-    "mocha": "*",
-    "should": "*",
-    "supertest": "*",
-    "gulp-autoprefixer": "0.0.7",
-    "gulp-nodemon": "1.0.2",
-    "gulp-livereload": "~1.3.1",
-    "gulp-jshint": "==1.5.3",
-    "gulp": "^3.8.10",
-    "gulp-sass": "^0.7.3",
-    "tiny-lr": "0.0.5"
-  },
-  "engines": {
-    "node": ">= 11.3"
-  },
-  "license": "MIT"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "node-sass-middleware": "0.11.0"
+  }
 }
