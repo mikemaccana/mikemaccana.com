@@ -49,8 +49,8 @@ const showPortfolio = function(){
 		el: '.modal .text',
 		template: modalTemplate,
 		data: {
-		title: null,
-		message: null
+			title: null,
+			message: null
 		}
 	})
 
