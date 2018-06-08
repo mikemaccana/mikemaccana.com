@@ -202,4 +202,4 @@ const showPortfolio = function(){
 	select(selected);
 }
 
-export { showPortfolio }
+export default showPortfolio 

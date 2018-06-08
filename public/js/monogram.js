@@ -58,4 +58,4 @@ var drawMonogram = function(){
 
 }
 
-export { drawMonogram }
+export default drawMonogram
