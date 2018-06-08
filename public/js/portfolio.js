@@ -17,8 +17,6 @@ var query = document.querySelector.bind(document),
 	log = console.log.bind(console);
 
 
-log(`worksTemplate: ${worksTemplate}`)
-
 var ITEM_WIDTH = {
 	selected: 400,
 	margin: 6,
