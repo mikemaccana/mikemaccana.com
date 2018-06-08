@@ -1,5 +1,5 @@
 import * as ractive from "/js/thirdparty/ractive.js";
-import * as imagesloaded from "/js/thirdparty/imagesloaded.pkgd.js";
+import ImagesLoaded from "/js/thirdparty/imagesloaded.pkgd.js";
 import * as agave from  "/js/thirdparty/agave.js";
 
 import worksTemplate from "/js/templates/works.js";
@@ -121,7 +121,7 @@ const showPortfolio = function(){
 		description: work.description,
 		screenshots: new Array(work.screenshotCount)
 		});
-		imagesLoaded('.screenshots img', function() {
+		ImagesLoaded('.screenshots img', function() {
 			var screenshotsWidth = 0;
 			queryAll('.screenshots .screenshot').forEach(function(image){
 				screenshotsWidth += image.clientWidth + ( 2 * 1 ) + ( 2 * 6 )
