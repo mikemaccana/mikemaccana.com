@@ -12,8 +12,8 @@ agave.enable('av');
 
 var Ractive = ractive.Ractive
 
-var query = document.querySelector.bind(document),
-	queryAll = document.querySelectorAll.bind(document),
+var select = document.querySelector.bind(document),
+	selectAll = document.querySelectorAll.bind(document),
 	log = console.log.bind(console);
 
 
@@ -54,18 +54,18 @@ const showPortfolio = function(){
 		}
 	})
 
-	var body = query('body'),
-		works = queryAll('.work'),
-		worksAll = query('.works'),
-		worksArea = query('.works-container'),
-		workTitle = query('.work-title'),
-		workClient = query('.work-client'),
-		workLogo = query('.work-logo'),
-		workLede = query('.work-lede'),
-		modalParent = query('.modal-parent'),
-		modalTitle = query('.modal-parent').querySelector('h1'),
-		modalDescription = query('.modal-parent').querySelector('.description'),
-		close = query('.close');
+	var body = select('body'),
+		works = selectAll('.work'),
+		worksAll = select('.works'),
+		worksArea = select('.works-container'),
+		workTitle = select('.work-title'),
+		workClient = select('.work-client'),
+		workLogo = select('.work-logo'),
+		workLede = select('.work-lede'),
+		modalParent = select('.modal-parent'),
+		modalTitle = select('.modal-parent').querySelector('h1'),
+		modalDescription = select('.modal-parent').querySelector('.description'),
+		close = select('.close');
 
 	var selected = 1,
 		max = worksData.works.length;
@@ -123,12 +123,12 @@ const showPortfolio = function(){
 		});
 		ImagesLoaded('.screenshots img', function() {
 			var screenshotsWidth = 0;
-			queryAll('.screenshots .screenshot').forEach(function(image){
+			selectAll('.screenshots .screenshot').forEach(function(image){
 				screenshotsWidth += image.clientWidth + ( 2 * 1 ) + ( 2 * 6 )
 				log('Added ', image.clientWidth + ( 2 * 1 ) + ( 2 * 6 ))
 			});
 			log('Setting screenshotsWidth to:', screenshotsWidth);
-			query('.screenshots').style.width = screenshotsWidth+'px';
+			select('.screenshots').style.width = screenshotsWidth+'px';
 		});
 	}
 
@@ -139,7 +139,7 @@ const showPortfolio = function(){
 
 	var select = function(index){
 		// log('selecting', index)
-		var work = query('.work:nth-child('+index+')')
+		var work = select('.work:nth-child('+index+')')
 		// log(work)
 		work.classList.add('selected')
 		var workData = worksData.works[(index - 1)]
@@ -151,7 +151,7 @@ const showPortfolio = function(){
 	}
 
 	var unselect = function(index){
-		var work = query('.work:nth-child('+index+')')
+		var work = select('.work:nth-child('+index+')')
 		if ( work ) {
 			work.classList.remove('selected');
 		} else {
