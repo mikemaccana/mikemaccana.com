@@ -72,19 +72,19 @@ const showPortfolio = function(){
 
 	works.forEach(function(work){
 		work.addEventListener('mouseover', function(event){
-		// log('hover', event.target)
+		log('hover', event.target)
 		unselect(selected);
 		var thisWork = event.target
-		// log('thisWork', thisWork)
+		log('thisWork', thisWork)
 		selected = thisWork.avgetParentIndex() + 1;
 		select(selected);
-		// log('hovered on ', index)
+		log('hovered on ', index)
 		});
 
 		work.addEventListener('click', function(event){
-		// log('Clicked yaay!')
+		log('Clicked yaay!')
 		var thisWork = event.target
-		// log('thisWork', thisWork)
+		log('thisWork', thisWork)
 		var indexZero = thisWork.avgetParentIndex();
 		enableModal(worksData.works[indexZero])
 		// Make dialog show the work at this index
@@ -138,15 +138,15 @@ const showPortfolio = function(){
 	};
 
 	var select = function(index){
-		// log('selecting', index)
+		log('selecting', index)
 		var work = query('.work:nth-child('+index+')')
-		// log(work)
+		log(work)
 		work.classList.add('selected')
 		var workData = worksData.works[(index - 1)]
 		workDescriptionRactive.set({
-		title: workData.title,
-		logo: work.dataset.logo,
-		lede: workData.lede
+			title: workData.title,
+			logo: work.dataset.logo,
+			lede: workData.lede
 		})
 	}
 
