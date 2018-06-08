@@ -1,17 +1,16 @@
-var log = console.log.bind(console);
+import * as portfolio from '/js/portfolio.js';
+import * as monogram from '/js/monogram.js';
 
-var showPortfolio = require("portfolio"),
-	drawMongogram = require("monogram")
-
-var query = document.querySelector.bind(document),
-	queryAll = document.querySelectorAll.bind(document);
+var log = console.log.bind(console), 
+	select = document.querySelector.bind(document),
+	selectAll = document.querySelectorAll.bind(document);
 
 NodeList.prototype.forEach = Array.prototype.forEach;
 
-var menuToggledElements = queryAll('nav, body, .hamburger, .content, footer');
+var menuToggledElements = selectAll('nav, body, .hamburger, .content, footer');
 
 // Clicking ☰ button displays nav
-query('.hamburger').addEventListener('click', function(event) {
+select('.hamburger').addEventListener('click', function(event) {
 	menuToggledElements.forEach(function(element, index){
 		element.classList.toggle('menu-active');
 	});
@@ -20,7 +19,7 @@ query('.hamburger').addEventListener('click', function(event) {
 
 // Portfolio page stuff
 if ( window.location.pathname === '/' ) {
-	showPortfolio();
+	portfolio.showPortfolio();
 }
 
-drawMongogram();
+monogram.drawMonogram();

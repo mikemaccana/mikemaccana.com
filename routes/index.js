@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Mike MacCana | Portfolio' });
+  res.render('index', { title: 'Portfolio' });
 });
 
 router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'Mike MacCana | About' });
+  res.render('about', { title: 'About' });
 });
 
 module.exports = router;

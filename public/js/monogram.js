@@ -1,23 +1,22 @@
+import Snap from "/js/thirdparty/snap.svg.js";
+import imagesLoaded from "/js/thirdparty/imagesloaded.pkgd.js";
 
-var Snap = require("snap"),
-	imagesLoaded = require("imagesloaded");
-
-var query = document.querySelector.bind(document),
-	queryAll = document.querySelectorAll.bind(document),
+var select = document.querySelector.bind(document),
+	selectAll = document.querySelectorAll.bind(document),
 	log = console.log.bind(console);
 
 
-var drawMongogram = function(){
+var drawMonogram = function(){
 	log('Drawing monogram')
 	var monogram = Snap.select(".monogram"),
 		bigM = monogram.select('#big-m'),
 		smallM = monogram.select('#small-m'),
-		works = queryAll('.works .work'),
-		worksWrapper = query('.works-wrapper'),
-		workDescription = query('.work-description'),
-		content = query('.content'),
-		title = query('.intro h1'),
-		sub = query('.intro h2');
+		works = selectAll('.works .work'),
+		worksWrapper = select('.works-wrapper'),
+		workDescription = select('.work-description'),
+		content = select('.content'),
+		title = select('.intro h1'),
+		sub = select('.intro h2');
 
 	// See http://raphaeljs.com/reference.html#Element.transform for transform syntax
 	bigM.animate({
@@ -59,4 +58,4 @@ var drawMongogram = function(){
 
 }
 
-return drawMongogram
+export { drawMonogram }

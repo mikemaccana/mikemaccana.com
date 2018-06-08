@@ -1,4 +1,4 @@
-{
+var worksData = {
 	"works": [
 		{
 			"slug": "certsimple",
@@ -250,3 +250,6 @@
 		}
 	]
 }
+
+
+export default worksData

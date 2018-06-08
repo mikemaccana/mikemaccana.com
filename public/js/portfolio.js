@@ -1,16 +1,23 @@
-var Ractive = require("ractive"),
-	imagesLoaded = require("imagesloaded"),
-	worksTemplate = require("text!/views/works.html"),
-	workDescriptionTemplate = require("text!/views/workdescription.html"),
-	modalTemplate = require("text!/views/modal.html"),
-	worksData = JSON.parse(require("text!/data/works.json")),
-	agave = require("agave")
+import * as ractive from "/js/thirdparty/ractive.js";
+import * as imagesloaded from "/js/thirdparty/imagesloaded.pkgd.js";
+import * as agave from  "/js/thirdparty/agave.js";
+
+import worksTemplate from "/js/templates/works.js";
+import workDescriptionTemplate from "/js/templates/workdescription.js";
+import modalTemplate from "/js/templates/modal.js";
+
+import worksData from "/js/data/works.js";
 
 agave.enable('av');
+
+var Ractive = ractive.Ractive
 
 var query = document.querySelector.bind(document),
 	queryAll = document.querySelectorAll.bind(document),
 	log = console.log.bind(console);
+
+
+log(`worksTemplate: ${worksTemplate}`)
 
 var ITEM_WIDTH = {
 	selected: 400,
@@ -18,7 +25,7 @@ var ITEM_WIDTH = {
 	unselected: 180
 };
 
-return function(){
+const showPortfolio = function(){
 	var worksRactive = new Ractive({
 		el: '.works-container',
 		template: worksTemplate,
@@ -194,3 +201,5 @@ return function(){
 	scrollingGoesLeftAndRight();
 	select(selected);
 }
+
+export { showPortfolio }

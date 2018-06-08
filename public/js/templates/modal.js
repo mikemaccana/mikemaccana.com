@@ -1,4 +1,4 @@
-<img class="close" src="/images/icons/close.png"/>
+var modalTemplate = `<img class="close" src="/images/icons/close.png"/>
 <h1>{{ title }}</h1>
 <div class="screenshot-container">
   <div class="screenshots">
@@ -9,4 +9,6 @@
     {{/screenshots}}
   </div>
 </div>
-<div class="description">{{{ description }}}</div>
+<div class="description">{{{ description }}}</div>`
+
+export default modalTemplate
