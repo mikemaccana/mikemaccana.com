@@ -72,22 +72,22 @@ const showPortfolio = function(){
 
 	works.forEach(function(work){
 		work.addEventListener('mouseover', function(event){
-		// log('hover', event.target)
-		unselect(selected);
-		var thisWork = event.target
-		// log('thisWork', thisWork)
-		selected = thisWork.avgetParentIndex() + 1;
-		select(selected);
-		// log('hovered on ', index)
+			// log('hover', event.target)
+			unselect(selected);
+			var thisWork = event.target
+			// log('thisWork', thisWork)
+			selected = thisWork.avgetParentIndex() + 1;
+			select(selected);
+			// log('hovered on ', index)
 		});
 
 		work.addEventListener('click', function(event){
-		// log('Clicked yaay!')
-		var thisWork = event.target
-		// log('thisWork', thisWork)
-		var indexZero = thisWork.avgetParentIndex();
-		enableModal(worksData.works[indexZero])
-		// Make dialog show the work at this index
+			// log('Clicked yaay!')
+			var thisWork = event.target
+			// log('thisWork', thisWork)
+			var indexZero = thisWork.avgetParentIndex();
+			enableModal(worksData.works[indexZero])
+			// Make dialog show the work at this index
 		})
 	})
 
