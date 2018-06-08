@@ -16,13 +16,6 @@ var query = document.querySelector.bind(document),
 	queryAll = document.querySelectorAll.bind(document),
 	log = console.log.bind(console);
 
-
-var ITEM_WIDTH = {
-	selected: 400,
-	margin: 6,
-	unselected: 180
-};
-
 // Return index of node under its parents. Eg, if you're the fourth child, return 3.
 Element.prototype.avgetParentIndex = function() {
 	return Array.prototype.indexOf.call(this.parentNode.children, this);
@@ -71,15 +64,6 @@ const showPortfolio = function(){
 		max = worksData.works.length;
 
 	works.forEach(function(work){
-		work.addEventListener('mouseover', function(event){
-			log('hover', event.target)
-			unselect(selected);
-			var thisWork = event.target
-			log('thisWork', thisWork)
-			selected = thisWork.avgetParentIndex() + 1;
-			select(selected);
-			log('hovered on ', selected)
-		});
 
 		work.addEventListener('click', function(event){
 			log('Clicked yaay!')
@@ -90,22 +74,6 @@ const showPortfolio = function(){
 			// Make dialog show the work at this index
 		})
 	})
-
-	var scroll = function(index){
-		var itemFullWidth = ITEM_WIDTH.unselected + (ITEM_WIDTH.margin * 2)
-		var amount = ( itemFullWidth * (index - 1) );
-		worksArea.scrollLeft = amount;
-	}
-
-	worksArea.addEventListener('touchend', function(ev){
-		var changedTouches = ev.changedTouches[0];
-		var elem = document.elementFromPoint(changedTouches.pageX, changedTouches.pageY);
-		var itemNumber = elem.avgetParentIndex()
-		unselect(selected);
-		selected = itemNumber;
-		log('Selected element', itemNumber)
-		select(itemNumber)
-	});
 
 	close.addEventListener('click', function(event){
 		disableModal();
@@ -150,59 +118,6 @@ const showPortfolio = function(){
 		})
 	}
 
-	var unselect = function(index){
-		var work = query('.work:nth-child('+index+')')
-		if ( work ) {
-			work.classList.remove('selected');
-		} else {
-			log('Could not find a work with index', index)
-		}
-	}
-
-	// We need to pad first item is list, so it shows in center
-	var padFirstWorkItem = function(){
-		log('Adjusting padding');
-		var worksOffset = Math.floor( (window.innerWidth / 2) - (ITEM_WIDTH.selected/2) ); // Keeps current item centered in window
-		works[0].style['margin-left'] = worksOffset+'px';
-
-		// Adjust width of .works for the amount of works we have
-		var normalWorkItemWidth = 180 + 2 * 6;
-		var normalItemsWidth = ( worksData.works.length - 1 ) * normalWorkItemWidth
-		var selectedItemWidth = 400 + 2 * 6
-		worksAll.style.width = normalItemsWidth + selectedItemWidth + worksOffset
-		log('Works is now', normalItemsWidth + selectedItemWidth + worksOffset)
-	}
-
-	// Some people don't have mice that can scroll left and right
-	// So make mousewheel up and down do it.
-	var scrollingGoesLeftAndRight = function(){
-		body.addEventListener("mousewheel", function(event){
-			// Ignore horizontal movement (eg, magic mouse scrolling)
-			if ( event.wheelDeltaY > 0 ) {
-				if (body.doScroll) {
-					// IE
-					worksArea.doScroll(event.wheelDelta > 0 ? "left":"right");
-				} else {
-					if ((event.wheelDelta || event.detail) > 0) {
-						log('A', event)
-
-						worksArea.scrollLeft -= 10;
-					}	else {
-						log('B', event)
-						worksArea.scrollLeft += 10;
-					}
-				}
-				event.preventDefault();
-			}
-		});
-	}
-
-	// Re-run layout padding when window resizes, but wait until the user has stopped
-	// resizing the window for 500ms first
-	window.addEventListener("resize", padFirstWorkItem.avthrottle(500));
-	padFirstWorkItem()
-	scrollingGoesLeftAndRight();
-	select(selected);
 }
 
 export default showPortfolio 
