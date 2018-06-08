@@ -1,34 +1,3 @@
-// HACKED BY MIKE FOR ES6
-// /*!
-//  * imagesLoaded PACKAGED v4.1.4
-//  * JavaScript is all like "You images are done yet or what?"
-//  * MIT License
-//  */
-
-// /**
-//  * EvEmitter v1.1.0
-//  * Lil' event emitter
-//  * MIT License
-//  */
-
-// /* jshint unused: true, undef: true, strict: true */
-
-// ( function( global, factory ) {
-//   // universal module definition
-//   /* jshint strict: false */ /* globals define, module, window */
-//   if ( typeof define == 'function' && define.amd ) {
-//     // AMD - RequireJS
-//     define( 'ev-emitter/ev-emitter',factory );
-//   } else if ( typeof module == 'object' && module.exports ) {
-//     // CommonJS - Browserify, Webpack
-//     module.exports = factory();
-//   } else {
-//     // Browser globals
-//     global.EvEmitter = factory();
-//   }
-
-// }( typeof window != 'undefined' ? window : this, function() {
-
 
 
 function EvEmitter() {}
@@ -495,8 +464,4 @@ ImagesLoaded.makeJQueryPlugin();
 // --------------------------  -------------------------- //
 
 export default ImagesLoaded 
-
-// HACKED OUT BY MIKE AS FOR ES6 MODULE
-// return ImagesLoaded;
-// });
 
