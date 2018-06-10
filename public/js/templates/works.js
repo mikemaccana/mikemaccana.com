@@ -3,7 +3,8 @@ var worksTemplate = `
 	<div class="frame js_frame">
 		<ul class="slides js_slides">
 			{{#works}}
-				<li class="js_slide" data-logo="/images/logos/{{{ client }}}.png" style="background-image: url('/images/work/thumbs/{{{ previewImage }}}')">
+				<li class="js_slide" data-logo="/images/logos/{{{ client }}}.png">
+					<img src="/images/work/thumbs/{{{ previewImage }}}"/>
 				</li>
 			{{/works}}
 		</ul>
