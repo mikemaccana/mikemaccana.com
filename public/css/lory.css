@@ -21,6 +21,7 @@
 	display: inline-block;
 }
 
+/* Actual fucking item */
 li {
 	position: relative;
 	display: inline-block;
@@ -29,6 +30,7 @@ li {
 		* (optional) if the content inside the slide element has a defined size.
 		*/
 	width: 880px;
+	margin-right: 24px;
 }
 
 .prev, .next {
