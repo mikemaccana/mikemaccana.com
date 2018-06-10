@@ -169,9 +169,6 @@ body {
 		@include vertical-center-child();
 		padding: 0; // No left/right padding because works should bleed all the way to the edges
 		position: relative;
-		ul, li {
-			@include notlist();
-		}
 		&.menu-active {
 			@media (max-width: $single-column-threshold) {
 				transform: translate(-$sidebar-width, -50%);
