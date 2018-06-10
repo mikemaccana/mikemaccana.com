@@ -1,6 +1,7 @@
 import * as ractive from "/js/thirdparty/ractive.js";
 import ImagesLoaded from "/js/thirdparty/imagesloaded.pkgd.js";
 import * as agave from  "/js/thirdparty/agave.js";
+import {lory} from '/js/thirdparty/lory/lory.js';
 
 import worksTemplate from "/js/templates/works.js";
 import workDescriptionTemplate from "/js/templates/workdescription.js";
@@ -20,6 +21,14 @@ var query = document.querySelector.bind(document),
 Element.prototype.avgetParentIndex = function() {
 	return Array.prototype.indexOf.call(this.parentNode.children, this);
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+	var variableWidth = document.querySelector('.js_slider');
+	lory(variableWidth, {
+		rewind: true
+	});
+});
+
 
 const showPortfolio = function(){
 	var worksRactive = new Ractive({
