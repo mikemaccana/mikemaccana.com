@@ -212,7 +212,6 @@ body {
 .works-wrapper {
 	width: 100vw;
 	margin: 0;
-	overflow: scroll;
 	&.loading {
 		// Show once monogram has loaded
 		visibility: hidden;
@@ -247,7 +246,6 @@ body {
 		// 			height: 310px;
 		// 		}
 		// 	}
-		}
 	}
 }
 
