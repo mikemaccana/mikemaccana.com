@@ -24,7 +24,7 @@
 }
 
 /* Actual fucking item */
-li {
+.js_slide {
 	position: relative;
 	display: inline-block;
 	height: 100%;
