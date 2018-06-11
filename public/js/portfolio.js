@@ -4,7 +4,6 @@ import * as agave from  "/js/thirdparty/agave.js";
 import {lory} from '/js/thirdparty/lory/lory.js';
 
 import worksTemplate from "/js/templates/works.js";
-import workDescriptionTemplate from "/js/templates/workdescription.js";
 import modalTemplate from "/js/templates/modal.js";
 
 import worksData from "/js/data/works.js";
@@ -23,31 +22,26 @@ Element.prototype.avgetParentIndex = function() {
 }
 
 const showPortfolio = function(){
-	
-	var workDescriptionRactive = new Ractive({
-		el: '.work-description',
-		template: workDescriptionTemplate,
-		data: {
-			title: null,
-			logo: null,
-			lede: null
-		}
-	})
 
-	var modalRactive = new Ractive({
-		el: '.modal .text',
-		template: modalTemplate,
-		data: {
-			title: null,
-			message: null
-		}
-	})
+	// var modalRactive = new Ractive({
+	// 	el: '.modal .text',
+	// 	template: modalTemplate,
+	// 	data: {
+	// 		title: null,
+	// 		message: null
+	// 	}
+	// })
 
 	var worksRactive = new Ractive({
 		el: '.works-container',
 		template: worksTemplate,
-		data: worksData,
+		data: {
+			works: worksData.works,
+			index: 0	
+		},
 		oncomplete: function(){
+
+			var worksRactive = this;
 
 			var slider = select('.js_slider'),
 				works = selectAll('.work');
@@ -63,13 +57,7 @@ const showPortfolio = function(){
 			slider.addEventListener('after.lory.slide', function(event){
 				var currentSlide = event.detail.currentSlide
 				log(`After slide! currentSlide is ${currentSlide}`)
-
-				var workData = worksData.works[currentSlide]
-				workDescriptionRactive.set({
-					title: workData.title,
-					logo: `${workData.client}.${workData.imageExtension}`,
-					lede: workData.lede
-				})				
+				worksRactive.set(index, currentSlide)	
 			});
 
 			// Set up showing work detail when items are clicked
@@ -88,64 +76,51 @@ const showPortfolio = function(){
 		}
 	});
 
-	var body = select('body'),
-		worksAll = select('.works'),
-		worksArea = select('.works-container'),
-		workTitle = select('.work-title'),
-		workClient = select('.work-client'),
-		workLogo = select('.work-logo'),
-		workLede = select('.work-lede'),
-		modalParent = select('.modal-parent'),
-		modalTitle = select('.modal-parent').querySelector('h1'),
-		modalDescription = select('.modal-parent').querySelector('.description'),
-		close = select('.close');
+	// var body = select('body'),
+	// 	worksAll = select('.works'),
+	// 	worksArea = select('.works-container'),
+	// 	workTitle = select('.work-title'),
+	// 	workClient = select('.work-client'),
+	// 	workLogo = select('.work-logo'),
+	// 	workLede = select('.work-lede'),
+	// 	modalParent = select('.modal-parent'),
+	// 	modalTitle = select('.modal-parent').querySelector('h1'),
+	// 	modalDescription = select('.modal-parent').querySelector('.description'),
+	// 	close = select('.close');
 
-	var selected = 1;
+	// var selected = 1;
 
 
 
-	close.addEventListener('click', function(event){
-		disableModal();
-	})
+	// close.addEventListener('click', function(event){
+	// 	disableModal();
+	// })
 
-	var enableModal = function(work){
-		body.classList.toggle('modal-enabled');
-		modalParent.style.display = 'inline';
-		modalRactive.set({
-		title: work.title,
-		imageExtension: work.imageExtension,
-		slug: work.slug,
-		description: work.description,
-		screenshots: new Array(work.screenshotCount)
-		});
-		ImagesLoaded('.screenshots img', function() {
-			var screenshotsWidth = 0;
-			selectAll('.screenshots .screenshot').forEach(function(image){
-				screenshotsWidth += image.clientWidth + ( 2 * 1 ) + ( 2 * 6 )
-				log('Added ', image.clientWidth + ( 2 * 1 ) + ( 2 * 6 ))
-			});
-			log('Setting screenshotsWidth to:', screenshotsWidth);
-			select('.screenshots').style.width = screenshotsWidth+'px';
-		});
-	}
+	// var enableModal = function(work){
+	// 	body.classList.toggle('modal-enabled');
+	// 	modalParent.style.display = 'inline';
+	// 	modalRactive.set({
+	// 	title: work.title,
+	// 	imageExtension: work.imageExtension,
+	// 	slug: work.slug,
+	// 	description: work.description,
+	// 	screenshots: new Array(work.screenshotCount)
+	// 	});
+	// 	ImagesLoaded('.screenshots img', function() {
+	// 		var screenshotsWidth = 0;
+	// 		selectAll('.screenshots .screenshot').forEach(function(image){
+	// 			screenshotsWidth += image.clientWidth + ( 2 * 1 ) + ( 2 * 6 )
+	// 			log('Added ', image.clientWidth + ( 2 * 1 ) + ( 2 * 6 ))
+	// 		});
+	// 		log('Setting screenshotsWidth to:', screenshotsWidth);
+	// 		select('.screenshots').style.width = screenshotsWidth+'px';
+	// 	});
+	// }
 
-	var disableModal = function(){
-		body.classList.toggle('modal-enabled');
-		modalParent.style.display = 'none';
-	};
-
-	var changeWorkItem = function(index){
-		log('selecting', index)
-		var work = select('.work:nth-child('+index+')')
-		log(work)
-		work.classList.add('selected')
-		var workData = worksData.works[(index - 1)]
-		workDescriptionRactive.set({
-			title: workData.title,
-			logo: work.dataset.logo,
-			lede: workData.lede
-		})
-	}
+	// var disableModal = function(){
+	// 	body.classList.toggle('modal-enabled');
+	// 	modalParent.style.display = 'none';
+	// };
 
 }
 
