@@ -210,17 +210,6 @@ body {
 	}
 	.works-container {
 		width: 100%;
-		.works {
-			.work {
-				cursor: pointer;
-				transition: all 0.1s ease-out;
-				transform: scale(0.95) translateZ(0); // Zoom effect
-				opacity: 1;
-				&.selected {
-					transform: scale(1) translateZ(0);
-				}
-			}
-		}
 	}
 }
 
