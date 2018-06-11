@@ -3,7 +3,7 @@ var worksTemplate = `
 	<div class="frame js_frame">
 		<div class="slides js_slides">
 			{{#works:index}}
-				<div class="js_slide {{ #if index === currentIndex }}selected{{ /if }} {{ #if index === 0 }}first{{ /if }}" data-logo="/images/logos/{{{ client }}}.png">
+				<div class="js_slide {{ #if index === currentIndex }}selected{{ /if }} {{ #if index === 0 }}first{{ /if }}">
 					<img src="/images/work/thumbs/{{{ previewImage }}}"/>
 				</div>
 			{{/works}}
