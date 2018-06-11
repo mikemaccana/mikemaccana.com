@@ -97,7 +97,15 @@ export function lory (slider, opts) {
      * @ease      {string} easing css property
      */
     function translate (to, duration, ease) {
-        const style = slideContainer && slideContainer.style;
+				const style = slideContainer && slideContainer.style;
+				
+				// Mike magic hack to center current item
+				var windowWidth = window.innerWidth,
+					widthOfFirstItem = 400,
+					adjustmentRequiredToCenterFirstItem = ( windowWidth / 2 ) - ( widthOfFirstItem / 2)
+
+				to = to + adjustmentRequiredToCenterFirstItem;
+				// end mike magic hack
 
         if (style) {
             style[prefixes.transition + 'TimingFunction'] = ease;
