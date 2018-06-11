@@ -2,8 +2,8 @@ var worksTemplate = `
 <div class="slider js_slider">
 	<div class="frame js_frame">
 		<div class="slides js_slides">
-			{{#works}}
-				<div class="js_slide" data-logo="/images/logos/{{{ client }}}.png">
+			{{#works:index}}
+				<div class="js_slide {{ #if index === currentIndex }}selected{{ /if }}" data-logo="/images/logos/{{{ client }}}.png">
 					<img src="/images/work/thumbs/{{{ previewImage }}}"/>
 				</div>
 			{{/works}}
@@ -18,9 +18,9 @@ var worksTemplate = `
 </div>
 
 <div class="work-description loading">
-	<h3 class="work-title">{{ works[index].title }}</h3>
-	<img class="work-logo" src="/images/logos/{{ works[index].client }}.{{ works[index].imageExtension }}"/>
-	<div class="work-lede">{{ works[index].lede }}</div>
+	<h3 class="work-title">{{ works[currentIndex].title }}</h3>
+	<img class="work-logo" src="/images/logos/{{ works[currentIndex].client }}.{{ works[currentIndex].imageExtension }}"/>
+	<div class="work-lede">{{ works[currentIndex].lede }}</div>
 </div>
 
 `

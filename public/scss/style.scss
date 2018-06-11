@@ -1,5 +1,6 @@
 @import "normalize.scss";
 @import "fonts.scss";
+@import "lory.scss";
 
 $lightgrey: #B7B7B7;
 $midgrey: #222;
@@ -51,12 +52,6 @@ $selected-item-height: 310px;
 a, a:hover, a:active, a:visited {
 	color: $textcolor;
 	text-decoration: none;
-}
-
-@mixin notlist {
-	list-style: none;
-	padding: 0;
-	margin: 0;
 }
 
 /* ☰ button */
@@ -215,34 +210,17 @@ body {
 	}
 	.works-container {
 		width: 100%;
-		// overflow: scroll;
-		// .works {
-		// 	list-style-type: none;
-		// 	display: block;
-		// 	// width: Set dynamically by JS
-		// 	height: $selected-item-height;
-		// 	@include slant();
-		// 	.work {
-		// 		cursor: pointer;
-		// 		list-style-type: none;
-		// 		float: left;
-		// 		margin: 0 $spacing / 4;
-		// 		width: 180px;
-		// 		height: 290px;
-		// 		transition: all 0.1s ease-out;
-		// 		transform: scale(0.95) translateZ(0); // Zoom effect
-		// 		background-position: center center;
-		// 		background-repeat: no-repeat;
-		// 		background-size: contain;
-		// 		opacity: 0;
-		// 		&.visible {
-		// 			opacity: 1;
-		// 		}
-		// 		&.selected {
-		// 			width: 400px;
-		// 			height: 310px;
-		// 		}
-		// 	}
+		.works {
+			.work {
+				cursor: pointer;
+				transition: all 0.1s ease-out;
+				transform: scale(0.95) translateZ(0); // Zoom effect
+				opacity: 1;
+				&.selected {
+					transform: scale(1) translateZ(0);
+				}
+			}
+		}
 	}
 }
 

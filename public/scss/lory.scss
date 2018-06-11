@@ -1,0 +1,47 @@
+.slider {
+	.frame {
+		position: relative;
+		font-size: 0;
+		line-height: 0;
+		overflow: hidden;
+		white-space: nowrap;
+		.slides {
+			display: inline-block;
+			height: 400px;
+			margin-top: 48px;
+			.js_slide {
+				position: relative;
+				display: inline-block;
+				height: 100%;
+				cursor: pointer;
+				opacity: 0.4;
+				// Seems to be needed to be defined (or a width set individually on each) for slider buttons to work
+				width: 400px;
+				margin-right: 24px;
+				&.selected {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.prev, .next {
+		position: absolute;
+		top: 50%;
+		margin-top: -25px;
+		display: block;
+		cursor: pointer;
+	}
+	
+	.next {
+		right: 0;
+	}
+	
+	.prev {
+		left: 0;
+	}
+	
+	.next svg, .prev svg {
+		width: 25px;
+	}
+}
+

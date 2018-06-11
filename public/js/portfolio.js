@@ -37,7 +37,7 @@ const showPortfolio = function(){
 		template: worksTemplate,
 		data: {
 			works,
-			index: 0	
+			currentIndex: 0	
 		},
 		oncomplete: function(){
 
@@ -57,21 +57,20 @@ const showPortfolio = function(){
 			slider.addEventListener('after.lory.slide', function(event){
 				var currentSlide = event.detail.currentSlide
 				log(`After slide! currentSlide is ${currentSlide}`)
-				worksRactive.set('index', currentSlide)	
+				worksRactive.set('currentIndex', currentSlide)	
 			});
 
 			// Set up showing work detail when items are clicked
-			// workElements.forEach(function(workElement){
-
-			// 	workElement.addEventListener('click', function(event){
-			// 		log('Clicked yaay!')
-			// 		var thisWork = event.target
-			// 		log('thisWork', thisWork)
-			// 		var indexZero = thisWork.avgetParentIndex();
-			// 		enableModal(worksData.works[indexZero])
-			// 		// Make dialog show the work at this index
-			// 	})
-			// })
+			workElements.forEach(function(workElement){
+				workElement.addEventListener('click', function(event){
+					
+					var thisWork = event.target,
+						indexZero = thisWork.avgetParentIndex();
+						log(`Clicked work element! ${indexZero}`)
+					enableModal(worksData.works[indexZero])
+					// Make dialog show the work at this index
+				})
+			})
 
 		}
 	});
