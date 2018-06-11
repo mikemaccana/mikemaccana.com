@@ -19,13 +19,15 @@
 
 .slides {
 	display: inline-block;
+	height: 400px;
+	margin-top: 48px;
 }
 
 /* Actual fucking item */
 li {
 	position: relative;
 	display: inline-block;
-
+	height: 100%;
 	/**
 		* (optional) if the content inside the slide element has a defined size.
 		*/
