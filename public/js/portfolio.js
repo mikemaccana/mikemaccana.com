@@ -6,7 +6,7 @@ import {lory} from '/js/thirdparty/lory/lory.js';
 import worksTemplate from "/js/templates/works.js";
 import modalTemplate from "/js/templates/modal.js";
 
-import worksData from "/js/data/works.js";
+import works from "/js/data/works.js";
 
 agave.enable('av');
 
@@ -36,7 +36,7 @@ const showPortfolio = function(){
 		el: '.works-container',
 		template: worksTemplate,
 		data: {
-			works: worksData.works,
+			works,
 			index: 0	
 		},
 		oncomplete: function(){
@@ -44,7 +44,7 @@ const showPortfolio = function(){
 			var worksRactive = this;
 
 			var slider = select('.js_slider'),
-				works = selectAll('.work');
+				workElements = selectAll('.work');
 
 			log(`portfolio ractive setup, slider is`, slider)
 
@@ -57,21 +57,21 @@ const showPortfolio = function(){
 			slider.addEventListener('after.lory.slide', function(event){
 				var currentSlide = event.detail.currentSlide
 				log(`After slide! currentSlide is ${currentSlide}`)
-				worksRactive.set(index, currentSlide)	
+				worksRactive.set('index', currentSlide)	
 			});
 
 			// Set up showing work detail when items are clicked
-			works.forEach(function(work){
+			// workElements.forEach(function(workElement){
 
-				work.addEventListener('click', function(event){
-					log('Clicked yaay!')
-					var thisWork = event.target
-					log('thisWork', thisWork)
-					var indexZero = thisWork.avgetParentIndex();
-					enableModal(worksData.works[indexZero])
-					// Make dialog show the work at this index
-				})
-			})
+			// 	workElement.addEventListener('click', function(event){
+			// 		log('Clicked yaay!')
+			// 		var thisWork = event.target
+			// 		log('thisWork', thisWork)
+			// 		var indexZero = thisWork.avgetParentIndex();
+			// 		enableModal(worksData.works[indexZero])
+			// 		// Make dialog show the work at this index
+			// 	})
+			// })
 
 		}
 	});
