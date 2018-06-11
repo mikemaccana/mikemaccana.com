@@ -17,11 +17,5 @@ var worksTemplate = `
 	</span>
 </div>`
 
-
-// /* <ul class="works">
-//     <li class="work" data-logo="/images/logos/{{{ client }}}.png" style="background-image: url('/images/work/thumbs/{{{ previewImage }}}')">
-//     </li>
-// </ul>` */
-
 export default worksTemplate 
 
