@@ -64,15 +64,6 @@ const showPortfolio = function(){
 			var enableModal = function(work){
 				body.classList.toggle('modal-enabled');
 				modalParent.style.display = 'inline';
-				// ImagesLoaded('.screenshots img', function() {
-				// 	var screenshotsWidth = 0;
-				// 	selectAll('.screenshots .screenshot').forEach(function(image){
-				// 		screenshotsWidth += image.clientWidth + ( 2 * 1 ) + ( 2 * 6 )
-				// 		log('Added ', image.clientWidth + ( 2 * 1 ) + ( 2 * 6 ))
-				// 	});
-				// 	log('Setting screenshotsWidth to:', screenshotsWidth);
-				// 	select('.screenshots').style.width = screenshotsWidth+'px';
-				// });
 			}
 		
 			var disableModal = function(){
