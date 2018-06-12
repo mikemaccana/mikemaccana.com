@@ -22,9 +22,11 @@
 				opacity: 0.5;
 				transition: all 0.1s ease-out;
 				transform: scale(0.6); // Zoom effect
+				filter: blur(2px);
 				&.selected {
 					opacity: 1;
 					transform: scale(1);
+					filter: none;
 				}
 			}
 		}
