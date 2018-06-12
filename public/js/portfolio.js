@@ -30,9 +30,10 @@ const showPortfolio = function(){
 			currentIndex: 0
 		},
 		computed: {
+			// Used to turn 'screenshotCount: 5' into a thing we can loop over.
 			screenshotIndexes: function(){
-				var size = this.get('works[currentIndex].screenshotCount')
-				log(`Debug size is ${size}`)
+				var currentIndex = this.get('currentIndex')
+				var size = this.get(`works.${currentIndex}.screenshotCount`)
         return new Array(size);
     	}           
 		},
