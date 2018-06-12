@@ -22,15 +22,6 @@ Element.prototype.avgetParentIndex = function() {
 
 const showPortfolio = function(){
 
-	// var modalRactive = new Ractive({
-	// 	el: '.modal .text',
-	// 	template: modalTemplate,
-	// 	data: {
-	// 		title: null,
-	// 		message: null
-	// 	}
-	// })
-
 	var worksRactive = new Ractive({
 		el: '.works-container',
 		template: worksTemplate,
@@ -69,18 +60,9 @@ const showPortfolio = function(){
 				worksRactive.set('currentIndex', currentSlide)	
 			});
 
-			
-
 			var enableModal = function(work){
 				body.classList.toggle('modal-enabled');
 				modalParent.style.display = 'inline';
-				// modalRactive.set({
-				// 	title: work.title,
-				// 	imageExtension: work.imageExtension,
-				// 	slug: work.slug,
-				// 	description: work.description,
-				// 	screenshots: new Array(work.screenshotCount)
-				// });
 				// ImagesLoaded('.screenshots img', function() {
 				// 	var screenshotsWidth = 0;
 				// 	selectAll('.screenshots .screenshot').forEach(function(image){
@@ -113,25 +95,6 @@ const showPortfolio = function(){
 
 		}
 	});
-
-	// 
-	// 	worksAll = select('.works'),
-	// 	worksArea = select('.works-container'),
-	// 	workTitle = select('.work-title'),
-	// 	workClient = select('.work-client'),
-	// 	workLogo = select('.work-logo'),
-	// 	workLede = select('.work-lede'),
-	// 	
-	// 	modalTitle = select('.modal-parent').querySelector('h1'),
-	// 	modalDescription = select('.modal-parent').querySelector('.description'),
-
-
-
-
-
-	
-
-	
 
 }
 
