@@ -19,17 +19,9 @@ $single-column-threshold: 770px;
 $vertical-rhythm: 14px;
 $selected-item-height: 310px;
 
-@mixin slant() {
-	backface-visibility: hidden; // Seems to fix flashing when scrolling with transform below on.
-	transform: matrix(1, 0, -0.2, 1, 24, 0);
-}
-
 *, *:before, *:after {
 	box-sizing: border-box;
 	overflow: hidden; // Everything has layout by default. No clear fixes.
-	li {
-		overflow: visible;
-	}
 }
 
 // No scrollbars
@@ -310,22 +302,21 @@ footer {
 					}
 					.screenshot-container {
 						max-width: 100%;
-						overflow: scroll;
-						.screenshots {
-							height: 30vh;
-							width: $screenshots-total-width;
-							@include slant();
-							a.screenshot {
-								display: block;
-								float: left;
-								background-color: white;
-								height: 30vh;
-								margin: $spacing / 4;
-							}
-							img {
-								height: 100%;
-							}
-						}
+						// overflow: scroll;
+						// .screenshots {
+						// 	height: 30vh;
+						// 	width: $screenshots-total-width;
+						// 	a.screenshot {
+						// 		display: block;
+						// 		float: left;
+						// 		background-color: white;
+						// 		height: 30vh;
+						// 		margin: $spacing / 4;
+						// 	}
+						// 	img {
+						// 		height: 100%;
+						// 	}
+						// }
 					}
 					padding: $spacing;
 					max-width: $single-column-threshold;
