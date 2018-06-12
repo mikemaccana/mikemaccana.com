@@ -1,0 +1,60 @@
+@import "colors.scss";
+
+.modal-parent {
+	display: none;
+	.modal {
+		z-index: 3;
+		left: 0;
+		top: 0;
+		width: 100%;
+		position: absolute;
+		height: 100%;
+		background-color: $shadedgrey;
+		@include vertical-center-parent();
+		// Pardon the extra div here, but http://stackoverflow.com/questions/6977313/can-you-use-display-table-cell-and-have-a-fixed-width-height
+		.modal-content {
+			@include vertical-center-child();
+			.message {
+				min-height: 300px;
+				max-height: 80vh;
+				background-color: black;
+				.text {
+					position: relative;
+					h1 {
+						margin: 0 0 $spacing 0;
+					}
+					.close {
+						cursor: pointer;
+						position: absolute;
+						right: $spacing;
+						top: $spacing;
+					}
+					.screenshot-container {
+						max-width: 100%;
+						.screenshots {
+							img {
+								width: 100px;
+								&:first-of-type {
+									width: 200px;
+								}
+							}
+							.long-description {
+								width: 100px;
+							}
+						}
+					}
+					padding: $spacing;
+					max-width: $single-column-threshold;
+					height: 100%;
+					color: whitesmoke;
+					margin: 0 auto;
+				}
+				button {
+					border: 1px solid whiteSmoke;
+				}
+			}
+		}
+	}
+}
+
+

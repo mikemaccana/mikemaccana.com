@@ -1,17 +1,10 @@
+@import "colors.scss";
 @import "thirdparty/normalize.scss";
 @import "fonts.scss";
 @import "work-items.scss";
-
-$lightgrey: #B7B7B7;
-$midgrey: #222;
-$scaryred: #b90f00;
-$shadedgrey: rgba(0,0,0,0.7);
-$screenshots-total-width: 2000px;
+@import "work-detail.scss";
 
 
-$textcolor: $lightgrey;
-$lightcolor: $lightgrey;
-$othertextcolor: $scaryred;
 
 $spacing: 24px;
 $sidebar-width: 150px;
@@ -261,73 +254,7 @@ footer {
 	}
 }
 
-// http://taitems.github.io/UX-Lab/ModalBlur/index.html
-// body.modal-enabled *:not(.modal-content) {
-// 	filter: blur(2px);
-// }
-
 .about-me {
 	margin: 0 auto;
 	max-width: $single-column-threshold;
-}
-
-.modal-parent {
-	display: none;
-	.modal {
-		z-index: 3;
-		left: 0;
-		top: 0;
-		width: 100%;
-		position: absolute;
-		height: 100%;
-		background-color: $shadedgrey;
-		@include vertical-center-parent();
-		// Pardon the extra div here, but http://stackoverflow.com/questions/6977313/can-you-use-display-table-cell-and-have-a-fixed-width-height
-		.modal-content {
-			@include vertical-center-child();
-			.message {
-				min-height: 300px;
-				max-height: 80vh;
-				background-color: black;
-				.text {
-					position: relative;
-					h1 {
-						margin: 0 0 $spacing 0;
-					}
-					.close {
-						cursor: pointer;
-						position: absolute;
-						right: $spacing;
-						top: $spacing;
-					}
-					.screenshot-container {
-						max-width: 100%;
-						// overflow: scroll;
-						// .screenshots {
-						// 	height: 30vh;
-						// 	width: $screenshots-total-width;
-						// 	a.screenshot {
-						// 		display: block;
-						// 		float: left;
-						// 		background-color: white;
-						// 		height: 30vh;
-						// 		margin: $spacing / 4;
-						// 	}
-						// 	img {
-						// 		height: 100%;
-						// 	}
-						// }
-					}
-					padding: $spacing;
-					max-width: $single-column-threshold;
-					height: 100%;
-					color: whitesmoke;
-					margin: 0 auto;
-				}
-				button {
-					border: 1px solid whiteSmoke;
-				}
-			}
-		}
-	}
 }

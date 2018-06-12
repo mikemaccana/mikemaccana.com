@@ -65,6 +65,16 @@ const showPortfolio = function(){
 			var enableModal = function(work){
 				body.classList.toggle('modal-enabled');
 				modalParent.style.display = 'inline';
+
+				// Masonry
+				var elem = document.querySelector('.screenshots');
+				var masonry = new Masonry( elem, {
+					itemSelector: 'img',
+					columnWidth: 100
+				});
+
+				log(`Masonry has been sete up! ${masonry}`)
+
 			}
 		
 			var disableModal = function(){
