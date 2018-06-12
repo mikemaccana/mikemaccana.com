@@ -199,4 +199,4 @@ proto.needsResizeLayout = function() {
 	return previousWidth != this.containerWidth;
 };
 
-export { Masonry };
+export { Masonry as default };
