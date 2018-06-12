@@ -23,6 +23,26 @@ var worksTemplate = `
 	<div class="work-lede">{{ works[currentIndex].lede }}</div>
 </div>
 
+<div class="modal-parent">
+	<div class="modal">
+		<div class="modal-content">
+			<div class="message">
+				<div class="text">
+				<img class="close" src="/images/icons/close.png"/>
+				<h1>{{ works[currentIndex].title }}</h1>
+					<div class="screenshot-container">
+						<div class="screenshots">
+							{{#screenshotIndexes:screenshotIndex}}
+								<img src="/images/work/screenshots/{{ works[currentIndex].slug }}-{{screenshotIndex}}.png"/>
+							{{/screenshotIndexes}}
+						</div>
+					</div>
+					<div class="description">{{{ description }}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 `
 
 export default worksTemplate 

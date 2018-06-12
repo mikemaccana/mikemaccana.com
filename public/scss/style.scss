@@ -1,4 +1,4 @@
-@import "normalize.scss";
+@import "thirdparty/normalize.scss";
 @import "fonts.scss";
 @import "lory.scss";
 
@@ -270,9 +270,9 @@ footer {
 }
 
 // http://taitems.github.io/UX-Lab/ModalBlur/index.html
-body.modal-enabled > *:not(.modal-parent) {
-	filter: blur(2px);
-}
+// body.modal-enabled *:not(.modal-content) {
+// 	filter: blur(2px);
+// }
 
 .about-me {
 	margin: 0 auto;
