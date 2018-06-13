@@ -313,7 +313,7 @@ var works = [
 		"client": `redhat`,
 		"title": `A decade of Linux`,
 		"pubDate": `Fri, 30 Aug 2013 14:05:05 +0000`,
-		"lede": `Before web development, I spent a decade as a Linux and Python engineer.`,
+		"lede": `Large scale infrastructure and automation engineer.`,
 		"description": `
 			<p>I spent a decade as an infrastructure and automation engineer, working as a Linux and python trainer and consultant at Red Hat (yes, that's me in the default /etc/sudoers file), IBM Global Services' dedicated Linux team, and a variety of financial organizations on large ($450M AUD) projects.</p>`
 	},
