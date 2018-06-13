@@ -321,7 +321,7 @@ var works = [
 		"slug": `feature-writer-apc-magazine`,
 		"previewImage": `feature-writer-apc-magazine.jpeg`,
 		"screenshotCount": 4,
-		"imageExtension": `jpeg`,
+		"imageExtension": `png`,
 		"client": `apc`,
 		"title": `Tech Journalism`,
 		"lede": `Writing for various Asia Pacific print magazines on Linux, servers, mobile, blogging, gaming, audiovisual, and other topics of interest to readers.`,
