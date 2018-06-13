@@ -1,5 +1,5 @@
 [Service]
-ExecStart=/usr/local/bin/node --harmony /var/www/mikemaccana.com/server.js
+ExecStart=/usr/local/bin/node /var/www/mikemaccana.com/app.js
 Restart=always
 User=nobody
 Group=nobody
