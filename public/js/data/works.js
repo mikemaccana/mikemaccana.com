@@ -7,7 +7,7 @@ var works = [
 		"client": `certsimple`,
 		"title": `CertSimple`,
 		"pubDate": `Fri, 30 Aug 2013 14:30:14 +0000`,
-		"lede": `The fastest, simplest way for any company to prove their identity online`,
+		"lede": `The fastest, simplest way to verify high trust websites`,
 		"description": `
 			<p>EV verifies a real company runs a website. But due to the verification involved, the average time to get a certificate is 7-10 days. CertSimple uses great UI and live checking of details to issue EV certificates in an average of 5 hours, 40x the speed of the rest of the industry. CertSimple now has over 500 customers and has been featured in TechCrunch, Hacker News and obtained funding from Entrepreneur First's accelerator programme. The tech is full stack node, using yarn workspaces, ES8 and TypeScript.</p>`
 	},
@@ -202,7 +202,6 @@ var works = [
 				<li>Worldwide phone retailer education for Android 4 and Galaxy nexus</li>
 				<li>Quiz and results reporting</li>
 				<li>Entire site internationalized to every Google market</li>
-				<li><a href="#">http://android-ambassador.appspot.com/</a></li>
 			</ul>`
 	},
 	{
@@ -301,7 +300,7 @@ var works = [
 		"description": `
 			<p>The native Python module for the current XML based Microsoft Word document format.</p>
 			<ul>
-				<li>Thousand of users, and over 650 stars on Github</li>
+				<li>Thousand of users, and nearly 1000 stars on Github</li>
 				<li>LXML, OpenXML</li>
 				<li><a href="https://github.com/mikemaccana/python-docx" target="_blank">https://github.com/mikemaccana/python-docx</a></li>
 			</ul>`
@@ -316,7 +315,7 @@ var works = [
 		"pubDate": `Fri, 30 Aug 2013 14:05:05 +0000`,
 		"lede": `Before web development, I spent a decade as a Linux and Python engineer.`,
 		"description": `
-			<p>I spent a decade as an infrastructure and automation engineer, working as a Linux and python trainer and consultant at Red Hat (yes, that's me in the default sudoers file), IBM Global Services' dedicated Linux team, and a variety of financial organizations on laghe ($450M AUD) projects.</p>`
+			<p>I spent a decade as an infrastructure and automation engineer, working as a Linux and python trainer and consultant at Red Hat (yes, that's me in the default /etc/sudoers file), IBM Global Services' dedicated Linux team, and a variety of financial organizations on large ($450M AUD) projects.</p>`
 	},
 	{
 		"slug": `feature-writer-apc-magazine`,
