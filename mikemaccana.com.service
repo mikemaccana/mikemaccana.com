@@ -2,7 +2,7 @@
 ExecStart=/usr/local/bin/node /var/www/mikemaccana.com/bin/www
 Restart=always
 User=nobody
-Group=nobody
+Group=nogroup
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=NODE_ENV=production
 WorkingDirectory=/var/www/mikemaccana.com
