@@ -1,5 +1,5 @@
 [Service]
-ExecStart=/usr/local/bin/node /var/www/mikemaccana.com/app.js
+ExecStart=/usr/local/bin/node /var/www/mikemaccana.com/bin/www
 Restart=always
 User=nobody
 Group=nobody
