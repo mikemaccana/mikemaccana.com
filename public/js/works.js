@@ -23,10 +23,10 @@ Element.prototype.avgetParentIndex = function() {
 
 // https://stackoverflow.com/questions/25248286/native-js-equivalent-to-jquery-delegation
 HTMLElement.prototype.on = function(event, selector, handler) {
-	this.addEventListener(event, function(e) {
-		let target = e.target;
+	this.addEventListener(event, function(event) {
+		let target = event.target;
 		if (target.matches(selector) ) {
-			handler.call(target, e);
+			handler.call(target, event);
 		}
 	});
 };
@@ -58,8 +58,6 @@ const showPortfolio = function(){
 				closeElement = select('.close'),
 				modalParent = select('.modal-parent');
 
-			log(`portfolio ractive setup, slider is`, slider)
-
 			// Set up slider
 			lory(slider, {
 				rewind: true
@@ -83,8 +81,6 @@ const showPortfolio = function(){
 					columnWidth: 200
 				});
 
-				log(`Masonry has been sete up! ${masonry}`)
-
 			}
 		
 			var disableModal = function(){
@@ -95,9 +91,7 @@ const showPortfolio = function(){
 			// Set up showing work detail when items are clicked
 			body.on('click', '.js_slide.selected img', function(event){
 				var clickedWorkIndex = event.target.avgetParentIndex();
-				log(`Clicked work element! ${clickedWorkIndex}`)
 				enableModal(works[clickedWorkIndex])
-				// Make dialog show the work at this index
 			})
 
 			closeElement.addEventListener('click', function(event){
