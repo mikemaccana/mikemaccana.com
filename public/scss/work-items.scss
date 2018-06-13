@@ -17,7 +17,6 @@
 				position: relative;
 				display: inline-block;
 				margin-right: 24px;
-				cursor: pointer;
 				// Darken and zoom out till selected
 				opacity: 0.5;
 				transition: all 0.1s ease-out;
@@ -27,6 +26,7 @@
 					opacity: 1;
 					transform: scale(1);
 					filter: none;
+					cursor: pointer;
 				}
 			}
 		}

@@ -1,16 +1,11 @@
 @import "colors.scss";
 @import "thirdparty/normalize.scss";
 @import "fonts.scss";
+@import "mixins.scss";
+@import "metrics.scss";
 @import "work-items.scss";
 @import "work-detail.scss";
 
-
-
-$spacing: 24px;
-$sidebar-width: 150px;
-$single-column-threshold: 770px;
-$vertical-rhythm: 14px;
-$selected-item-height: 310px;
 
 *, *:before, *:after {
 	box-sizing: border-box;
@@ -20,18 +15,6 @@ $selected-item-height: 310px;
 // No scrollbars
 ::-webkit-scrollbar {
 	display: none;
-}
-
-// Never mind Flexbox. Spec changes too much and docs are hard to find.
-// http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
-@mixin vertical-center-parent() {
-	transform-style: preserve-3d;
-}
-
-@mixin vertical-center-child() {
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
 }
 
 a, a:hover, a:active, a:visited {

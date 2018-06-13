@@ -21,6 +21,16 @@ Element.prototype.avgetParentIndex = function() {
 	return Array.prototype.indexOf.call(this.parentNode.children, this);
 }
 
+// https://stackoverflow.com/questions/25248286/native-js-equivalent-to-jquery-delegation
+HTMLElement.prototype.on = function(event, selector, handler) {
+	this.addEventListener(event, function(e) {
+		let target = e.target;
+		if (target.matches(selector) ) {
+			handler.call(target, e);
+		}
+	});
+};
+
 const showPortfolio = function(){
 
 	var worksRactive = new Ractive({
@@ -83,13 +93,11 @@ const showPortfolio = function(){
 			};
 
 			// Set up showing work detail when items are clicked
-			workElements.forEach(function(workElement){
-				workElement.addEventListener('click', function(event){			
-					var clickedWorkIndex = event.target.avgetParentIndex();
-					log(`Clicked work element! ${clickedWorkIndex}`)
-					enableModal(works[clickedWorkIndex])
-					// Make dialog show the work at this index
-				})
+			body.on('click', '.js_slide.selected img', function(event){
+				var clickedWorkIndex = event.target.avgetParentIndex();
+				log(`Clicked work element! ${clickedWorkIndex}`)
+				enableModal(works[clickedWorkIndex])
+				// Make dialog show the work at this index
 			})
 
 			closeElement.addEventListener('click', function(event){

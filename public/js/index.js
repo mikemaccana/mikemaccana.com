@@ -1,4 +1,4 @@
-import showPortfolio from '/js/portfolio.js';
+import showPortfolio from '/js/works.js';
 import drawMonogram from '/js/monogram.js';
 
 var log = console.log.bind(console), 
