@@ -79,7 +79,7 @@ const showPortfolio = function(){
 				// Masonry
 				var elem = document.querySelector('.screenshots');
 				var masonry = new Masonry( elem, {
-					itemSelector: 'img',
+					itemSelector: '.tile',
 					columnWidth: 200
 				});
 

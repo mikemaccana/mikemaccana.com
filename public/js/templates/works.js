@@ -31,13 +31,13 @@ var worksTemplate = `
 				<img class="close" src="/images/icons/close.png"/>
 				<h1>{{ works[currentIndex].title }}</h1>
 					<div class="screenshot-container">
-						<div class="screenshots">
+						<div class="screenshots">					
+							<div class="tile description">{{{ works[currentIndex].description }}}</div>
 							{{#screenshotIndexes:screenshotIndex}}
-								<img src="/images/work/screenshots/{{ works[currentIndex].slug }}-{{screenshotIndex}}.png"/>
-							{{/screenshotIndexes}}
+								<img class="tile" src="/images/work/screenshots/{{ works[currentIndex].slug }}-{{screenshotIndex}}.png"/>
+							{{/screenshotIndexes}}						
 						</div>
 					</div>
-					<div class="description">{{{ description }}}</div>
 				</div>
 			</div>
 		</div>

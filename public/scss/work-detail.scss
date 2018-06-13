@@ -37,15 +37,17 @@
 							* {
 								padding: 12px; 
 							}
-							img {
+							.tile {
 								width: 200px;
 								&:first-of-type {
 									width: 400px;
 								}
+								&.description {
+									width: 400px;
+									font-size: 12pt;
+								}
 							}
-							.long-description {
-								width: 200px;
-							}
+							
 						}
 					}
 					padding: $spacing;
