@@ -97,15 +97,15 @@ export function lory (slider, opts) {
      * @ease      {string} easing css property
      */
     function translate (to, duration, ease) {
-				const style = slideContainer && slideContainer.style;
-				
-				// Mike magic hack to center current item
-				var windowWidth = window.innerWidth,
-					widthOfFirstItem = 400,
-					adjustmentRequiredToCenterFirstItem = ( windowWidth / 2 ) - ( widthOfFirstItem / 2)
+        const style = slideContainer && slideContainer.style;
+        
+        // Mike magic hack to center current item
+        var windowWidth = window.innerWidth,
+          widthOfFirstItem = 400,
+          adjustmentRequiredToCenterFirstItem = ( windowWidth / 2 ) - ( widthOfFirstItem / 2)
 
-				to = to + adjustmentRequiredToCenterFirstItem;
-				// end mike magic hack
+        to = to + adjustmentRequiredToCenterFirstItem;
+        // end mike magic hack
 
         if (style) {
             style[prefixes.transition + 'TimingFunction'] = ease;
@@ -148,7 +148,13 @@ export function lory (slider, opts) {
         let duration = slideSpeed;
 
         const nextSlide = direction ? index + 1 : index - 1;
-        const maxOffset = Math.round(slidesWidth - frameWidth);
+        
+        // MIKE
+        // 1050 highlights last item but no rewind
+        // 1025 doesn't highlight last item
+        // See https://github.com/meandmax/lory/issues/197
+        const FIX_BUG = 1040
+        const maxOffset = Math.round(slidesWidth - frameWidth) + FIX_BUG;
 
         dispatchSliderEvent('before', 'slide', {
             index,
@@ -209,8 +215,12 @@ export function lory (slider, opts) {
          * update the index with the nextIndex only if
          * the offset of the nextIndex is in the range of the maxOffset
          */
+        // MIKE - this is where bug hits
         if (slides[nextIndex].offsetLeft <= maxOffset) {
+          // console.log('true')
             index = nextIndex;
+        } else {
+          // console.log('false')
         }
 
         if (infinite && (nextIndex === slides.length - infinite ||
@@ -328,6 +338,9 @@ export function lory (slider, opts) {
 
         slidesWidth = elementWidth(slideContainer);
         frameWidth = elementWidth(frame);
+        // MIKE
+
+        // debugger
 
         if (frameWidth === slidesWidth) {
             slidesWidth = slides.reduce(function (previousValue, slide) {
