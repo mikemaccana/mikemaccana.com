@@ -34,14 +34,17 @@
 					.screenshot-container {
 						max-width: 100%;
 						.screenshots {
+							* {
+								padding: 12px; 
+							}
 							img {
-								width: 100px;
+								width: 200px;
 								&:first-of-type {
-									width: 200px;
+									width: 400px;
 								}
 							}
 							.long-description {
-								width: 100px;
+								width: 200px;
 							}
 						}
 					}

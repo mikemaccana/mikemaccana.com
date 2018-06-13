@@ -80,7 +80,7 @@ const showPortfolio = function(){
 				var elem = document.querySelector('.screenshots');
 				var masonry = new Masonry( elem, {
 					itemSelector: 'img',
-					columnWidth: 100
+					columnWidth: 200
 				});
 
 				log(`Masonry has been sete up! ${masonry}`)
