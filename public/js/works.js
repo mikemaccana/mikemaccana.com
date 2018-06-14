@@ -58,10 +58,9 @@ const showPortfolio = function(){
 				modalParent = select('.modal-parent');
 
 			// Set up slider
-			lory(slider, {
-				rewind: true
-			});
-			
+			// 'rewind' option is not used per https://github.com/meandmax/lory/issues/197
+			lory(slider);
+
 			// Set up showing work detail after sliding
 			slider.addEventListener('after.lory.slide', function(event){
 				var currentSlide = event.detail.currentSlide

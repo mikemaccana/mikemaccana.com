@@ -151,9 +151,9 @@ export function lory (slider, opts) {
         
         // MIKE
         // 1050 highlights last item but no rewind
-        // 1025 doesn't highlight last item
+        // 1050 doesn't highlight last item
         // See https://github.com/meandmax/lory/issues/197
-        const FIX_BUG = 1040
+        const FIX_BUG = 1100
         const maxOffset = Math.round(slidesWidth - frameWidth) + FIX_BUG;
 
         dispatchSliderEvent('before', 'slide', {
