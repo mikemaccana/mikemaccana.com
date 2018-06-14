@@ -19,7 +19,7 @@ var worksTemplate = `
 
 <div class="work-description loading">
 	<h3 class="work-title">{{ works[currentIndex].title }}</h3>
-	<img class="work-logo" src="/images/logos/{{ works[currentIndex].client }}.{{ works[currentIndex].imageExtension }}"/>
+	<img class="work-logo" src="/images/logos/{{ works[currentIndex].client }}.png"/>
 	<div class="work-lede">{{ works[currentIndex].lede }}</div>
 </div>
 
@@ -34,7 +34,7 @@ var worksTemplate = `
 						<div class="screenshots">					
 							<div class="tile description">{{{ works[currentIndex].description }}}</div>
 							{{#screenshotIndexes:screenshotIndex}}
-								<img class="tile" src="/images/work/screenshots/{{ works[currentIndex].slug }}-{{screenshotIndex}}.png"/>
+								<img class="tile" src="/images/work/screenshots/{{ works[currentIndex].slug }}-{{screenshotIndex}}.{{ works[currentIndex].imageExtension }}"/>
 							{{/screenshotIndexes}}						
 						</div>
 					</div>
