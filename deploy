@@ -1,5 +1,11 @@
 #!/bin/bash
 git pull origin master
+
 yarn build:sass
+
+sudo cp haproxy.cfg /etc/haproxy
+sudo systemctl restart haproxy
+sudo systemctl status haproxy
+
 sudo systemctl restart mikemaccana.com
 sudo systemctl status mikemaccana.com
