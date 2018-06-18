@@ -34,4 +34,8 @@
 		margin-top: 12px;
 		margin-bottom: 12px;
 	}
+
+	.modal-parent .modal .modal-content .message .text .screenshot-container {
+		overflow: scroll;
+	}
 }
