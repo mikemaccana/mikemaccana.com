@@ -6,25 +6,29 @@
 		overflow: hidden;
 		white-space: nowrap;
 		.slides {
-			display: inline-block;
-			height: 400px;
+			display: grid;
+			align-items: center;  
+
+			// HACK
+			width: 9752px;
+			
+			height: 509px; // Tallest image
 			margin-top: 48px;
 			.js_slide {
+				grid-row: 1; 
+
 				height: 100%;
 				// Seems to be needed to be defined (or a width set individually on each) for slider buttons to work
 				width: 400px;
 
-				position: relative;
-				display: inline-block;
-				margin-right: 24px;
 				// Darken and zoom out till selected
 				opacity: 0.4;
 				transition: all 0.1s ease-out;
-				transform: scale(0.6); // Zoom effect
+				// transform: scale(0.6); // Zoom effect
 				filter: blur(2px);
 				&.selected {
 					opacity: 1;
-					transform: scale(1);
+					// transform: scale(1);
 					filter: none;
 					cursor: pointer;
 				}
