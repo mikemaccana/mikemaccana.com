@@ -1,0 +1,28 @@
+@import "metrics.scss";
+
+@media screen and (max-width: $single-column-threshold) {
+	.content-wrapper .content .intro {
+		margin-top: 12px;
+		margin-bottom: 12px;
+		.monogram {
+			margin-top: 0;
+			height: 48px;
+			width: 48px;
+		}
+		h1 {
+			font-size: 16pt;
+		}
+		h2 {
+			font-size: 12pt;
+		}
+	}
+	.slider .frame .slides {
+		height: 200px;
+		margin-top: 0;
+	}
+
+	.content-wrapper .content .work-description {
+		margin-top: 12px;
+		margin-bottom: 12px;
+	}
+}
