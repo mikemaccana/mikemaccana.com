@@ -27,7 +27,7 @@
 				filter: blur(2px);
 				&.selected {
 					opacity: 1;
-					// transform: scale(1);
+					transform: scale(1);
 					filter: none;
 					cursor: pointer;
 				}
