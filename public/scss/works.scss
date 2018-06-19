@@ -32,8 +32,10 @@
 					cursor: pointer;
 				}
 				img { 
+					// Make images fit in container (they're retina)
 					width: 100%;
-					background-color: $lightgrey;			
+					// Some images have transparent backgrounds
+					background-color: white;			
 				}
 			}
 		}
