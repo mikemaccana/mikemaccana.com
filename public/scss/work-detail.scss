@@ -43,8 +43,7 @@ $modal-height: 500px;
 					}
 					.tile {
 						width: 200px;
-						// For transparent images
-						background-color: white;
+						
 						&:first-of-type {
 							width: 400px;
 						}
@@ -52,6 +51,10 @@ $modal-height: 500px;
 							width: 400px;
 							font-size: 12pt;
 						}
+					}
+					img.tile {
+						// For transparent images
+						background-color: white;
 					}
 				}
 			}
