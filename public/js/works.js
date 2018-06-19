@@ -9,6 +9,9 @@ import works from "/js/data/works.js";
 
 agave.enable('av');
 
+const LEFT = 37,
+	RIGHT = 39
+
 var Ractive = ractive.Ractive
 
 var select = document.querySelector.bind(document),
@@ -60,7 +63,7 @@ const showPortfolio = function(){
 
 			// Set up slider
 			// 'rewind' option is not used per https://github.com/meandmax/lory/issues/197
-			lory(slider);
+			var loryController = lory(slider);
 
 			// Set up showing work detail after sliding
 			slider.addEventListener('after.lory.slide', function(event){
@@ -69,12 +72,21 @@ const showPortfolio = function(){
 				worksRactive.set('currentIndex', currentSlide)	
 			});
 
+			window.addEventListener('keyup', function(event){
+				if ( event.keyCode === LEFT ) {
+					loryController.prev()
+				}
+				if ( event.keyCode === RIGHT ) {
+					loryController.next()
+				}
+			})
+
 			var enableModal = function(work){
 				worksRactive.set('isModalEnabled', true)	
 
 				// Masonry
-				var elem = document.querySelector('.screenshots');
-				var masonry = new Masonry( elem, {
+				var masonryElement = document.querySelector('.screenshots');
+				new Masonry( masonryElement, {
 					itemSelector: '.tile',
 					columnWidth: 200
 				});
@@ -90,6 +102,8 @@ const showPortfolio = function(){
 				var clickedWorkIndex = event.target.avgetParentIndex();
 				enableModal(works[clickedWorkIndex])
 			})
+
+			
 
 			closeElement.addEventListener('click', function(event){
 				disableModal();
