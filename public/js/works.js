@@ -37,7 +37,8 @@ const showPortfolio = function(){
 		template: worksTemplate,
 		data: {
 			works,
-			currentIndex: 0
+			currentIndex: 0,
+			isModalEnabled: false
 		},
 		computed: {
 			// Used to turn 'screenshotCount: 5' into a thing we can loop over.
@@ -69,7 +70,7 @@ const showPortfolio = function(){
 			});
 
 			var enableModal = function(work){
-				body.classList.toggle('modal-enabled');
+				worksRactive.set('isModalEnabled', true)	
 
 				// Masonry
 				var elem = document.querySelector('.screenshots');
@@ -81,8 +82,7 @@ const showPortfolio = function(){
 			}
 		
 			var disableModal = function(){
-				body.classList.toggle('modal-enabled');
-				modalParent.style.display = 'none';
+				worksRactive.set('isModalEnabled', false);
 			};
 
 			// Set up showing work detail when items are clicked

@@ -16,11 +16,11 @@
 			.js_slide {
 				grid-row: 1; 
 
-				// Seems to be needed to be defined (or a width set individually on each) for slider buttons to work
+				// Needs to be defined (or a width set individually on each) for slider buttons to work
 				width: 400px;
 
 				// Darken and zoom out till selected
-				opacity: 0.4;
+				opacity: 0.3;
 				transition: all 0.1s ease-out;
 				transform: scale(0.6); // Zoom effect
 				filter: blur(2px);
@@ -45,6 +45,9 @@
 		margin-top: -25px;
 		display: block;
 		cursor: pointer;
+		svg {
+			width: 50px;
+		}
 	}
 	
 	.next {
@@ -53,10 +56,6 @@
 	
 	.previous {
 		left: 0;
-	}
-	
-	.next svg, .previous svg {
-		width: 50px;
 	}
 }
 

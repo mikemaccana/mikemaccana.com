@@ -23,11 +23,10 @@ var worksTemplate = `
 	<div class="work-lede">{{ works[currentIndex].lede }}</div>
 </div>
 
-<div class="modal-parent">
+<div class="modal-parent" style="display: {{ #if isModalEnabled }}grid{{ else }}none{{ /if }};">
 	<div class="modal">
-		<div class="text">
-		<img class="close" src="/images/icons/close.png"/>
-		<h1>{{ works[currentIndex].title }}</h1>
+		<div class="text">			
+			<h1>{{ works[currentIndex].title }}</h1>
 			<div class="screenshot-container">
 				<div class="screenshots">					
 					<div class="tile description">{{{ works[currentIndex].description }}}</div>
@@ -37,6 +36,7 @@ var worksTemplate = `
 				</div>
 			</div>
 		</div>
+		<img class="close" src="/images/icons/close.png"/>
 	</div>
 </div>
 `

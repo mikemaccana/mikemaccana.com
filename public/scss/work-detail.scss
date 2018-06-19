@@ -2,20 +2,31 @@
 @import "metrics.scss";
 @import "mixins.scss";
 
-
+$modal-height: 500px;
 
 .modal-parent {
-	display: none;
 	@include vertical-center-parent();
-	display: none; // Overwrite display: grid until we displau it!
+	width: 100%;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	align-content: center;
+	background-color: $shadedgrey;
+	z-index: 2; 
 	.modal {
 		z-index: 3;
 		@include vertical-center-child();		
-		background-color: $shadedgrey;
-		background-color: black;				
+		
+		background-color: black;		
+		max-height: $modal-height;
+		min-height: $modal-height;		
+		opacity: 1;		
+		position: relative;
 		.text {
 			padding: $spacing;
 			max-width: $single-column-threshold;
+			min-width: 100%;
 			color: whitesmoke;
 			margin: 0 auto;
 			button {
@@ -24,12 +35,7 @@
 			h1 {
 				margin: 0 0 $spacing 0;
 			}
-			.close {
-				cursor: pointer;
-				position: absolute;
-				right: $spacing;
-				top: $spacing;
-			}
+			
 			.screenshot-container {
 				max-width: 100%;
 				.screenshots {
@@ -49,10 +55,12 @@
 				}
 			}
 		}
+		.close {
+			cursor: pointer;
+			position: absolute;
+			right: $spacing;
+			top: $spacing;
+		}
 	}
 }
 
-
-.body.modal-enabled .modal-parent {
-	display: grid;
-}
