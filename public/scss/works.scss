@@ -41,7 +41,7 @@
 			}
 		}
 	}
-	.prev, .next {
+	.previous, .next {
 		position: absolute;
 		top: 50%;
 		margin-top: -25px;
@@ -53,11 +53,11 @@
 		right: 0;
 	}
 	
-	.prev {
+	.previous {
 		left: 0;
 	}
 	
-	.next svg, .prev svg {
+	.next svg, .previous svg {
 		width: 50px;
 	}
 }
