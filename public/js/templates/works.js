@@ -4,7 +4,7 @@ var worksTemplate = `
 		<div class="slides js_slides">
 			{{#works:index}}
 				<div class="js_slide {{ #if index === currentIndex }}selected{{ /if }} {{ #if index === 0 }}first{{ /if }}">
-					<img src="/images/work/thumbs/{{{ previewImage }}}"/>
+					<img src="/images/work/screenshots/{{ works[index].slug }}-0.{{ works[index].imageExtension }}"/>
 				</div>
 			{{/works}}
 		</div>
