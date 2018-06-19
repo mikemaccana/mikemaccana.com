@@ -12,7 +12,14 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
+var isProduction = ( process.env.NODE_ENV === 'production' )
+
 var port = normalizePort(process.env.PORT || '3000');
+
+// Windows dev hosts run on port 80
+if ( ! isProduction ) {
+	port = 80;
+}
 app.set('port', port);
 
 /**
