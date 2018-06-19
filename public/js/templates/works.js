@@ -23,7 +23,7 @@ var worksTemplate = `
 	<div class="work-lede">{{ works[currentIndex].lede }}</div>
 </div>
 
-<div class="modal-parent" style="display: {{ #if isModalEnabled }}grid{{ else }}none{{ /if }};">
+<div class="modal-shade" style="display: {{ #if isModalEnabled }}grid{{ else }}none{{ /if }};">
 	<div class="modal">
 		<div class="text">			
 			<h1>{{ works[currentIndex].title }}</h1>

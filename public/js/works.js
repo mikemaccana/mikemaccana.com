@@ -57,9 +57,7 @@ const showPortfolio = function(){
 
 			var body = select('body'),
 				slider = select('.js_slider'),
-				workElements = selectAll('.js_slide'),
-				closeElement = select('.close'),
-				modalParent = select('.modal-parent');
+				closeElement = select('.close');
 
 			// Set up slider
 			// 'rewind' option is not used per https://github.com/meandmax/lory/issues/197
@@ -102,8 +100,6 @@ const showPortfolio = function(){
 				var clickedWorkIndex = event.target.avgetParentIndex();
 				enableModal(works[clickedWorkIndex])
 			})
-
-			
 
 			closeElement.addEventListener('click', function(event){
 				disableModal();
