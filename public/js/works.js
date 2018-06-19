@@ -33,7 +33,7 @@ HTMLElement.prototype.on = function(event, selector, handler) {
 const showPortfolio = function(){
 
 	var worksRactive = new Ractive({
-		el: '.works-container',
+		el: '.works-wrapper',
 		template: worksTemplate,
 		data: {
 			works,
@@ -70,7 +70,6 @@ const showPortfolio = function(){
 
 			var enableModal = function(work){
 				body.classList.toggle('modal-enabled');
-				modalParent.style.display = 'inline';
 
 				// Masonry
 				var elem = document.querySelector('.screenshots');
