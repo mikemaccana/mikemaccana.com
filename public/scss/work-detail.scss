@@ -19,14 +19,13 @@ $modal-height: 500px;
 		@include vertical-center-child();		
 		
 		background-color: black;		
-		max-height: $modal-height;
-		min-height: $modal-height;		
+		height: $modal-height;
 		opacity: 1;		
 		position: relative;
 		.text {
 			padding: $spacing;
-			max-width: $single-column-threshold;
-			min-width: 100%;
+			width: $single-column-threshold;
+			max-width: 100%;
 			color: whitesmoke;
 			margin: 0 auto;
 			button {
