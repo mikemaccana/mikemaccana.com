@@ -100,9 +100,9 @@ var works = [
 		"client": `bazaarvoice`,
 		"title": `Bazaarvoice Ratings and Reviews`,
 		"pubDate": `Fri, 30 Aug 2013 14:34:59 +0000`,
-		"lede": `A Facebook version of Bazaarvoice's popular and award-winning Ratings and Reviews app, used on major retailers and brands worldwide.`,
+		"lede": `A Facebook version of Bazaarvoice's hugely popular and award-winning Ratings and Reviews app, used on major retailers and brands worldwide.`,
 		"description": `
-			<p>A Facebook version of Bazaarvoice's popular and award-winning Ratings and Reviews app.</p>
+			<p>A Facebook version of Bazaarvoice's award-winning Ratings and Reviews app.</p>
 			<ul>
 				<li>Responsive design across Mobile, Facebook Page Tab,and Facebook Canvas</li>
 				<li>Async using Tornado and JS</li>
