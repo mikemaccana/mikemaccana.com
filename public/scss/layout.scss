@@ -111,7 +111,7 @@ body {
 
 .content-wrapper {
 	@include vertical-center-parent();
-	height: 95vh;
+	height: 100vh; // 100 - footer
 	width: 100%;
 	.content {
 		@include vertical-center-child();
@@ -199,20 +199,6 @@ body {
 	img {
 		float: right;
 		margin-left: $spacing / 2;
-	}
-}
-
-footer {
-	height: 5vh;
-	text-align: right;
-	padding: $spacing / 2;
-	font-size: 24pt;
-	background-color: $shadedgrey;
-
-	&.menu-active {
-		@media (max-width: $single-column-threshold) {
-			transform: translateX($sidebar-width);
-		}
 	}
 }
 
