@@ -68,7 +68,7 @@ var works = [
 		"screenshotCount": 5,
 		"imageExtension": `png`,
 		"client": `microsoft`,
-		"title": `Uncompromise`,
+		"title": `Microsoft Surface 2`,
 		"pubDate": `Fri, 30 Aug 2013 14:30:14 +0000`,
 		"lede": `Microsite for the Surface 2 UK launch.`,
 		"description": `
