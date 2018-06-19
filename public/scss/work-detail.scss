@@ -43,6 +43,8 @@ $modal-height: 500px;
 					}
 					.tile {
 						width: 200px;
+						// For transparent images
+						background-color: white;
 						&:first-of-type {
 							width: 400px;
 						}
