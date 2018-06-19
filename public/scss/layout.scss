@@ -4,11 +4,6 @@
 	overflow: hidden; // Everything has layout by default. No clear fixes.
 }
 
-// No scrollbars
-::-webkit-scrollbar {
-	display: none;
-}
-
 a, a:hover, a:active, a:visited {
 	color: $textcolor;
 	text-decoration: none;
@@ -120,8 +115,6 @@ body {
 	width: 100%;
 	.content {
 		@include vertical-center-child();
-		padding: 0; // No left/right padding because works should bleed all the way to the edges
-		position: relative;
 		&.menu-active {
 			@media (max-width: $single-column-threshold) {
 				transform: translate(-$sidebar-width, -50%);
