@@ -4,7 +4,8 @@
 
 $modal-height: 500px;
 
-$masonry-base: 350px;
+// Modify 'columnWidth' value in works.js if this is changed
+$masonry-base: 380px;
 
 .modal-shade {
 	display: grid;

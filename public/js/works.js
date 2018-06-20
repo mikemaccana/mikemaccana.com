@@ -86,7 +86,8 @@ const showPortfolio = function(){
 				var masonryElement = document.querySelector('.screenshots');
 				new Masonry( masonryElement, {
 					itemSelector: '.tile',
-					columnWidth: 200
+					// Must be same as $masonry-base in work-detail.css
+					columnWidth: 380 / 2
 				});
 
 			}
