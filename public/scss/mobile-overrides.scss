@@ -1,41 +1,58 @@
 @import "metrics.scss";
 
 @media screen and (max-width: $single-column-threshold) {
-	.content-wrapper .content .intro {
-		margin-top: 12px;
-		margin-bottom: 12px;
-		.monogram {
-			margin-top: 0;
-			height: 48px;
-			width: 48px;
-		}
-		h1 {
-			font-size: 16pt;
-		}
-		h2 {
-			font-size: 12pt;
+
+	.content {
+		.intro {
+			margin-top: 12px;
+			margin-bottom: 12px;
+			.monogram {
+				margin-top: 0;
+				height: 48px;
+				width: 48px;
+			}
+			h1 {
+				font-size: 16pt;
+			}
+			h2 {
+				font-size: 12pt;
+			}
 		}
 	}
+
 	.slider .frame .slides {
 		height: 200px;
 		margin-top: 0;
 	}
 
-	.work-description {
-		.work-title {
-			font-size: 16pt;
-		}
-		.work-lede {
-			font-size: 10pt;
+	.modal-shade .modal {
+		height: 100%;
+		.text {
+			width: 100%;
+			h1 {
+				margin: 0 24px 0 0;
+			}
 		}
 	}
 
-	.content-wrapper .content .work-description {
-		margin-top: 12px;
-		margin-bottom: 12px;
-	}
 
-	.modal-shade .text .screenshot-container {
-		overflow: scroll;
-	}
+	
+
+// 	.work-description {
+// 		.work-title {
+// 			font-size: 16pt;
+// 		}
+// 		.work-lede {
+// 			font-size: 10pt;
+// 		}
+// 	}
+
+// 	.content-wrapper .content .work-description {
+// 		margin-top: 12px;
+// 		margin-bottom: 12px;
+// 	}
+
+// 	.modal-shade .text .screenshot-container {
+// 		overflow: scroll;
+// 	}
 }

@@ -109,46 +109,41 @@ body {
 	transform: all 2s ease-in-out;
 }
 
-.content-wrapper {
-	@include vertical-center-parent();
+.content {
+	display: grid;
 	height: 100vh; // 100 - footer
 	width: 100%;
-	.content {
-		@include vertical-center-child();
-		&.menu-active {
-			@media (max-width: $single-column-threshold) {
-				transform: translate(-$sidebar-width, -50%);
+	> * {
+		grid-column: 1;
+	}
+	&.loading {
+		// Centers monogram until content has loaded
+		transform: translateY(40%);
+	}
+	.intro {
+		padding: 0 $spacing;
+		text-align: center;
+		.monogram {
+			margin-top: $spacing * 4;
+			height: 60px;
+			width: 60px;
+		}
+		h1, h2, h3 {
+			margin: $spacing / 4 0;
+			opacity: 0;
+			transition: all 0.1s ease-out;
+			&.visible {
+				opacity: 1;
 			}
 		}
-		&.loading {
-			// Centers monogram until content has loaded
-			transform: translateY(40%);
-		}
-		.intro {
-			padding: 0 $spacing;
-			text-align: center;
-			.monogram {
-				margin-top: $spacing * 4;
-				height: 60px;
-				width: 60px;
-			}
-			h1, h2, h3 {
-				margin: $spacing / 4 0;
-				opacity: 0;
-				transition: all 0.1s ease-out;
-				&.visible {
-					opacity: 1;
-				}
-			}
-		}
-		.work-description {
-			padding: 0 $spacing;
-		}
-		.help {
-			text-align: center;
-			text-transform: uppercase;
-			font-size: 6pt;
-		}
+	}
+	.work-description {
+		padding: 0 $spacing;
+	}
+	.help {
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 6pt;
 	}
 }
 

@@ -38,7 +38,7 @@ $modal-height: 500px;
 			.screenshot-container {
 				max-width: 100%;
 				.screenshots {
-					* {
+					> * {
 						padding: 12px; 
 					}
 					.tile {
