@@ -4,6 +4,8 @@
 
 $modal-height: 500px;
 
+$masonry-base: 350px;
+
 .modal-shade {
 	display: grid;
 	width: 100%;
@@ -41,13 +43,13 @@ $modal-height: 500px;
 						padding: 12px; 
 					}
 					.tile {
-						width: 200px;
+						width: $masonry-base / 2;
 						
 						&:first-of-type {
-							width: 400px;
+							width: $masonry-base;
 						}
 						&.description {
-							width: 400px;
+							width: $masonry-base;
 							font-size: 12pt;
 						}
 					}
