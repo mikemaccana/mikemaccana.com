@@ -1,10 +1,7 @@
 .slider {
+	// Needed for previous and next buttons to be vertically centered correctly
+	position: relative;
 	.frame {
-		position: relative;
-		font-size: 0;
-		line-height: 0;
-		overflow: hidden;
-		white-space: nowrap;
 		.slides {
 			display: grid;
 			align-items: center;  
