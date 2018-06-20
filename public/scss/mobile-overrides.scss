@@ -18,6 +18,17 @@
 				font-size: 12pt;
 			}
 		}
+		.work-description {
+			.work-title {
+				font-size: 16pt;
+			}
+			.work-logo {
+				margin: 6px 0;
+			}
+			.work-lede {
+				font-size: 10pt;
+			}
+		}
 	}
 
 	.slider .frame .slides {
@@ -27,8 +38,10 @@
 
 	.modal-shade .modal {
 		height: 100%;
+		align-content: stretch;
 		.text {
 			width: 100%;
+			padding: 12px;
 			h1 {
 				margin: 0 24px 0 0;
 			}
@@ -38,14 +51,7 @@
 
 	
 
-// 	.work-description {
-// 		.work-title {
-// 			font-size: 16pt;
-// 		}
-// 		.work-lede {
-// 			font-size: 10pt;
-// 		}
-// 	}
+
 
 // 	.content-wrapper .content .work-description {
 // 		margin-top: 12px;

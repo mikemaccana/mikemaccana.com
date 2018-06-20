@@ -5,19 +5,18 @@
 $modal-height: 500px;
 
 .modal-shade {
-	@include vertical-center-parent();
+	display: grid;
 	width: 100%;
 	position: absolute;
 	height: 100%;
 	top: 0;
 	bottom: 0;
-	align-content: center;
 	background-color: $shadedgrey;
 	z-index: 2; 
 	.modal {
 		z-index: 3;
-		@include vertical-center-child();		
-		
+		grid-row: 1;
+		align-content: center;
 		background-color: black;		
 		height: $modal-height;
 		opacity: 1;		
