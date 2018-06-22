@@ -18,9 +18,11 @@ var worksTemplate = `
 </div>
 
 <div class="work-description loading">
-	<h3 class="work-title">{{ works[currentIndex].title }}</h3>
-	<img class="work-logo" src="/images/logos/{{ works[currentIndex].client }}.png"/>
-	<div class="work-lede">{{ works[currentIndex].lede }}</div>
+	<div class="work-description-content">
+		<h3 class="work-title">{{ works[currentIndex].title }}</h3>
+		<img class="work-logo" src="/images/logos/{{ works[currentIndex].client }}.png"/>
+		<div class="work-lede">{{ works[currentIndex].lede }}</div>
+	</div>
 </div>
 
 <div class="modal-shade" style="display: {{ #if isModalEnabled }}grid{{ else }}none{{ /if }};">

@@ -155,10 +155,9 @@ body {
 
 
 .work-description {
-	text-align: left;
-	max-width: 600px;
-	padding: $spacing;
 	opacity: 0;
+	display: grid;
+	justify-items: center;
 	// Show once monogram has loaded
 	&.loading {
 		visibility: hidden;
@@ -166,20 +165,25 @@ body {
 	&.visible {
 		opacity: 1;
 	}
-	.work-title {
-		font-size: 26pt;
-		margin: $spacing / 4 0;
-		width: 70%;
-	}
-	.work-logo {
-		width: 30%;
-	}
-	.work-title, .work-logo, .work-lede {
-		float: left;
-	}
-	.work-lede {
-		p {
+	.work-description-content {
+		max-width: 600px;
+		padding: $spacing;	
+		text-align: left;
+		.work-title {
+			font-size: 26pt;
 			margin: $spacing / 4 0;
+			width: 70%;
+		}
+		.work-logo {
+			width: 30%;
+		}
+		.work-title, .work-logo, .work-lede {
+			float: left;
+		}
+		.work-lede {
+			p {
+				margin: $spacing / 4 0;
+			}
 		}
 	}
 }
