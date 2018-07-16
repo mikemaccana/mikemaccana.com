@@ -1,6 +1,6 @@
 @import "metrics.scss";
 
-@media screen and (max-width: $single-column-threshold) {
+@media screen and (max-width: $small-desktop-threshold-width) {
 
 	.content {
 		grid-template-rows: 250px 1fr;

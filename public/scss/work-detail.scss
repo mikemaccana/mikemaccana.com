@@ -26,7 +26,7 @@ $masonry-base: 340px;
 		position: relative;
 		.text {
 			padding: $spacing;
-			width: $single-column-threshold;
+			width: $single-column-threshold-width;
 			max-width: 100%;
 			color: whitesmoke;
 			margin: 0 auto;
