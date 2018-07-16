@@ -70,6 +70,12 @@ const showPortfolio = function(){
 				worksRactive.set('currentIndex', currentSlide)	
 			});
 
+			// When the window resizes Lory will
+			// go to slide 0, so we'll need to make sure the descriptions are updated too
+			slider.addEventListener('on.lory.resize', function(event){
+				worksRactive.set('currentIndex', 0)
+			});
+
 			window.addEventListener('keyup', function(event){
 				if ( event.keyCode === LEFT ) {
 					loryController.prev()
