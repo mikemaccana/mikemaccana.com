@@ -60,3 +60,10 @@ typings/
 # next.js build output
 .next
 public/css/
+
+# Added by svelte template
+.DS_Store
+node_modules
+public/bundle.*
+package-lock.json
+yarn.lock
