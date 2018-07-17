@@ -1,5 +1,6 @@
-import showPortfolio from '/js/works.js';
-import drawMonogram from '/js/monogram.js';
+import App from '../templates/App.html';
+import drawMonogram from './monogram.js';
+// import showPortfolio from './works.js';
 
 var log = console.log.bind(console), 
 	select = document.querySelector.bind(document),
@@ -17,9 +18,21 @@ select('.hamburger').addEventListener('click', function(event) {
 	event.preventDefault();
 });
 
-// Portfolio page stuff
-if ( window.location.pathname === '/' ) {
-	showPortfolio();
-}
-
 drawMonogram();
+
+const app = new App({
+	target: document.body,
+	data: {
+		name: 'world'
+	}
+});
+
+// Portfolio page stuff
+// if ( window.location.pathname === '/' ) {
+// 	showPortfolio();
+// }
+
+
+export default app;
+
+

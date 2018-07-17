@@ -1,5 +1,5 @@
-import Snap from "/js/thirdparty/snap.svg.js";
-import imagesLoaded from "/js/thirdparty/imagesloaded.pkgd.js";
+import Snap from "./thirdparty/snap.svg.js";
+import imagesLoaded from "./thirdparty/imagesloaded.pkgd.js";
 
 var select = document.querySelector.bind(document),
 	selectAll = document.querySelectorAll.bind(document),

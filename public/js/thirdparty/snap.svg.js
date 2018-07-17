@@ -2645,7 +2645,10 @@ Snap.plugin = function (f) {
 };
 glob.win.Snap = Snap;
 return Snap;
-}(window || this));
+
+// MIKE: Removed 'this' to prevent rollup warning
+// }(window || this));
+}(window));
 
 // Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
 //
