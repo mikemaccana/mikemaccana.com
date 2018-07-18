@@ -37,7 +37,7 @@ export default {
 		commonjs(),
 
 		// If we're building for production (npm run build
-		// instead of npm run dev), transpile and minify
+		// instead of npm run dev), then minify
 		production && uglify()
 	]
 };
