@@ -616,6 +616,13 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
+eslint-plugin-must-use-await@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-must-use-await/-/eslint-plugin-must-use-await-1.1.2.tgz#4f1f055d9411b657d5705415c9e809bfc867da2d"
+  dependencies:
+    lodash "^4.17.4"
+    requireindex "~1.1.0"
+
 estree-walker@^0.5.1, estree-walker@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.5.2.tgz#d3850be7529c9580d815600b53126515e146dd39"
@@ -1323,7 +1330,7 @@ lodash.mergewith@^4.6.0:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
 
-lodash@^4.0.0, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.17.4, lodash@~4.17.10:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -1992,6 +1999,10 @@ require-relative@^0.8.7:
   version "0.8.7"
   resolved "https://registry.yarnpkg.com/require-relative/-/require-relative-0.8.7.tgz#7999539fc9e047a37928fa196f8e1563dabd36de"
 
+requireindex@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.1.0.tgz#e5404b81557ef75db6e49c5a72004893fe03e162"
+
 resolve@^1.1.6, resolve@^1.5.0:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.8.1.tgz#82f1ec19a423ac1fbd080b0bab06ba36e84a7a26"
@@ -2034,7 +2045,7 @@ rollup-plugin-node-resolve@^3.0.3:
     is-module "^1.0.0"
     resolve "^1.1.6"
 
-rollup-plugin-svelte@^4.2.1:
+rollup-plugin-svelte@^4.0.0:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/rollup-plugin-svelte/-/rollup-plugin-svelte-4.2.1.tgz#12c4eab919a0506552d5b1c909476939abde5b7e"
   dependencies:
@@ -2353,9 +2364,9 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
-svelte@^2.9.4:
-  version "2.9.4"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-2.9.4.tgz#35d43c2b24b7a3f5ebd883e6c9458fb58205b2db"
+svelte@^2.6.0:
+  version "2.9.5"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-2.9.5.tgz#e7e4b624844b8782b917ae4781c88dc06cb0ddd8"
 
 tar@^2.0.0:
   version "2.2.1"

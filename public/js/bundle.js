@@ -2936,6 +2936,7 @@ var app = (function () {
 	    };
 	    function extractTransform(el, tstr) {
 	        if (tstr == null) {
+	            var doReturn = true;
 	            if (el.type == "linearGradient" || el.type == "radialGradient") {
 	                tstr = el.node.getAttribute("gradientTransform");
 	            } else if (el.type == "pattern") {
@@ -2959,8 +2960,10 @@ var app = (function () {
 	            el._.transform = tstr;
 	        }
 	        var m = Snap._.transform2matrix(tstr, el.getBBox(1));
-	        {
+	        if (doReturn) {
 	            return m;
+	        } else {
+	            el.matrix = m;
 	        }
 	    }
 	    /*\
@@ -6455,7 +6458,9 @@ var app = (function () {
 	            xy = rotate(x2, y2, -rad);
 	            x2 = xy.x;
 	            y2 = xy.y;
-	            var x = (x1 - x2) / 2,
+	            var cos = math.cos(PI / 180 * angle),
+	                sin = math.sin(PI / 180 * angle),
+	                x = (x1 - x2) / 2,
 	                y = (y1 - y2) / 2;
 	            var h = x * x / (rx * rx) + y * y / (ry * ry);
 	            if (h > 1) {
@@ -7248,7 +7253,9 @@ var app = (function () {
 	            attrs = attrs.attr;
 	        }
 	        var args = arguments;
-	        if (Snap.is(attrs, "array") && Snap.is(args[args.length - 1], "array")) ;
+	        if (Snap.is(attrs, "array") && Snap.is(args[args.length - 1], "array")) {
+	            var each = true;
+	        }
 	        var begin,
 	            handler = function () {
 	                if (begin) {
@@ -7256,11 +7263,20 @@ var app = (function () {
 	                } else {
 	                    begin = this.b;
 	                }
+	            },
+	            cb = 0,
+	            set = this,
+	            callbacker = callback && function () {
+	                if (++cb == set.length) {
+	                    callback.call(this);
+	                }
 	            };
 	        return this.forEach(function (el, i) {
 	            eve.once("snap.animcreated." + el.id, handler);
-	            {
+	            if (each) {
 	                args[i] && el.animate.apply(el, args[i]);
+	            } else {
+	                el.animate(attrs, ms, easing, callbacker);
 	            }
 	        });
 	    };
@@ -12119,6 +12135,16 @@ var app = (function () {
 </div>
 `;
 
+	// https://stackoverflow.com/questions/25248286/native-js-equivalent-to-jquery-delegation
+	HTMLElement.prototype.on = function(event, selector, handler) {
+		this.addEventListener(event, function(event) {
+			let target = event.target;
+			if (target.matches(selector) ) {
+				handler.call(target, event);
+			}
+		});
+	};
+
 	var works$1 = [
 		{
 			"slug": `certsimple`,
@@ -12494,8 +12520,6 @@ var app = (function () {
 	Element.prototype.avgetParentIndex = function() {
 		return Array.prototype.indexOf.call(this.parentNode.children, this);
 	};
-
-
 
 	const showPortfolio = function(){
 
