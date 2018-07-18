@@ -31,7 +31,7 @@
 			<div class="screenshot-container">
 				<div class="screenshots">					
 					<div class="tile description">{ works[currentIndex].description }</div>
-					{#each screenshotIndexes as screenshotIndex}
+					{#each new Array(screenshotCount) as screenshotIndex}
 						<img class="tile" src="/images/work/screenshots/{ works[currentIndex].slug }-{screenshotIndex}.{ works[currentIndex].imageExtension }"  alt="Not provided"/>
 					{/each}						
 				</div>
