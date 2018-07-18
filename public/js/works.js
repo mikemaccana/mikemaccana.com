@@ -31,13 +31,31 @@ const showPortfolio = function(){
 			currentIndex: 0,
 			isModalEnabled: false
 		},
+		helpers: {
+      getSlideClasses(index, currentIndex) {
+				let classes = ['js_slide']
+				if ( index === currentIndex ) {
+					classes.push('selected')
+				}
+				if ( index === 0 ) {
+					classes.push('first')
+				}
+				return classes.split(' ')
+			},
+			getModalStyle(isModalEnabled){
+				if ( isModalEnabled) {
+					return "display: grid"
+				}
+				return "display: none"
+			}
+    },
 		computed: {
 			// Used to turn 'screenshotCount: 5' into a thing we can loop over.
 			screenshotIndexes: function(){
 				var currentIndex = this.get('currentIndex')
 				var size = this.get(`works.${currentIndex}.screenshotCount`)
         return new Array(size);
-    	}           
+			}
 		}
 	});
 

@@ -2,8 +2,8 @@
 	<div class="frame js_frame">
 		<div class="slides js_slides">
 			{#each works as work, index}
-				<div class="js_slide {#if index === currentIndex }selected{/if} {#if index === 0 }first{/if}">
-					<img src="/images/work/screenshots/{ works[index].slug }-0.{ works[index].imageExtension }"/>
+				<div class='{ getSlideClasses(index, currentIndex)}'>
+					<img src="/images/work/screenshots/{ works[index].slug }-0.{ works[index].imageExtension }"  alt="Not provided"/>
 				</div>
 			{/each}
 		</div>
@@ -19,24 +19,24 @@
 <div class="work-description loading">
 	<div class="work-description-content">
 		<h3 class="work-title">{ works[currentIndex].title }</h3>
-		<img class="work-logo" src="/images/logos/{ works[currentIndex].client }.png"/>
+		<img class="work-logo" src="/images/logos/{ works[currentIndex].client }.png"  alt="Not provided"/>
 		<div class="work-lede">{ works[currentIndex].lede }</div>
 	</div>
 </div>
 
-<div class="modal-shade" style="display: {#if isModalEnabled }grid{ else }none{/if};">
+<div class="modal-shade" display='{ getModalStyle(isModalEnabled)}'>
 	<div class="modal">
 		<div class="text">			
 			<h1>{ works[currentIndex].title }</h1>
 			<div class="screenshot-container">
 				<div class="screenshots">					
 					<div class="tile description">{ works[currentIndex].description }</div>
-					{#screenshotIndexes:screenshotIndex}
-						<img class="tile" src="/images/work/screenshots/{ works[currentIndex].slug }-{screenshotIndex}.{ works[currentIndex].imageExtension }"/>
-					{/screenshotIndexes}						
+					{#each screenshotIndexes as screenshotIndex}
+						<img class="tile" src="/images/work/screenshots/{ works[currentIndex].slug }-{screenshotIndex}.{ works[currentIndex].imageExtension }"  alt="Not provided"/>
+					{/each}						
 				</div>
 			</div>
 		</div>
-		<img class="close" src="/images/icons/close.png"/>
+		<img class="close" src="/images/icons/close.png" alt="Not provided"/>
 	</div>
 </div>
