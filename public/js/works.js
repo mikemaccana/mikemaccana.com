@@ -1,18 +1,17 @@
-import * as ractive from "/js/thirdparty/ractive.js";
-import * as agave from  "/js/thirdparty/agave.js";
-import {lory} from '/js/thirdparty/lory/lory.js';
-import Masonry from '/js/thirdparty/masonry/masonry.js';
+import * as agave from  "./thirdparty/agave.js";
+import {lory} from './thirdparty/lory/lory.js';
+import Masonry from './thirdparty/masonry/masonry.js';
 
-import worksTemplate from "/js/templates/works.js";
+import worksTemplate from "./templates/works.js";
 
-import works from "/js/data/works.js";
+import './element-on.js';
+
+import works from "./data/works.js";
 
 agave.enable('av');
 
 const LEFT = 37,
 	RIGHT = 39
-
-var Ractive = ractive.Ractive
 
 var select = document.querySelector.bind(document),
 	selectAll = document.querySelectorAll.bind(document),
@@ -22,16 +21,6 @@ var select = document.querySelector.bind(document),
 Element.prototype.avgetParentIndex = function() {
 	return Array.prototype.indexOf.call(this.parentNode.children, this);
 }
-
-// https://stackoverflow.com/questions/25248286/native-js-equivalent-to-jquery-delegation
-HTMLElement.prototype.on = function(event, selector, handler) {
-	this.addEventListener(event, function(event) {
-		let target = event.target;
-		if (target.matches(selector) ) {
-			handler.call(target, event);
-		}
-	});
-};
 
 const showPortfolio = function(){
 

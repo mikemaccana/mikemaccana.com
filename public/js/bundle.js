@@ -8711,6 +8711,1277 @@ var app = (function () {
 	    };
 	});
 
+	var select = document.querySelector.bind(document),
+		selectAll = document.querySelectorAll.bind(document),
+		log = console.log.bind(console);
+
+
+	var drawMonogram = function(){
+		log('Drawing monogram');
+		return new Promise(function(resolve, reject){
+			var monogram = Snap.select(".monogram"),
+			bigM = monogram.select('#big-m'),
+			smallM = monogram.select('#small-m'),
+			works = selectAll('.works .work'),
+			content = select('.content'),
+			title = select('.intro h1'),
+			sub = select('.intro h2');
+
+			// See http://raphaeljs.com/reference.html#Element.transform for transform syntax
+			bigM.animate({
+				transform: "T70,0",
+				opacity: 1,
+				fill: 'whiteSmoke'
+			}, 1000, mina.easeout);
+			smallM.animate({
+				transform: "T0,70",
+				opacity: 1,
+				fill: 'white'
+			}, 1500, mina.easeout);
+
+			setTimeout(function(){
+				title.classList.toggle('visible');
+			}, 750);
+
+			setTimeout(function(){
+				sub.classList.toggle('visible');
+			}, 1000);
+
+			setTimeout(function(){
+				content.classList.remove('loading');
+			}, 1500);
+
+			setTimeout(function(){
+				resolve();
+			}, 2000);
+		})
+	};
+
+	var global = window;
+
+	var enabledPrefixes = {}; // Only allow agave to be enabled once per prefix
+
+	// Extend objects with Agave methods, using the prefix provided.
+	var enable = function(prefix){
+
+		prefix = prefix || '';
+
+		if ( enabledPrefixes[prefix] ) {
+			return;
+		}
+
+		const MILLISECONDS_IN_SECOND = 1000,
+			SECONDS_IN_MINUTE = 60,
+			MINUTES_IN_HOUR = 60,
+			HOURS_IN_DAY = 24,
+			DAYS_IN_WEEK = 7,
+			DAYS_IN_MONTH = 30,
+			DAYS_IN_YEAR = 365;
+
+		const SUNDAY = 0,
+			SATURDAY = 6;
+
+		// object.getKeys() returns an array of keys
+		var getKeys = function(){
+			return Object.keys(this);
+		};
+
+		// object.getSize() returns the number of properties in the object
+		var getSize = function() {
+			return Object.keys(this).length;
+		};
+
+		// string.reverse()
+		var reverse = function() {
+			return this.split("").reverse().join("");
+		};
+
+		// string.leftStrip(stripChars) returns the string with the leading chars removed
+		var leftStrip = function(stripChars) {
+			var result = this;
+			while ( true ) {
+				// Note result could be zero characters
+				if ( ! stripChars.includes(result.charAt(0)) || ! result) {
+					return result;
+				} else {
+					result = result.slice(1);
+				}
+			}
+		};
+
+		// string.rightStrip(stripChars) returns the string with the trailing chars removed
+		var rightStrip = function(stripChars) {
+			return this[prefix+'reverse']()[prefix+'leftStrip'](stripChars)[prefix+'reverse']();
+		};
+
+		// string.strip(stripChars) returns the string with the leading and trailing chars removed
+		var strip = function(stripChars) {
+			return this[prefix+'leftStrip'](stripChars)[prefix+'rightStrip'](stripChars);
+		};
+
+		// object.getPath - get the value of the nested keys provided in the object.
+		// If any are missing, return undefined. Used for checking JSON results.
+		var getPath = function(pathItems) {
+			var currentObject = this;
+			var delim = '/';
+			var result;
+			var stillChecking = true;
+			// Handle Unix style paths
+			if ( typeof(pathItems) === 'string' ) {
+				pathItems = pathItems[prefix+'strip'](delim).split(delim);
+			}
+			pathItems.forEach( function(pathItem) {
+				if ( stillChecking ) {
+					if ( ( currentObject === null ) || ( ! currentObject.hasOwnProperty(pathItem) ) ) {
+						result = undefined;
+						stillChecking = false;
+					} else {
+						result = currentObject[pathItem];
+						currentObject = currentObject[pathItem];
+					}
+				}
+			});
+			return result;
+		};
+
+		// object.extent(object) adds the keys/values from the newObject provided
+		var objectExtend = function(newObject) {
+			for ( var key in newObject ) {
+				this[key] = newObject[key];
+			}
+
+			return this;
+		};
+
+		// Run after it hasn't been invoked for 'wait' ms.
+		// Useful to stop repeated calls to a function overlapping each other (sometimes called 'bouncing')
+		var throttle = function(wait, immediate) {
+			var timeoutID;
+			var originalFunction = this;
+			return function() {
+				var context = this;
+				var delayedFunction = function() {
+					timeoutID = null;
+					if ( ! immediate ) {
+						originalFunction.apply(context, arguments);
+					}
+				};
+				var callNow = immediate && ! timeoutID;
+				clearTimeout(timeoutID);
+				timeoutID = setTimeout(delayedFunction, wait);
+				if (callNow) {
+					originalFunction.apply(context, arguments);
+				}
+			};
+		};
+
+		// Run repeatedly
+		var functionRepeat = function(first, second, third){
+			var args, interval, leadingEdge;
+			if ( arguments.length === 2 ) {
+				args = [];
+				interval = first;
+				leadingEdge = second;
+			} else {
+				args = first;
+				interval = second;
+				leadingEdge = third;
+			}
+			if ( leadingEdge ) {
+				this.apply(null, args);
+			}
+			return setInterval(function(){
+				this.apply(null, args);
+			}.bind(this), interval);
+		};
+
+		// Extend an array with another array.
+		// Cleverness alert: since .apply() accepts an array of args, we use the newArray as all the args to push()
+		var arrayExtend = function(newArray) {
+			Array.prototype.push.apply(this, newArray);
+			return this;
+		};
+
+		// See https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop
+		var forEachAsync = async function (iteratorFunction) {
+			for (let item of this) { 
+				await iteratorFunction(item); 
+			}
+		};
+
+
+		// string.toHash() return a hashed value of a string
+		// From http://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript-jquery
+		var toHash = function(){
+			var hash = 0,
+				length = this.length,
+				char;
+			if ( ! length ) {
+				return hash;
+			}
+			for (var index = 0; index < length; index++) {
+				char = this.charCodeAt(index);
+				hash = ((hash<<5)-hash)+char;
+				hash |= 0; // Convert to 32bit integer
+			}
+			return hash;
+		};
+
+		// Clone an object recursively
+		var clone = function() {
+			var newObj = (this instanceof Array) ? [] : {};
+			for (var key in this) {
+				if (this[key] && typeof this[key] == "object") {
+					newObj[key] = this[key][prefix+'clone']();
+				} else {
+					newObj[key] = this[key];
+				}
+			}
+			return newObj;
+		};
+
+		// compare an object with another object
+		var compare = function(otherObject){
+			var hashObject = function(object){
+				return JSON.stringify(object)[prefix+'toHash']();
+			};
+			return ( hashObject(this) === hashObject(otherObject) );
+		};
+
+		// Iterate over an objects keys
+		// Unlike a regular for ( var key in object )
+		// an additional scope is created, which avoids last-item looping probs
+		var objectForEach = function(callback){
+			for ( var key in this ) {
+				callback(key, this[key]);
+			}
+		};
+
+		var arrayClone = function(){
+			return this.slice();
+		};
+
+		// Array remove removes an item from an array, if it exists
+		var arrayRemove = function(member){
+			var index = this.indexOf(member);
+			if (index !== -1 ) {
+				this.splice(index, 1);
+				return true;
+			}
+			return false;
+		};
+
+		var arrayFirst= function(count){
+			if ( ! count ) {
+				return this[0];
+			} else {
+				return this.slice(Math.max(arr.length - count, 1));
+			}
+		};
+
+		var arrayLast = function(count){
+			if ( ! count ) {
+				return this[this.length - 1];
+			} else {
+				return this.slice(Math.max(this.length - count, 1));
+			}
+		};
+
+		// Helper function for before() and after()
+		var getTimeOrNow = function(date) {
+			return (date || new Date()).getTime();
+		};
+
+		// Return Number of seconds to time delta from date (or now if not specified)
+		var before = function(date) {
+			var time = getTimeOrNow(date);
+			return new Date(time-(+this));
+		};
+
+		// Return Number of seconds to time delta after date (or now if not specified)
+		var after = function(date) {
+			var time = getTimeOrNow(date);
+			return new Date(time+(+this));
+		};
+
+		var toSeconds = function() {
+			return this * MILLISECONDS_IN_SECOND;
+		};
+
+		var toMinutes = function() {
+			return this.seconds * SECONDS_IN_MINUTE;
+		};
+
+		var toHours = function() {
+			return this.minutes * MINUTES_IN_HOUR;
+		};
+
+		var toDays = function() {
+			return this.hours * HOURS_IN_DAY;
+		};
+
+		var toWeeks = function() {
+			return this.days * DAYS_IN_WEEK;
+		};
+
+		var toMonths = function() {
+			return this.days * DAYS_IN_MONTH;
+		};
+
+		var toYears = function() {
+			return this.days * DAYS_IN_YEAR;
+		};
+
+		var isOnWeekend = function(){
+			return this.getDay() === SUNDAY || this.getDay() === SATURDAY
+		};
+
+		var daysUntil = function(fakeNowDate){
+			var now = new Date() || fakeNowDate;
+			var difference = this.getTime() - now.getTime();
+			return Math.round(Math.abs(difference/1..day));
+		};
+		
+		var withoutTime = function(){
+			var copy = new Date(this);
+			copy.setHours(0, 0, 0, 0, 0);
+			return copy;
+		};
+
+		var dateClone = function(){
+			return new Date(this.getTime())
+		};
+
+		var kind = function(item) {
+			var getPrototype = function(item) {
+				return Object.prototype.toString.call(item).slice(8, -1);
+			};
+			var kind, Undefined;
+			if (item === null ) {
+				kind = 'null';
+			} else {
+				if ( item === Undefined ) {
+					kind = 'undefined';
+				} else {
+					var prototype = getPrototype(item);
+					if ( ( prototype === 'Number' ) && isNaN(item) ) {
+						kind = 'NaN';
+					} else {
+						kind = prototype;
+					}
+				}
+			}
+			return kind;
+		};
+
+		// Polyfill if Element.prototype.matches doesn't exist.
+		var prefixedMatchesMethod = ( ! global.Element || Element.prototype.msMatchesSelector || Element.prototype.mozMatchesSelector || Element.prototype.webkitMatchesSelector || Element.prototype.oMatchesSelector);
+
+		// Add method as a non-enumerable property on obj with the name methodName
+		var addMethod = function( global, objectName, prefix, methodName, method) {
+			var objectToExtend = global[objectName];
+			methodName = prefix ? prefix+methodName: methodName;
+			// Check - NodeLists and Elements don't always exist on all JS implementations
+			if ( objectToExtend ) {
+				// Don't add if the method already exists
+				if ( ! objectToExtend.prototype.hasOwnProperty(methodName) ) {
+					Object.defineProperty( objectToExtend.prototype, methodName, {
+						value: method,
+						writable: true
+					});
+				}
+			}
+		};
+
+		// There's not always a 1:1 match of functions to method names. Eg, some objects share methods,
+		// others re-use inbuilt methods from other objects.
+		var newMethods = {
+			'Array':{
+				'extend':arrayExtend,
+				'clone':arrayClone,
+				'remove':arrayRemove,
+				'first':arrayFirst,
+				'last':arrayLast,
+				forEachAsync
+			},
+			'Object':{
+				getKeys,
+				getSize,
+				getPath,
+				clone,
+				'forEach': objectForEach,
+				'extend': objectExtend,
+				compare
+			},
+			'String':{
+				reverse,
+				leftStrip,
+				rightStrip,
+				strip,
+				toHash,
+				'forEach':Array.prototype.forEach // Strings and NodeLists don't have .forEach() standard but the one from Array works fine
+			},
+			'Function':{
+				throttle,
+				'repeat': functionRepeat
+			},
+			'Number':{
+				before,
+				after
+			},
+			'Date':{
+				isOnWeekend,
+				withoutTime,
+				'clone': dateClone,
+				daysUntil,
+				'daysAgo': daysUntil
+			}
+		};
+
+		for ( var objectName in newMethods ) {
+			for ( var methodName in newMethods[objectName] ) {
+				addMethod(global, objectName, prefix, methodName, newMethods[objectName][methodName]);
+			}
+		}
+
+		// Add sttribute as a non-enumerable property on obj with the name methodName
+		var addNewAttribute = function( global, objectName, prefix, methodName, method) {
+			var objectToExtend = global[objectName];
+			methodName = prefix ? prefix+methodName: methodName;
+			// Check - NodeLists and Elements don't always exist on all JS implementations
+			if ( objectToExtend ) {
+				// Don't add if the method already exists
+				if ( ! objectToExtend.prototype.hasOwnProperty(methodName) ) {
+					Object.defineProperty( objectToExtend.prototype, methodName, {
+						get: method
+					});
+				}
+			}
+		};
+
+		var newAttributes = {
+			'Number':{
+				'second':toSeconds,
+				'seconds':toSeconds,
+				'minute':toMinutes,
+				'minutes':toMinutes,
+				'hour':toHours,
+				'hours':toHours,
+				'day':toDays,
+				'days':toDays,
+				'week':toWeeks,
+				'weeks':toWeeks,
+				'month':toMonths,
+				'months':toMonths,
+				'year':toYears,
+				'years':toYears
+			}
+		};
+
+		for ( var objectToGetNewAttribute in newAttributes ) {
+			for ( var attributeName in newAttributes[objectToGetNewAttribute] ) {
+				addNewAttribute(global, objectToGetNewAttribute, prefix, attributeName, newAttributes[objectToGetNewAttribute][attributeName]);
+			}
+		}
+
+		// Add a function to the global
+		var addGlobal = function( global, globalName, prefix, globalFunction) {
+			globalName = prefix ? prefix+globalName: globalName;
+			// Don't add if the global already exists
+			if ( ! global.hasOwnProperty(globalName) ) {
+				global[globalName] = globalFunction;
+			}
+		};
+		addGlobal(global, 'kind', prefix, kind);
+
+		enabledPrefixes[prefix] = true;
+	}.bind();
+
+	/**
+	 * Detecting prefixes for saving time and bytes
+	 */
+	var global$1 = window;
+
+	function detectPrefixes () {
+	    let transform;
+	    let transition;
+	    let transitionEnd;
+	    let hasTranslate3d;
+
+	    (function () {
+	        let el = document.createElement('_');
+	        let style = el.style;
+
+	        let prop;
+
+	        if (style[prop = 'webkitTransition'] === '') {
+	            transitionEnd = 'webkitTransitionEnd';
+	            transition = prop;
+	        }
+
+	        if (style[prop = 'transition'] === '') {
+	            transitionEnd = 'transitionend';
+	            transition = prop;
+	        }
+
+	        if (style[prop = 'webkitTransform'] === '') {
+	            transform = prop;
+	        }
+
+	        if (style[prop = 'msTransform'] === '') {
+	            transform = prop;
+	        }
+
+	        if (style[prop = 'transform'] === '') {
+	            transform = prop;
+	        }
+
+	        document.body.insertBefore(el, null);
+	        style[transform] = 'translate3d(0, 0, 0)';
+	        hasTranslate3d = !!global$1.getComputedStyle(el).getPropertyValue(transform);
+	        document.body.removeChild(el);
+	    }());
+
+	    return {
+	        transform,
+	        transition,
+	        transitionEnd,
+	        hasTranslate3d
+	    };
+	}
+
+	function detectSupportsPassive () {
+	    let supportsPassive = false;
+
+	    try {
+	        let opts = Object.defineProperty({}, 'passive', {
+	            get () {
+	                supportsPassive = true;
+	            }
+	        });
+
+	        window.addEventListener('testPassive', null, opts);
+	        window.removeEventListener('testPassive', null, opts);
+	    } catch (e) {}
+
+	    return supportsPassive;
+	}
+
+	/**
+	 * dispatch custom events
+	 *
+	 * @param  {element} el         slideshow element
+	 * @param  {string}  type       custom event name
+	 * @param  {object}  detail     custom detail information
+	 */
+	function dispatchEvent (target, type, detail) {
+	    let event = new CustomEvent(
+	        type,
+	        {
+	            bubbles: true,
+	            cancelable: true,
+	            detail: detail
+	        }
+	    );
+
+	    target.dispatchEvent(event);
+	}
+
+	var defaults = {
+	    /**
+	     * slides scrolled at once
+	     * @slidesToScroll {Number}
+	     */
+	    slidesToScroll: 1,
+
+	    /**
+	     * time in milliseconds for the animation of a valid slide attempt
+	     * @slideSpeed {Number}
+	     */
+	    slideSpeed: 300,
+
+	    /**
+	     * time in milliseconds for the animation of the rewind after the last slide
+	     * @rewindSpeed {Number}
+	     */
+	    rewindSpeed: 600,
+
+	    /**
+	     * time for the snapBack of the slider if the slide attempt was not valid
+	     * @snapBackSpeed {Number}
+	     */
+	    snapBackSpeed: 200,
+
+	    /**
+	     * Basic easing functions: https://developer.mozilla.org/de/docs/Web/CSS/transition-timing-function
+	     * cubic bezier easing functions: http://easings.net/de
+	     * @ease {String}
+	     */
+	    ease: 'ease',
+
+	    /**
+	     * if slider reached the last slide, with next click the slider goes back to the startindex.
+	     * use infinite or rewind, not both
+	     * @rewind {Boolean}
+	     */
+	    rewind: false,
+
+	    /**
+	     * number of visible slides or false
+	     * use infinite or rewind, not both
+	     * @infinite {number}
+	     */
+	    infinite: false,
+
+	    /**
+	     * the slide index to show when the slider is initialized.
+	     * @initialIndex {number}
+	     */
+	    initialIndex: 0,
+
+	    /**
+	     * class name for slider frame
+	     * @classNameFrame {string}
+	     */
+	    classNameFrame: 'js_frame',
+
+	    /**
+	     * class name for slides container
+	     * @classNameSlideContainer {string}
+	     */
+	    classNameSlideContainer: 'js_slides',
+
+	    /**
+	     * class name for slider prev control
+	     * @classNamePrevCtrl {string}
+	     */
+	    classNamePrevCtrl: 'js_prev',
+
+	    /**
+	     * class name for slider next control
+	     * @classNameNextCtrl {string}
+	     */
+	    classNameNextCtrl: 'js_next',
+
+	    /**
+	     * class name for current active slide
+	     * if emptyString then no class is set
+	     * @classNameActiveSlide {string}
+	     */
+	    classNameActiveSlide: 'active',
+
+	    /**
+	     * enables mouse events for swiping on desktop devices
+	     * @enableMouseEvents {boolean}
+	     */
+	    enableMouseEvents: false,
+
+	    /**
+	     * window instance
+	     * @window {object}
+	     */
+	    window: typeof window !== 'undefined' ? window : null,
+
+	    /**
+	     * If false, slides lory to the first slide on window resize.
+	     * @rewindOnResize {boolean}
+	     */
+	    rewindOnResize: true
+	};
+
+	/* globals jQuery */
+
+	const slice = Array.prototype.slice;
+
+	function lory (slider, opts) {
+	    let position;
+	    let slidesWidth;
+	    let frameWidth;
+	    let slides;
+
+	    /**
+	     * slider DOM elements
+	     */
+	    let frame;
+	    let slideContainer;
+	    let prevCtrl;
+	    let nextCtrl;
+	    let prefixes;
+	    let transitionEndCallback;
+
+	    let index   = 0;
+	    let options = {};
+	    let touchEventParams = detectSupportsPassive() ? { passive: true } : false;
+
+	    /**
+	     * if object is jQuery convert to native DOM element
+	     */
+	    if (typeof jQuery !== 'undefined' && slider instanceof jQuery) {
+	        slider = slider[0];
+	    }
+
+	    /**
+	     * private
+	     * set active class to element which is the current slide
+	     */
+	    function setActiveElement (slides, currentIndex) {
+	        const {classNameActiveSlide} = options;
+
+	        slides.forEach((element, index) => {
+	            if (element.classList.contains(classNameActiveSlide)) {
+	                element.classList.remove(classNameActiveSlide);
+	            }
+	        });
+
+	        slides[currentIndex].classList.add(classNameActiveSlide);
+	    }
+
+	    /**
+	     * private
+	     * setupInfinite: function to setup if infinite is set
+	     *
+	     * @param  {array} slideArray
+	     * @return {array} array of updated slideContainer elements
+	     */
+	    function setupInfinite (slideArray) {
+	        const {infinite} = options;
+
+	        const front = slideArray.slice(0, infinite);
+	        const back  = slideArray.slice(slideArray.length - infinite, slideArray.length);
+
+	        front.forEach(function (element) {
+	            const cloned = element.cloneNode(true);
+
+	            slideContainer.appendChild(cloned);
+	        });
+
+	        back.reverse()
+	            .forEach(function (element) {
+	                const cloned = element.cloneNode(true);
+
+	                slideContainer.insertBefore(cloned, slideContainer.firstChild);
+	            });
+
+	        slideContainer.addEventListener(prefixes.transitionEnd, onTransitionEnd);
+
+	        return slice.call(slideContainer.children);
+	    }
+
+	    /**
+	     * [dispatchSliderEvent description]
+	     * @return {[type]} [description]
+	     */
+	    function dispatchSliderEvent (phase, type, detail) {
+	        dispatchEvent(slider, `${phase}.lory.${type}`, detail);
+	    }
+
+	    /**
+	     * translates to a given position in a given time in milliseconds
+	     *
+	     * @to        {number} number in pixels where to translate to
+	     * @duration  {number} time in milliseconds for the transistion
+	     * @ease      {string} easing css property
+	     */
+	    function translate (to, duration, ease) {
+	        const style = slideContainer && slideContainer.style;
+	        
+	        // Mike magic hack to center current item
+	        var windowWidth = window.innerWidth,
+	          widthOfFirstItem = 400,
+	          adjustmentRequiredToCenterFirstItem = ( windowWidth / 2 ) - ( widthOfFirstItem / 2);
+
+	        to = to + adjustmentRequiredToCenterFirstItem;
+	        // end mike magic hack
+
+	        if (style) {
+	            style[prefixes.transition + 'TimingFunction'] = ease;
+	            style[prefixes.transition + 'Duration'] = duration + 'ms';
+
+	            if (prefixes.hasTranslate3d) {
+	                style[prefixes.transform] = 'translate3d(' + to + 'px, 0, 0)';
+	            } else {
+	                style[prefixes.transform] = 'translate(' + to + 'px, 0)';
+	            }
+	        }
+	    }
+
+	    /**
+	     * returns an element's width
+	     */
+	    function elementWidth (element) {
+	        return element.getBoundingClientRect().width || element.offsetWidth;
+	    }
+
+	    /**
+	     * slidefunction called by prev, next & touchend
+	     *
+	     * determine nextIndex and slide to next postion
+	     * under restrictions of the defined options
+	     *
+	     * @direction  {boolean}
+	     */
+	    function slide (nextIndex, direction) {
+	        const {
+	            slideSpeed,
+	            slidesToScroll,
+	            infinite,
+	            rewind,
+	            rewindSpeed,
+	            ease,
+	            classNameActiveSlide
+	        } = options;
+
+	        let duration = slideSpeed;
+
+	        const nextSlide = direction ? index + 1 : index - 1;
+	        
+	        // MIKE
+	        // 1100 doesn't highlight last item
+	        // See https://github.com/meandmax/lory/issues/197
+	        const FIX_BUG = 1200;
+	        const maxOffset = Math.round(slidesWidth - frameWidth) + FIX_BUG;
+
+	        dispatchSliderEvent('before', 'slide', {
+	            index,
+	            nextSlide
+	        });
+
+	        /**
+	         * Reset control classes
+	         */
+	        if (prevCtrl) {
+	            prevCtrl.classList.remove('disabled');
+	        }
+	        if (nextCtrl) {
+	            nextCtrl.classList.remove('disabled');
+	        }
+
+	        if (typeof nextIndex !== 'number') {
+	            if (direction) {
+	              if (infinite && index + (infinite * 2) !== slides.length) {
+	                  nextIndex = index + (infinite - index % infinite);
+	              } else {
+	                  nextIndex = index + slidesToScroll;
+	              }
+	            } else {
+	              if (infinite && index % infinite !== 0) {
+	                  nextIndex = index - index % infinite;
+	              } else {
+	                  nextIndex = index - slidesToScroll;
+	              }
+	            }
+	        }
+
+	        nextIndex = Math.min(Math.max(nextIndex, 0), slides.length - 1);
+
+	        if (infinite && direction === undefined) {
+	            nextIndex += infinite;
+	        }
+
+	        let nextOffset = Math.min(Math.max(slides[nextIndex].offsetLeft * -1, maxOffset * -1), 0);
+
+	        if (rewind && Math.abs(position.x) === maxOffset && direction) {
+	            nextOffset = 0;
+	            nextIndex = 0;
+	            duration = rewindSpeed;
+	        }
+
+	        /**
+	         * translate to the nextOffset by a defined duration and ease function
+	         */
+	        translate(nextOffset, duration, ease);
+
+	        /**
+	         * update the position with the next position
+	         */
+	        position.x = nextOffset;
+
+	        /**
+	         * update the index with the nextIndex only if
+	         * the offset of the nextIndex is in the range of the maxOffset
+	         */
+	        // MIKE - this is where bug hits
+	        if (slides[nextIndex].offsetLeft <= maxOffset) {
+	          // console.log('true')
+	            index = nextIndex;
+	        }
+
+	        if (infinite && (nextIndex === slides.length - infinite ||
+	            nextIndex === slides.length - slides.length % infinite || nextIndex === 0)) {
+	            if (direction) {
+	                index = infinite;
+	            }
+
+	            if (!direction) {
+	                index = slides.length - (infinite * 2);
+	            }
+
+	            position.x = slides[index].offsetLeft * -1;
+
+	            transitionEndCallback = function () {
+	                translate(slides[index].offsetLeft * -1, 0, undefined);
+	            };
+	        }
+
+	        if (classNameActiveSlide) {
+	            setActiveElement(slice.call(slides), index);
+	        }
+
+	        /**
+	         * update classes for next and prev arrows
+	         * based on user settings
+	         */
+	        if (prevCtrl && !infinite && nextIndex === 0) {
+	            prevCtrl.classList.add('disabled');
+	        }
+
+	        if (nextCtrl && !infinite && !rewind && ((nextIndex + 1) === slides.length)) {
+	            nextCtrl.classList.add('disabled');
+	        }
+
+	        dispatchSliderEvent('after', 'slide', {
+	            currentSlide: index
+	        });
+	    }
+
+	    /**
+	     * public
+	     * setup function
+	     */
+	    function setup () {
+	        dispatchSliderEvent('before', 'init');
+
+	        prefixes = detectPrefixes();
+	        options = {...defaults, ...opts};
+
+	        const {
+	            classNameFrame,
+	            classNameSlideContainer,
+	            classNamePrevCtrl,
+	            classNameNextCtrl,
+	            enableMouseEvents,
+	            classNameActiveSlide,
+	            initialIndex
+	        } = options;
+
+	        index = initialIndex;
+	        frame = slider.getElementsByClassName(classNameFrame)[0];
+	        slideContainer = frame.getElementsByClassName(classNameSlideContainer)[0];
+	        prevCtrl = slider.getElementsByClassName(classNamePrevCtrl)[0];
+	        nextCtrl = slider.getElementsByClassName(classNameNextCtrl)[0];
+
+	        position = {
+	            x: slideContainer.offsetLeft,
+	            y: slideContainer.offsetTop
+	        };
+
+	        if (options.infinite) {
+	            slides = setupInfinite(slice.call(slideContainer.children));
+	        } else {
+	            slides = slice.call(slideContainer.children);
+
+	            if (prevCtrl) {
+	                prevCtrl.classList.add('disabled');
+	            }
+
+	            if (nextCtrl && (slides.length === 1) && !options.rewind) {
+	                nextCtrl.classList.add('disabled');
+	            }
+	        }
+
+	        reset();
+
+	        if (classNameActiveSlide) {
+	            setActiveElement(slides, index);
+	        }
+
+	        if (prevCtrl && nextCtrl) {
+	            prevCtrl.addEventListener('click', prev);
+	            nextCtrl.addEventListener('click', next);
+	        }
+
+	        frame.addEventListener('touchstart', onTouchstart, touchEventParams);
+
+	        if (enableMouseEvents) {
+	            frame.addEventListener('mousedown', onTouchstart);
+	            frame.addEventListener('click', onClick);
+	        }
+
+	        options.window.addEventListener('resize', onResize);
+
+	        dispatchSliderEvent('after', 'init');
+	    }
+
+	    /**
+	     * public
+	     * reset function: called on resize
+	     */
+	    function reset () {
+	        var {infinite, ease, rewindSpeed, rewindOnResize, classNameActiveSlide, initialIndex} = options;
+
+	        slidesWidth = elementWidth(slideContainer);
+	        frameWidth = elementWidth(frame);
+	        // MIKE
+
+	        // debugger
+
+	        if (frameWidth === slidesWidth) {
+	            slidesWidth = slides.reduce(function (previousValue, slide) {
+	                return previousValue + elementWidth(slide);
+	            }, 0);
+	        }
+
+	        if (rewindOnResize) {
+	            index = initialIndex;
+	        } else {
+	            ease = null;
+	            rewindSpeed = 0;
+	        }
+
+	        if (infinite) {
+	            translate(slides[index + infinite].offsetLeft * -1, 0, null);
+
+	            index = index + infinite;
+	            position.x = slides[index].offsetLeft * -1;
+	        } else {
+	            translate(slides[index].offsetLeft * -1, rewindSpeed, ease);
+	            position.x = slides[index].offsetLeft * -1;
+	        }
+
+	        if (classNameActiveSlide) {
+	            setActiveElement(slice.call(slides), index);
+	        }
+	    }
+
+	    /**
+	     * public
+	     * slideTo: called on clickhandler
+	     */
+	    function slideTo (index) {
+	        slide(index);
+	    }
+
+	    /**
+	     * public
+	     * returnIndex function: called on clickhandler
+	     */
+	    function returnIndex () {
+	        return index - options.infinite || 0;
+	    }
+
+	    /**
+	     * public
+	     * prev function: called on clickhandler
+	     */
+	    function prev () {
+	        slide(false, false);
+	    }
+
+	    /**
+	     * public
+	     * next function: called on clickhandler
+	     */
+	    function next () {
+	        slide(false, true);
+	    }
+
+	    /**
+	     * public
+	     * destroy function: called to gracefully destroy the lory instance
+	     */
+	    function destroy () {
+	        dispatchSliderEvent('before', 'destroy');
+
+	        // remove event listeners
+	        frame.removeEventListener(prefixes.transitionEnd, onTransitionEnd);
+	        frame.removeEventListener('touchstart', onTouchstart, touchEventParams);
+	        frame.removeEventListener('touchmove', onTouchmove, touchEventParams);
+	        frame.removeEventListener('touchend', onTouchend);
+	        frame.removeEventListener('mousemove', onTouchmove);
+	        frame.removeEventListener('mousedown', onTouchstart);
+	        frame.removeEventListener('mouseup', onTouchend);
+	        frame.removeEventListener('mouseleave', onTouchend);
+	        frame.removeEventListener('click', onClick);
+
+	        options.window.removeEventListener('resize', onResize);
+
+	        if (prevCtrl) {
+	            prevCtrl.removeEventListener('click', prev);
+	        }
+
+	        if (nextCtrl) {
+	            nextCtrl.removeEventListener('click', next);
+	        }
+
+	        // remove cloned slides if infinite is set
+	        if (options.infinite) {
+	            Array.apply(null, Array(options.infinite)).forEach(function () {
+	                slideContainer.removeChild(slideContainer.firstChild);
+	                slideContainer.removeChild(slideContainer.lastChild);
+	            });
+	        }
+
+	        dispatchSliderEvent('after', 'destroy');
+	    }
+
+	    // event handling
+
+	    let touchOffset;
+	    let delta;
+	    let isScrolling;
+
+	    function onTransitionEnd () {
+	        if (transitionEndCallback) {
+	            transitionEndCallback();
+
+	            transitionEndCallback = undefined;
+	        }
+	    }
+
+	    function onTouchstart (event) {
+	        const {enableMouseEvents} = options;
+	        const touches = event.touches ? event.touches[0] : event;
+
+	        if (enableMouseEvents) {
+	            frame.addEventListener('mousemove', onTouchmove);
+	            frame.addEventListener('mouseup', onTouchend);
+	            frame.addEventListener('mouseleave', onTouchend);
+	        }
+
+	        frame.addEventListener('touchmove', onTouchmove, touchEventParams);
+	        frame.addEventListener('touchend', onTouchend);
+
+	        const {pageX, pageY} = touches;
+
+	        touchOffset = {
+	            x: pageX,
+	            y: pageY,
+	            time: Date.now()
+	        };
+
+	        isScrolling = undefined;
+
+	        delta = {};
+
+	        dispatchSliderEvent('on', 'touchstart', {
+	            event
+	        });
+	    }
+
+	    function onTouchmove (event) {
+	        const touches = event.touches ? event.touches[0] : event;
+	        const {pageX, pageY} = touches;
+
+	        delta = {
+	            x: pageX - touchOffset.x,
+	            y: pageY - touchOffset.y
+	        };
+
+	        if (typeof isScrolling === 'undefined') {
+	            isScrolling = !!(isScrolling || Math.abs(delta.x) < Math.abs(delta.y));
+	        }
+
+	        if (!isScrolling && touchOffset) {
+	            translate(position.x + delta.x, 0, null);
+	        }
+
+	        // may be
+	        dispatchSliderEvent('on', 'touchmove', {
+	            event
+	        });
+	    }
+
+	    function onTouchend (event) {
+	        /**
+	         * time between touchstart and touchend in milliseconds
+	         * @duration {number}
+	         */
+	        const duration = touchOffset ? Date.now() - touchOffset.time : undefined;
+
+	        /**
+	         * is valid if:
+	         *
+	         * -> swipe attempt time is over 300 ms
+	         * and
+	         * -> swipe distance is greater than 25px
+	         * or
+	         * -> swipe distance is more then a third of the swipe area
+	         *
+	         * @isValidSlide {Boolean}
+	         */
+	        const isValid = Number(duration) < 300 &&
+	            Math.abs(delta.x) > 25 ||
+	            Math.abs(delta.x) > frameWidth / 3;
+
+	        /**
+	         * is out of bounds if:
+	         *
+	         * -> index is 0 and delta x is greater than 0
+	         * or
+	         * -> index is the last slide and delta is smaller than 0
+	         *
+	         * @isOutOfBounds {Boolean}
+	         */
+	        const isOutOfBounds = !index && delta.x > 0 ||
+	            index === slides.length - 1 && delta.x < 0;
+
+	        const direction = delta.x < 0;
+
+	        if (!isScrolling) {
+	            if (isValid && !isOutOfBounds) {
+	                slide(false, direction);
+	            } else {
+	                translate(position.x, options.snapBackSpeed);
+	            }
+	        }
+
+	        touchOffset = undefined;
+
+	        /**
+	         * remove eventlisteners after swipe attempt
+	         */
+	        frame.removeEventListener('touchmove', onTouchmove);
+	        frame.removeEventListener('touchend', onTouchend);
+	        frame.removeEventListener('mousemove', onTouchmove);
+	        frame.removeEventListener('mouseup', onTouchend);
+	        frame.removeEventListener('mouseleave', onTouchend);
+
+	        dispatchSliderEvent('on', 'touchend', {
+	            event
+	        });
+	    }
+
+	    function onClick (event) {
+	        if (delta.x) {
+	            event.preventDefault();
+	        }
+	    }
+
+	    function onResize (event) {
+	        if (frameWidth !== elementWidth(frame)) {
+	            reset();
+
+	            dispatchSliderEvent('on', 'resize', {
+	                event
+	            });
+	        }
+	    }
+
+	    // trigger initial setup
+	    setup();
+
+	    // expose public api
+	    return {
+	        setup,
+	        reset,
+	        slideTo,
+	        returnIndex,
+	        prev,
+	        next,
+	        destroy
+	    };
+	}
+
 	function EvEmitter() {}
 
 	var proto$1 = EvEmitter.prototype;
@@ -8794,6 +10065,2605 @@ var app = (function () {
 	  delete this._onceEvents;
 	};
 
+	// get a number from a string, not a percentage
+	function getStyleSize( value ) {
+	  var num = parseFloat( value );
+	  // not a percent like '100%', and a number
+	  var isValid = value.indexOf('%') == -1 && !isNaN( num );
+	  return isValid && num;
+	}
+
+	function noop$1() {}
+
+	var logError = typeof console == 'undefined' ? noop$1 :
+	  function( message ) {
+	    console.error( message );
+	  };
+
+	// -------------------------- measurements -------------------------- //
+
+	var measurements = [
+	  'paddingLeft',
+	  'paddingRight',
+	  'paddingTop',
+	  'paddingBottom',
+	  'marginLeft',
+	  'marginRight',
+	  'marginTop',
+	  'marginBottom',
+	  'borderLeftWidth',
+	  'borderRightWidth',
+	  'borderTopWidth',
+	  'borderBottomWidth'
+	];
+
+	var measurementsLength = measurements.length;
+
+	function getZeroSize() {
+	  var size = {
+	    width: 0,
+	    height: 0,
+	    innerWidth: 0,
+	    innerHeight: 0,
+	    outerWidth: 0,
+	    outerHeight: 0
+	  };
+	  for ( var i=0; i < measurementsLength; i++ ) {
+	    var measurement = measurements[i];
+	    size[ measurement ] = 0;
+	  }
+	  return size;
+	}
+
+	// -------------------------- getStyle -------------------------- //
+
+	/**
+	 * getStyle, get style of element, check for Firefox bug
+	 * https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+	 */
+	function getStyle( elem ) {
+	  var style = getComputedStyle( elem );
+	  if ( !style ) {
+	    logError( 'Style returned ' + style +
+	      '. Are you running this code in a hidden iframe on Firefox? ' +
+	      'See https://bit.ly/getsizebug1' );
+	  }
+	  return style;
+	}
+
+	// -------------------------- setup -------------------------- //
+
+	var isSetup = false;
+
+	var isBoxSizeOuter;
+
+	/**
+	 * setup
+	 * check isBoxSizerOuter
+	 * do on first getSize() rather than on page load for Firefox bug
+	 */
+	function setup() {
+	  // setup once
+	  if ( isSetup ) {
+	    return;
+	  }
+	  isSetup = true;
+
+	  // -------------------------- box sizing -------------------------- //
+
+	  /**
+	   * Chrome & Safari measure the outer-width on style.width on border-box elems
+	   * IE11 & Firefox<29 measures the inner-width
+	   */
+	  var div = document.createElement('div');
+	  div.style.width = '200px';
+	  div.style.padding = '1px 2px 3px 4px';
+	  div.style.borderStyle = 'solid';
+	  div.style.borderWidth = '1px 2px 3px 4px';
+	  div.style.boxSizing = 'border-box';
+
+	  var body = document.body || document.documentElement;
+	  body.appendChild( div );
+	  var style = getStyle( div );
+	  // round value for browser zoom. desandro/masonry#928
+	  isBoxSizeOuter = Math.round( getStyleSize( style.width ) ) == 200;
+	  getSize.isBoxSizeOuter = isBoxSizeOuter;
+
+	  body.removeChild( div );
+	}
+
+	// -------------------------- getSize -------------------------- //
+
+	function getSize( elem ) {
+	  setup();
+
+	  // use querySeletor if elem is string
+	  if ( typeof elem == 'string' ) {
+	    elem = document.querySelector( elem );
+	  }
+
+	  // do not proceed on non-objects
+	  if ( !elem || typeof elem != 'object' || !elem.nodeType ) {
+	    return;
+	  }
+
+	  var style = getStyle( elem );
+
+	  // if hidden, everything is 0
+	  if ( style.display == 'none' ) {
+	    return getZeroSize();
+	  }
+
+	  var size = {};
+	  size.width = elem.offsetWidth;
+	  size.height = elem.offsetHeight;
+
+	  var isBorderBox = size.isBorderBox = style.boxSizing == 'border-box';
+
+	  // get all measurements
+	  for ( var i=0; i < measurementsLength; i++ ) {
+	    var measurement = measurements[i];
+	    var value = style[ measurement ];
+	    var num = parseFloat( value );
+	    // any 'auto', 'medium' value will be 0
+	    size[ measurement ] = !isNaN( num ) ? num : 0;
+	  }
+
+	  var paddingWidth = size.paddingLeft + size.paddingRight;
+	  var paddingHeight = size.paddingTop + size.paddingBottom;
+	  var marginWidth = size.marginLeft + size.marginRight;
+	  var marginHeight = size.marginTop + size.marginBottom;
+	  var borderWidth = size.borderLeftWidth + size.borderRightWidth;
+	  var borderHeight = size.borderTopWidth + size.borderBottomWidth;
+
+	  var isBorderBoxSizeOuter = isBorderBox && isBoxSizeOuter;
+
+	  // overwrite width and height if we can get it from style
+	  var styleWidth = getStyleSize( style.width );
+	  if ( styleWidth !== false ) {
+	    size.width = styleWidth +
+	      // add padding and border unless it's already including it
+	      ( isBorderBoxSizeOuter ? 0 : paddingWidth + borderWidth );
+	  }
+
+	  var styleHeight = getStyleSize( style.height );
+	  if ( styleHeight !== false ) {
+	    size.height = styleHeight +
+	      // add padding and border unless it's already including it
+	      ( isBorderBoxSizeOuter ? 0 : paddingHeight + borderHeight );
+	  }
+
+	  size.innerWidth = size.width - ( paddingWidth + borderWidth );
+	  size.innerHeight = size.height - ( paddingHeight + borderHeight );
+
+	  size.outerWidth = size.width + marginWidth;
+	  size.outerHeight = size.height + marginHeight;
+
+	  return size;
+	}
+
+	var matchesMethod = ( function() {
+		var ElemProto = window.Element.prototype;
+		// check for the standard method name first
+		if ( ElemProto.matches ) {
+			return 'matches';
+		}
+		// check un-prefixed
+		if ( ElemProto.matchesSelector ) {
+			return 'matchesSelector';
+		}
+		// check vendor prefixes
+		var prefixes = [ 'webkit', 'moz', 'ms', 'o' ];
+
+		for ( var i=0; i < prefixes.length; i++ ) {
+			var prefix = prefixes[i];
+			var method = prefix + 'MatchesSelector';
+			if ( ElemProto[ method ] ) {
+				return method;
+			}
+		}
+	})();
+
+	function matchesSelector( elem, selector ) {
+		return elem[ matchesMethod ]( selector );
+	}
+
+	var utils = {};
+
+	// ----- extend ----- //
+
+	// extends objects
+	utils.extend = function( a, b ) {
+	  for ( var prop in b ) {
+	    a[ prop ] = b[ prop ];
+	  }
+	  return a;
+	};
+
+	// ----- modulo ----- //
+
+	utils.modulo = function( num, div ) {
+	  return ( ( num % div ) + div ) % div;
+	};
+
+	// ----- makeArray ----- //
+
+	var arraySlice = Array.prototype.slice;
+
+	// turn element or nodeList into an array
+	utils.makeArray = function( obj ) {
+	  if ( Array.isArray( obj ) ) {
+	    // use object if already an array
+	    return obj;
+	  }
+	  // return empty array if undefined or null. #6
+	  if ( obj === null || obj === undefined ) {
+	    return [];
+	  }
+
+	  var isArrayLike = typeof obj == 'object' && typeof obj.length == 'number';
+	  if ( isArrayLike ) {
+	    // convert nodeList to array
+	    return arraySlice.call( obj );
+	  }
+
+	  // array of single index
+	  return [ obj ];
+	};
+
+	// ----- removeFrom ----- //
+
+	utils.removeFrom = function( ary, obj ) {
+	  var index = ary.indexOf( obj );
+	  if ( index != -1 ) {
+	    ary.splice( index, 1 );
+	  }
+	};
+
+	// ----- getParent ----- //
+
+	utils.getParent = function( elem, selector ) {
+	  while ( elem.parentNode && elem != document.body ) {
+	    elem = elem.parentNode;
+	    if ( matchesSelector( elem, selector ) ) {
+	      return elem;
+	    }
+	  }
+	};
+
+	// ----- getQueryElement ----- //
+
+	// use element as selector string
+	utils.getQueryElement = function( elem ) {
+	  if ( typeof elem == 'string' ) {
+	    return document.querySelector( elem );
+	  }
+	  return elem;
+	};
+
+	// ----- handleEvent ----- //
+
+	// enable .ontype to trigger from .addEventListener( elem, 'type' )
+	utils.handleEvent = function( event ) {
+	  var method = 'on' + event.type;
+	  if ( this[ method ] ) {
+	    this[ method ]( event );
+	  }
+	};
+
+	// ----- filterFindElements ----- //
+
+	utils.filterFindElements = function( elems, selector ) {
+	  // make array of elems
+	  elems = utils.makeArray( elems );
+	  var ffElems = [];
+
+	  elems.forEach( function( elem ) {
+	    // check that elem is an actual element
+	    if ( !( elem instanceof HTMLElement ) ) {
+	      return;
+	    }
+	    // add elem if no selector
+	    if ( !selector ) {
+	      ffElems.push( elem );
+	      return;
+	    }
+	    // filter & find items if we have a selector
+	    // filter
+	    if ( matchesSelector( elem, selector ) ) {
+	      ffElems.push( elem );
+	    }
+	    // find children
+	    var childElems = elem.querySelectorAll( selector );
+	    // concat childElems to filterFound array
+	    for ( var i=0; i < childElems.length; i++ ) {
+	      ffElems.push( childElems[i] );
+	    }
+	  });
+
+	  return ffElems;
+	};
+
+	// ----- debounceMethod ----- //
+
+	utils.debounceMethod = function( _class, methodName, threshold ) {
+	  threshold = threshold || 100;
+	  // original method
+	  var method = _class.prototype[ methodName ];
+	  var timeoutName = methodName + 'Timeout';
+
+	  _class.prototype[ methodName ] = function() {
+	    var timeout = this[ timeoutName ];
+	    clearTimeout( timeout );
+
+	    var args = arguments;
+	    var _this = this;
+	    this[ timeoutName ] = setTimeout( function() {
+	      method.apply( _this, args );
+	      delete _this[ timeoutName ];
+	    }, threshold );
+	  };
+	};
+
+	// ----- docReady ----- //
+
+	utils.docReady = function( callback ) {
+	  var readyState = document.readyState;
+	  if ( readyState == 'complete' || readyState == 'interactive' ) {
+	    // do async to allow for other scripts to run. metafizzy/flickity#441
+	    setTimeout( callback );
+	  } else {
+	    document.addEventListener( 'DOMContentLoaded', callback );
+	  }
+	};
+
+	// ----- htmlInit ----- //
+
+	// http://jamesroberts.name/blog/2010/02/22/string-functions-for-javascript-trim-to-camel-case-to-dashed-and-to-underscore/
+	utils.toDashed = function( str ) {
+	  return str.replace( /(.)([A-Z])/g, function( match, $1, $2 ) {
+	    return $1 + '-' + $2;
+	  }).toLowerCase();
+	};
+
+	var console$1 = window.console;
+	/**
+	 * allow user to initialize classes via [data-namespace] or .js-namespace class
+	 * htmlInit( Widget, 'widgetName' )
+	 * options are parsed from data-namespace-options
+	 */
+	utils.htmlInit = function( WidgetClass, namespace ) {
+	  utils.docReady( function() {
+	    var dashedNamespace = utils.toDashed( namespace );
+	    var dataAttr = 'data-' + dashedNamespace;
+	    var dataAttrElems = document.querySelectorAll( '[' + dataAttr + ']' );
+	    var jsDashElems = document.querySelectorAll( '.js-' + dashedNamespace );
+	    var elems = utils.makeArray( dataAttrElems )
+	      .concat( utils.makeArray( jsDashElems ) );
+	    var dataOptionsAttr = dataAttr + '-options';
+	    var jQuery = window.jQuery;
+
+	    elems.forEach( function( elem ) {
+	      var attr = elem.getAttribute( dataAttr ) ||
+	        elem.getAttribute( dataOptionsAttr );
+	      var options;
+	      try {
+	        options = attr && JSON.parse( attr );
+	      } catch ( error ) {
+	        // log error, do not initialize
+	        if ( console$1 ) {
+	          console$1.error( 'Error parsing ' + dataAttr + ' on ' + elem.className +
+	          ': ' + error );
+	        }
+	        return;
+	      }
+	      // initialize
+	      var instance = new WidgetClass( elem, options );
+	      // make available via $().data('namespace')
+	      if ( jQuery ) {
+	        jQuery.data( elem, namespace, instance );
+	      }
+	    });
+
+	  });
+	};
+
+	function isEmptyObj( obj ) {
+	  for ( var prop in obj ) {
+	    return false;
+	  }
+	  prop = null;
+	  return true;
+	}
+
+	// -------------------------- CSS3 support -------------------------- //
+
+
+	var docElemStyle = document.documentElement.style;
+
+	var transitionProperty = typeof docElemStyle.transition == 'string' ?
+	  'transition' : 'WebkitTransition';
+	var transformProperty = typeof docElemStyle.transform == 'string' ?
+	  'transform' : 'WebkitTransform';
+
+	var transitionEndEvent = {
+	  WebkitTransition: 'webkitTransitionEnd',
+	  transition: 'transitionend'
+	}[ transitionProperty ];
+
+	// cache all vendor properties that could have vendor prefix
+	var vendorProperties = {
+	  transform: transformProperty,
+	  transition: transitionProperty,
+	  transitionDuration: transitionProperty + 'Duration',
+	  transitionProperty: transitionProperty + 'Property',
+	  transitionDelay: transitionProperty + 'Delay'
+	};
+
+	// -------------------------- Item -------------------------- //
+
+	function Item( element, layout ) {
+	  if ( !element ) {
+	    return;
+	  }
+
+	  this.element = element;
+	  // parent layout class, i.e. Masonry, Isotope, or Packery
+	  this.layout = layout;
+	  this.position = {
+	    x: 0,
+	    y: 0
+	  };
+
+	  this._create();
+	}
+
+	// inherit EvEmitter
+	var proto$2 = Item.prototype = Object.create( EvEmitter.prototype );
+	proto$2.constructor = Item;
+
+	proto$2._create = function() {
+	  // transition objects
+	  this._transn = {
+	    ingProperties: {},
+	    clean: {},
+	    onEnd: {}
+	  };
+
+	  this.css({
+	    position: 'absolute'
+	  });
+	};
+
+	// trigger specified handler for event type
+	proto$2.handleEvent = function( event ) {
+	  var method = 'on' + event.type;
+	  if ( this[ method ] ) {
+	    this[ method ]( event );
+	  }
+	};
+
+	proto$2.getSize = function() {
+	  this.size = getSize( this.element );
+	};
+
+	/**
+	 * apply CSS styles to element
+	 * @param {Object} style
+	 */
+	proto$2.css = function( style ) {
+	  var elemStyle = this.element.style;
+
+	  for ( var prop in style ) {
+	    // use vendor property if available
+	    var supportedProp = vendorProperties[ prop ] || prop;
+	    elemStyle[ supportedProp ] = style[ prop ];
+	  }
+	};
+
+	 // measure position, and sets it
+	proto$2.getPosition = function() {
+	  var style = getComputedStyle( this.element );
+	  var isOriginLeft = this.layout._getOption('originLeft');
+	  var isOriginTop = this.layout._getOption('originTop');
+	  var xValue = style[ isOriginLeft ? 'left' : 'right' ];
+	  var yValue = style[ isOriginTop ? 'top' : 'bottom' ];
+	  var x = parseFloat( xValue );
+	  var y = parseFloat( yValue );
+	  // convert percent to pixels
+	  var layoutSize = this.layout.size;
+	  if ( xValue.indexOf('%') != -1 ) {
+	    x = ( x / 100 ) * layoutSize.width;
+	  }
+	  if ( yValue.indexOf('%') != -1 ) {
+	    y = ( y / 100 ) * layoutSize.height;
+	  }
+	  // clean up 'auto' or other non-integer values
+	  x = isNaN( x ) ? 0 : x;
+	  y = isNaN( y ) ? 0 : y;
+	  // remove padding from measurement
+	  x -= isOriginLeft ? layoutSize.paddingLeft : layoutSize.paddingRight;
+	  y -= isOriginTop ? layoutSize.paddingTop : layoutSize.paddingBottom;
+
+	  this.position.x = x;
+	  this.position.y = y;
+	};
+
+	// set settled position, apply padding
+	proto$2.layoutPosition = function() {
+	  var layoutSize = this.layout.size;
+	  var style = {};
+	  var isOriginLeft = this.layout._getOption('originLeft');
+	  var isOriginTop = this.layout._getOption('originTop');
+
+	  // x
+	  var xPadding = isOriginLeft ? 'paddingLeft' : 'paddingRight';
+	  var xProperty = isOriginLeft ? 'left' : 'right';
+	  var xResetProperty = isOriginLeft ? 'right' : 'left';
+
+	  var x = this.position.x + layoutSize[ xPadding ];
+	  // set in percentage or pixels
+	  style[ xProperty ] = this.getXValue( x );
+	  // reset other property
+	  style[ xResetProperty ] = '';
+
+	  // y
+	  var yPadding = isOriginTop ? 'paddingTop' : 'paddingBottom';
+	  var yProperty = isOriginTop ? 'top' : 'bottom';
+	  var yResetProperty = isOriginTop ? 'bottom' : 'top';
+
+	  var y = this.position.y + layoutSize[ yPadding ];
+	  // set in percentage or pixels
+	  style[ yProperty ] = this.getYValue( y );
+	  // reset other property
+	  style[ yResetProperty ] = '';
+
+	  this.css( style );
+	  this.emitEvent( 'layout', [ this ] );
+	};
+
+	proto$2.getXValue = function( x ) {
+	  var isHorizontal = this.layout._getOption('horizontal');
+	  return this.layout.options.percentPosition && !isHorizontal ?
+	    ( ( x / this.layout.size.width ) * 100 ) + '%' : x + 'px';
+	};
+
+	proto$2.getYValue = function( y ) {
+	  var isHorizontal = this.layout._getOption('horizontal');
+	  return this.layout.options.percentPosition && isHorizontal ?
+	    ( ( y / this.layout.size.height ) * 100 ) + '%' : y + 'px';
+	};
+
+	proto$2._transitionTo = function( x, y ) {
+	  this.getPosition();
+	  // get current x & y from top/left
+	  var curX = this.position.x;
+	  var curY = this.position.y;
+
+	  var didNotMove = x == this.position.x && y == this.position.y;
+
+	  // save end position
+	  this.setPosition( x, y );
+
+	  // if did not move and not transitioning, just go to layout
+	  if ( didNotMove && !this.isTransitioning ) {
+	    this.layoutPosition();
+	    return;
+	  }
+
+	  var transX = x - curX;
+	  var transY = y - curY;
+	  var transitionStyle = {};
+	  transitionStyle.transform = this.getTranslate( transX, transY );
+
+	  this.transition({
+	    to: transitionStyle,
+	    onTransitionEnd: {
+	      transform: this.layoutPosition
+	    },
+	    isCleaning: true
+	  });
+	};
+
+	proto$2.getTranslate = function( x, y ) {
+	  // flip cooridinates if origin on right or bottom
+	  var isOriginLeft = this.layout._getOption('originLeft');
+	  var isOriginTop = this.layout._getOption('originTop');
+	  x = isOriginLeft ? x : -x;
+	  y = isOriginTop ? y : -y;
+	  return 'translate3d(' + x + 'px, ' + y + 'px, 0)';
+	};
+
+	// non transition + transform support
+	proto$2.goTo = function( x, y ) {
+	  this.setPosition( x, y );
+	  this.layoutPosition();
+	};
+
+	proto$2.moveTo = proto$2._transitionTo;
+
+	proto$2.setPosition = function( x, y ) {
+	  this.position.x = parseFloat( x );
+	  this.position.y = parseFloat( y );
+	};
+
+	// ----- transition ----- //
+
+	/**
+	 * @param {Object} style - CSS
+	 * @param {Function} onTransitionEnd
+	 */
+
+	// non transition, just trigger callback
+	proto$2._nonTransition = function( args ) {
+	  this.css( args.to );
+	  if ( args.isCleaning ) {
+	    this._removeStyles( args.to );
+	  }
+	  for ( var prop in args.onTransitionEnd ) {
+	    args.onTransitionEnd[ prop ].call( this );
+	  }
+	};
+
+	/**
+	 * proper transition
+	 * @param {Object} args - arguments
+	 *   @param {Object} to - style to transition to
+	 *   @param {Object} from - style to start transition from
+	 *   @param {Boolean} isCleaning - removes transition styles after transition
+	 *   @param {Function} onTransitionEnd - callback
+	 */
+	proto$2.transition = function( args ) {
+	  // redirect to nonTransition if no transition duration
+	  if ( !parseFloat( this.layout.options.transitionDuration ) ) {
+	    this._nonTransition( args );
+	    return;
+	  }
+
+	  var _transition = this._transn;
+	  // keep track of onTransitionEnd callback by css property
+	  for ( var prop in args.onTransitionEnd ) {
+	    _transition.onEnd[ prop ] = args.onTransitionEnd[ prop ];
+	  }
+	  // keep track of properties that are transitioning
+	  for ( prop in args.to ) {
+	    _transition.ingProperties[ prop ] = true;
+	    // keep track of properties to clean up when transition is done
+	    if ( args.isCleaning ) {
+	      _transition.clean[ prop ] = true;
+	    }
+	  }
+
+	  // set from styles
+	  if ( args.from ) {
+	    this.css( args.from );
+	    // force redraw. http://blog.alexmaccaw.com/css-transitions
+	    var h = this.element.offsetHeight;
+	    // hack for JSHint to hush about unused var
+	    h = null;
+	  }
+	  // enable transition
+	  this.enableTransition( args.to );
+	  // set styles that are transitioning
+	  this.css( args.to );
+
+	  this.isTransitioning = true;
+
+	};
+
+	// dash before all cap letters, including first for
+	// WebkitTransform => -webkit-transform
+	function toDashedAll( str ) {
+	  return str.replace( /([A-Z])/g, function( $1 ) {
+	    return '-' + $1.toLowerCase();
+	  });
+	}
+
+	var transitionProps = 'opacity,' + toDashedAll( transformProperty );
+
+	proto$2.enableTransition = function(/* style */) {
+	  // HACK changing transitionProperty during a transition
+	  // will cause transition to jump
+	  if ( this.isTransitioning ) {
+	    return;
+	  }
+
+	  // make `transition: foo, bar, baz` from style object
+	  // HACK un-comment this when enableTransition can work
+	  // while a transition is happening
+	  // var transitionValues = [];
+	  // for ( var prop in style ) {
+	  //   // dash-ify camelCased properties like WebkitTransition
+	  //   prop = vendorProperties[ prop ] || prop;
+	  //   transitionValues.push( toDashedAll( prop ) );
+	  // }
+	  // munge number to millisecond, to match stagger
+	  var duration = this.layout.options.transitionDuration;
+	  duration = typeof duration == 'number' ? duration + 'ms' : duration;
+	  // enable transition styles
+	  this.css({
+	    transitionProperty: transitionProps,
+	    transitionDuration: duration,
+	    transitionDelay: this.staggerDelay || 0
+	  });
+	  // listen for transition end event
+	  this.element.addEventListener( transitionEndEvent, this, false );
+	};
+
+	// ----- events ----- //
+
+	proto$2.onwebkitTransitionEnd = function( event ) {
+	  this.ontransitionend( event );
+	};
+
+	proto$2.onotransitionend = function( event ) {
+	  this.ontransitionend( event );
+	};
+
+	// properties that I munge to make my life easier
+	var dashedVendorProperties = {
+	  '-webkit-transform': 'transform'
+	};
+
+	proto$2.ontransitionend = function( event ) {
+	  // disregard bubbled events from children
+	  if ( event.target !== this.element ) {
+	    return;
+	  }
+	  var _transition = this._transn;
+	  // get property name of transitioned property, convert to prefix-free
+	  var propertyName = dashedVendorProperties[ event.propertyName ] || event.propertyName;
+
+	  // remove property that has completed transitioning
+	  delete _transition.ingProperties[ propertyName ];
+	  // check if any properties are still transitioning
+	  if ( isEmptyObj( _transition.ingProperties ) ) {
+	    // all properties have completed transitioning
+	    this.disableTransition();
+	  }
+	  // clean style
+	  if ( propertyName in _transition.clean ) {
+	    // clean up style
+	    this.element.style[ event.propertyName ] = '';
+	    delete _transition.clean[ propertyName ];
+	  }
+	  // trigger onTransitionEnd callback
+	  if ( propertyName in _transition.onEnd ) {
+	    var onTransitionEnd = _transition.onEnd[ propertyName ];
+	    onTransitionEnd.call( this );
+	    delete _transition.onEnd[ propertyName ];
+	  }
+
+	  this.emitEvent( 'transitionEnd', [ this ] );
+	};
+
+	proto$2.disableTransition = function() {
+	  this.removeTransitionStyles();
+	  this.element.removeEventListener( transitionEndEvent, this, false );
+	  this.isTransitioning = false;
+	};
+
+	/**
+	 * removes style property from element
+	 * @param {Object} style
+	**/
+	proto$2._removeStyles = function( style ) {
+	  // clean up transition styles
+	  var cleanStyle = {};
+	  for ( var prop in style ) {
+	    cleanStyle[ prop ] = '';
+	  }
+	  this.css( cleanStyle );
+	};
+
+	var cleanTransitionStyle = {
+	  transitionProperty: '',
+	  transitionDuration: '',
+	  transitionDelay: ''
+	};
+
+	proto$2.removeTransitionStyles = function() {
+	  // remove transition
+	  this.css( cleanTransitionStyle );
+	};
+
+	// ----- stagger ----- //
+
+	proto$2.stagger = function( delay ) {
+	  delay = isNaN( delay ) ? 0 : delay;
+	  this.staggerDelay = delay + 'ms';
+	};
+
+	// ----- show/hide/remove ----- //
+
+	// remove element from DOM
+	proto$2.removeElem = function() {
+	  var parent = this.element.parentNode;
+	  if ( parent ) {
+	    parent.removeChild( this.element );
+	  }
+	  // remove display: none
+	  this.css({ display: '' });
+	  this.emitEvent( 'remove', [ this ] );
+	};
+
+	proto$2.remove = function() {
+	  // just remove element if no transition support or no transition
+	  if ( !transitionProperty || !parseFloat( this.layout.options.transitionDuration ) ) {
+	    this.removeElem();
+	    return;
+	  }
+
+	  // start transition
+	  this.once( 'transitionEnd', function() {
+	    this.removeElem();
+	  });
+	  this.hide();
+	};
+
+	proto$2.reveal = function() {
+	  delete this.isHidden;
+	  // remove display: none
+	  this.css({ display: '' });
+
+	  var options = this.layout.options;
+
+	  var onTransitionEnd = {};
+	  var transitionEndProperty = this.getHideRevealTransitionEndProperty('visibleStyle');
+	  onTransitionEnd[ transitionEndProperty ] = this.onRevealTransitionEnd;
+
+	  this.transition({
+	    from: options.hiddenStyle,
+	    to: options.visibleStyle,
+	    isCleaning: true,
+	    onTransitionEnd: onTransitionEnd
+	  });
+	};
+
+	proto$2.onRevealTransitionEnd = function() {
+	  // check if still visible
+	  // during transition, item may have been hidden
+	  if ( !this.isHidden ) {
+	    this.emitEvent('reveal');
+	  }
+	};
+
+	/**
+	 * get style property use for hide/reveal transition end
+	 * @param {String} styleProperty - hiddenStyle/visibleStyle
+	 * @returns {String}
+	 */
+	proto$2.getHideRevealTransitionEndProperty = function( styleProperty ) {
+	  var optionStyle = this.layout.options[ styleProperty ];
+	  // use opacity
+	  if ( optionStyle.opacity ) {
+	    return 'opacity';
+	  }
+	  // get first property
+	  for ( var prop in optionStyle ) {
+	    return prop;
+	  }
+	};
+
+	proto$2.hide = function() {
+	  // set flag
+	  this.isHidden = true;
+	  // remove display: none
+	  this.css({ display: '' });
+
+	  var options = this.layout.options;
+
+	  var onTransitionEnd = {};
+	  var transitionEndProperty = this.getHideRevealTransitionEndProperty('hiddenStyle');
+	  onTransitionEnd[ transitionEndProperty ] = this.onHideTransitionEnd;
+
+	  this.transition({
+	    from: options.visibleStyle,
+	    to: options.hiddenStyle,
+	    // keep hidden stuff hidden
+	    isCleaning: true,
+	    onTransitionEnd: onTransitionEnd
+	  });
+	};
+
+	proto$2.onHideTransitionEnd = function() {
+	  // check if still hidden
+	  // during transition, item may have been un-hidden
+	  if ( this.isHidden ) {
+	    this.css({ display: 'none' });
+	    this.emitEvent('hide');
+	  }
+	};
+
+	proto$2.destroy = function() {
+	  this.css({
+	    position: '',
+	    left: '',
+	    right: '',
+	    top: '',
+	    bottom: '',
+	    transition: '',
+	    transform: ''
+	  });
+	};
+
+	var console$2 = window.console;
+	var jQuery$1 = window.jQuery;
+	var noop$2 = function() {};
+
+	// -------------------------- Outlayer -------------------------- //
+
+	// globally unique identifiers
+	var GUID = 0;
+	// internal store of all Outlayer intances
+	var instances = {};
+
+
+	/**
+	 * @param {Element, String} element
+	 * @param {Object} options
+	 * @constructor
+	 */
+	function Outlayer( element, options ) {
+	  var queryElement = utils.getQueryElement( element );
+	  if ( !queryElement ) {
+	    if ( console$2 ) {
+	      console$2.error( 'Bad element for ' + this.constructor.namespace +
+	        ': ' + ( queryElement || element ) );
+	    }
+	    return;
+	  }
+	  this.element = queryElement;
+	  // add jQuery
+	  if ( jQuery$1 ) {
+	    this.$element = jQuery$1( this.element );
+	  }
+
+	  // options
+	  this.options = utils.extend( {}, this.constructor.defaults );
+	  this.option( options );
+
+	  // add id for Outlayer.getFromElement
+	  var id = ++GUID;
+	  this.element.outlayerGUID = id; // expando
+	  instances[ id ] = this; // associate via id
+
+	  // kick it off
+	  this._create();
+
+	  var isInitLayout = this._getOption('initLayout');
+	  if ( isInitLayout ) {
+	    this.layout();
+	  }
+	}
+
+	// settings are for internal use only
+	Outlayer.namespace = 'outlayer';
+	Outlayer.Item = Item;
+
+	// default options
+	Outlayer.defaults = {
+	  containerStyle: {
+	    position: 'relative'
+	  },
+	  initLayout: true,
+	  originLeft: true,
+	  originTop: true,
+	  resize: true,
+	  resizeContainer: true,
+	  // item options
+	  transitionDuration: '0.4s',
+	  hiddenStyle: {
+	    opacity: 0,
+	    transform: 'scale(0.001)'
+	  },
+	  visibleStyle: {
+	    opacity: 1,
+	    transform: 'scale(1)'
+	  }
+	};
+
+	var proto$3 = Outlayer.prototype;
+	// inherit EvEmitter
+	utils.extend( proto$3, EvEmitter.prototype );
+
+	/**
+	 * set options
+	 * @param {Object} opts
+	 */
+	proto$3.option = function( opts ) {
+	  utils.extend( this.options, opts );
+	};
+
+	/**
+	 * get backwards compatible option value, check old name
+	 */
+	proto$3._getOption = function( option ) {
+	  var oldOption = this.constructor.compatOptions[ option ];
+	  return oldOption && this.options[ oldOption ] !== undefined ?
+	    this.options[ oldOption ] : this.options[ option ];
+	};
+
+	Outlayer.compatOptions = {
+	  // currentName: oldName
+	  initLayout: 'isInitLayout',
+	  horizontal: 'isHorizontal',
+	  layoutInstant: 'isLayoutInstant',
+	  originLeft: 'isOriginLeft',
+	  originTop: 'isOriginTop',
+	  resize: 'isResizeBound',
+	  resizeContainer: 'isResizingContainer'
+	};
+
+	proto$3._create = function() {
+	  // get items from children
+	  this.reloadItems();
+	  // elements that affect layout, but are not laid out
+	  this.stamps = [];
+	  this.stamp( this.options.stamp );
+	  // set container style
+	  utils.extend( this.element.style, this.options.containerStyle );
+
+	  // bind resize method
+	  var canBindResize = this._getOption('resize');
+	  if ( canBindResize ) {
+	    this.bindResize();
+	  }
+	};
+
+	// goes through all children again and gets bricks in proper order
+	proto$3.reloadItems = function() {
+	  // collection of item elements
+	  this.items = this._itemize( this.element.children );
+	};
+
+
+	/**
+	 * turn elements into Outlayer.Items to be used in layout
+	 * @param {Array or NodeList or HTMLElement} elems
+	 * @returns {Array} items - collection of new Outlayer Items
+	 */
+	proto$3._itemize = function( elems ) {
+
+	  var itemElems = this._filterFindItemElements( elems );
+	  var Item$$1 = this.constructor.Item;
+
+	  // create new Outlayer Items for collection
+	  var items = [];
+	  for ( var i=0; i < itemElems.length; i++ ) {
+	    var elem = itemElems[i];
+	    var item = new Item$$1( elem, this );
+	    items.push( item );
+	  }
+
+	  return items;
+	};
+
+	/**
+	 * get item elements to be used in layout
+	 * @param {Array or NodeList or HTMLElement} elems
+	 * @returns {Array} items - item elements
+	 */
+	proto$3._filterFindItemElements = function( elems ) {
+	  return utils.filterFindElements( elems, this.options.itemSelector );
+	};
+
+	/**
+	 * getter method for getting item elements
+	 * @returns {Array} elems - collection of item elements
+	 */
+	proto$3.getItemElements = function() {
+	  return this.items.map( function( item ) {
+	    return item.element;
+	  });
+	};
+
+	// ----- init & layout ----- //
+
+	/**
+	 * lays out all items
+	 */
+	proto$3.layout = function() {
+	  this._resetLayout();
+	  this._manageStamps();
+
+	  // don't animate first layout
+	  var layoutInstant = this._getOption('layoutInstant');
+	  var isInstant = layoutInstant !== undefined ?
+	    layoutInstant : !this._isLayoutInited;
+	  this.layoutItems( this.items, isInstant );
+
+	  // flag for initalized
+	  this._isLayoutInited = true;
+	};
+
+	// _init is alias for layout
+	proto$3._init = proto$3.layout;
+
+	/**
+	 * logic before any new layout
+	 */
+	proto$3._resetLayout = function() {
+	  this.getSize();
+	};
+
+
+	proto$3.getSize = function() {
+	  this.size = getSize( this.element );
+	};
+
+	/**
+	 * get measurement from option, for columnWidth, rowHeight, gutter
+	 * if option is String -> get element from selector string, & get size of element
+	 * if option is Element -> get size of element
+	 * else use option as a number
+	 *
+	 * @param {String} measurement
+	 * @param {String} size - width or height
+	 * @private
+	 */
+	proto$3._getMeasurement = function( measurement, size ) {
+	  var option = this.options[ measurement ];
+	  var elem;
+	  if ( !option ) {
+	    // default to 0
+	    this[ measurement ] = 0;
+	  } else {
+	    // use option as an element
+	    if ( typeof option == 'string' ) {
+	      elem = this.element.querySelector( option );
+	    } else if ( option instanceof HTMLElement ) {
+	      elem = option;
+	    }
+	    // use size of element, if element
+	    this[ measurement ] = elem ? getSize( elem )[ size ] : option;
+	  }
+	};
+
+	/**
+	 * layout a collection of item elements
+	 * @api public
+	 */
+	proto$3.layoutItems = function( items, isInstant ) {
+	  items = this._getItemsForLayout( items );
+
+	  this._layoutItems( items, isInstant );
+
+	  this._postLayout();
+	};
+
+	/**
+	 * get the items to be laid out
+	 * you may want to skip over some items
+	 * @param {Array} items
+	 * @returns {Array} items
+	 */
+	proto$3._getItemsForLayout = function( items ) {
+	  return items.filter( function( item ) {
+	    return !item.isIgnored;
+	  });
+	};
+
+	/**
+	 * layout items
+	 * @param {Array} items
+	 * @param {Boolean} isInstant
+	 */
+	proto$3._layoutItems = function( items, isInstant ) {
+	  this._emitCompleteOnItems( 'layout', items );
+
+	  if ( !items || !items.length ) {
+	    // no items, emit event with empty array
+	    return;
+	  }
+
+	  var queue = [];
+
+	  items.forEach( function( item ) {
+	    // get x/y object from method
+	    var position = this._getItemLayoutPosition( item );
+	    // enqueue
+	    position.item = item;
+	    position.isInstant = isInstant || item.isLayoutInstant;
+	    queue.push( position );
+	  }, this );
+
+	  this._processLayoutQueue( queue );
+	};
+
+	/**
+	 * get item layout position
+	 * @param {Outlayer.Item} item
+	 * @returns {Object} x and y position
+	 */
+	proto$3._getItemLayoutPosition = function( /* item */ ) {
+	  return {
+	    x: 0,
+	    y: 0
+	  };
+	};
+
+	/**
+	 * iterate over array and position each item
+	 * Reason being - separating this logic prevents 'layout invalidation'
+	 * thx @paul_irish
+	 * @param {Array} queue
+	 */
+	proto$3._processLayoutQueue = function( queue ) {
+	  this.updateStagger();
+	  queue.forEach( function( obj, i ) {
+	    this._positionItem( obj.item, obj.x, obj.y, obj.isInstant, i );
+	  }, this );
+	};
+
+	// set stagger from option in milliseconds number
+	proto$3.updateStagger = function() {
+	  var stagger = this.options.stagger;
+	  if ( stagger === null || stagger === undefined ) {
+	    this.stagger = 0;
+	    return;
+	  }
+	  this.stagger = getMilliseconds( stagger );
+	  return this.stagger;
+	};
+
+	/**
+	 * Sets position of item in DOM
+	 * @param {Outlayer.Item} item
+	 * @param {Number} x - horizontal position
+	 * @param {Number} y - vertical position
+	 * @param {Boolean} isInstant - disables transitions
+	 */
+	proto$3._positionItem = function( item, x, y, isInstant, i ) {
+	  if ( isInstant ) {
+	    // if not transition, just set CSS
+	    item.goTo( x, y );
+	  } else {
+	    item.stagger( i * this.stagger );
+	    item.moveTo( x, y );
+	  }
+	};
+
+	/**
+	 * Any logic you want to do after each layout,
+	 * i.e. size the container
+	 */
+	proto$3._postLayout = function() {
+	  this.resizeContainer();
+	};
+
+	proto$3.resizeContainer = function() {
+	  var isResizingContainer = this._getOption('resizeContainer');
+	  if ( !isResizingContainer ) {
+	    return;
+	  }
+	  var size = this._getContainerSize();
+	  if ( size ) {
+	    this._setContainerMeasure( size.width, true );
+	    this._setContainerMeasure( size.height, false );
+	  }
+	};
+
+	/**
+	 * Sets width or height of container if returned
+	 * @returns {Object} size
+	 *   @param {Number} width
+	 *   @param {Number} height
+	 */
+	proto$3._getContainerSize = noop$2;
+
+	/**
+	 * @param {Number} measure - size of width or height
+	 * @param {Boolean} isWidth
+	 */
+	proto$3._setContainerMeasure = function( measure, isWidth ) {
+	  if ( measure === undefined ) {
+	    return;
+	  }
+
+	  var elemSize = this.size;
+	  // add padding and border width if border box
+	  if ( elemSize.isBorderBox ) {
+	    measure += isWidth ? elemSize.paddingLeft + elemSize.paddingRight +
+	      elemSize.borderLeftWidth + elemSize.borderRightWidth :
+	      elemSize.paddingBottom + elemSize.paddingTop +
+	      elemSize.borderTopWidth + elemSize.borderBottomWidth;
+	  }
+
+	  measure = Math.max( measure, 0 );
+	  this.element.style[ isWidth ? 'width' : 'height' ] = measure + 'px';
+	};
+
+	/**
+	 * emit eventComplete on a collection of items events
+	 * @param {String} eventName
+	 * @param {Array} items - Outlayer.Items
+	 */
+	proto$3._emitCompleteOnItems = function( eventName, items ) {
+	  var _this = this;
+	  function onComplete() {
+	    _this.dispatchEvent( eventName + 'Complete', null, [ items ] );
+	  }
+
+	  var count = items.length;
+	  if ( !items || !count ) {
+	    onComplete();
+	    return;
+	  }
+
+	  var doneCount = 0;
+	  function tick() {
+	    doneCount++;
+	    if ( doneCount == count ) {
+	      onComplete();
+	    }
+	  }
+
+	  // bind callback
+	  items.forEach( function( item ) {
+	    item.once( eventName, tick );
+	  });
+	};
+
+	/**
+	 * emits events via EvEmitter and jQuery events
+	 * @param {String} type - name of event
+	 * @param {Event} event - original event
+	 * @param {Array} args - extra arguments
+	 */
+	proto$3.dispatchEvent = function( type, event, args ) {
+	  // add original event to arguments
+	  var emitArgs = event ? [ event ].concat( args ) : args;
+	  this.emitEvent( type, emitArgs );
+
+	  if ( jQuery$1 ) {
+	    // set this.$element
+	    this.$element = this.$element || jQuery$1( this.element );
+	    if ( event ) {
+	      // create jQuery event
+	      var $event = jQuery$1.Event( event );
+	      $event.type = type;
+	      this.$element.trigger( $event, args );
+	    } else {
+	      // just trigger with type if no event available
+	      this.$element.trigger( type, args );
+	    }
+	  }
+	};
+
+	// -------------------------- ignore & stamps -------------------------- //
+
+
+	/**
+	 * keep item in collection, but do not lay it out
+	 * ignored items do not get skipped in layout
+	 * @param {Element} elem
+	 */
+	proto$3.ignore = function( elem ) {
+	  var item = this.getItem( elem );
+	  if ( item ) {
+	    item.isIgnored = true;
+	  }
+	};
+
+	/**
+	 * return item to layout collection
+	 * @param {Element} elem
+	 */
+	proto$3.unignore = function( elem ) {
+	  var item = this.getItem( elem );
+	  if ( item ) {
+	    delete item.isIgnored;
+	  }
+	};
+
+	/**
+	 * adds elements to stamps
+	 * @param {NodeList, Array, Element, or String} elems
+	 */
+	proto$3.stamp = function( elems ) {
+	  elems = this._find( elems );
+	  if ( !elems ) {
+	    return;
+	  }
+
+	  this.stamps = this.stamps.concat( elems );
+	  // ignore
+	  elems.forEach( this.ignore, this );
+	};
+
+	/**
+	 * removes elements to stamps
+	 * @param {NodeList, Array, or Element} elems
+	 */
+	proto$3.unstamp = function( elems ) {
+	  elems = this._find( elems );
+	  if ( !elems ){
+	    return;
+	  }
+
+	  elems.forEach( function( elem ) {
+	    // filter out removed stamp elements
+	    utils.removeFrom( this.stamps, elem );
+	    this.unignore( elem );
+	  }, this );
+	};
+
+	/**
+	 * finds child elements
+	 * @param {NodeList, Array, Element, or String} elems
+	 * @returns {Array} elems
+	 */
+	proto$3._find = function( elems ) {
+	  if ( !elems ) {
+	    return;
+	  }
+	  // if string, use argument as selector string
+	  if ( typeof elems == 'string' ) {
+	    elems = this.element.querySelectorAll( elems );
+	  }
+	  elems = utils.makeArray( elems );
+	  return elems;
+	};
+
+	proto$3._manageStamps = function() {
+	  if ( !this.stamps || !this.stamps.length ) {
+	    return;
+	  }
+
+	  this._getBoundingRect();
+
+	  this.stamps.forEach( this._manageStamp, this );
+	};
+
+	// update boundingLeft / Top
+	proto$3._getBoundingRect = function() {
+	  // get bounding rect for container element
+	  var boundingRect = this.element.getBoundingClientRect();
+	  var size = this.size;
+	  this._boundingRect = {
+	    left: boundingRect.left + size.paddingLeft + size.borderLeftWidth,
+	    top: boundingRect.top + size.paddingTop + size.borderTopWidth,
+	    right: boundingRect.right - ( size.paddingRight + size.borderRightWidth ),
+	    bottom: boundingRect.bottom - ( size.paddingBottom + size.borderBottomWidth )
+	  };
+	};
+
+	/**
+	 * @param {Element} stamp
+	**/
+	proto$3._manageStamp = noop$2;
+
+	/**
+	 * get x/y position of element relative to container element
+	 * @param {Element} elem
+	 * @returns {Object} offset - has left, top, right, bottom
+	 */
+	proto$3._getElementOffset = function( elem ) {
+	  var boundingRect = elem.getBoundingClientRect();
+	  var thisRect = this._boundingRect;
+	  var size = getSize( elem );
+	  var offset = {
+	    left: boundingRect.left - thisRect.left - size.marginLeft,
+	    top: boundingRect.top - thisRect.top - size.marginTop,
+	    right: thisRect.right - boundingRect.right - size.marginRight,
+	    bottom: thisRect.bottom - boundingRect.bottom - size.marginBottom
+	  };
+	  return offset;
+	};
+
+	// -------------------------- resize -------------------------- //
+
+	// enable event handlers for listeners
+	// i.e. resize -> onresize
+	proto$3.handleEvent = utils.handleEvent;
+
+	/**
+	 * Bind layout to window resizing
+	 */
+	proto$3.bindResize = function() {
+	  window.addEventListener( 'resize', this );
+	  this.isResizeBound = true;
+	};
+
+	/**
+	 * Unbind layout to window resizing
+	 */
+	proto$3.unbindResize = function() {
+	  window.removeEventListener( 'resize', this );
+	  this.isResizeBound = false;
+	};
+
+	proto$3.onresize = function() {
+	  this.resize();
+	};
+
+	utils.debounceMethod( Outlayer, 'onresize', 100 );
+
+	proto$3.resize = function() {
+	  // don't trigger if size did not change
+	  // or if resize was unbound. See #9
+	  if ( !this.isResizeBound || !this.needsResizeLayout() ) {
+	    return;
+	  }
+
+	  this.layout();
+	};
+
+	/**
+	 * check if layout is needed post layout
+	 * @returns Boolean
+	 */
+	proto$3.needsResizeLayout = function() {
+	  var size = getSize( this.element );
+	  // check that this.size and size are there
+	  // IE8 triggers resize on body size change, so they might not be
+	  var hasSizes = this.size && size;
+	  return hasSizes && size.innerWidth !== this.size.innerWidth;
+	};
+
+	// -------------------------- methods -------------------------- //
+
+	/**
+	 * add items to Outlayer instance
+	 * @param {Array or NodeList or Element} elems
+	 * @returns {Array} items - Outlayer.Items
+	**/
+	proto$3.addItems = function( elems ) {
+	  var items = this._itemize( elems );
+	  // add items to collection
+	  if ( items.length ) {
+	    this.items = this.items.concat( items );
+	  }
+	  return items;
+	};
+
+	/**
+	 * Layout newly-appended item elements
+	 * @param {Array or NodeList or Element} elems
+	 */
+	proto$3.appended = function( elems ) {
+	  var items = this.addItems( elems );
+	  if ( !items.length ) {
+	    return;
+	  }
+	  // layout and reveal just the new items
+	  this.layoutItems( items, true );
+	  this.reveal( items );
+	};
+
+	/**
+	 * Layout prepended elements
+	 * @param {Array or NodeList or Element} elems
+	 */
+	proto$3.prepended = function( elems ) {
+	  var items = this._itemize( elems );
+	  if ( !items.length ) {
+	    return;
+	  }
+	  // add items to beginning of collection
+	  var previousItems = this.items.slice(0);
+	  this.items = items.concat( previousItems );
+	  // start new layout
+	  this._resetLayout();
+	  this._manageStamps();
+	  // layout new stuff without transition
+	  this.layoutItems( items, true );
+	  this.reveal( items );
+	  // layout previous items
+	  this.layoutItems( previousItems );
+	};
+
+	/**
+	 * reveal a collection of items
+	 * @param {Array of Outlayer.Items} items
+	 */
+	proto$3.reveal = function( items ) {
+	  this._emitCompleteOnItems( 'reveal', items );
+	  if ( !items || !items.length ) {
+	    return;
+	  }
+	  var stagger = this.updateStagger();
+	  items.forEach( function( item, i ) {
+	    item.stagger( i * stagger );
+	    item.reveal();
+	  });
+	};
+
+	/**
+	 * hide a collection of items
+	 * @param {Array of Outlayer.Items} items
+	 */
+	proto$3.hide = function( items ) {
+	  this._emitCompleteOnItems( 'hide', items );
+	  if ( !items || !items.length ) {
+	    return;
+	  }
+	  var stagger = this.updateStagger();
+	  items.forEach( function( item, i ) {
+	    item.stagger( i * stagger );
+	    item.hide();
+	  });
+	};
+
+	/**
+	 * reveal item elements
+	 * @param {Array}, {Element}, {NodeList} items
+	 */
+	proto$3.revealItemElements = function( elems ) {
+	  var items = this.getItems( elems );
+	  this.reveal( items );
+	};
+
+	/**
+	 * hide item elements
+	 * @param {Array}, {Element}, {NodeList} items
+	 */
+	proto$3.hideItemElements = function( elems ) {
+	  var items = this.getItems( elems );
+	  this.hide( items );
+	};
+
+	/**
+	 * get Outlayer.Item, given an Element
+	 * @param {Element} elem
+	 * @param {Function} callback
+	 * @returns {Outlayer.Item} item
+	 */
+	proto$3.getItem = function( elem ) {
+	  // loop through items to get the one that matches
+	  for ( var i=0; i < this.items.length; i++ ) {
+	    var item = this.items[i];
+	    if ( item.element == elem ) {
+	      // return item
+	      return item;
+	    }
+	  }
+	};
+
+	/**
+	 * get collection of Outlayer.Items, given Elements
+	 * @param {Array} elems
+	 * @returns {Array} items - Outlayer.Items
+	 */
+	proto$3.getItems = function( elems ) {
+	  elems = utils.makeArray( elems );
+	  var items = [];
+	  elems.forEach( function( elem ) {
+	    var item = this.getItem( elem );
+	    if ( item ) {
+	      items.push( item );
+	    }
+	  }, this );
+
+	  return items;
+	};
+
+	/**
+	 * remove element(s) from instance and DOM
+	 * @param {Array or NodeList or Element} elems
+	 */
+	proto$3.remove = function( elems ) {
+	  var removeItems = this.getItems( elems );
+
+	  this._emitCompleteOnItems( 'remove', removeItems );
+
+	  // bail if no items to remove
+	  if ( !removeItems || !removeItems.length ) {
+	    return;
+	  }
+
+	  removeItems.forEach( function( item ) {
+	    item.remove();
+	    // remove item from collection
+	    utils.removeFrom( this.items, item );
+	  }, this );
+	};
+
+	// ----- destroy ----- //
+
+	// remove and disable Outlayer instance
+	proto$3.destroy = function() {
+	  // clean up dynamic styles
+	  var style = this.element.style;
+	  style.height = '';
+	  style.position = '';
+	  style.width = '';
+	  // destroy items
+	  this.items.forEach( function( item ) {
+	    item.destroy();
+	  });
+
+	  this.unbindResize();
+
+	  var id = this.element.outlayerGUID;
+	  delete instances[ id ]; // remove reference to instance by id
+	  delete this.element.outlayerGUID;
+	  // remove data for jQuery
+	  if ( jQuery$1 ) {
+	    jQuery$1.removeData( this.element, this.constructor.namespace );
+	  }
+
+	};
+
+	// -------------------------- data -------------------------- //
+
+	/**
+	 * get Outlayer instance from element
+	 * @param {Element} elem
+	 * @returns {Outlayer}
+	 */
+	Outlayer.data = function( elem ) {
+	  elem = utils.getQueryElement( elem );
+	  var id = elem && elem.outlayerGUID;
+	  return id && instances[ id ];
+	};
+
+
+	// -------------------------- create Outlayer class -------------------------- //
+
+	/**
+	 * create a layout class
+	 * @param {String} namespace
+	 */
+	Outlayer.create = function( namespace, options ) {
+	  // sub-class Outlayer
+	  var Layout = subclass( Outlayer );
+	  // apply new options and compatOptions
+	  Layout.defaults = utils.extend( {}, Outlayer.defaults );
+	  utils.extend( Layout.defaults, options );
+	  Layout.compatOptions = utils.extend( {}, Outlayer.compatOptions  );
+
+	  Layout.namespace = namespace;
+
+	  Layout.data = Outlayer.data;
+
+	  // sub-class Item
+	  Layout.Item = subclass( Item );
+
+	  // -------------------------- declarative -------------------------- //
+
+	  utils.htmlInit( Layout, namespace );
+
+	  // -------------------------- jQuery bridge -------------------------- //
+
+	  // make into jQuery plugin
+	  if ( jQuery$1 && jQuery$1.bridget ) {
+	    jQuery$1.bridget( namespace, Layout );
+	  }
+
+	  return Layout;
+	};
+
+	function subclass( Parent ) {
+	  function SubClass() {
+	    Parent.apply( this, arguments );
+	  }
+
+	  SubClass.prototype = Object.create( Parent.prototype );
+	  SubClass.prototype.constructor = SubClass;
+
+	  return SubClass;
+	}
+
+	// ----- helpers ----- //
+
+	// how many milliseconds are in each unit
+	var msUnits = {
+	  ms: 1,
+	  s: 1000
+	};
+
+	// munge time-like parameter into millisecond number
+	// '0.4s' -> 40
+	function getMilliseconds( time ) {
+	  if ( typeof time == 'number' ) {
+	    return time;
+	  }
+	  var matches = time.match( /(^\d*\.?\d*)(\w*)/ );
+	  var num = matches && matches[1];
+	  var unit = matches && matches[2];
+	  if ( !num.length ) {
+	    return 0;
+	  }
+	  num = parseFloat( num );
+	  var mult = msUnits[ unit ] || 1;
+	  return num * mult;
+	}
+
+	// ----- fin ----- //
+
+	// back in global
+	Outlayer.Item = Item;
+
+	// create an Outlayer layout class
+	var Masonry = Outlayer.create('masonry');
+	// isFitWidth -> fitWidth
+	Masonry.compatOptions.fitWidth = 'isFitWidth';
+
+	var proto$4 = Masonry.prototype;
+
+	proto$4._resetLayout = function() {
+		this.getSize();
+		this._getMeasurement( 'columnWidth', 'outerWidth' );
+		this._getMeasurement( 'gutter', 'outerWidth' );
+		this.measureColumns();
+
+		// reset column Y
+		this.colYs = [];
+		for ( var i=0; i < this.cols; i++ ) {
+			this.colYs.push( 0 );
+		}
+
+		this.maxY = 0;
+		this.horizontalColIndex = 0;
+	};
+
+	proto$4.measureColumns = function() {
+		this.getContainerWidth();
+		// if columnWidth is 0, default to outerWidth of first item
+		if ( !this.columnWidth ) {
+			var firstItem = this.items[0];
+			var firstItemElem = firstItem && firstItem.element;
+			// columnWidth fall back to item of first element
+			this.columnWidth = firstItemElem && getSize( firstItemElem ).outerWidth ||
+				// if first elem has no width, default to size of container
+				this.containerWidth;
+		}
+
+		var columnWidth = this.columnWidth += this.gutter;
+
+		// calculate columns
+		var containerWidth = this.containerWidth + this.gutter;
+		var cols = containerWidth / columnWidth;
+		// fix rounding errors, typically with gutters
+		var excess = columnWidth - containerWidth % columnWidth;
+		// if overshoot is less than a pixel, round up, otherwise floor it
+		var mathMethod = excess && excess < 1 ? 'round' : 'floor';
+		cols = Math[ mathMethod ]( cols );
+		this.cols = Math.max( cols, 1 );
+	};
+
+	proto$4.getContainerWidth = function() {
+		// container is parent if fit width
+		var isFitWidth = this._getOption('fitWidth');
+		var container = isFitWidth ? this.element.parentNode : this.element;
+		// check that this.size and size are there
+		// IE8 triggers resize on body size change, so they might not be
+		var size = getSize( container );
+		this.containerWidth = size && size.innerWidth;
+	};
+
+	proto$4._getItemLayoutPosition = function( item ) {
+		item.getSize();
+		// how many columns does this brick span
+		var remainder = item.size.outerWidth % this.columnWidth;
+		var mathMethod = remainder && remainder < 1 ? 'round' : 'ceil';
+		// round if off by 1 pixel, otherwise use ceil
+		var colSpan = Math[ mathMethod ]( item.size.outerWidth / this.columnWidth );
+		colSpan = Math.min( colSpan, this.cols );
+		// use horizontal or top column position
+		var colPosMethod = this.options.horizontalOrder ?
+			'_getHorizontalColPosition' : '_getTopColPosition';
+		var colPosition = this[ colPosMethod ]( colSpan, item );
+		// position the brick
+		var position = {
+			x: this.columnWidth * colPosition.col,
+			y: colPosition.y
+		};
+		// apply setHeight to necessary columns
+		var setHeight = colPosition.y + item.size.outerHeight;
+		var setMax = colSpan + colPosition.col;
+		for ( var i = colPosition.col; i < setMax; i++ ) {
+			this.colYs[i] = setHeight;
+		}
+
+		return position;
+	};
+
+	proto$4._getTopColPosition = function( colSpan ) {
+		var colGroup = this._getTopColGroup( colSpan );
+		// get the minimum Y value from the columns
+		var minimumY = Math.min.apply( Math, colGroup );
+
+		return {
+			col: colGroup.indexOf( minimumY ),
+			y: minimumY,
+		};
+	};
+
+	/**
+	 * @param {Number} colSpan - number of columns the element spans
+	 * @returns {Array} colGroup
+	 */
+	proto$4._getTopColGroup = function( colSpan ) {
+		if ( colSpan < 2 ) {
+			// if brick spans only one column, use all the column Ys
+			return this.colYs;
+		}
+
+		var colGroup = [];
+		// how many different places could this brick fit horizontally
+		var groupCount = this.cols + 1 - colSpan;
+		// for each group potential horizontal position
+		for ( var i = 0; i < groupCount; i++ ) {
+			colGroup[i] = this._getColGroupY( i, colSpan );
+		}
+		return colGroup;
+	};
+
+	proto$4._getColGroupY = function( col, colSpan ) {
+		if ( colSpan < 2 ) {
+			return this.colYs[ col ];
+		}
+		// make an array of colY values for that one group
+		var groupColYs = this.colYs.slice( col, col + colSpan );
+		// and get the max value of the array
+		return Math.max.apply( Math, groupColYs );
+	};
+
+	// get column position based on horizontal index. #873
+	proto$4._getHorizontalColPosition = function( colSpan, item ) {
+		var col = this.horizontalColIndex % this.cols;
+		var isOver = colSpan > 1 && col + colSpan > this.cols;
+		// shift to next row if item can't fit on current row
+		col = isOver ? 0 : col;
+		// don't let zero-size items take up space
+		var hasSize = item.size.outerWidth && item.size.outerHeight;
+		this.horizontalColIndex = hasSize ? col + colSpan : this.horizontalColIndex;
+
+		return {
+			col: col,
+			y: this._getColGroupY( col, colSpan ),
+		};
+	};
+
+	proto$4._manageStamp = function( stamp ) {
+		var stampSize = getSize( stamp );
+		var offset = this._getElementOffset( stamp );
+		// get the columns that this stamp affects
+		var isOriginLeft = this._getOption('originLeft');
+		var firstX = isOriginLeft ? offset.left : offset.right;
+		var lastX = firstX + stampSize.outerWidth;
+		var firstCol = Math.floor( firstX / this.columnWidth );
+		firstCol = Math.max( 0, firstCol );
+		var lastCol = Math.floor( lastX / this.columnWidth );
+		// lastCol should not go over if multiple of columnWidth #425
+		lastCol -= lastX % this.columnWidth ? 0 : 1;
+		lastCol = Math.min( this.cols - 1, lastCol );
+		// set colYs to bottom of the stamp
+
+		var isOriginTop = this._getOption('originTop');
+		var stampMaxY = ( isOriginTop ? offset.top : offset.bottom ) +
+			stampSize.outerHeight;
+		for ( var i = firstCol; i <= lastCol; i++ ) {
+			this.colYs[i] = Math.max( stampMaxY, this.colYs[i] );
+		}
+	};
+
+	proto$4._getContainerSize = function() {
+		this.maxY = Math.max.apply( Math, this.colYs );
+		var size = {
+			height: this.maxY
+		};
+
+		if ( this._getOption('fitWidth') ) {
+			size.width = this._getContainerFitWidth();
+		}
+
+		return size;
+	};
+
+	proto$4._getContainerFitWidth = function() {
+		var unusedCols = 0;
+		// count unused columns
+		var i = this.cols;
+		while ( --i ) {
+			if ( this.colYs[i] !== 0 ) {
+				break;
+			}
+			unusedCols++;
+		}
+		// fit container to columns that have been used
+		return ( this.cols - unusedCols ) * this.columnWidth - this.gutter;
+	};
+
+	proto$4.needsResizeLayout = function() {
+		var previousWidth = this.containerWidth;
+		this.getContainerWidth();
+		return previousWidth != this.containerWidth;
+	};
+
+	var worksTemplate = `
+<div class="slider js_slider">
+	<div class="frame js_frame">
+		<div class="slides js_slides">
+			{{#works:index}}
+				<div class="js_slide {{ #if index === currentIndex }}selected{{ /if }} {{ #if index === 0 }}first{{ /if }}">
+					<img src="/images/work/screenshots/{{ works[index].slug }}-0.{{ works[index].imageExtension }}"/>
+				</div>
+			{{/works}}
+		</div>
+	</div>
+	<span class="js_prev previous">
+		<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#CCC" d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77 55.506L143.56 250.75z"/></g></svg>
+	</span>
+	<span class="js_next next">
+		<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#CCC" d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z"/></g></svg>
+	</span>
+</div>
+
+<div class="work-description loading">
+	<div class="work-description-content">
+		<h3 class="work-title">{{ works[currentIndex].title }}</h3>
+		<img class="work-logo" src="/images/logos/{{ works[currentIndex].client }}.png"/>
+		<div class="work-lede">{{ works[currentIndex].lede }}</div>
+	</div>
+</div>
+
+<div class="modal-shade" style="display: {{ #if isModalEnabled }}grid{{ else }}none{{ /if }};">
+	<div class="modal">
+		<div class="text">			
+			<h1>{{ works[currentIndex].title }}</h1>
+			<div class="screenshot-container">
+				<div class="screenshots">					
+					<div class="tile description">{{{ works[currentIndex].description }}}</div>
+					{{#screenshotIndexes:screenshotIndex}}
+						<img class="tile" src="/images/work/screenshots/{{ works[currentIndex].slug }}-{{screenshotIndex}}.{{ works[currentIndex].imageExtension }}"/>
+					{{/screenshotIndexes}}						
+				</div>
+			</div>
+		</div>
+		<img class="close" src="/images/icons/close.png"/>
+	</div>
+</div>
+`;
+
+	var works$1 = [
+		{
+			"slug": `certsimple`,
+			"previewImage": `certsimple.png`,
+			"screenshotCount": 5,
+			"imageExtension": `png`,
+			"client": `certsimple`,
+			"title": `CertSimple`,
+			"pubDate": `Fri, 30 Aug 2013 14:30:14 +0000`,
+			"lede": `The fastest, simplest way to verify high trust websites`,
+			"description": `
+			<p>EV verifies a real company runs a website. But due to the verification involved, the average time to get a certificate is 7-10 days. CertSimple uses great UI and live checking of details to issue EV certificates in an average of 5 hours, 40x the speed of the rest of the industry. CertSimple now has over 500 customers and has been featured in TechCrunch, Hacker News and obtained funding from Entrepreneur First's accelerator programme. The tech is full stack node, using yarn workspaces, ES8 and TypeScript.</p>`
+		},
+		{
+			"slug": `mycognition`,
+			"previewImage": `mycognition.png`,
+			"screenshotCount": 5,
+			"imageExtension": `png`,
+			"client": `mycognition-rise`,
+			"title": `MyCognition Rise`,
+			"pubDate": `Fri, 30 Aug 2013 14:30:14 +0000`,
+			"lede": `Customer onboarding for cognitive learning product`,
+			"description": `
+			<p>A site to promote MyCognition's 'Rise' cognitive development product, and the associated payment and user signup workflow. </p>
+			<p>The billing site used CSS3 transitions, ideal postcodes for automatic address retrieval, Stripe for payment, quaderno for invoicing and EU VAT calculation, and node/express.js for the backend.</p>`
+		},
+		{
+			"slug": `waves`,
+			"previewImage": `waves.png`,
+			"screenshotCount": 5,
+			"imageExtension": `png`,
+			"client": `sandpit-lab`,
+			"title": `Waves`,
+			"pubDate": `Fri, 30 Aug 2013 14:30:14 +0000`,
+			"lede": `Live alerts for significant changes in Twitter.`,
+			"description": `
+			<p>Given a keyword, hashtag or user, Waves monitors Twitter for significant changes in sentiment, volume and related words. </p>
+			<p>Waves alerts to events before you hear about them. When the Prime Minister of the Ukraine resigned, Waves sent out alerts 40 minutes before BBC and Sky had published a story.</p>`
+		},
+		{
+			"slug": `online-wednesday`,
+			"previewImage": `online-wednesday.png`,
+			"screenshotCount": 1,
+			"imageExtension": `png`,
+			"client": `sandpit-lab`,
+			"title": `Online Wednesday`,
+			"pubDate": `Fri, 30 Aug 2013 14:30:14 +0000`,
+			"lede": `The products people are talking about right now.`,
+			"description": `
+			<p>Online Wednesday is an internal tool used by American Express to discover new products and rank interest in them using Facebook and Twitter.</p>`
+		},
+		{
+			"slug": `firework`,
+			"previewImage": `firework.png`,
+			"screenshotCount": 3,
+			"imageExtension": `png`,
+			"client": `firework`,
+			"title": `Firework`,
+			"pubDate": `Fri, 30 Aug 2013 14:30:14 +0000`,
+			"lede": `Cloud deployment startup, getting the right code to your customers as fast as possible. `,
+			"description": `
+			<p>Getting the right code to your customers as fast as possible. </p>
+			<p>Firework combines data from version control, deployment, logs, and CI into a single place to help developers understand what version of the code belongs in their environments, then uses best-of-breed deployment techniques to turn minutes into milliseconds.</p>`
+		},
+		{
+			"slug": `uncompromise`,
+			"previewImage": `uncompromise.png`,
+			"screenshotCount": 5,
+			"imageExtension": `png`,
+			"client": `microsoft`,
+			"title": `Microsoft Surface 2`,
+			"pubDate": `Fri, 30 Aug 2013 14:30:14 +0000`,
+			"lede": `Microsite for the Surface 2 UK launch.`,
+			"description": `
+			<p>Microsite for the Surface 2 UK launch.</p>
+			<p>Lots of CSS3, node.js, Twitter & Instagram APIs and Azure.</p>`
+		},
+		{
+			"slug": `bazaarvoice-tips`,
+			"previewImage": `bazaarvoice-tips.png`,
+			"screenshotCount": 5,
+			"imageExtension": `png`,
+			"client": `bazaarvoice`,
+			"title": `Bazaarvoice Tips`,
+			"pubDate": `Fri, 30 Aug 2013 14:30:14 +0000`,
+			"lede": `Concieved, and developed a major new application in Bazaarvoice suite.`,
+			"description": `
+			<p>A place for potential and existing customers of Bazaarvoice brands and retailers to trade tips, and receive recognition from their peers and the brand.</p>
+			<ul>
+				<li>Conceived and developed new from-scratch product.</li>
+				<li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li>
+				<li>Uses a combination of jQuery Masonry, jQuery TilesGallery and AngularJS</li>
+			</ul>`
+		},
+		{
+			"slug": `facebook-ratings-and-reviews`,
+			"previewImage": `facebook-ratings-and-reviews.png`,
+			"screenshotCount": 2,
+			"imageExtension": `png`,
+			"client": `bazaarvoice`,
+			"title": `Bazaarvoice Ratings and Reviews`,
+			"pubDate": `Fri, 30 Aug 2013 14:34:59 +0000`,
+			"lede": `A Facebook version of Bazaarvoice's hugely popular and award-winning Ratings and Reviews app, used on major retailers and brands worldwide.`,
+			"description": `
+			<p>A Facebook version of Bazaarvoice's award-winning Ratings and Reviews app.</p>
+			<ul>
+				<li>Responsive design across Mobile, Facebook Page Tab,and Facebook Canvas</li>
+				<li>Async using Tornado and JS</li>
+			</ul>`
+		},
+		{
+			"slug": `facebook-stories`,
+			"previewImage": `facebook-stories.png`,
+			"screenshotCount": 2,
+			"imageExtension": `png`,
+			"client": `bazaarvoice`,
+			"title": `Bazaarvoice Stories`,
+			"pubDate": `Mon, 12 Aug 2013 08:45:37 +0000`,
+			"lede": `A photo-centric Facebook app.`,
+			"description": `
+			<p>A photo-centric Facebook app. Current live sites include Behr Paint and Thomas Cook travel.</p>
+			<ul>
+				<li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li>
+				<li>Uses acombinationof jQuery Masonry, jQuery TilesGallery and Mike's PhotoCollage (my own custom-written jQuery Plugin) for tiled layouts.</li>
+			</ul>`
+		},
+		{
+			"slug": `social-deployer`,
+			"previewImage": `social-deployer.png`,
+			"screenshotCount": 1,
+			"imageExtension": `png`,
+			"client": `bazaarvoice`,
+			"title": `Social Deployer`,
+			"pubDate": `Mon, 12 Aug 2013 08:51:10 +0000`,
+			"lede": `Deploy new software from Github to Amazon EC2 from a single drop down.`,
+			"description": `
+			<p>Deploy new software from Github to Amazon EC2 from a single drop down.</p>
+			<ul>
+				<li>Automatically deploys, tests and images commits as soon as they're made</li>
+				<li>Builds autoscaled, load-balanced EC2 environments without any end user input</li>
+				<li>Live updated on progress and other relevant events</li>
+				<li>Async using NodeJS & client side JS. Uses Github, Amazon EC2 libraries, Agave.JS, HTML5 server-sent events.</li>
+			</ul>`
+		},
+		{
+			"slug": `bazaarvoice-questions-and-answers`,
+			"previewImage": `bazaarvoice-questions-and-answers.png`,
+			"screenshotCount": 1,
+			"imageExtension": `png`,
+			"client": `bazaarvoice`,
+			"title": `Bazaarvoice Questions and Answers`,
+			"pubDate": `Fri, 30 Aug 2013 14:17:04 +0000`,
+			"lede": `Connecting customers with company staff and the wider product community to answer product questions.`,
+			"description": `
+			<p>Connecting customers with company staff and the wider product community to answer product questions.</p>
+			<p>Facebook platform, leaderboards, responsive design.</p>`
+		},
+		{
+			"slug": `pamplemousse-js`,
+			"previewImage": `pamplemousse-js.png`,
+			"screenshotCount": 1,
+			"imageExtension": `png`,
+			"client": `opensource`,
+			"title": `Pamplemousse JS`,
+			"pubDate": `Fri, 30 Aug 2013 13:57:49 +0000`,
+			"lede": `An OpenSource project for simple realtime communication`,
+			"description": `
+			<p>Pamplemousse is a simple set of two modules to handle HTML5 server sent events. It's supplied as a RequireJS module, and takes care of:</p>
+			<ul>
+				<li>Encoding things in SSE format</li>
+				<li>Mime types</li>
+				<li>Updating message IDs</li>
+				<li>Timeouts</li>
+				<li>JSON in, JSON out</li>
+				<li><a href="http://pamplemoussejs.org">http://pamplemoussejs.org</a></li>
+			</ul>`
+		},
+		{
+			"slug": `ginjs`,
+			"previewImage": `ginjs.png`,
+			"screenshotCount": 2,
+			"imageExtension": `png`,
+			"client": `js`,
+			"title": `gin.js`,
+			"pubDate": `Thu, 03 Oct 2013 16:04:11 +0000`,
+			"lede": `A regular meetup for London based JavaScript developers. I founded the event and organize the venue, mailing list, ticketing and sponsors.`,
+			"description": `
+			<p>A regular meetup for London based JavaScript developers. I founded the event, designed the lovely (responsive) site, and organize the venue, mailing list, ticketing and sponsors.</p>`
+		},
+		{
+			"slug": `google-android-4-launch`,
+			"previewImage": `google-android-4-launch.png`,
+			"screenshotCount": 3,
+			"imageExtension": `png`,
+			"client": `google`,
+			"title": `Android 4 Worldwide Launch`,
+			"pubDate": `Tue, 13 Aug 2013 10:39:45 +0000`,
+			"lede": `Launch of Android 4 (Ice Cream Sandwich) and the Samsung Galaxy Nexus phone.`,
+			"description": `
+			<p>Launch of Android 4 (Ice Cream Sandwich) and the Samsung Galaxy Nexus phone.</p>
+			<ul>
+				<li>Worldwide phone retailer education for Android 4 and Galaxy nexus</li>
+				<li>Quiz and results reporting</li>
+				<li>Entire site internationalized to every Google market</li>
+			</ul>`
+		},
+		{
+			"slug": `agave-js`,
+			"previewImage": `agave-js.png`,
+			"screenshotCount": 1,
+			"imageExtension": `png`,
+			"client": `google`,
+			"title": `Agave JS`,
+			"pubDate": `Fri, 30 Aug 2013 14:00:16 +0000`,
+			"lede": `Safe native methods for modern JavaScript environments.`,
+			"description": `
+			<p>Safe native methods for ES8.</p>
+			<ul>
+				<li>One of the first JS libraries to safely extend native methods.</li>
+				<li>Method names are namespaced to avoid conflicts</li>
+				<li>All methods are non-enumerable using ES5 defineProperty()</li>
+				<li><a href="http://agavejs.org">http://agavejs.org</a></li>
+			</ul>`
+		},
+		{
+			"slug": `youtube-world-view`,
+			"previewImage": `youtube-world-view.png`,
+			"screenshotCount": 4,
+			"imageExtension": `png`,
+			"client": `google`,
+			"title": `YouTube World View`,
+			"pubDate": `Mon, 23 Sep 2013 14:03:55 +0000`,
+			"lede": `An app to allow citizens all over the world to address questions directly to world leaders.`,
+			"description": `
+			<p>An app to collect questions from citizens all over the world, and addressed those questions to world leaders - including Barack Obama, Bono, David Cameron, Angela Merkel and Nicholas Sarkozy.</p>
+			<ul>
+				<li>Client: Google</li><li>YouTube API, Google Moderator API, Google Accounts OAuth</li>
+				<li>Live YouTube interviews watched by millions of people</li>
+				<li>First use of the YouTube Live API</li>
+				<li><a href='http://youtube.com/worldview'>http://youtube.com/worldview</a></li>
+				<li><a href='https://code.google.com/p/social-interviews/'>Source code</a></li>
+			</ul>`
+		},
+		{
+			"slug": `google-getting-american-business-online`,
+			"previewImage": `google-getting-american-business-online.png`,
+			"screenshotCount": 3,
+			"imageExtension": `png`,
+			"client": `google`,
+			"title": `Google Getting American Business Online`,
+			"lede": `Google's worldwide programme to get businesses online`,
+			"description": `
+			<p>Google's worldwide programme to get businesses online, aiming to substantially reduce the count of all businesses that don't have an internet presence.</p>
+			<ul>
+				<li>Custom layout engine to allow local Google teams to customize the site to their own market (a US state or a country).</li>
+				<li><a href="http://www.gybo.com/">http://www.gybo.com/</a></li>
+			</ul>`
+		},
+		{
+			"slug": `google-10th-birthday-germany`,
+			"previewImage": `google-10th-birthday-germany.png`,
+			"screenshotCount": 2,
+			"imageExtension": `png`,
+			"client": `google`,
+			"title": `Google 10th Birthday Germany`,
+			"lede": `A rich, interactive site created to showcase Google's work over the last decade in Germany. `,
+			"description": `
+			<p>A rich, interactive site created to showcase Google's work over the last decade in Germany. </p>
+			<ul>
+				<li>Client: Google</li><li>Built in a weekend, advertised nationally on on German TV</li>
+				<li>Custom HTML5 canvas and scenegraph work</li>
+				<li><a href="http://www.10jahregoogle.de/">http://www.10jahregoogle.de/</a></li>
+			</ul>`
+		},
+		{
+			"slug": `im-everyone`,
+			"previewImage": `im-everyone.png`,
+			"screenshotCount": 3,
+			"imageExtension": `png`,
+			"client": `imeveryone`,
+			"title": `I'm Everyone`,
+			"lede": `A realtime, threaded, anonymous communication platform.`,
+			"description": `
+			<p>A realtime, threaded, anonymous communication platform.</p>
+			<ul>
+				<li>Completely realtime: both new posts and new comments are constantly pushed to browsers.</li><li>No logins: each unique participant in a conversation is given an an animal avatar to identify themselves. Outside of that single thread that</li>
+				<li>Front page of Hacker News, Reddit, tweeted by @smashingmagazine.</li>
+				<li>Site is closed down - moderation is required to provide a safe environment.</li>
+			</ul>`
+		},
+		{
+			"slug": `python-docx`,
+			"previewImage": `python-docx.png`,
+			"screenshotCount": 1,
+			"imageExtension": `png`,
+			"client": `opensource`,
+			"title": `Python Docx`,
+			"pubDate": `Fri, 30 Aug 2013 14:05:05 +0000`,
+			"lede": `The native Python module for the current XML based Microsoft Word document format.`,
+			"description": `
+			<p>The native Python module for the current XML based Microsoft Word document format.</p>
+			<ul>
+				<li>Thousand of users, and nearly 1000 stars on Github</li>
+				<li>LXML, OpenXML</li>
+				<li><a href="https://github.com/mikemaccana/python-docx" target="_blank">https://github.com/mikemaccana/python-docx</a></li>
+			</ul>`
+		},
+		{
+			"slug": `linux-and-python`,
+			"previewImage": `redhat.png`,
+			"screenshotCount": 1,
+			"imageExtension": `png`,
+			"client": `redhat`,
+			"title": `A decade of Linux`,
+			"pubDate": `Fri, 30 Aug 2013 14:05:05 +0000`,
+			"lede": `Large scale infrastructure and automation engineer.`,
+			"description": `
+			<p>I spent a decade as an infrastructure and automation engineer, working as a Linux and python trainer and consultant at Red Hat (yes, that's me in the default /etc/sudoers file), IBM Global Services' dedicated Linux team, and a variety of financial organizations on large ($450M AUD) projects.</p>`
+		},
+		{
+			"slug": `feature-writer-apc-magazine`,
+			"previewImage": `feature-writer-apc-magazine.jpeg`,
+			"screenshotCount": 4,
+			"imageExtension": `jpeg`,
+			"client": `apc`,
+			"title": `Tech Journalism`,
+			"lede": `Writing for various Asia Pacific print magazines on Linux, servers, mobile, blogging, gaming, audiovisual, and other topics of interest to readers.`,
+			"description": `
+			<h2>Feature writer, APC Magazine</h2>
+			<p>Regular pieces for the largest computer magazine in Asia Pacific, circulation 75,000.</p>
+
+			<h2>Columnist, PC Authority Magazine</h2>
+			<p>Monthly column in Australian/New Zealand computer magazine, circulation 55,000, on Linux, servers, 3G, content management, and other topics of interest to readers.</p>
+
+			<h2>Linux PocketBook 3rd Edition</h2>
+			<p>Wrote over 40,000 words for this accessible and fun guide to Linux. Sold at a premium price (twenty Australian dollars), over 20,000 copies were sold.</p>
+			
+			<h2>Founding Editor, Australian Linux Journal</h2>
+			<p>Sourced writers, provided briefs, copy-edited, and interviewed for the first two issues of this Asia/Pacific magazine focusing on Linux and Open Source.</p>
+			
+			<h2>Newspaper and radio</h2>
+			<p>Writing and speaking roles for newspapers (Sydney Morning Herald), and radio (3RRR Melbourne).</p>`
+		},
+		{
+			"slug": `doom-the-path`,
+			"previewImage": `doom-the-path.png`,
+			"screenshotCount": 4,
+			"imageExtension": `png`,
+			"client": `doom`,
+			"title": `Doom: The Path`,
+			"lede": `Released in 1996, one of the most critically acclaimed (and largest) Doom II levels of all time.`,
+			"description": `
+			<p>Released in 1996, one of the most critically acclaimed (and largest) Doom II PWADs (levels) of all time. </p>
+			<ul>
+				<li>Deep water, filling water tanks, working urinals, floating platforms, and other advanced techniques.</li>
+				<li>Custom textures and sounds.</li>
+				<li>Built when I was 15, with a computer that couldn't edit the entire level at once. I built individual chunks, my friend John Graham assembled these together into a full level on his more powerful computer.</li>
+				<li><a href="http://www.doomworld.com/idgames/?id=7427">Download from DoomWorld</a></li>
+			</ul>`
+		}
+	];
+
+	enable('av');
+
+	const LEFT = 37,
+		RIGHT = 39;
+
+	var select$1 = document.querySelector.bind(document),
+		selectAll$1 = document.querySelectorAll.bind(document),
+		log$1 = console.log.bind(console);
+
+	// Return index of node under its parents. Eg, if you're the fourth child, return 3.
+	Element.prototype.avgetParentIndex = function() {
+		return Array.prototype.indexOf.call(this.parentNode.children, this);
+	};
+
+
+
+	const showPortfolio = function(){
+
+		var worksRactive = new Ractive({
+			el: '.works-wrapper',
+			template: worksTemplate,
+			data: {
+				works: works$1,
+				currentIndex: 0,
+				isModalEnabled: false
+			},
+			computed: {
+				// Used to turn 'screenshotCount: 5' into a thing we can loop over.
+				screenshotIndexes: function(){
+					var currentIndex = this.get('currentIndex');
+					var size = this.get(`works.${currentIndex}.screenshotCount`);
+	        return new Array(size);
+	    	}           
+			},
+			oncomplete: function(){
+
+				var worksRactive = this;
+
+				var body = select$1('body'),
+					slider = select$1('.js_slider'),
+					closeElement = select$1('.close');
+
+				// Set up slider
+				// 'rewind' option is not used per https://github.com/meandmax/lory/issues/197
+				var loryController = lory(slider);
+
+				// Set up showing work detail after sliding
+				slider.addEventListener('after.lory.slide', function(event){
+					var currentSlide = event.detail.currentSlide;
+					log$1(`After slide! currentSlide is ${currentSlide}`);
+					worksRactive.set('currentIndex', currentSlide);	
+				});
+
+				// When the window resizes Lory will
+				// go to slide 0, so we'll need to make sure the descriptions are updated too
+				slider.addEventListener('on.lory.resize', function(event){
+					worksRactive.set('currentIndex', 0);
+				});
+
+				window.addEventListener('keyup', function(event){
+					if ( event.keyCode === LEFT ) {
+						loryController.prev();
+					}
+					if ( event.keyCode === RIGHT ) {
+						loryController.next();
+					}
+				});
+
+				var enableModal = function(work){
+					worksRactive.set('isModalEnabled', true);	
+
+					// Masonry
+					var masonryElement = document.querySelector('.screenshots');
+					new Masonry( masonryElement, {
+						itemSelector: '.tile',
+						// Must be same as $masonry-base in work-detail.css
+						columnWidth: 340 / 2
+					});
+
+				};
+			
+				var disableModal = function(){
+					worksRactive.set('isModalEnabled', false);
+				};
+
+				// Set up showing work detail when items are clicked
+				body.on('click', '.js_slide.selected img', function(event){
+					var clickedWorkIndex = event.target.avgetParentIndex();
+					enableModal(works$1[clickedWorkIndex]);
+				});
+
+				closeElement.addEventListener('click', function(event){
+					disableModal();
+				});
+
+			}
+		});
+
+	};
+
+	function EvEmitter$1() {}
+
+	var proto$5 = EvEmitter$1.prototype;
+
+	proto$5.on = function( eventName, listener ) {
+	  if ( !eventName || !listener ) {
+	    return;
+	  }
+	  // set events hash
+	  var events = this._events = this._events || {};
+	  // set listeners array
+	  var listeners = events[ eventName ] = events[ eventName ] || [];
+	  // only add once
+	  if ( listeners.indexOf( listener ) == -1 ) {
+	    listeners.push( listener );
+	  }
+
+	  return this;
+	};
+
+	proto$5.once = function( eventName, listener ) {
+	  if ( !eventName || !listener ) {
+	    return;
+	  }
+	  // add event
+	  this.on( eventName, listener );
+	  // set once flag
+	  // set onceEvents hash
+	  var onceEvents = this._onceEvents = this._onceEvents || {};
+	  // set onceListeners object
+	  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
+	  // set flag
+	  onceListeners[ listener ] = true;
+
+	  return this;
+	};
+
+	proto$5.off = function( eventName, listener ) {
+	  var listeners = this._events && this._events[ eventName ];
+	  if ( !listeners || !listeners.length ) {
+	    return;
+	  }
+	  var index = listeners.indexOf( listener );
+	  if ( index != -1 ) {
+	    listeners.splice( index, 1 );
+	  }
+
+	  return this;
+	};
+
+	proto$5.emitEvent = function( eventName, args ) {
+	  var listeners = this._events && this._events[ eventName ];
+	  if ( !listeners || !listeners.length ) {
+	    return;
+	  }
+	  // copy over to avoid interference if .off() in listener
+	  listeners = listeners.slice(0);
+	  args = args || [];
+	  // once stuff
+	  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
+
+	  for ( var i=0; i < listeners.length; i++ ) {
+	    var listener = listeners[i];
+	    var isOnce = onceListeners && onceListeners[ listener ];
+	    if ( isOnce ) {
+	      // remove listener
+	      // remove before trigger to prevent recursion
+	      this.off( eventName, listener );
+	      // unset once flag
+	      delete onceListeners[ listener ];
+	    }
+	    // trigger listener
+	    listener.apply( this, args );
+	  }
+
+	  return this;
+	};
+
+	proto$5.allOff = function() {
+	  delete this._events;
+	  delete this._onceEvents;
+	};
+
 
 
 	// Hacked by mike
@@ -8841,7 +12711,7 @@ var app = (function () {
 
 
 	var $ = window.jQuery;
-	var console$1 = window.console;
+	var console$3 = window.console;
 
 	// -------------------------- helpers -------------------------- //
 
@@ -8853,7 +12723,7 @@ var app = (function () {
 	  return a;
 	}
 
-	var arraySlice = Array.prototype.slice;
+	var arraySlice$1 = Array.prototype.slice;
 
 	// turn element or nodeList into an array
 	function makeArray( obj ) {
@@ -8865,7 +12735,7 @@ var app = (function () {
 	  var isArrayLike = typeof obj == 'object' && typeof obj.length == 'number';
 	  if ( isArrayLike ) {
 	    // convert nodeList to array
-	    return arraySlice.call( obj );
+	    return arraySlice$1.call( obj );
 	  }
 
 	  // array of single index
@@ -8891,7 +12761,7 @@ var app = (function () {
 	  }
 	  // bail if bad element
 	  if ( !queryElem ) {
-	    console$1.error( 'Bad element for imagesLoaded ' + ( queryElem || elem ) );
+	    console$3.error( 'Bad element for imagesLoaded ' + ( queryElem || elem ) );
 	    return;
 	  }
 
@@ -8919,7 +12789,7 @@ var app = (function () {
 	  setTimeout( this.check.bind( this ) );
 	}
 
-	ImagesLoaded.prototype = Object.create( EvEmitter.prototype );
+	ImagesLoaded.prototype = Object.create( EvEmitter$1.prototype );
 
 	ImagesLoaded.prototype.options = {};
 
@@ -9039,8 +12909,8 @@ var app = (function () {
 	    this.complete();
 	  }
 
-	  if ( this.options.debug && console$1 ) {
-	    console$1.log( 'progress: ' + message, image, elem );
+	  if ( this.options.debug && console$3 ) {
+	    console$3.log( 'progress: ' + message, image, elem );
 	  }
 	};
 
@@ -9061,7 +12931,7 @@ var app = (function () {
 	  this.img = img;
 	}
 
-	LoadingImage.prototype = Object.create( EvEmitter.prototype );
+	LoadingImage.prototype = Object.create( EvEmitter$1.prototype );
 
 	LoadingImage.prototype.check = function() {
 	  // If complete is true and browser supports natural sizes,
@@ -9172,89 +13042,52 @@ var app = (function () {
 	// try making plugin
 	ImagesLoaded.makeJQueryPlugin();
 
-	var select = document.querySelector.bind(document),
-		selectAll = document.querySelectorAll.bind(document),
-		log = console.log.bind(console);
-
-
-	var drawMonogram = function(){
-		log('Drawing monogram');
-		var monogram = Snap.select(".monogram"),
-			bigM = monogram.select('#big-m'),
-			smallM = monogram.select('#small-m'),
-			works = selectAll('.works .work'),
-			worksWrapper = select('.works-wrapper'),
-			workDescription = select('.work-description'),
-			content = select('.content'),
-			title = select('.intro h1'),
-			sub = select('.intro h2');
-
-		// See http://raphaeljs.com/reference.html#Element.transform for transform syntax
-		bigM.animate({
-			transform: "T70,0",
-			opacity: 1,
-			fill: 'whiteSmoke'
-		}, 1000, mina.easeout);
-		smallM.animate({
-			transform: "T0,70",
-			opacity: 1,
-			fill: 'white'
-		}, 1500, mina.easeout);
-
-		setTimeout(function(){
-			title.classList.toggle('visible');
-		}, 750);
-
-		setTimeout(function(){
-			sub.classList.toggle('visible');
-		}, 1000);
-
-		setTimeout(function(){
-			content.classList.remove('loading');
-		}, 1500);
-
-		setTimeout(function(){
-			ImagesLoaded('.works .work', function(event) {
-				worksWrapper.classList.remove('loading');
-				workDescription.classList.remove('loading');
-				// Fade in each item individually
-				works.forEach(function(element, index){
-					setTimeout(function(){
-						element.classList.toggle('visible');
-					}, index * 300);
-				});
-				workDescription.classList.toggle('visible');
-			});
-		}, 2000);
-
-	};
-
-	// import showPortfolio from './works.js';
-
-	var log$1 = console.log.bind(console), 
-		select$1 = document.querySelector.bind(document),
-		selectAll$1 = document.querySelectorAll.bind(document);
+	var log$2 = console.log.bind(console), 
+		select$2 = document.querySelector.bind(document),
+		selectAll$2 = document.querySelectorAll.bind(document);
 
 	NodeList.prototype.forEach = Array.prototype.forEach;
 
-	var menuToggledElements = selectAll$1('nav, body, .hamburger, .content, footer');
+	var menuToggledElements = selectAll$2('nav, body, .hamburger, .content, footer');
 
-	// Clicking ☰ button displays nav
-	select$1('.hamburger').addEventListener('click', function(event) {
-		menuToggledElements.forEach(function(element, index){
-			element.classList.toggle('menu-active');
+	(async function(){
+		var worksWrapper = select$2('.works-wrapper'),
+			workDescription = select$2('.work-description');
+
+		// Clicking ☰ button displays nav
+		select$2('.hamburger').addEventListener('click', function(event) {
+			menuToggledElements.forEach(function(element, index){
+				element.classList.toggle('menu-active');
+			});
+			event.preventDefault();
 		});
-		event.preventDefault();
-	});
 
-	drawMonogram();
+		await drawMonogram();
 
-	const app = new App({
-		target: document.body,
-		data: {
-			name: 'world'
+		ImagesLoaded('.works .work', function(event) {
+			worksWrapper.classList.remove('loading');
+			workDescription.classList.remove('loading');
+			// Fade in each item individually
+			works.forEach(function(element, index){
+				setTimeout(function(){
+					element.classList.toggle('visible');
+				}, index * 300);
+			});
+			workDescription.classList.toggle('visible');
+		});
+
+		const app = new App({
+			target: document.body,
+			data: {
+				name: 'world'
+			}
+		});
+
+		// Portfolio page stuff
+		if ( window.location.pathname === '/' ) {
+			showPortfolio();
 		}
-	});
+	})();
 
 	return app;
 
