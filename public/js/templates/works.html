@@ -1,4 +1,38 @@
-<div class="slider js_slider">
+<h1>{hours}</h1>
+
+<script>
+	export default {
+		data: function(){
+			return {
+				// works,
+				// currentIndex: 0,
+				// isModalEnabled: false,
+				time: new Date()
+			}
+		},
+		computed: {
+			hours: ({ time }) => time.getHours()//,
+			// getSlideClasses: ({index, currentIndex}) => {
+			// 	let classes = ['js_slide']
+			// 	if ( index === currentIndex ) {
+			// 		classes.push('selected')
+			// 	}
+			// 	if ( index === 0 ) {
+			// 		classes.push('first')
+			// 	}
+			// 	return classes.join(' ')
+			// },
+			// getModalStyle: ({isModalEnabled}) => {
+			// 	if ( isModalEnabled) {
+			// 		return "display: grid"
+			// 	}
+			// 	return "display: none"
+			// }
+		}
+	}
+</script>	
+
+<!-- <div class="slider js_slider">
 	<div class="frame js_frame">
 		<div class="slides js_slides">
 			{#each works as work, index}
@@ -39,4 +73,4 @@
 		</div>
 		<img class="close" src="/images/icons/close.png" alt="Not provided"/>
 	</div>
-</div>
+</div> -->
