@@ -24,72 +24,72 @@ Element.prototype.avgetParentIndex = function() {
 
 const showPortfolio = function(){
 
-	const workViewer = new WorkViewer({
+	const workViewerComponent = new WorkViewer({
 		target: document.querySelector('.works-wrapper'),
 	});
 
-	// workViewer.on('complete', function(){
+	workViewerComponent.on('complete', function(){
 
-	// 	var worksRactive = this;
+		var worksRactive = this;
 
-	// 	var body = select('body'),
-	// 		slider = select('.js_slider'),
-	// 		closeElement = select('.close');
+		var body = select('body'),
+			slider = select('.js_slider'),
+			closeElement = select('.close');
 
-	// 	// Set up slider
-	// 	// 'rewind' option is not used per https://github.com/meandmax/lory/issues/197
-	// 	var loryController = lory(slider);
+		// Set up slider
+		// 'rewind' option is not used per https://github.com/meandmax/lory/issues/197
+		var loryController = lory(slider);
 
-	// 	// Set up showing work detail after sliding
-	// 	slider.addEventListener('after.lory.slide', function(event){
-	// 		var currentSlide = event.detail.currentSlide
-	// 		log(`After slide! currentSlide is ${currentSlide}`)
-	// 		worksRactive.set('currentIndex', currentSlide)	
-	// 	});
+		// Set up showing work detail after sliding
+		slider.addEventListener('after.lory.slide', function(event){
+			var currentSlide = event.detail.currentSlide
+			log(`After slide! currentSlide is ${currentSlide}`)
+			worksRactive.set('currentIndex', currentSlide)	
+		});
 
-	// 	// When the window resizes Lory will
-	// 	// go to slide 0, so we'll need to make sure the descriptions are updated too
-	// 	slider.addEventListener('on.lory.resize', function(event){
-	// 		worksRactive.set('currentIndex', 0)
-	// 	});
+		// When the window resizes Lory will
+		// go to slide 0, so we'll need to make sure the descriptions are updated too
+		slider.addEventListener('on.lory.resize', function(event){
+			worksRactive.set('currentIndex', 0)
+		});
 
-	// 	window.addEventListener('keyup', function(event){
-	// 		if ( event.keyCode === LEFT ) {
-	// 			loryController.prev()
-	// 		}
-	// 		if ( event.keyCode === RIGHT ) {
-	// 			loryController.next()
-	// 		}
-	// 	})
+		window.addEventListener('keyup', function(event){
+			if ( event.keyCode === LEFT ) {
+				loryController.prev()
+			}
+			if ( event.keyCode === RIGHT ) {
+				loryController.next()
+			}
+		})
 
-	// 	var enableModal = function(work){
-	// 		worksRactive.set('isModalEnabled', true)	
+		var enableModal = function(work){
+			worksRactive.set('isModalEnabled', true)	
 
-	// 		// Masonry
-	// 		var masonryElement = document.querySelector('.screenshots');
-	// 		new Masonry( masonryElement, {
-	// 			itemSelector: '.tile',
-	// 			// Must be same as $masonry-base in work-detail.css
-	// 			columnWidth: 340 / 2
-	// 		});
+			// Masonry
+			var masonryElement = document.querySelector('.screenshots');
+			new Masonry( masonryElement, {
+				itemSelector: '.tile',
+				// Must be same as $masonry-base in work-detail.css
+				columnWidth: 340 / 2
+			});
 
-	// 	}
+		}
 	
-	// 	var disableModal = function(){
-	// 		worksRactive.set('isModalEnabled', false);
-	// 	};
+		var disableModal = function(){
+			worksRactive.set('isModalEnabled', false);
+		};
 
-	// 	// Set up showing work detail when items are clicked
-	// 	body.on('click', '.js_slide.selected img', function(event){
-	// 		var clickedWorkIndex = event.target.avgetParentIndex();
-	// 		enableModal(works[clickedWorkIndex])
-	// 	})
+		// Set up showing work detail when items are clicked
+		body.on('click', '.js_slide.selected img', function(event){
+			var clickedWorkIndex = event.target.avgetParentIndex();
+			enableModal(works[clickedWorkIndex])
+		})
 
-	// 	closeElement.addEventListener('click', function(event){
-	// 		disableModal();
-	// 	})
+		closeElement.addEventListener('click', function(event){
+			disableModal();
+		})
 
-	// })
+	})
 };
 
 export default showPortfolio;
