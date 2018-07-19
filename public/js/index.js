@@ -1,6 +1,8 @@
 import App from '../templates/App.html';
+
+import WorkViewerComponent from "./works.svelte";
+
 import drawMonogram from './monogram.js';
-import showWorks from './works.js';
 
 import imagesLoaded from "./thirdparty/imagesloaded.pkgd.js";
 
@@ -27,8 +29,9 @@ var menuToggledElements = selectAll('nav, body, .hamburger, .content, footer');
 	await drawMonogram();
 
 	imagesLoaded('.works .work', function(event) {
-		worksWrapper.classList.remove('loading');
-		workDescription.classList.remove('loading');
+		// worksWrapper.classList.remove('loading');
+		// workDescription.classList.remove('loading');
+		document.body.classList.remove('loading');
 		// Fade in each item individually
 		works.forEach(function(element, index){
 			setTimeout(function(){
@@ -47,7 +50,10 @@ var menuToggledElements = selectAll('nav, body, .hamburger, .content, footer');
 
 	// Portfolio page stuff
 	if ( window.location.pathname === '/' ) {
-		showWorks();
+		// Instantiate component
+		const workViewerComponent = new WorkViewerComponent({
+			target: document.querySelector('.works-wrapper'),
+		});
 	}
 })()
 

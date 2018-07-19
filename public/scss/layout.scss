@@ -116,10 +116,6 @@ body {
 	> * {
 		grid-column: 1;
 	}
-	&.loading {
-		// Centers monogram until content has loaded
-		transform: translateY(40%);
-	}
 	.intro {
 		padding: 0 $spacing;
 		text-align: center;
@@ -147,21 +143,23 @@ body {
 .works-wrapper {
 	width: 100vw;
 	margin: 0;
-	&.loading {
-		// Show once monogram has loaded
-		visibility: hidden;
-	}
 }
 
+// Hide things until monogram has loaded
+body.loading {
+	.works-wrapper, .work-description {
+		visibility: hidden;
+	}
+	content {
+		// Centers monogram until content has loaded
+		transform: translateY(40%);
+	}
+}
 
 .work-description {
 	opacity: 0;
 	display: grid;
 	justify-items: center;
-	// Show once monogram has loaded
-	&.loading {
-		visibility: hidden;
-	}
 	&.visible {
 		opacity: 1;
 	}

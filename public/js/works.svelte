@@ -92,7 +92,9 @@
 				return "none"
 			}
 		},
-		oncreate: () => {
+		oncreate: function() {
+
+			var component = this;
 
 			var body = select('body'),
 				slider = select('.js_slider'),
@@ -106,13 +108,13 @@
 			slider.addEventListener('after.lory.slide', function(event){
 				var currentSlide = event.detail.currentSlide
 				log(`After slide! currentSlide is ${currentSlide}`)
-				worksRactive.set('currentIndex', currentSlide)	
+				component.set('currentIndex', currentSlide)	
 			});
 
 			// When the window resizes Lory will
 			// go to slide 0, so we'll need to make sure the descriptions are updated too
 			slider.addEventListener('on.lory.resize', function(event){
-				worksRactive.set('currentIndex', 0)
+				component.set('currentIndex', 0)
 			});
 
 			window.addEventListener('keyup', function(event){
@@ -138,7 +140,7 @@
 			}
 		
 			var disableModal = function(){
-				worksRactive.set('isModalEnabled', false);
+				component.set('isModalEnabled', false);
 			};
 
 			// Set up showing work detail when items are clicked
