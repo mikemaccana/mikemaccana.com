@@ -149,6 +149,7 @@
 
 			// Set up showing work detail when items are clicked
 			body.on('click', '.js_slide.selected img', function(event){
+				log(`>>>> Clicked work!`)
 				var clickedWorkIndex = event.target.avgetParentIndex();
 				enableModal(works[clickedWorkIndex])
 			})

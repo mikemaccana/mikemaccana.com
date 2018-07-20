@@ -1,4 +1,5 @@
 @import "colors.scss";
+@import "metrics.scss";
 *, *:before, *:after {
 	box-sizing: border-box;
 	overflow: hidden; // Everything has layout by default. No clear fixes.
@@ -150,7 +151,7 @@ body.loading {
 	.works-wrapper, .work-description {
 		visibility: hidden;
 	}
-	content {
+	.content {
 		// Centers monogram until content has loaded
 		transform: translateY(40%);
 	}

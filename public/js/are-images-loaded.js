@@ -8,7 +8,7 @@ var areImagesLoaded = function(selector){
 				reject(error)
 				return
 			}
-			resolve()
+			resolve(true)
 		})
 	})
 }

@@ -28,10 +28,19 @@ NodeList.prototype.forEach = Array.prototype.forEach;
 		});
 	}
 
-	await intro.drawMonogram();
-	await areImagesLoaded('.works .work')
+	log(`going to draw`)
 
+	await intro.drawMonogram();
+
+	log(`done drawing`)
+	// this promise never resolves
+	// 	await areImagesLoaded('.works .work')
+	log(`images loaded`)
+
+	log(`Removing classes`)
 	document.body.classList.remove('loading');
+
+
 	// Fade in each item individually
 	selectAll('.works .work').forEach(function(element, index){
 		setTimeout(function(){
