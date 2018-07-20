@@ -40,8 +40,6 @@ NodeList.prototype.forEach = Array.prototype.forEach;
 	})
 	select('.work-description').classList.toggle('visible');
 
-	
-
 })()
 
 
