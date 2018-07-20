@@ -1,13 +1,8 @@
-
-<h1>{ getFruitClasses(0, 0) }</h1>
-
 <div class="slider js_slider">
 	<div class="frame js_frame">
 		<div class="slides js_slides">
 			{#each works as work, index}
-				<div 
-					class='{ getFruitClasses(index, currentIndex) }'
-				>
+				<div class={ getFruitClasses(index, currentIndex) }>
 					<img src="/images/work/screenshots/{ works[index].slug }-0.{ works[index].imageExtension }"  alt="Not provided"/>
 				</div>
 			{/each}
@@ -73,6 +68,7 @@
 		helpers: {
 			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
 			getFruitClasses: function(index, currentIndex) {
+				log({index, currentIndex})
 				let classes = ['js_slide']
 				if ( index === currentIndex ) {
 					classes.push('selected')
@@ -116,13 +112,13 @@
 			slider.addEventListener('after.lory.slide', function(event){
 				var currentSlide = event.detail.currentSlide
 				log(`After slide! currentSlide is ${currentSlide}`)
-				component.set('currentIndex', currentSlide)	
+				component.set({'currentIndex': currentSlide})	
 			});
 
 			// When the window resizes Lory will
 			// go to slide 0, so we'll need to make sure the descriptions are updated too
 			slider.addEventListener('on.lory.resize', function(event){
-				component.set('currentIndex', 0)
+				component.set({'currentIndex': 0})
 			});
 
 			window.addEventListener('keyup', function(event){
