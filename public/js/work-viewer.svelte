@@ -30,7 +30,7 @@
 			<h1>{ works[currentIndex].title }</h1>
 			<div class="screenshot-container">
 				<div class="screenshots">					
-					<div class="tile description">{ works[currentIndex].description }</div>
+					<div class="tile description">{@html works[currentIndex].description }</div>
 					{#each new Array(works[currentIndex].screenshotCount) as screenshotIndex}
 						<img class="tile" src="/images/work/screenshots/{ works[currentIndex].slug }-{screenshotIndex}.{ works[currentIndex].imageExtension }"  alt="Not provided"/>
 					{/each}						
@@ -48,6 +48,7 @@
 	import {lory} from './thirdparty/lory/lory.js';
 	import Masonry from './thirdparty/masonry/masonry.js';
 	import './element-on.js';
+	import './get-parent-index.js';
 
 	const LEFT = 37,
 		RIGHT = 39
@@ -131,7 +132,7 @@
 			})
 
 			var enableModal = function(work){
-				component.set('isModalEnabled', true)	
+				component.set({'isModalEnabled': true})	
 
 				// Masonry
 				var masonryElement = document.querySelector('.screenshots');
@@ -144,12 +145,11 @@
 			}
 		
 			var disableModal = function(){
-				component.set('isModalEnabled', false);
+				component.set({'isModalEnabled': false});
 			};
 
 			// Set up showing work detail when items are clicked
 			body.on('click', '.js_slide.selected img', function(event){
-				log(`>>>> Clicked work!`)
 				var clickedWorkIndex = event.target.avgetParentIndex();
 				enableModal(works[clickedWorkIndex])
 			})
