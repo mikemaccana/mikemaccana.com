@@ -1,10 +1,7 @@
-// import App from '../templates/App.html';
-
-import WorkViewerComponent from "./works.svelte";
+import WorkViewer from "./work-viewer.svelte";
 import Intro from "./heading.svelte";
-
-
-import imagesLoaded from "./thirdparty/imagesloaded.pkgd.js";
+import Nav from "./nav.svelte";
+import areImagesLoaded from "./are-images-loaded.js"
 
 var log = console.log.bind(console), 
 	select = document.querySelector.bind(document),
@@ -12,44 +9,39 @@ var log = console.log.bind(console),
 
 NodeList.prototype.forEach = Array.prototype.forEach;
 
-var menuToggledElements = selectAll('nav, body, .hamburger, .content, footer');
-
 (async function(){
 	var worksWrapper = select('.works-wrapper'),
 		workDescription = select('.work-description');
 
-	// Clicking ☰ button displays nav
-	select('.hamburger').addEventListener('click', function(event) {
-		menuToggledElements.forEach(function(element, index){
-			element.classList.toggle('menu-active');
-		});
-		event.preventDefault();
+	new Nav({
+		target: select('.hamburger-navigation'),
 	});
-
+	
 	const intro = new Intro({
-		target: document.querySelector('.intro'),
+		target: select('.intro'),
 	});
 
-	await intro.drawMonogram();
-
-	imagesLoaded('.works .work', function(event) {
-		document.body.classList.remove('loading');
-		// Fade in each item individually
-		selectAll('.works .work').forEach(function(element, index){
-			setTimeout(function(){
-				element.classList.toggle('visible');
-			}, index * 300)
-		})
-		select('.work-description').classList.toggle('visible');
-	})
-
-	// Portfolio page stuff
+	// Only used on /
 	if ( window.location.pathname === '/' ) {
-		// Instantiate component
-		const workViewerComponent = new WorkViewerComponent({
+		new WorkViewer({
 			target: document.querySelector('.works-wrapper'),
 		});
 	}
+
+	await intro.drawMonogram();
+	await areImagesLoaded('.works .work')
+
+	document.body.classList.remove('loading');
+	// Fade in each item individually
+	selectAll('.works .work').forEach(function(element, index){
+		setTimeout(function(){
+			element.classList.toggle('visible');
+		}, index * 300)
+	})
+	select('.work-description').classList.toggle('visible');
+
+	
+
 })()
 
 
