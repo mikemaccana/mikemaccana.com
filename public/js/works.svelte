@@ -71,30 +71,6 @@
 			}
 		},
 		helpers: {
-			// getSlideClasses: ( {currentIndex} ) => {
-			// 	log(`Getting classes for ${currentIndex}`)
-			// 	return index => {
-			// 		let classes = ['js_slide']
-			// 		if ( index === currentIndex ) {
-			// 			classes.push('selected')
-			// 		}
-			// 		if ( index === 0 ) {
-			// 			classes.push('first')
-			// 		}
-			// 		return classes.join(' ')
-			// 	}				
-			// }
-
-			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
-			getFruitClasses: function({ currentIndex }) {
-				return function(index) {
-					var classes = []
-					if ( index === currentIndex ) {
-						classes.push('selected')
-					}	
-					return classes.join(' ')
-				};
-			}
 		},
 		computed: {
 			hours: ({ time }) => time.getHours(),
@@ -104,7 +80,22 @@
 					return "grid"
 				}
 				return "none"
+			},
+
+			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
+			getFruitClasses: function({ currentIndex }) {
+				return (index) => {
+					let classes = ['js_slide']
+					if ( index === currentIndex ) {
+						classes.push('selected')
+					}
+					if ( index === 0 ) {
+						classes.push('first')
+					}
+					return classes.join(' ')
+				};
 			}
+
 		},
 		oncreate: function() {
 
