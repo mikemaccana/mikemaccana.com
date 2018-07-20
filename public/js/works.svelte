@@ -1,12 +1,12 @@
-<h1>{ getFruitClasses(0) }</h1>
-<h1>{ currentIndex }</h1>
+
+<h1>{ getFruitClasses(0, 0) }</h1>
 
 <div class="slider js_slider">
 	<div class="frame js_frame">
 		<div class="slides js_slides">
 			{#each works as work, index}
 				<div 
-					class='{ getFruitClasses(index) }'
+					class='{ getFruitClasses(index, currentIndex) }'
 				>
 					<img src="/images/work/screenshots/{ works[index].slug }-0.{ works[index].imageExtension }"  alt="Not provided"/>
 				</div>
@@ -71,6 +71,17 @@
 			}
 		},
 		helpers: {
+			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
+			getFruitClasses: function(index, currentIndex) {
+				let classes = ['js_slide']
+				if ( index === currentIndex ) {
+					classes.push('selected')
+				}
+				if ( index === 0 ) {
+					classes.push('first')
+				}
+				return classes.join(' ')
+			}
 		},
 		computed: {
 			hours: ({ time }) => time.getHours(),
@@ -82,19 +93,7 @@
 				return "none"
 			},
 
-			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
-			getFruitClasses: function({ currentIndex }) {
-				return (index) => {
-					let classes = ['js_slide']
-					if ( index === currentIndex ) {
-						classes.push('selected')
-					}
-					if ( index === 0 ) {
-						classes.push('first')
-					}
-					return classes.join(' ')
-				};
-			}
+			
 
 		},
 		oncreate: function() {
