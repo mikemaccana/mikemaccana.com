@@ -1,6 +1,7 @@
 // import App from '../templates/App.html';
 
 import WorkViewerComponent from "./works.svelte";
+import Intro from "./heading.svelte";
 
 import drawMonogram from './monogram.js';
 
@@ -26,6 +27,10 @@ var menuToggledElements = selectAll('nav, body, .hamburger, .content, footer');
 		event.preventDefault();
 	});
 
+	const workViewerComponent = new Intro({
+		target: document.querySelector('.intro'),
+	});
+
 	await drawMonogram();
 
 	imagesLoaded('.works .work', function(event) {
@@ -38,13 +43,6 @@ var menuToggledElements = selectAll('nav, body, .hamburger, .content, footer');
 		})
 		select('.work-description').classList.toggle('visible');
 	})
-
-	// const app = new App({
-	// 	target: document.body,
-	// 	data: {
-	// 		name: 'world'
-	// 	}
-	// });
 
 	// Portfolio page stuff
 	if ( window.location.pathname === '/' ) {
