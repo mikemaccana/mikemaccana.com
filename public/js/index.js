@@ -3,7 +3,6 @@
 import WorkViewerComponent from "./works.svelte";
 import Intro from "./heading.svelte";
 
-import drawMonogram from './monogram.js';
 
 import imagesLoaded from "./thirdparty/imagesloaded.pkgd.js";
 
@@ -27,11 +26,11 @@ var menuToggledElements = selectAll('nav, body, .hamburger, .content, footer');
 		event.preventDefault();
 	});
 
-	const workViewerComponent = new Intro({
+	const intro = new Intro({
 		target: document.querySelector('.intro'),
 	});
 
-	await drawMonogram();
+	await intro.drawMonogram();
 
 	imagesLoaded('.works .work', function(event) {
 		document.body.classList.remove('loading');
