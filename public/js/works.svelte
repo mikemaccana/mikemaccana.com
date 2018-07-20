@@ -1,10 +1,13 @@
-<h1>{hours} {modalDisplay}</h1>
+<h1>{ getFruitClasses(0) }</h1>
+<h1>{ currentIndex }</h1>
 
 <div class="slider js_slider">
 	<div class="frame js_frame">
 		<div class="slides js_slides">
 			{#each works as work, index}
-				<div class='{ getSlideClasses(index) }'>
+				<div 
+					class='{ getFruitClasses(index) }'
+				>
 					<img src="/images/work/screenshots/{ works[index].slug }-0.{ works[index].imageExtension }"  alt="Not provided"/>
 				</div>
 			{/each}
@@ -68,19 +71,30 @@
 			}
 		},
 		helpers: {
-			getSlideClasses: ( {currentIndex} ) => {
-				// let currentIndex = this.get('currentIndex');
-				return index => {
-					let classes = ['js_slide']
+			// getSlideClasses: ( {currentIndex} ) => {
+			// 	log(`Getting classes for ${currentIndex}`)
+			// 	return index => {
+			// 		let classes = ['js_slide']
+			// 		if ( index === currentIndex ) {
+			// 			classes.push('selected')
+			// 		}
+			// 		if ( index === 0 ) {
+			// 			classes.push('first')
+			// 		}
+			// 		return classes.join(' ')
+			// 	}				
+			// }
+
+			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
+			getFruitClasses: function({ currentIndex }) {
+				return function(index) {
+					var classes = []
 					if ( index === currentIndex ) {
 						classes.push('selected')
-					}
-					if ( index === 0 ) {
-						classes.push('first')
-					}
+					}	
 					return classes.join(' ')
-				}				
-			}		
+				};
+			}
 		},
 		computed: {
 			hours: ({ time }) => time.getHours(),
@@ -100,9 +114,13 @@
 				slider = select('.js_slider'),
 				closeElement = select('.close');
 
+			var log = console.log.bind(console);
+
 			// Set up slider
 			// 'rewind' option is not used per https://github.com/meandmax/lory/issues/197
 			var loryController = lory(slider);
+
+			log(`Slider is ${slider}`)
 
 			// Set up showing work detail after sliding
 			slider.addEventListener('after.lory.slide', function(event){
