@@ -10,7 +10,6 @@ var drawMonogram = function(){
 		var monogram = Snap.select(".monogram"),
 		bigM = monogram.select('#big-m'),
 		smallM = monogram.select('#small-m'),
-		works = selectAll('.works .work'),
 		content = select('.content'),
 		title = select('.intro h1'),
 		sub = select('.intro h2');

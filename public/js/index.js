@@ -1,4 +1,4 @@
-import App from '../templates/App.html';
+// import App from '../templates/App.html';
 
 import WorkViewerComponent from "./works.svelte";
 
@@ -29,24 +29,22 @@ var menuToggledElements = selectAll('nav, body, .hamburger, .content, footer');
 	await drawMonogram();
 
 	imagesLoaded('.works .work', function(event) {
-		// worksWrapper.classList.remove('loading');
-		// workDescription.classList.remove('loading');
 		document.body.classList.remove('loading');
 		// Fade in each item individually
-		works.forEach(function(element, index){
+		selectAll('.works .work').forEach(function(element, index){
 			setTimeout(function(){
 				element.classList.toggle('visible');
 			}, index * 300)
 		})
-		workDescription.classList.toggle('visible');
+		select('.work-description').classList.toggle('visible');
 	})
 
-	const app = new App({
-		target: document.body,
-		data: {
-			name: 'world'
-		}
-	});
+	// const app = new App({
+	// 	target: document.body,
+	// 	data: {
+	// 		name: 'world'
+	// 	}
+	// });
 
 	// Portfolio page stuff
 	if ( window.location.pathname === '/' ) {

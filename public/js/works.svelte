@@ -1,4 +1,4 @@
-<h1>{hours}</h1>
+<h1>{hours} {modalDisplay}</h1>
 
 <div class="slider js_slider">
 	<div class="frame js_frame">
@@ -26,7 +26,7 @@
 	</div>
 </div>
 
-<div class="modal-shade" display='{ getModalDisplay }'>
+<div class="modal-shade" style="display: { modalDisplay };">
 	<div class="modal">
 		<div class="text">			
 			<h1>{ works[currentIndex].title }</h1>
@@ -85,8 +85,8 @@
 		computed: {
 			hours: ({ time }) => time.getHours(),
 			
-			getModalDisplay: ({isModalEnabled}) => {
-				if ( isModalEnabled) {
+			modalDisplay: ({isModalEnabled}) => {
+				if ( isModalEnabled ) {
 					return "grid"
 				}
 				return "none"
@@ -127,7 +127,7 @@
 			})
 
 			var enableModal = function(work){
-				worksRactive.set('isModalEnabled', true)	
+				component.set('isModalEnabled', true)	
 
 				// Masonry
 				var masonryElement = document.querySelector('.screenshots');
