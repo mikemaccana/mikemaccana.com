@@ -283,4 +283,39 @@
 			left: 0;
 		}
 	}
+
+	.works-wrapper {
+		width: 100vw;
+		margin: 0;
+	}
+
+	.work-description {
+		opacity: 0;
+		display: grid;
+		justify-items: center;
+		&.visible {
+			opacity: 1;
+		}
+		.work-description-content {
+			max-width: 600px;
+			padding: $spacing;	
+			text-align: left;
+			.work-title {
+				font-size: 26pt;
+				margin: $spacing / 4 0;
+				width: 70%;
+			}
+			.work-logo {
+				width: 30%;
+			}
+			.work-title, .work-logo, .work-lede {
+				float: left;
+			}
+			.work-lede {
+				p {
+					margin: $spacing / 4 0;
+				}
+			}
+		}
+	}
 </style>
