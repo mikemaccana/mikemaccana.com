@@ -30,8 +30,8 @@
 			<h1>{ works[currentIndex].title }</h1>
 			<div class="screenshot-container">
 				<div class="screenshots">					
-					<div class="tile description">{@html works[currentIndex].description }</div> +
-					{#each new Array(works[currentIndex].screenshotCount) as screenshotIndex}
+					<div class="tile description">{@html works[currentIndex].description }</div>
+					{#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
 						<img class="tile" src={ getImageFileName(works[currentIndex], screenshotIndex) } alt="Not provided {screenshotIndex}"/>
 					{/each}						
 				</div>
