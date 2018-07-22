@@ -47,43 +47,6 @@ a, a:hover, a:active, a:visited {
 	}
 }
 
-nav {
-	font-size: $spacing / 2;
-	cursor: pointer;
-	font-weight: 400;
-	line-height: $vertical-rhythm;
-	text-transform: uppercase;
-	background-color: black;
-	margin-right: -$sidebar-width;
-	width: 0;
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 1;
-	overflow-y: auto;
-	&.menu-active {
-		transform: translateX(0);
-		width: $sidebar-width;
-		right: $sidebar-width;
-	}
-	a, a:hover, a:active, a:visited {
-		color: whiteSmoke;
-		text-decoration: none;
-		width: 100%;
-		display: block;
-		padding: $spacing;
-		border-bottom: 1px solid $midgrey;
-	}
-	a:hover {
-		color: $textcolor;
-		transition: all 0.2s ease-out;
-		transform: translateX(5px);
-	}
-	.linkedin-tracker {
-		display: none;
-	}
-}
 
 body, nav, .hamburger, .content, .symbol {
 	transition: all 0.4s ease-out;
