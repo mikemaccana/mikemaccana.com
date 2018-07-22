@@ -62,14 +62,12 @@
 			return {
 				works,
 				currentIndex: 0,
-				isModalEnabled: false,
-				time: new Date()
+				isModalEnabled: false
 			}
 		},
 		helpers: {
 			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
 			getSlideClasses: function(index, currentIndex) {
-				log({index, currentIndex})
 				let classes = ['js_slide']
 				if ( index === currentIndex ) {
 					classes.push('selected')
@@ -80,22 +78,16 @@
 				return classes.join(' ')
 			},
 			getImageFileName: function(currentWork, screenshotIndex){
-				log({currentWork, screenshotIndex})
 				return `/images/work/screenshots/${ currentWork.slug }-${screenshotIndex}.${ currentWork.imageExtension }`
 			},
 		},
 		computed: {
-			hours: ({ time }) => time.getHours(),
-			
 			modalDisplay: ({isModalEnabled}) => {
 				if ( isModalEnabled ) {
 					return "grid"
 				}
 				return "none"
-			},
-
-			
-
+			}
 		},
 		oncreate: function() {
 
