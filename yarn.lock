@@ -2364,6 +2364,16 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
+svelte-preprocess-filter@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/svelte-preprocess-filter/-/svelte-preprocess-filter-1.0.0.tgz#21f3cee27c0f2232bcd671b183352fb1fdd3fdcb"
+
+svelte-preprocess-sass@0.2.0-beta.0:
+  version "0.2.0-beta.0"
+  resolved "https://registry.yarnpkg.com/svelte-preprocess-sass/-/svelte-preprocess-sass-0.2.0-beta.0.tgz#7db06284bad80f6ca09a2e5ab8b34cea6506f3c1"
+  dependencies:
+    svelte-preprocess-filter "^1.0.0"
+
 svelte@^2.6.0:
   version "2.9.5"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-2.9.5.tgz#e7e4b624844b8782b917ae4781c88dc06cb0ddd8"

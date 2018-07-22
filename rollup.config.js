@@ -2,6 +2,7 @@ import svelte from 'rollup-plugin-svelte';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
+import { sass } from 'svelte-preprocess-sass';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -23,9 +24,12 @@ export default {
 			dev: ! production,
 			// we'll extract any component CSS out into
 			// a separate file — better for performance
+			preprocess: {
+        style: sass(),
+			},
 			css: css => {
 				css.write('public/css/bundle.css');
-			}
+			},
 		}),
 
 		// If you have external dependencies installed from

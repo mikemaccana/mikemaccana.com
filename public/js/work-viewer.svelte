@@ -157,3 +157,72 @@
 	}
 </script>	
 
+<style type="text/sass">
+	@import "../scss/colors.scss";
+	@import "../scss/metrics.scss";
+	@import "../scss/mixins.scss";
+
+	$modal-height: 500px;
+
+	// Modify 'columnWidth' value in works.js if this is changed
+	$masonry-base: 340px;
+
+	.modal-shade {
+		display: grid;
+		width: 100%;
+		position: absolute;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		background-color: $shadedgrey;
+		z-index: 2; 
+		align-content: center;
+		.modal {
+			z-index: 3;
+			grid-row: 1;		
+			background-color: black;		
+			height: $modal-height;
+			opacity: 1;		
+			position: relative;
+			.text {
+				padding: $spacing;
+				width: $single-column-threshold-width;
+				max-width: 100%;
+				color: whitesmoke;
+				margin: 0 auto;
+				button {
+					border: 1px solid whiteSmoke;
+				}
+				h1 {
+					margin: 0 0 $spacing 0;
+				}
+				
+				.screenshot-container {
+					max-width: 100%;
+					.screenshots {
+						> * {
+							padding: 12px; 
+						}
+						.tile {
+							width: $masonry-base / 2;
+							
+							&:first-of-type {
+								width: $masonry-base;
+							}
+							&.description {
+								width: $masonry-base;
+								font-size: 12pt;
+							}
+						}
+					}
+				}
+			}
+			.close {
+				cursor: pointer;
+				position: absolute;
+				right: $spacing;
+				top: $spacing;
+			}
+		}
+	}
+</style>
