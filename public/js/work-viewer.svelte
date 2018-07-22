@@ -2,7 +2,7 @@
 	<div class="frame js_frame">
 		<div class="slides js_slides">
 			{#each works as work, index}
-				<div class={ getFruitClasses(index, currentIndex) }>
+				<div class={ getSlideClasses(index, currentIndex) }>
 					<img src="/images/work/screenshots/{ works[index].slug }-0.{ works[index].imageExtension }"  alt="Not provided"/>
 				</div>
 			{/each}
@@ -30,9 +30,9 @@
 			<h1>{ works[currentIndex].title }</h1>
 			<div class="screenshot-container">
 				<div class="screenshots">					
-					<div class="tile description">{@html works[currentIndex].description }</div>
+					<div class="tile description">{@html works[currentIndex].description }</div> +
 					{#each new Array(works[currentIndex].screenshotCount) as screenshotIndex}
-						<img class="tile" src="/images/work/screenshots/{ works[currentIndex].slug }-{screenshotIndex}.{ works[currentIndex].imageExtension }"  alt="Not provided"/>
+						<img class="tile" src={ getImageFileName(works[currentIndex], screenshotIndex) } alt="Not provided {screenshotIndex}"/>
 					{/each}						
 				</div>
 			</div>
@@ -68,7 +68,7 @@
 		},
 		helpers: {
 			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
-			getFruitClasses: function(index, currentIndex) {
+			getSlideClasses: function(index, currentIndex) {
 				log({index, currentIndex})
 				let classes = ['js_slide']
 				if ( index === currentIndex ) {
@@ -78,7 +78,11 @@
 					classes.push('first')
 				}
 				return classes.join(' ')
-			}
+			},
+			getImageFileName: function(currentWork, screenshotIndex){
+				log({currentWork, screenshotIndex})
+				return `/images/work/screenshots/${ currentWork.slug }-${screenshotIndex}.${ currentWork.imageExtension }`
+			},
 		},
 		computed: {
 			hours: ({ time }) => time.getHours(),
