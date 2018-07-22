@@ -1,7 +1,6 @@
 import WorkViewer from "./work-viewer.svelte";
 import Intro from "./heading.svelte";
 import Nav from "./nav.svelte";
-import areImagesLoaded from "./are-images-loaded.js"
 
 var log = console.log.bind(console), 
 	select = document.querySelector.bind(document),
@@ -50,9 +49,6 @@ NodeList.prototype.forEach = Array.prototype.forEach;
 	select('.work-description').classList.toggle('visible');
 
 })()
-
-
-
 
 export default app;
 
