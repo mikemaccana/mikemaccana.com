@@ -1,22 +1,17 @@
 <Nav/>
-
-<div class="content">
-
-	<Monogram/>
-
-	<WorkViewer/>
-
-</div>
-
+<Monogram/>
+<WorkViewer/>
+<Modal/>
 
 <script>
 	import WorkViewer from "work-viewer.svelte";
-	import Monogram from "monogram.svelte";
+	import Monogram from "monogram.svelte";	
+	import Modal from './Modal.svelte';
 	import Nav from "nav.svelte";
 	import "../thirdparty/basics.js";
 
 
-(async function(){
+
 	var worksWrapper = select('.works-wrapper'),
 		workDescription = select('.work-description');
 
@@ -34,20 +29,6 @@
 	// 	await areImagesLoaded('.works .work')
 	log(`images loaded`)
 
-
-
-
-	// Fade in each item individually
-	selectAll('.works .work').forEach(function(element, index){
-		setTimeout(function(){
-			element.classList.toggle('visible');
-		}, index * 300)
-	})
-	select('.work-description').classList.toggle('visible');
-
-})()
-
-export default app;
 </script>
 
 

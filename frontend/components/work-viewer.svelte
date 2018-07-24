@@ -24,15 +24,13 @@
 	</div>
 </div>
 
-<Modal/>
 
 
 <script>
 	// This is the 'component definition'
-	import works from "./data/works.js";
-	import {lory} from './thirdparty/lory/lory.js';
-	import Masonry from './thirdparty/masonry/masonry.js';
-	import Modal from './Modal.svelte';
+	import works from "../data/works.js";
+	import {lory} from '../js/thirdparty/lory/lory.js';
+	import Masonry from '../js/thirdparty/masonry/masonry.js';
 	import './element-on.js';
 	import './get-parent-index.js';
 
@@ -142,17 +140,18 @@
 			closeElement.addEventListener('click', function(event){
 				disableModal();
 			})
+
+			// Fade in each item individually
+			selectAll('.works .work').forEach(function(element, index){
+				setTimeout(function(){
+					element.classList.toggle('visible');
+				}, index * 300)
+			})
+			select('.work-description').classList.toggle('visible');
 		}
 	}
 
-	// Fade in each item individually
-	selectAll('.works .work').forEach(function(element, index){
-		setTimeout(function(){
-			element.classList.toggle('visible');
-		}, index * 300)
-	})
-	select('.work-description').classList.toggle('visible');
-
+	
 </script>	
 
 <style>
