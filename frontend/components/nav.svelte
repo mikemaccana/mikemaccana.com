@@ -21,7 +21,7 @@
 	export default {
 		components: {
 			Hamburger
-		}
+		},
 		oncreate: function(){
 			var log = console.log.bind(console), 
 				select = document.querySelector.bind(document),

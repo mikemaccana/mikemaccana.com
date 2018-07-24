@@ -31,11 +31,11 @@
 	import works from "../data/works.js";
 	import {lory} from '../js/thirdparty/lory/lory.js';
 	import Masonry from '../js/thirdparty/masonry/masonry.js';
-	import './element-on.js';
-	import './get-parent-index.js';
+	import '../js/utils/element-on.js';
+	import '../js/utils/get-parent-index.js';
 
 	const LEFT = 37,
-		RIGHT = 39
+		RIGHT = 39;
 
 	var select = document.querySelector.bind(document),
 		selectAll = document.querySelectorAll.bind(document),
@@ -48,9 +48,6 @@
 				currentIndex: 0,
 				isModalEnabled: false
 			}
-		},
-		components: {
-			Modal
 		},
 		helpers: {
 			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
@@ -76,7 +73,7 @@
 				return "none"
 			}
 		},
-		oncreate: function() {
+		oncreate: function(){
 
 			var component = this;
 
@@ -164,7 +161,7 @@
 	}
 
 	.slider {
-		// Needed for previous and next buttons to be vertically centered correctly
+		/* Needed for previous and next buttons to be vertically centered correctly */
 		position: relative;
 	}
 
@@ -209,9 +206,11 @@
 		margin-top: -25px;
 		display: block;
 		cursor: pointer;
-		svg {
-			width: 50px;
-		}
+		
+	}
+
+	.previous svg, .next svg {
+		width: 50px;
 	}
 	
 	.next {
