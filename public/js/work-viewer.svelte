@@ -24,22 +24,7 @@
 	</div>
 </div>
 
-<div class="modal-shade" style="display: { modalDisplay };">
-	<div class="modal">
-		<div class="text">			
-			<h1>{ works[currentIndex].title }</h1>
-			<div class="screenshot-container">
-				<div class="screenshots">					
-					<div class="tile description">{@html works[currentIndex].description }</div>
-					{#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
-						<img class="tile" src={ getImageFileName(works[currentIndex], screenshotIndex) } alt="Not provided {screenshotIndex}"/>
-					{/each}						
-				</div>
-			</div>
-		</div>
-		<img class="close" src="/images/icons/close.png" alt="Not provided"/>
-	</div>
-</div>
+<Modal/>
 
 
 <script>
@@ -47,6 +32,7 @@
 	import works from "./data/works.js";
 	import {lory} from './thirdparty/lory/lory.js';
 	import Masonry from './thirdparty/masonry/masonry.js';
+	import Modal from './Modal.svelte';
 	import './element-on.js';
 	import './get-parent-index.js';
 
@@ -64,6 +50,9 @@
 				currentIndex: 0,
 				isModalEnabled: false
 			}
+		},
+		components: {
+			Modal
 		},
 		helpers: {
 			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
@@ -157,131 +146,72 @@
 	}
 </script>	
 
-<style type="text/sass">
-	@import "../scss/colors.scss";
-	@import "../scss/metrics.scss";
-	@import "../scss/mixins.scss";
+<style>
+	@import url("../css/colors.css");
+	@import url("../css/metrics.css");
 
-	$modal-height: 500px;
-
-	// Modify 'columnWidth' value in works.js if this is changed
-	$masonry-base: 340px;
-
-	.modal-shade {
-		display: grid;
-		width: 100%;
-		position: absolute;
-		height: 100%;
-		top: 0;
-		bottom: 0;
-		background-color: $shadedgrey;
-		z-index: 2; 
-		align-content: center;
-		.modal {
-			z-index: 3;
-			grid-row: 1;		
-			background-color: black;		
-			height: $modal-height;
-			opacity: 1;		
-			position: relative;
-			.text {
-				padding: $spacing;
-				width: $single-column-threshold-width;
-				max-width: 100%;
-				color: whitesmoke;
-				margin: 0 auto;
-				button {
-					border: 1px solid whiteSmoke;
-				}
-				h1 {
-					margin: 0 0 $spacing 0;
-				}
-				
-				.screenshot-container {
-					max-width: 100%;
-					.screenshots {
-						> * {
-							padding: 12px; 
-						}
-						.tile {
-							width: $masonry-base / 2;
-							
-							&:first-of-type {
-								width: $masonry-base;
-							}
-							&.description {
-								width: $masonry-base;
-								font-size: 12pt;
-							}
-						}
-					}
-				}
-			}
-			.close {
-				cursor: pointer;
-				position: absolute;
-				right: $spacing;
-				top: $spacing;
-			}
-		}
+	/* Modify 'columnWidth' value in works.js if this is changed */
+	:root {
+		--masonry-base: 340px;
 	}
 
 	.slider {
 		// Needed for previous and next buttons to be vertically centered correctly
 		position: relative;
-		.frame {
-			.slides {
-				display: grid;
-				align-items: center;  
+	}
 
-				// Hack required since lory.js wasn't designed fro CSS grid
-				// Removing this causes the slides area to be cut off
-				width: 9752px;
-				
-				.js_slide {
-					grid-row: 1; 
+	.slides {
+		display: grid;
+		align-items: center;  
 
-					// Needs to be defined (or a width set individually on each) for slider buttons to work
-					width: 400px;
+		/* Hack required since lory.js wasn't designed for CSS grid
+		Removing this causes the slides area to be cut off */
+		width: 9752px;	
+	}
 
-					// Darken and zoom out till selected
-					opacity: 0.3;
-					transition: all 0.1s ease-out;
-					transform: scale(0.6); // Zoom effect
-					filter: blur(2px);
-					&.selected {
-						opacity: 1;
-						transform: scale(1);
-						filter: none;
-						cursor: pointer;
-					}
-					img { 
-						// Make images fit in container (they're retina)
-						width: 100%;
-						// Some images have transparent backgrounds
-						background-color: white;			
-					}
-				}
-			}
-		}
-		.previous, .next {
-			position: absolute;
-			top: 50%;
-			margin-top: -25px;
-			display: block;
-			cursor: pointer;
-			svg {
-				width: 50px;
-			}
-		}
+	.js_slide {
+		grid-row: 1; 
+
+		/*Needs to be defined (or a width set individually on each) for slider buttons to work */
+		width: 400px;
+
+		/*Darken and zoom out till selected */
+		opacity: 0.3;
+		transition: all 0.1s ease-out;
+		transform: scale(0.6);
+		filter: blur(2px);
 		
-		.next {
-			right: 0;
+	}
+
+	.js_slide .selected {
+		opacity: 1;
+		transform: scale(1);
+		filter: none;
+		cursor: pointer;
+	}
+	.js_slide img { 
+		/*Make images fit in container (they're retina) */
+		width: 100%;
+		/*Some images have transparent backgrounds */
+		background-color: white;			
+	}
+	.previous, .next {
+		position: absolute;
+		top: 50%;
+		margin-top: -25px;
+		display: block;
+		cursor: pointer;
+		svg {
+			width: 50px;
 		}
-		
-		.previous {
-			left: 0;
-		}
+	}
+	
+	.next {
+		right: 0;
+	}
+	
+	.previous {
+		left: 0;
 	}
 
 	.works-wrapper {
@@ -289,33 +219,37 @@
 		margin: 0;
 	}
 
+	.work-description.visible {
+		opacity: 1;
+	}
+
 	.work-description {
 		opacity: 0;
 		display: grid;
 		justify-items: center;
-		&.visible {
-			opacity: 1;
-		}
-		.work-description-content {
-			max-width: 600px;
-			padding: $spacing;	
-			text-align: left;
-			.work-title {
-				font-size: 26pt;
-				margin: $spacing / 4 0;
-				width: 70%;
-			}
-			.work-logo {
-				width: 30%;
-			}
-			.work-title, .work-logo, .work-lede {
-				float: left;
-			}
-			.work-lede {
-				p {
-					margin: $spacing / 4 0;
-				}
-			}
-		}
+	}
+
+	.work-description-content {
+		max-width: 600px;
+		padding: --spacing;	
+		text-align: left;
+	}
+
+	.work-title {
+		font-size: 26pt;
+		margin: --spacing / 4 0;
+		width: 70%;
+	}
+
+	.work-logo {
+		width: 30%;
+	}
+
+	.work-title, .work-logo, .work-lede {
+		float: left;
+	}
+
+	.work-lede p {
+		margin: --spacing / 4 0;
 	}
 </style>

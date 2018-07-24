@@ -1,8 +1,4 @@
-<div class="hamburger">
-	<span class="hamburger-top"></span>
-	<span class="hamburger-middle"></span>
-	<span class="hamburger-bottom"></span>
-</div>
+<Hamburger/>
 
 <nav class="vertical">
 	<a class="navitem" href="/">Work</a>
@@ -19,7 +15,13 @@
 </nav>
 
 <script>	
+
+	import Hamburger from './hamburger.svelte';
+
 	export default {
+		components: {
+			Hamburger
+		}
 		oncreate: function(){
 			var log = console.log.bind(console), 
 				select = document.querySelector.bind(document),
