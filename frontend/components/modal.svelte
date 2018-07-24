@@ -7,7 +7,7 @@
 				<div class="screenshots">					
 					<div class="tile description">{@html works[currentIndex].description }</div>
 					{#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
-						<img class="tile" src={ getImageFileName(works[currentIndex], screenshotIndex) } alt="Not provided {screenshotIndex}"/>
+						<img class="tile" src={ getImageFileName(works[currentIndex], screenshotIndex) } alt="Not provided"/>
 					{/each}						
 				</div>
 			</div>
@@ -18,7 +18,19 @@
 
 <script>
 	export default {
-		
+		helpers: {
+			getImageFileName: function(currentWork, screenshotIndex){
+				return `/images/work/screenshots/${ currentWork.slug }-${screenshotIndex}.${ currentWork.imageExtension }`
+			}
+		},
+		computed: {
+			modalDisplay: ({isModalEnabled}) => {
+				if ( isModalEnabled ) {
+					return "grid"
+				}
+				return "none"
+			}
+		}
 	}
 </script>
 

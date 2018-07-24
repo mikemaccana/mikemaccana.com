@@ -26,9 +26,7 @@
 
 
 
-<script>
-	// This is the 'component definition'
-	import works from "../data/works.js";
+<script>	
 	import {lory} from '../js/thirdparty/lory/lory.js';
 	import Masonry from '../js/thirdparty/masonry/masonry.js';
 	import '../js/utils/element-on.js';
@@ -42,13 +40,6 @@
 		log = console.log.bind(console);
 
 	export default {
-		data: function(){
-			return {
-				works,
-				currentIndex: 0,
-				isModalEnabled: false
-			}
-		},
 		helpers: {
 			// See https://svelte.technology/repl?version=2.9.5&gist=58899a3fd6ebf7867d95f8a91dec92c5
 			getSlideClasses: function(index, currentIndex) {
@@ -60,17 +51,6 @@
 					classes.push('first')
 				}
 				return classes.join(' ')
-			},
-			getImageFileName: function(currentWork, screenshotIndex){
-				return `/images/work/screenshots/${ currentWork.slug }-${screenshotIndex}.${ currentWork.imageExtension }`
-			},
-		},
-		computed: {
-			modalDisplay: ({isModalEnabled}) => {
-				if ( isModalEnabled ) {
-					return "grid"
-				}
-				return "none"
 			}
 		},
 		oncreate: function(){
