@@ -6,7 +6,7 @@ import uglify from 'rollup-plugin-uglify';
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'public/js/index.js',
+	input: 'frontend/js/index.js',
 	output: {
 		sourcemap: true,
 		format: 'iife',

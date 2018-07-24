@@ -144,6 +144,15 @@
 			})
 		}
 	}
+
+	// Fade in each item individually
+	selectAll('.works .work').forEach(function(element, index){
+		setTimeout(function(){
+			element.classList.toggle('visible');
+		}, index * 300)
+	})
+	select('.work-description').classList.toggle('visible');
+
 </script>	
 
 <style>
