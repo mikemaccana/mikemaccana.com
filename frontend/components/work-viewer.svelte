@@ -244,7 +244,7 @@
 
 	.work-title {
 		font-size: 26pt;
-		margin: --spacing / 4 0;
+		margin: calc(--spacing / 4) 0;
 		width: 70%;
 	}
 
@@ -257,6 +257,6 @@
 	}
 
 	.work-lede p {
-		margin: --spacing / 4 0;
+		margin: calc(--spacing / 4) 0;
 	}
 </style>
