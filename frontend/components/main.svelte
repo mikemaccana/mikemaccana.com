@@ -47,8 +47,60 @@
 
 </script>
 
+<style>
+	@import url("../css/fonts.css");
+	@import url("../css/colors.css");
+	@import url("../css/metrics.css");
 
+	*, *:before, *:after {
+		box-sizing: border-box;
+		/* Everything has layout by default. No clear fixes. */
+		overflow: hidden;  
+	}
 
+	a, a:hover, a:active, a:visited {
+		color: --textcolor;
+		text-decoration: none;
+	}
+
+	body, nav, .hamburger, .content, .symbol {
+		transition: all 0.4s ease-out;
+	}
+
+	strong {
+		color: --othertextcolor;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 100;
+		color: --textcolor;
+	}
+
+	body {
+		left: 0;
+		margin: 0;
+		background-color: black;
+		color: --textcolor;
+		overflow-x: hidden;
+		background-size: cover;
+		background-image: url('/images/vanda.jpg');
+		background-repeat: repeat;
+		transform: all 2s ease-in-out;
+		display: grid;
+		height: 100%; 
+		width: 100%;
+	}
+
+	body * {
+		grid-column: 1;
+	}
+
+	.about-me {
+		margin: 0 auto;
+		max-width: --single-column-threshold-width;
+	}
+
+</style>
 
 
 

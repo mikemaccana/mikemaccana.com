@@ -63,3 +63,23 @@
 	}
 
 </script>
+
+<style>
+	.monogram {
+		margin-top: calc(--spacing / 4);
+		height: 60px;
+		width: 60px;
+	}
+	
+		
+	h1, h2, h3 {
+		margin: --spacing / 4 0;
+		opacity: 0;
+		transition: all 0.1s ease-out;
+	}
+
+	h1, h2, h3 .visible {
+		opacity: 1;
+	}
+	
+</style>

@@ -16,7 +16,7 @@
 	</span>
 </div>
 
-<div class="work-description loading">
+<div class="work-description">
 	<div class="work-description-content">
 		<h3 class="work-title">{ works[currentIndex].title }</h3>
 		<img class="work-logo" src="/images/logos/{ works[currentIndex].client }.png"  alt="Not provided"/>
@@ -138,6 +138,13 @@
 	/* Modify 'columnWidth' value in works.js if this is changed */
 	:root {
 		--masonry-base: 340px;
+	}
+
+	/* Hide things until monogram has loaded */
+	body.loading .slider, body.loading .work-description {
+		visibility: hidden;
+		/* Centers monogram until content has loaded */
+		transform: translateY(40%);
 	}
 
 	.slider {
