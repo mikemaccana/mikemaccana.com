@@ -17,7 +17,7 @@
 <h2>I make technology products</h2>
 
 <script>
-	import Snap from "../js/thirdparty/snap.svg.js";
+	import { mina, Snap } from "../js/thirdparty/snap.svg.js";
 	var select = document.querySelector.bind(document),
 		selectAll = document.querySelectorAll.bind(document),
 		log = console.log.bind(console);
@@ -29,8 +29,8 @@
 			bigM = monogram.select('#big-m'),
 			smallM = monogram.select('#small-m'),
 			content = select('.content'),
-			title = select('.intro h1'),
-			sub = select('.intro h2');
+			title = select('h1'),
+			subTitle = select('h2');
 
 			// See http://raphaeljs.com/reference.html#Element.transform for transform syntax
 			bigM.animate({
@@ -49,12 +49,8 @@
 			}, 750)
 
 			setTimeout(function(){
-				sub.classList.toggle('visible');
+				subTitle.classList.toggle('visible');
 			}, 1000)
-
-			setTimeout(function(){
-				content.classList.remove('loading');
-			}, 1500)
 
 			setTimeout(function(){
 				document.body.classList.remove('loading');

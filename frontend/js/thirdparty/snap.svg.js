@@ -8561,4 +8561,4 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
     };
 });
 
-export default Snap 
+export { mina, Snap } 
