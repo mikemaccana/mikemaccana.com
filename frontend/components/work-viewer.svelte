@@ -172,7 +172,6 @@
 		transition: all 0.1s ease-out;
 		transform: scale(0.6);
 		filter: blur(2px);
-		
 	}
 
 	.js_slide .selected {
@@ -181,12 +180,14 @@
 		filter: none;
 		cursor: pointer;
 	}
+
 	.js_slide img { 
 		/*Make images fit in container (they're retina) */
 		width: 100%;
 		/*Some images have transparent backgrounds */
 		background-color: white;			
 	}
+
 	.previous, .next {
 		position: absolute;
 		top: 50%;

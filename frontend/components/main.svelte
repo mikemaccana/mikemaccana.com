@@ -46,9 +46,9 @@
 </script>
 
 <style>
-	@import url("../css/fonts.css");
-	@import url("../css/colors.css");
-	@import url("../css/metrics.css");
+	@import url("fonts.css");
+	@import url("colors.css");
+	@import url("metrics.css");
 
 	*, *:before, *:after {
 		box-sizing: border-box;
