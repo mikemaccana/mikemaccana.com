@@ -6,7 +6,7 @@
 <script>
 	import works from "../data/works.js";
 	import WorkViewer from "./work-viewer.svelte";
-	import Monogram from "./monogram.svelte";	
+	import Monogram from "./monogram-x.svelte";	
 	import Modal from './modal.svelte';
 	import Nav from "./nav.svelte";
 	import { select, selectAll, log } from "../js/utils/basics.js";
@@ -21,7 +21,7 @@
 	// 	});
 	// }
 
-	log(`Hello from main.svelte`)
+	log(`Hello from main.svelte, works are ${works}`)
 
 	// this promise never resolves
 	// 	await areImagesLoaded('.works .work')

@@ -19,7 +19,7 @@
 </div>
 
 <script>
-	import { mina, Snap } from "../js/thirdparty/snap.svg.js";
+	import { mina, Snap } from "../js/thirdparty/snap-svg.js";
 	import { select, selectAll, log } from "../js/utils/basics.js";
 	console.log(`Hello from monogram.svelte`)
 
