@@ -174,7 +174,7 @@
 		filter: blur(2px);
 	}
 
-	.js_slide .selected {
+	.js_slide.selected {
 		opacity: 1;
 		transform: scale(1);
 		filter: none;
