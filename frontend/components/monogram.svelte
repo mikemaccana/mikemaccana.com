@@ -20,21 +20,23 @@
 
 <script>
 	import { mina, Snap } from "../js/thirdparty/snap.svg.js";
-	var select = document.querySelector.bind(document),
-		selectAll = document.querySelectorAll.bind(document),
-		log = console.log.bind(console);
+	import { select, selectAll, log } from "../js/utils/basics.js";
+	console.log(`Hello from monogram.svelte`)
+
+	// log(`mina is ${mina}`)	
 
 	export default {
 		oncreate: function(){
 			log('Drawing monogram')
 			var monogram = Snap.select(".monogram"),
-			bigM = monogram.select('#big-m'),
-			smallM = monogram.select('#small-m'),
-			content = select('.content'),
-			title = select('h1'),
-			subTitle = select('h2');
+				bigM = monogram.select('#big-m'),
+				smallM = monogram.select('#small-m'),
+				content = select('.content'),
+				title = select('h1'),
+				subTitle = select('h2');
 
 			// See http://raphaeljs.com/reference.html#Element.transform for transform syntax
+			// Note there's a spurious 'Cannot find name mina' even though mina exists and has a value
 			bigM.animate({
 				transform: "T70,0",
 				opacity: 1,
@@ -74,15 +76,14 @@
 	}
 
 	.monogram {
-		/* margin-top: calc(--spacing / 4); */
-		margin-top: 96px;
+		margin-top: calc(var(--spacing) / 4); 
 		height: 60px;
 		width: 60px;
 	}
 	
 		
 	h1, h2, h3 {
-		margin: --spacing / 4 0;
+		margin: calc(var(--spacing) / 4) 0;
 		opacity: 0;
 		transition: all 0.1s ease-out;
 	}
@@ -90,5 +91,25 @@
 	h1, h2, h3 .visible {
 		opacity: 1;
 	}
+
+	/* @media screen and (max-width: var(--small-desktop-threshold-width)) {
+		.monogram-and-heading {
+			margin-top: 12px;
+			margin-bottom: 12px;	
+		}
+
+		.monogram {
+			margin-top: 48px;
+			height: 48px;
+			width: 48px;
+		}
+		h1 {
+			font-size: 16pt;
+		}
+		h2 {
+			font-size: 12pt;
+		}
+	} */
+	
 	
 </style>

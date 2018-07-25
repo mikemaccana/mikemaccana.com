@@ -226,13 +226,13 @@
 
 	.work-description-content {
 		max-width: 600px;
-		padding: --spacing;	
+		padding: var(--spacing);	
 		text-align: left;
 	}
 
 	.work-title {
 		font-size: 26pt;
-		margin: calc(--spacing / 4) 0;
+		margin: calc(var(--spacing) / 4) 0;
 		width: 70%;
 	}
 
@@ -245,6 +245,28 @@
 	}
 
 	.work-lede p {
-		margin: calc(--spacing / 4) 0;
+		margin: calc(var(--spacing) / 4) 0;
 	}
+
+	/* @media screen and (max-width: var(--small-desktop-threshold-width)) {
+
+		.content {
+			grid-template-rows: 250px 1fr;
+		}
+
+		.work-title {
+			font-size: 16pt;
+		}
+		.work-logo {
+			margin: 6px 0;
+		}
+		.work-lede {
+			font-size: 10pt;
+		}
+
+		.slider .frame .slides {
+			height: 200px;
+			margin-top: 0;
+		}		
+	} */
 </style>

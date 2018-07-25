@@ -44,13 +44,13 @@
 	@import url("../css/colors.css");
 	@import url("../css/metrics.css");
 	nav {
-		font-size: --spacing / 2;
+		font-size: calc(var(--spacing) / 2);
 		cursor: pointer;
 		font-weight: 400;
-		line-height: --vertical-rhythm;
+		line-height: var(--vertical-rhythm);
 		text-transform: uppercase;
 		background-color: red; 
-		margin-right: ---sidebar-width;
+		margin-right: var(--sidebar-width);
 		width: 0;
 		position: fixed;
 		top: 0;
@@ -62,19 +62,19 @@
 
 	.menu-active {
 		transform: translateX(0);
-		width: --sidebar-width;
-		right: --sidebar-width;
+		width: var(--sidebar-width);
+		right: var(--sidebar-width);
 	}
 	a, a:hover, a:active, a:visited {
 		color: whiteSmoke;
 		text-decoration: none;
 		width: 100%;
 		display: block;
-		padding: --spacing;
+		padding: var(--spacing);
 		border-bottom: 1px solid --midgrey;
 	}
 	a:hover {
-		color: --textcolor;
+		color: var(--textcolor);
 		transition: all 0.2s ease-out;
 		transform: translateX(5px);
 	}
