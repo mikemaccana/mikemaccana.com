@@ -31,13 +31,10 @@
 	import Masonry from '../js/thirdparty/masonry/masonry.js';
 	import '../js/utils/element-on.js';
 	import '../js/utils/get-parent-index.js';
+	import { select, selectAll, log } from "../js/utils/basics.js";
 
 	const LEFT = 37,
 		RIGHT = 39;
-
-	var select = document.querySelector.bind(document),
-		selectAll = document.querySelectorAll.bind(document),
-		log = console.log.bind(console);
 
 	export default {
 		helpers: {
@@ -91,8 +88,11 @@
 				}
 			})
 
-			var enableModal = function(work){
-				component.set({'isModalEnabled': true})	
+			var enableModal = function(){
+				log(`starting modal`)
+				component.set({
+					'isModalEnabled': true
+				})	
 
 				// Masonry
 				var masonryElement = document.querySelector('.screenshots');
@@ -109,10 +109,10 @@
 			};
 
 			// Set up showing work detail when items are clicked
+			//body.on('click', '.js_slide.selected img', function(event){
 			body.on('click', '.js_slide.selected img', function(event){
-				var clickedWorkIndex = event.target.avgetParentIndex();
-				log(`Clicked!, ${works}`)
-				enableModal(works[clickedWorkIndex])
+				log(`Clicked active image!`)
+				enableModal()
 			})
 
 			closeElement.addEventListener('click', function(event){
