@@ -1,7 +1,7 @@
 <Nav/>
 <Monogram/>
-<WorkViewer {works} {currentIndex} {isModalEnabled}/>
-<Modal {works} {currentIndex} {isModalEnabled}/>
+<WorkViewer bind:works=works bind:currentIndex=currentIndex bind:isModalEnabled=isModalEnabled/>
+<Modal bind:works=works bind:currentIndex=currentIndex bind:isModalEnabled=isModalEnabled/>
 
 <script>
 	import works from "../data/works.js";

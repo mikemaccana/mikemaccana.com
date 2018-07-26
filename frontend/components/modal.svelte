@@ -46,7 +46,7 @@
 		height: 100%;
 		top: 0;
 		bottom: 0;
-		background-color: --shadedgrey;
+		background-color: var(--shadedgrey);
 		z-index: 2; 
 		align-content: center;
 	}
@@ -55,14 +55,14 @@
 		z-index: 3;
 		grid-row: 1;		
 		background-color: black;		
-		height: --modal-height;
+		height: var(--modal-height);
 		opacity: 1;		
 		position: relative;
 	}
 
 	.text {
-		padding: --spacing;
-		width: --single-column-threshold-width;
+		padding: var(--spacing);
+		width: var(--single-column-threshold-width);
 		max-width: 100%;
 		color: whitesmoke;
 		margin: 0 auto;
@@ -77,14 +77,14 @@
 	}	
 
 	.tile {
-		width: --masonry-base / 2;
+		width: calc(var(--masonry-base) / 2);
 	}
 
 	.tile:first-of-type {
-		width: --masonry-base;
+		width: var(--masonry-base);
 	}
 	.tile.description {
-		width: --masonry-base;
+		width: var(--masonry-base);
 		font-size: 12pt;
 	}
 
@@ -93,14 +93,14 @@
 	}
 
 	h1 {
-		margin: 0 0 --spacing 0;
+		margin: 0 0 var(--spacing) 0;
 	}
 	
 	.close {
 		cursor: pointer;
 		position: absolute;
-		right: --spacing;
-		top: --spacing;
+		right: var(--spacing);
+		top: var(--spacing);
 	}
 
 	/* @media screen and (max-width: var(--small-desktop-threshold-width)) {
