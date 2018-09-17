@@ -1,8 +1,0 @@
-# Todo
-
-Calc doesn't work
-
-Images loaded doesn't work
-
-Before and after size
-
