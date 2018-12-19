@@ -12,5 +12,7 @@
 
 	/* For use with text-shadow */
 	--white-outline: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+	--lightcolor: var(--lightgrey);
+	--othertextcolor: var(--scaryred);
 }
 
