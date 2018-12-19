@@ -68,4 +68,3 @@ package-lock.json
 yarn.lock
 public/js/bundle.js
 public/js/bundle.js.map
-public/css/
