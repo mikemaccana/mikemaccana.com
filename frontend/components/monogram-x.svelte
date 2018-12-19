@@ -38,27 +38,29 @@
 			// See http://raphaeljs.com/reference.html#Element.transform for transform syntax
 			// Note there's a spurious 'Cannot find name mina' even though mina exists and has a value
 			bigM.animate({
-				transform: "T70,0",
+				transform: "T100,0",
 				opacity: 1,
 				fill: 'whiteSmoke'
-			}, 1000, mina.easeout)
-			smallM.animate({
-				transform: "T0,70",
-				opacity: 1,
-				fill: 'white'
-			}, 1500, mina.easeout)
+			}, 1000, mina.easeout, function(){
+					smallM.animate({
+						transform: "T0,100",
+						opacity: 1,
+						fill: 'white'
+					}, 1500, mina.easeout, function(){
+						title.classList.add('visible');
+						setTimeout(function(){
+							subTitle.classList.add('visible');
+							log(`Words should now be shown`)
+							debugger
+							setTimeout(function(){
+								document.body.classList.remove('loading');
+							}, 2000)
+						}, 1000)
+						
 
-			setTimeout(function(){
-				title.classList.toggle('visible');
-			}, 750)
-
-			setTimeout(function(){
-				subTitle.classList.toggle('visible');
-			}, 1000)
-
-			setTimeout(function(){
-				document.body.classList.remove('loading');
-			}, 2000)
+						
+					})
+			})	
 		}
 	}
 
@@ -71,21 +73,22 @@
 
 	.monogram-and-heading {
 		padding: 0 24px;
-    text-align: center;
-    grid-column: 1;
+		text-align: center;
+		grid-column: 1;
 	}
 
 	.monogram {
 		margin-top: calc(var(--spacing) / 4); 
 		height: 60px;
 		width: 60px;
+		justify-self: center;
 	}
 	
 		
 	h1, h2, h3 {
 		margin: calc(var(--spacing) / 4) 0;
 		opacity: 0;
-		transition: all 0.1s ease-out;
+		transition: all 4s ease-out;
 	}
 
 	h1, h2, h3 .visible {
