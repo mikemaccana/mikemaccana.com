@@ -51,14 +51,10 @@
 						setTimeout(function(){
 							subTitle.classList.add('visible');
 							log(`Words should now be shown`)
-							debugger
 							setTimeout(function(){
 								document.body.classList.remove('loading');
 							}, 2000)
 						}, 1000)
-						
-
-						
 					})
 			})	
 		}
