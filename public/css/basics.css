@@ -23,8 +23,7 @@ h1 {
 	color: var(--darkcolor);
 	font-weight: 600;
 	/* For use with text-shadow */
-	text-shadow: 
-var(--white-outline);
+	text-shadow: var(--white-outline);
 }
 
 h2, h3, h4, h5, h6 {
