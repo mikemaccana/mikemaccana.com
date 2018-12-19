@@ -1,0 +1,16 @@
+:root {
+	--lightgrey: #B7B7B7;
+	--midgrey: #222;
+	--scaryred: #b90f00;
+	--shadedgrey: rgba(0,0,0,0.7);
+	--screenshots-total-width: 2000px;
+
+	--textcolor: var(--lightgrey);
+	--darkcolor: black;
+	--lightcolor: var(--lightgrey);
+	--othertextcolor: var(--scaryred);
+
+	/* For use with text-shadow */
+	--white-outline: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
