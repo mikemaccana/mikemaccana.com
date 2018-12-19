@@ -51,11 +51,19 @@ body {
 }
 
 /* Hide things until monogram has loaded */
+body.loading .monogram-and-heading {
+	height: 100vh;
+	transform: translateY(40%);
+	transition: all 1s ease-in-out;
+}
+
+
+/* Hide things until monogram has loaded */
 body.loading .slider, 
 body.loading .work-description {
 	visibility: hidden;
 	/* Centers monogram until content has loaded */
 	transform: translateY(40%);
-	transition: all 2s ease-in-out;
+	transition: all 1s ease-in-out;
 }
 
