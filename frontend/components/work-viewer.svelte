@@ -141,13 +141,7 @@
 		--masonry-base: 340px;
 	}
 
-	/* Hide things until monogram has loaded */
-	body.loading .slider, body.loading .work-description {
-		visibility: hidden;
-		/* Centers monogram until content has loaded */
-		transform: translateY(40%);
-	}
-
+	
 	.slider {
 		/* Needed for previous and next buttons to be vertically centered correctly */
 		position: relative;
