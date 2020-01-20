@@ -1,0 +1,46 @@
+#cloud-config
+users:
+  - name: mike
+    ssh-authorized-keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAryQtIikn0NR9KXVOfQn3445Tgt4p3cKUy3PcLq28nf+T0EB0ncmujG0WkqcGp58vGI49+0edu1obLneG8LS1/p2ZXjiyrSrFhgt1ozodTT2R1p2o271DoFZcWgWWeWmonO+N3r3oimr3/iDVYKHdZqabAO5QibT9H8R8zxx8+yVUtYm2Qbl/0EigWOnzUC1KlbM4/K+WarxQPyGRML+4xZ1QXtbyrVe0ZDQikz80mMLc3XxrnSAXQMOp029/yu7ds/na34KqZTUGmHiiYKbVO992RP35JwaTUUJFGbq5PTTrVhRMs8N+GEejBJXegrReguBGuhpHYMlm1wNjUFX41w== mike.maccana@gmail.com"
+    sudo:
+      - "ALL=(ALL) NOPASSWD:ALL"
+    groups: admin
+    shell: /bin/bash
+write_files:
+  - path: /etc/systemd/system/mikemaccana.com.service
+    content: "[Unit]\nDescription=mikemaccana.com\nAfter=network.target\n\n[Service]\nExecStart=/var/www/mikemaccana.com/app.js\nRestart=always\nUser=nobody\nGroup=nogroup\nEnvironment=PATH=/usr/bin:/usr/local/bin\nEnvironment=NODE_ENV=production\nWorkingDirectory=/var/www/mikemaccana.com\n\n[Install]\nWantedBy=multi-user.target"
+  - path: /etc/apt/sources.list.d/node.list
+    content: "deb https://deb.nodesource.com/node_12.x xenial main\ndeb-src https://deb.nodesource.com/node_12.x xenial main"
+  - path: /etc/apt/sources.list.d/yarn.list
+    content: "deb https://dl.yarnpkg.com/debian/ stable main"
+  - path: /etc/apt/sources.list.d/do-agent.list
+    content: "deb https://repos.sonar.digitalocean.com/apt main main"
+runcmd:
+  - "printf \"\n\n\n\n\nRunning Cloud Init commands\n\""
+  - "printf \"\n\nAdding GPG keys\n\""
+  - "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
+  - "curl -sS https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -"
+  - "curl -sS https://repos.sonar.digitalocean.com/sonar-agent.asc | apt-key add -"
+  - "printf \"\n\nInstalling node and related apps\n\""
+  - "export DEBIAN_FRONTEND=noninteractive"
+  - "apt-get -qq update"
+  - "apt-get -qq install -y nodejs yarn build-essential do-agent"
+  - "printf \"\n\nUpdating box\n\""
+  - "apt-get -qq -y dist-upgrade"
+  - "apt-get -qq -y autoremove"
+  - "printf \"\n\nConfiguring SSH\n\""
+  - "sed -i -e '/^Port/s/^.*$/Port 10000/' /etc/ssh/sshd_config"
+  - "sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config"
+  - "systemctl restart ssh"
+  - "printf \"\n\nSetting up a .service for systemd\n\""
+  - "sudo systemctl daemon-reload"
+  - "systemctl enable mikemaccana.com"
+  - "printf \"\n\nMake a deploy key for mike\n\""
+  - 'ssh-keygen -t rsa -f /home/mike/.ssh/id_rsa -N ""'
+  - "printf \"\n\nAdd github pubkey for mike - trust on first use\n\""
+  - "ssh-keyscan github.com >> /home/mike/.ssh/known_hosts"
+  - "printf \"\n\nFinal cleanups\n\""
+  - "mkdir -p /var/www"
+  - "chown -R mike:mike /home/mike /var/www"
+  - "printf \"\nFinished at $(date)\n\n\n\n\n\""
