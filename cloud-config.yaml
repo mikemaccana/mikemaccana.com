@@ -9,7 +9,7 @@ users:
     shell: /bin/bash
 write_files:
   - path: /etc/systemd/system/mikemaccana.com.service
-    content: "[Unit]\nDescription=mikemaccana.com\nAfter=network.target\n\n[Service]\nExecStart=/var/www/mikemaccana.com/app.js\nRestart=always\nUser=nobody\nGroup=nogroup\nEnvironment=PATH=/usr/bin:/usr/local/bin\nEnvironment=NODE_ENV=production\nWorkingDirectory=/var/www/mikemaccana.com\n\n[Install]\nWantedBy=multi-user.target"
+    content: "[Unit]\nDescription=mikemaccana.com\nAfter=network.target\n\n[Service]\nExecStart=/var/www/mikemaccana.com/bin/www\nRestart=always\nUser=nobody\nGroup=nogroup\nEnvironment=PATH=/usr/bin:/usr/local/bin\nEnvironment=NODE_ENV=production\nWorkingDirectory=/var/www/mikemaccana.com\n\n[Install]\nWantedBy=multi-user.target"
   - path: /etc/apt/sources.list.d/node.list
     content: "deb https://deb.nodesource.com/node_12.x xenial main\ndeb-src https://deb.nodesource.com/node_12.x xenial main"
   - path: /etc/apt/sources.list.d/yarn.list
