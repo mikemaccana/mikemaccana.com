@@ -78,25 +78,6 @@
   h3 .visible {
     opacity: 1;
   }
-
-  /* @media screen and (max-width: var(--small-desktop-threshold-width)) {
-		.monogram-and-heading {
-			margin-top: 12px;
-			margin-bottom: 12px;	
-		}
-
-		.monogram {
-			margin-top: 48px;
-			height: 48px;
-			width: 48px;
-		}
-		h1 {
-			font-size: 16pt;
-		}
-		h2 {
-			font-size: 12pt;
-		}
-	} */
 </style>
 
 <div class="monogram-and-heading">
