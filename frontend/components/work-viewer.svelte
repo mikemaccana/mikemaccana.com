@@ -52,7 +52,6 @@
 
     var enableModal = function() {
       log(`starting modal`);
-      isModalEnabled = true;
 
       // Masonry
       var masonryElement = document.querySelector(".screenshots");

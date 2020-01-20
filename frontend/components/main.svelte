@@ -9,21 +9,11 @@
   var worksWrapper = select(".works-wrapper"),
     workDescription = select(".work-description");
 
-  // // Only used on /
-  // if ( window.location.pathname === '/' ) {
-  // 	new WorkViewer({
-  // 		target: document.querySelector('.works-wrapper'),
-  // 	});
-  // }
-
-  log(`Hello from main.svelte, works are ${works}`);
-
-  // this promise never resolves
-  // 	await areImagesLoaded('.works .work')
-  // log(`images loaded`)
+  log(`Hello from main.svelte, works are ${print(works)}`);
 
   var currentIndex = 0;
   var isModalEnabled = false;
+
 </script>
 
 <style>

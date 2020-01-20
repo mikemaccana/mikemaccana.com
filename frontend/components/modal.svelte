@@ -1,8 +1,4 @@
 <script>
-  var getImageFileName = function(currentWork, screenshotIndex) {
-    return `/images/work/screenshots/${currentWork.slug}-${screenshotIndex}.${currentWork.imageExtension}`;
-  };
-
   export let works;
   export let currentIndex;
   export let isModalEnabled;
@@ -115,12 +111,12 @@
           {#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
             <img
               class="tile"
-              src={getImageFileName(works[currentIndex], screenshotIndex)}
-              alt="Not provided" />
+              src="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
+              alt={works[currentIndex].slug} />
           {/each}
         </div>
       </div>
     </div>
-    <img class="close" src="/images/icons/close.png" alt="Not provided" />
+    <img class="close" src="/images/icons/close.png" alt="Close" />
   </div>
 </div>
