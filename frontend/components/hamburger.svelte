@@ -3,6 +3,10 @@
 </script>
 
 <style>
+  :root {
+    --spacing: 12px;
+    --sidebar-width: 128px;
+  }
   /* ☰ button */
   .hamburger {
     cursor: pointer;
@@ -15,7 +19,7 @@
     display: block;
   }
   .menu-active {
-    right: --sidebar-width;
+    right: var(--sidebar-width);
   }
   .hamburger-top,
   .hamburger-middle,
@@ -23,7 +27,7 @@
     transition: all 0.5s;
     display: block;
     height: 1px;
-    width: --spacing;
+    width: var(--spacing);
     background: #fff;
     margin: 4px auto;
   }
