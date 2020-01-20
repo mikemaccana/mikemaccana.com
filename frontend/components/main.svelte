@@ -13,7 +13,6 @@
 
   var currentIndex = 0;
   var isModalEnabled = false;
-
 </script>
 
 <style>

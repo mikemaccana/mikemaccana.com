@@ -2,20 +2,23 @@
   import Hamburger from "./hamburger.svelte";
   import { onMount } from "svelte";
 
+  var isMenuActive = false;
+
   onMount(function() {
     var log = console.log.bind(console),
       select = document.querySelector.bind(document),
       selectAll = document.querySelectorAll.bind(document);
 
-    var menuToggledElements = selectAll(
-      "nav, body, .hamburger, .content, footer"
-    );
+    // var menuToggledElements = selectAll(
+    //   "nav, body, .hamburger, .content, footer"
+    // );
 
     // Clicking ☰ button displays nav
     select(".hamburger").addEventListener("click", function(event) {
-      menuToggledElements.forEach(function(element, index) {
-        element.classList.toggle("menu-active");
-      });
+      // menuToggledElements.forEach(function(element, index) {
+      //   element.classList.toggle("menu-active");
+      // });
+      isMenuActive = !isMenuActive;
       event.preventDefault();
     });
   });
@@ -30,8 +33,7 @@
     font-weight: 400;
     line-height: var(--vertical-rhythm);
     text-transform: uppercase;
-    background-color: red;
-    margin-right: var(--sidebar-width);
+    background-color: #222;
     width: 0;
     position: fixed;
     top: 0;
@@ -44,7 +46,6 @@
   .menu-active {
     transform: translateX(0);
     width: var(--sidebar-width);
-    right: var(--sidebar-width);
   }
   a,
   a:hover,
@@ -55,7 +56,7 @@
     width: 100%;
     display: block;
     padding: var(--spacing);
-    border-bottom: 1px solid --midgrey;
+    border-bottom: 1px solid var(--midgrey);
   }
   a:hover {
     color: var(--textcolor);
@@ -67,9 +68,9 @@
   }
 </style>
 
-<Hamburger />
+<Hamburger bind:isMenuActive />
 
-<nav class="vertical">
+<nav class="vertical {isMenuActive ? 'menu-active' : ''}">
   <a class="navitem" href="/">Work</a>
   <a class="navitem" href="/about">About</a>
   <a class="navitem" target="_blank" href="https://twitter.com/mikemaccana">
@@ -80,9 +81,6 @@
   </a>
   <a class="navitem" target="_blank" href="https://speakerdeck.com/mikemaccana">
     Speaker Deck
-  </a>
-  <a class="navitem" target="_blank" href="https://medium.com/@mikemaccana">
-    Medium
   </a>
   <a
     class="navitem"

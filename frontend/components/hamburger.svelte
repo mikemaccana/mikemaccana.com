@@ -1,12 +1,8 @@
 <script>
-
+  export let isMenuActive;
 </script>
 
 <style>
-  :root {
-    --spacing: 12px;
-    --sidebar-width: 128px;
-  }
   /* ☰ button */
   .hamburger {
     cursor: pointer;
@@ -47,7 +43,7 @@
   }
 </style>
 
-<div class="hamburger">
+<div class="hamburger {isMenuActive ? 'menu-active' : ''}">
   <span class="hamburger-top" />
   <span class="hamburger-middle" />
   <span class="hamburger-bottom" />
