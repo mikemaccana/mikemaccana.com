@@ -1,31 +1,27 @@
-import svelte from 'rollup-plugin-svelte';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import uglify from 'rollup-plugin-uglify';
+import svelte from "rollup-plugin-svelte";
+import resolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
+import uglify from "rollup-plugin-uglify";
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'frontend/js/index.js',
+	input: "frontend/js/index.js",
 	output: {
 		sourcemap: true,
-		format: 'iife',
-		name: 'app',
-		file: 'public/js/bundle.js'
+		format: "iife",
+		name: "app",
+		file: "public/js/bundle.js"
 	},
 	plugins: [
 		svelte({
-			// opt in to v3 behaviour today
-			skipIntroByDefault: true,
-			nestedTransitions: true,
-
 			// enable run-time checks when not in production
-			dev: ! production,
+			dev: !production,
 			// we'll extract any component CSS out into
 			// a separate file — better for performance
 			css: css => {
-				css.write('public/css/bundle.css');
-			},
+				css.write("public/css/bundle.css");
+			}
 		}),
 
 		// If you have external dependencies installed from
