@@ -6,6 +6,10 @@
   import Nav from "./nav.svelte";
   import { select, selectAll, log } from "../js/utils/basics.js";
 
+  var print = function(object) {
+    return JSON.stringify(object, null, 2);
+  };
+
   var worksWrapper = select(".works-wrapper"),
     workDescription = select(".work-description");
 
