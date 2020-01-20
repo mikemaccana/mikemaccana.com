@@ -20,11 +20,6 @@
   @import url("colors.css");
   @import url("metrics.css");
   @import url("basics.css");
-
-  .about-me {
-    margin: 0 auto;
-    max-width: --single-column-threshold-width;
-  }
 </style>
 
 <Nav />

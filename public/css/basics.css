@@ -88,3 +88,8 @@ body.loading .work-description {
 	transform: translateY(40%);
 	transition: all 1s ease-in-out;
 }
+
+.about-me {
+	margin: 0 auto;
+	max-width: var(--single-column-threshold-width);
+}
