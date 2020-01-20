@@ -66,8 +66,7 @@
   }
 
   h1,
-  h2,
-  h3 {
+  h2 {
     margin: calc(var(--spacing) / 4) 0;
     opacity: 0;
     transition: all 4s ease-out;
@@ -75,7 +74,7 @@
 
   h1,
   h2,
-  h3 .visible {
+  h3 {
     opacity: 1;
   }
 </style>
