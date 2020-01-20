@@ -13,6 +13,8 @@
   const LEFT = 37,
     RIGHT = 39;
 
+  const NEXT_TICK = 0;
+
   onMount(function() {
     var component = this;
 
@@ -52,14 +54,17 @@
 
     var enableModal = function() {
       log(`starting modal`);
+      debugger;
 
-      // Masonry
-      var masonryElement = document.querySelector(".screenshots");
-      new Masonry(masonryElement, {
-        itemSelector: ".tile",
-        // Must be same as $masonry-base in work-detail.css
-        columnWidth: 340 / 2
-      });
+      isModalEnabled = true;
+      setTimeout(function() {
+        // Masonry
+        var masonryElement = document.querySelector(".screenshots");
+        new Masonry(masonryElement, {
+          itemSelector: ".tile",
+          columnWidth: 340 / 2
+        });
+      }, NEXT_TICK);
     };
 
     var disableModal = function() {
