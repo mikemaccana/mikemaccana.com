@@ -165,16 +165,24 @@
     max-width: 600px;
     padding: var(--spacing);
     text-align: left;
+    grid-template-columns: 7fr 3fr;
   }
 
   .work-title {
     font-size: 26pt;
     margin: calc(var(--spacing) / 4) 0;
-    width: 70%;
+    grid-row: 1;
+    grid-column: 1;
   }
 
   .work-logo {
-    width: 30%;
+    grid-row: 1;
+    grid-column: 2;
+    width: 100%;
+  }
+
+  .work-lede {
+    grid-area: 2 1 3 2;
   }
 
   .work-title,
