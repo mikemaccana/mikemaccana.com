@@ -1,17 +1,25 @@
 @import url("colors.css");
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
 	box-sizing: border-box;
 	/* Everything has layout by default. No clear fixes. */
-	overflow: hidden;  
+	overflow: hidden;
 }
-
-a, a:hover, a:active, a:visited {
+a,
+a:hover,
+a:active,
+a:visited {
 	color: var(--textcolor);
 	text-decoration: none;
 }
 
-body, nav, .hamburger, .content, .symbol {
+body,
+nav,
+.hamburger,
+.content,
+.symbol {
 	transition: all 0.4s ease-out;
 }
 
@@ -19,21 +27,20 @@ strong {
 	color: var(--othertextcolor);
 }
 
-h1 {
-	color: var(--darkcolor);
-	font-weight: 600;
-	letter-spacing: 0.1em;
-	/* For use with text-shadow */
-	text-shadow: var(--white-outline);
-}
-
-h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3 {
+	font-family: "Caslon";
+	font-weight: 400;
 	color: var(--textcolor);
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight: 600;
-	text-transform: uppercase;
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--textcolor);
 }
 
 body {
@@ -43,10 +50,10 @@ body {
 	color: var(--textcolor);
 	overflow-x: hidden;
 	background-size: cover;
-	background-image: url('/images/vanda.jpg');
+	background-image: url("/images/vanda.jpg");
 	background-repeat: repeat;
 	display: grid;
-	height: 100%; 
+	height: 100%;
 	width: 100%;
 }
 
@@ -57,13 +64,11 @@ body.loading .monogram-and-heading {
 	transition: all 1s ease-in-out;
 }
 
-
 /* Hide things until monogram has loaded */
-body.loading .slider, 
+body.loading .slider,
 body.loading .work-description {
 	visibility: hidden;
 	/* Centers monogram until content has loaded */
 	transform: translateY(40%);
 	transition: all 1s ease-in-out;
 }
-
