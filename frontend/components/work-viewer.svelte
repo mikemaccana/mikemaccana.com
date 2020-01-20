@@ -54,7 +54,6 @@
 
     var enableModal = function() {
       log(`starting modal`);
-      debugger;
 
       isModalEnabled = true;
       setTimeout(function() {
@@ -72,7 +71,6 @@
     };
 
     // Set up showing work detail when items are clicked
-    //body.on('click', '.js_slide.selected img', function(event){
     body.on("click", ".js_slide.selected img", function(event) {
       log(`Clicked active image!`);
       enableModal();
@@ -83,12 +81,6 @@
     });
 
     // Fade in each item individually
-    selectAll(".works .work").forEach(function(element, index) {
-      setTimeout(function() {
-        element.classList.toggle("visible");
-      }, index * 300);
-    });
-    select(".work-description").classList.toggle("visible");
   });
 </script>
 
@@ -164,17 +156,7 @@
     left: 0;
   }
 
-  .works-wrapper {
-    width: 100vw;
-    margin: 0;
-  }
-
-  .work-description.visible {
-    opacity: 1;
-  }
-
   .work-description {
-    opacity: 0;
     display: grid;
     justify-items: center;
   }
@@ -200,32 +182,6 @@
   .work-lede {
     float: left;
   }
-
-  .work-lede p {
-    margin: calc(var(--spacing) / 4) 0;
-  }
-
-  /* @media screen and (max-width: var(--small-desktop-threshold-width)) {
-
-		.content {
-			grid-template-rows: 250px 1fr;
-		}
-
-		.work-title {
-			font-size: 16pt;
-		}
-		.work-logo {
-			margin: 6px 0;
-		}
-		.work-lede {
-			font-size: 10pt;
-		}
-
-		.slider .frame .slides {
-			height: 200px;
-			margin-top: 0;
-		}		
-	} */
 </style>
 
 <div class="slider js_slider">
