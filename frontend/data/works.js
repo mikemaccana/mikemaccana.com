@@ -9,7 +9,7 @@ var works = [
 		pubDate: `Fri, 30 Aug 2013 14:30:14 +0000`,
 		lede: `The fastest, simplest way to verify websites`,
 		description: `
-			<p>EV verifies a real company runs a website. But due to the verification involved, the average time to get a certificate is 7-10 days. CertSimple uses great UI and live checking of details to issue EV certificates in an average of 5 hours, 40x the speed of the rest of the industry. CertSimple now has over 500 customers and has been featured in TechCrunch, Hacker News and obtained funding from Entrepreneur First's accelerator programme. The tech is full stack node, using yarn workspaces, ES8 and TypeScript.</p>`
+			<p>EV verifies a real company runs a website. But due to the verification involved, the average time to get a certificate is 7-10 days. CertSimple uses great UI and live checking of details to issue EV certificates in an average of 5 hours, 40x the speed of the rest of the industry. CertSimple now has over 500 customers and has been featured in TechCrunch, Hacker News and obtained funding from Entrepreneur First's accelerator programme. The tech is full stack node, using yarn workspaces, ES2017 and TypeScript. Exited to ExpeditedSSL in 2020.</p>`
 	},
 	{
 		slug: `mycognition`,
