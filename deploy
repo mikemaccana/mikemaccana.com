@@ -1,7 +1,10 @@
 #!/bin/bash
 git pull origin master
 
+chmod +x bin/www
 yarn build:sass
+sudo systemctl restart mikemaccana.com
+sudo journalctl -u mikemaccana.com
 
 sudo cp haproxy.cfg /etc/haproxy
 sudo systemctl restart haproxy
