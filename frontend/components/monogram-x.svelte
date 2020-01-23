@@ -56,12 +56,15 @@
   h1,
   h2 {
     margin: calc(var(--spacing) / 4) 0;
-    opacity: 0;
+
     transition: all 4s ease-out;
   }
 
-  h1,
   h2 {
+    opacity: 0;
+  }
+
+  h2.active {
     opacity: 1;
   }
 
@@ -79,6 +82,6 @@
     class="wide-m {isActive ? 'active' : ''}"
     alt="wide m"
     src="/images/monogram-wide-m.svg" />
-  <h1>Mike MacCana</h1>
-  <h2>I make software products</h2>
+  <h1 class={isActive ? 'active' : ''}>Mike MacCana</h1>
+  <h2 class={isActive ? 'active' : ''}>I make software products</h2>
 </div>

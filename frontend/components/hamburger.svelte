@@ -16,14 +16,14 @@
     z-index: 2;
   }
   .menu-active {
-    right: var(--sidebar-width);
+    right: 307px;
   }
   .hamburger-top,
   .hamburger-middle,
   .hamburger-bottom {
     transition: all 0.5s;
     display: block;
-    height: 1px;
+    height: 2px;
     width: var(--spacing);
     background: #fff;
     margin: 4px auto;

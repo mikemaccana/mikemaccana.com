@@ -28,12 +28,12 @@
     position: absolute;
     right: 0;
     height: 120%;
-    width: 400px;
+    width: 512px;
     z-index: 1;
   }
 
   .wedge.menu-active {
-    transform: rotate(-4deg) translateX(231px);
+    transform: rotate(-4deg) translateX(188px);
   }
 
   nav {
@@ -41,7 +41,6 @@
     cursor: pointer;
     font-weight: 400;
     line-height: var(--vertical-rhythm);
-    text-transform: uppercase;
     background-color: transparent;
     width: 0;
     position: fixed;
@@ -52,7 +51,7 @@
     overflow-y: auto;
     text-align: right;
     transform: translateX(400px);
-    width: var(--sidebar-width);
+    width: 308px;
   }
 
   nav.menu-active {
@@ -63,10 +62,18 @@
     color: whiteSmoke;
   }
 
+  a.navitem img {
+    height: 24px;
+    margin-right: 6px;
+  }
+
   a,
   a:hover,
   a:active,
   a:visited {
+    font-family: "Caslon";
+    line-height: 36px;
+    font-size: 32px;
     color: transparent;
     text-decoration: none;
     width: 100%;
@@ -81,35 +88,91 @@
   .linkedin-tracker {
     display: none;
   }
+
+  a.navitem.stackoverflow {
+    padding-right: 43px;
+  }
+
+  a.navitem.speakerdeck {
+    padding-right: 43px;
+  }
+
+  a.navitem.linkedin {
+    padding-right: 80px;
+  }
+
+  a.navitem.twitter {
+    padding-right: 88px;
+  }
+
+  a.navitem.github {
+    padding-right: 70px;
+  }
+
+  a.navitem.about {
+    padding-right: 70px;
+  }
+
+  a.navitem.work {
+    padding-right: 63px;
+  }
 </style>
 
 <Hamburger bind:isMenuActive />
 
 <div class="wedge {isMenuActive ? 'menu-active' : ''}" />
 <nav class="vertical {isMenuActive ? 'menu-active' : ''}">
-  <a class="navitem" href="/">Work</a>
-  <a class="navitem" href="/about">About</a>
-  <a class="navitem" target="_blank" href="https://twitter.com/mikemaccana">
-    Twitter
-  </a>
-  <a class="navitem" target="_blank" href="http://github.com/mikemaccana">
-    GitHub
-  </a>
-  <a class="navitem" target="_blank" href="https://speakerdeck.com/mikemaccana">
-    Speaker Deck
-  </a>
+
   <a
-    class="navitem"
+    class="navitem stackoverflow"
     target="_blank"
     href="http://stackoverflow.com/users/123671/mikemaccana">
-    Top 0.28% StackOverflow
+    <img alt="" src="/images/icons/stack-overflow.svg" />
+    StackOverflow
   </a>
+
   <a
-    class="navitem"
+    class="navitem speakerdeck"
+    target="_blank"
+    href="https://speakerdeck.com/mikemaccana">
+    <img alt="" src="/images/icons/speaker-deck.svg" />
+    Speaker Deck
+  </a>
+
+  <a
+    class="navitem linkedin"
     target="_blank"
     href="https://www.linkedin.com/in/mikemaccana">
+    <img alt="" src="/images/icons/linkedin.svg" />
     LinkedIn
   </a>
+
+  <a
+    class="navitem twitter"
+    target="_blank"
+    href="https://twitter.com/mikemaccana">
+    <img alt="" src="/images/icons/twitter.svg" />
+    Twitter
+  </a>
+
+  <a
+    class="navitem github"
+    target="_blank"
+    href="http://github.com/mikemaccana">
+    <img alt="" src="/images/icons/github.svg" />
+    GitHub
+  </a>
+
+  <a class="navitem about" href="/about">
+    <img alt="" src="/images/icons/about.svg" />
+    About
+  </a>
+
+  <a class="navitem work" href="/">
+    <img alt="" src="/images/icons/work.svg" />
+    Work
+  </a>
+
   <img
     class="linkedin-tracker"
     src="https://www.linkedin.com/profile/view?authToken=zRgB&authType=name&id=13692926"
