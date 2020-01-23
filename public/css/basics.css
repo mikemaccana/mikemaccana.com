@@ -93,3 +93,8 @@ body.loading .work-description {
 	margin: 0 auto;
 	max-width: var(--single-column-threshold-width);
 }
+
+/* Used to stop title and description from jumping around as larger images are shown  */
+.svelte-goes-here {
+	grid-template-rows: 1fr 450px 200px;
+}

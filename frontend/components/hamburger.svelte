@@ -8,11 +8,12 @@
     cursor: pointer;
     z-index: 1;
     top: 0;
-    background-color: black;
+    background-color: transparent;
     padding: 1em;
     position: fixed;
     right: 0;
     display: block;
+    z-index: 2;
   }
   .menu-active {
     right: var(--sidebar-width);

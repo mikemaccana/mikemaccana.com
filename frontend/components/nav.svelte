@@ -9,15 +9,8 @@
       select = document.querySelector.bind(document),
       selectAll = document.querySelectorAll.bind(document);
 
-    // var menuToggledElements = selectAll(
-    //   "nav, body, .hamburger, .content, footer"
-    // );
-
     // Clicking ☰ button displays nav
     select(".hamburger").addEventListener("click", function(event) {
-      // menuToggledElements.forEach(function(element, index) {
-      //   element.classList.toggle("menu-active");
-      // });
       isMenuActive = !isMenuActive;
       event.preventDefault();
     });
@@ -27,13 +20,29 @@
 <style>
   @import url("../css/colors.css");
   @import url("../css/metrics.css");
+
+  .wedge {
+    transform: rotate(-4deg) translateX(800px);
+    top: -26px;
+    background-color: #212121ed;
+    position: absolute;
+    right: 0;
+    height: 120%;
+    width: 400px;
+    z-index: 1;
+  }
+
+  .wedge.menu-active {
+    transform: rotate(-4deg) translateX(231px);
+  }
+
   nav {
     font-size: calc(var(--spacing) / 2);
     cursor: pointer;
     font-weight: 400;
     line-height: var(--vertical-rhythm);
     text-transform: uppercase;
-    background-color: #222;
+    background-color: transparent;
     width: 0;
     position: fixed;
     top: 0;
@@ -41,26 +50,32 @@
     bottom: 0;
     z-index: 1;
     overflow-y: auto;
-  }
-
-  .menu-active {
-    transform: translateX(0);
+    text-align: right;
+    transform: translateX(400px);
     width: var(--sidebar-width);
   }
+
+  nav.menu-active {
+    transform: translateX(0);
+  }
+
+  nav.menu-active a {
+    color: whiteSmoke;
+  }
+
   a,
   a:hover,
   a:active,
   a:visited {
-    color: whiteSmoke;
+    color: transparent;
     text-decoration: none;
     width: 100%;
     display: block;
     padding: var(--spacing);
-    border-bottom: 1px solid var(--midgrey);
+    transition: all 0.2s ease-out;
   }
   a:hover {
     color: var(--textcolor);
-    transition: all 0.2s ease-out;
     transform: translateX(5px);
   }
   .linkedin-tracker {
@@ -70,6 +85,7 @@
 
 <Hamburger bind:isMenuActive />
 
+<div class="wedge {isMenuActive ? 'menu-active' : ''}" />
 <nav class="vertical {isMenuActive ? 'menu-active' : ''}">
   <a class="navitem" href="/">Work</a>
   <a class="navitem" href="/about">About</a>
@@ -86,13 +102,7 @@
     class="navitem"
     target="_blank"
     href="http://stackoverflow.com/users/123671/mikemaccana">
-    StackOverflow
-  </a>
-  <a class="navitem" target="_blank" href="https://soundcloud.com/mikemaccana">
-    SoundCloud
-  </a>
-  <a class="navitem" target="_blank" href="http://instagram.com/mikemaccana">
-    Instagram
+    Top 0.28% StackOverflow
   </a>
   <a
     class="navitem"

@@ -162,6 +162,7 @@
   }
 
   .work-description-content {
+    background-color: var(--shadedgrey);
     max-width: 600px;
     padding: var(--spacing);
     text-align: left;

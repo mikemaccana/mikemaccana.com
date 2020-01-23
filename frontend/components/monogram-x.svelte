@@ -64,6 +64,10 @@
   h2 {
     opacity: 1;
   }
+
+  h2 {
+    font-size: 64px;
+  }
 </style>
 
 <div class="monogram-and-heading">
@@ -76,5 +80,5 @@
     alt="wide m"
     src="/images/monogram-wide-m.svg" />
   <h1>Mike MacCana</h1>
-  <h2>I make technology products</h2>
+  <h2>I make software products</h2>
 </div>
