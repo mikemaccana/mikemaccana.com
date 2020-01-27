@@ -163,11 +163,6 @@
     GitHub
   </a>
 
-  <a class="navitem about" href="/about">
-    <img alt="" src="/images/icons/about.svg" />
-    About
-  </a>
-
   <a class="navitem work" href="/">
     <img alt="" src="/images/icons/work.svg" />
     Work
