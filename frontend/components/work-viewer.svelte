@@ -1,5 +1,4 @@
 <script>
-  import { lory } from "../js/thirdparty/lory/lory.js";
   import Masonry from "../js/thirdparty/masonry/masonry.js";
   import "../js/utils/element-on.js";
   import "../js/utils/get-parent-index.js";
@@ -15,40 +14,64 @@
 
   const NEXT_TICK = 0;
 
-  onMount(function() {
-    var component = this;
+  const slideWidth = 400 + 12 + 12;
 
+  var horizontalScrollOffset;
+
+  $: isFirstSlide = currentIndex === 0;
+  $: isLastSlide = currentIndex === works.length - 1;
+
+  var setHorizontalScrollOffset = function() {
+    var widthOfWindow = window.innerWidth;
+    horizontalScrollOffset =
+      // Halfway across screen
+      widthOfWindow / 2 -
+      // But then adjusted back left, half a grid item away (so center is in middle)
+      slideWidth / 2 -
+      // Then adjusted if we've selected a new item
+      currentIndex * slideWidth;
+    log(`horizontalScrollOffset is ${horizontalScrollOffset}`);
+  };
+
+  onMount(function() {
     var body = select("body"),
-      slider = select(".js_slider"),
       closeElement = select(".close");
 
     var log = console.log.bind(console);
 
-    // Set up slider
-    // 'rewind' option is not used per https://github.com/meandmax/lory/issues/197
-    var loryController = lory(slider);
-
-    log(`Slider is ${slider}`);
-
-    // Set up showing work detail after sliding
-    slider.addEventListener("after.lory.slide", function(event) {
-      var currentSlide = event.detail.currentSlide;
-      log(`After slide! currentSlide is ${currentSlide}`);
-      currentIndex = currentSlide;
-    });
-
-    // When the window resizes Lory will
-    // go to slide 0, so we'll need to make sure the descriptions are updated too
-    slider.addEventListener("on.lory.resize", function(event) {
+    // When the window resizes go to slide 0
+    window.addEventListener("resize", function(event) {
       currentIndex = 0;
+      setHorizontalScrollOffset();
     });
+
+    var changeSlide = function(isForward) {
+      var adjustment = isForward ? 1 : -1;
+      if (isFirstSlide) {
+        if (!isForward) {
+          log(`Refusing to scroll past first item`);
+          return;
+        }
+      }
+      if (isLastSlide) {
+        if (isForward) {
+          log(`Refusing to scroll past last item`);
+          return;
+        }
+      }
+      currentIndex = currentIndex + adjustment;
+      setHorizontalScrollOffset();
+      log(`currentIndex is now ${currentIndex}`);
+    };
 
     window.addEventListener("keyup", function(event) {
       if (event.keyCode === LEFT) {
-        loryController.prev();
+        log(`Going back!`);
+        changeSlide(false);
       }
       if (event.keyCode === RIGHT) {
-        loryController.next();
+        log(`Going forward!`);
+        changeSlide(true);
       }
     });
 
@@ -80,6 +103,8 @@
       disableModal();
     });
 
+    setHorizontalScrollOffset();
+
     // Fade in each item individually
   });
 </script>
@@ -102,9 +127,12 @@
     display: grid;
     align-items: center;
 
-    /* Hack required since lory.js wasn't designed for CSS grid
-		Removing this causes the slides area to be cut off */
+    /* Required - removing this causes the slides area to be cut off */
     width: 9752px;
+    justify-items: center;
+
+    transition-timing-function: ease;
+    transition-duration: 600ms;
   }
 
   .js_slide {
@@ -195,7 +223,9 @@
 
 <div class="slider js_slider">
   <div class="frame js_frame">
-    <div class="slides js_slides">
+    <div
+      class="slides js_slides"
+      style="transform: translateX({horizontalScrollOffset}px)">
       {#each works as work, index}
         <div
           class="js_slide {index === currentIndex ? 'selected' : ''}
@@ -207,34 +237,39 @@
       {/each}
     </div>
   </div>
-  <span class="js_prev previous">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="50"
-      height="50"
-      viewBox="0 0 501.5 501.5">
-      <g>
-        <path
-          fill="#CCC"
-          d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77
-          55.506L143.56 250.75z" />
-      </g>
-    </svg>
-  </span>
-  <span class="js_next next">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="50"
-      height="50"
-      viewBox="0 0 501.5 501.5">
-      <g>
-        <path
-          fill="#CCC"
-          d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56
-          146.384l55.77-55.507L358.44 250.75z" />
-      </g>
-    </svg>
-  </span>
+
+  {#if !isFirstSlide}
+    <span class="js_prev previous">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50"
+        height="50"
+        viewBox="0 0 501.5 501.5">
+        <g>
+          <path
+            fill="#CCC"
+            d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77
+            55.506L143.56 250.75z" />
+        </g>
+      </svg>
+    </span>
+  {/if}
+  {#if !isLastSlide}
+    <span class="js_next next">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50"
+        height="50"
+        viewBox="0 0 501.5 501.5">
+        <g>
+          <path
+            fill="#CCC"
+            d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56
+            146.384l55.77-55.507L358.44 250.75z" />
+        </g>
+      </svg>
+    </span>
+  {/if}
 </div>
 
 <div class="work-description">
