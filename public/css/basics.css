@@ -59,6 +59,10 @@ button,
 	display: grid;
 }
 
+li {
+	overflow: initial;
+}
+
 body {
 	left: 0;
 	margin: 0;
