@@ -100,6 +100,6 @@ body.loading.svelte-goes-here {
 	grid-template-rows: unset;
 }
 
-body.svelte-goes-here {
-	grid-template-rows: 1fr 450px 200px;
+.svelte-goes-here {
+	grid-template-rows: 200px 500px 200px;
 }
