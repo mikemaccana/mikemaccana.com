@@ -7,6 +7,8 @@
 <style>
   :root {
     --modal-height: 500px;
+    /* Modify 'columnWidth' value in works.js if this is changed */
+    --masonry-base: 340px;
   }
 
   .modal-shade {

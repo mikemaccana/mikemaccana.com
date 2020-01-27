@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   const LEFT = 37,
     RIGHT = 39;
 
@@ -12,6 +13,8 @@
   $: isFirstSlide = currentIndex === 0;
   $: isLastSlide = currentIndex === works.length - 1;
 
+  var log = console.log.bind(console);
+
   var setHorizontalScrollOffset = function() {
     var widthOfWindow = window.innerWidth;
     horizontalScrollOffset =
@@ -24,31 +27,31 @@
     log(`horizontalScrollOffset is ${horizontalScrollOffset}`);
   };
 
+  var changeSlide = function(isForward) {
+    var adjustment = isForward ? 1 : -1;
+    if (isFirstSlide) {
+      if (!isForward) {
+        log(`Refusing to scroll past first item`);
+        return;
+      }
+    }
+    if (isLastSlide) {
+      if (isForward) {
+        log(`Refusing to scroll past last item`);
+        return;
+      }
+    }
+    currentIndex = currentIndex + adjustment;
+    setHorizontalScrollOffset();
+    log(`currentIndex is now ${currentIndex}`);
+  };
+
   onMount(function() {
     // When the window resizes go to slide 0
     window.addEventListener("resize", function(event) {
       currentIndex = 0;
       setHorizontalScrollOffset();
     });
-
-    var changeSlide = function(isForward) {
-      var adjustment = isForward ? 1 : -1;
-      if (isFirstSlide) {
-        if (!isForward) {
-          log(`Refusing to scroll past first item`);
-          return;
-        }
-      }
-      if (isLastSlide) {
-        if (isForward) {
-          log(`Refusing to scroll past last item`);
-          return;
-        }
-      }
-      currentIndex = currentIndex + adjustment;
-      setHorizontalScrollOffset();
-      log(`currentIndex is now ${currentIndex}`);
-    };
 
     window.addEventListener("keyup", function(event) {
       if (event.keyCode === LEFT) {
@@ -155,7 +158,12 @@
   </div>
 
   {#if !isFirstSlide}
-    <span class="previous">
+    <span
+      class="previous"
+      on:click={function() {
+        log(`Clicked back!`);
+        changeSlide(false);
+      }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="50"
@@ -171,7 +179,12 @@
     </span>
   {/if}
   {#if !isLastSlide}
-    <span class="next">
+    <span
+      class="next"
+      on:click={function() {
+        log(`Clicked forward!`);
+        changeSlide(true);
+      }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="50"
