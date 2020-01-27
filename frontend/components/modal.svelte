@@ -42,6 +42,8 @@
 
   .screenshot-container {
     max-width: 100%;
+
+    overflow-y: scroll;
   }
 
   .screenshots * {
@@ -110,10 +112,14 @@
             {@html works[currentIndex].description}
           </div>
           {#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
-            <img
-              class="tile"
-              src="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
-              alt={works[currentIndex].slug} />
+            <a
+              href="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
+              target="_blank">
+              <img
+                class="tile"
+                src="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
+                alt={works[currentIndex].slug} />
+            </a>
           {/each}
         </div>
       </div>
