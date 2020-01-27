@@ -103,3 +103,9 @@ body.loading.svelte-goes-here {
 .svelte-goes-here {
 	grid-template-rows: 200px 500px 200px;
 }
+
+@media screen and (max-width: 850px) {
+	.svelte-goes-here {
+		grid-template-rows: 172px 1fr 224px;
+	}
+}

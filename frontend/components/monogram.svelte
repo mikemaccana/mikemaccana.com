@@ -10,7 +10,7 @@
 
     setTimeout(function() {
       document.body.classList.remove("loading");
-    }, 4000);
+    }, 0);
 
     isActive = true;
   });
@@ -56,7 +56,6 @@
   h1,
   h2 {
     margin: calc(var(--spacing) / 4) 0;
-
     transition: all 4s ease-out;
   }
 
@@ -70,6 +69,18 @@
 
   h2 {
     font-size: 64px;
+    line-height: 68px;
+  }
+
+  @media screen and (max-width: 850px) {
+    .monogram-and-heading {
+      margin-top: 24px;
+    }
+    h1,
+    h2 {
+      font-size: 24px;
+      line-height: 28px;
+    }
   }
 </style>
 

@@ -1,7 +1,7 @@
 <script>
   import works from "../data/works.js";
   import WorkViewer from "./work-viewer.svelte";
-  import Monogram from "./monogram-x.svelte";
+  import Monogram from "./monogram.svelte";
   import Modal from "./modal.svelte";
   import Nav from "./nav.svelte";
   import { select, selectAll, log } from "../js/utils/basics.js";

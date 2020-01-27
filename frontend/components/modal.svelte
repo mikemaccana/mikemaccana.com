@@ -75,30 +75,29 @@
     top: var(--spacing);
   }
 
-  /* @media screen and (max-width: var(--small-desktop-threshold-width)) {
-		.modal-shade {
-			overflow-y: scroll;	
-		}
+  @media screen and (max-width: 850px) {
+    .modal-shade {
+      overflow-y: scroll;
+    }
 
-		.modal {
-			height: 100%;
-			align-content: stretch;
-		}
+    .modal {
+      height: 100%;
+      align-content: stretch;
+    }
 
-		.modal .text {
-			width: 100%;
-			padding: 12px;
-			
-		}
+    .modal .text {
+      width: 100%;
+      padding: 12px;
+    }
 
-		.modal .text h1 {
-			margin: 0 24px 0 0;
-		}
+    .modal .text h1 {
+      margin: 0 24px 0 0;
+    }
 
-		.screenshot-container .screenshots > * {
-			padding: 2px;
-		}
-	} */
+    .screenshot-container .screenshots > * {
+      padding: 2px;
+    }
+  }
 </style>
 
 <div class="modal-shade" style="display: {isModalEnabled ? 'grid' : 'none'};">
