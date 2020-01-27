@@ -221,10 +221,10 @@
   }
 </style>
 
-<div class="slider js_slider">
-  <div class="frame js_frame">
+<div class="slider">
+  <div class="frame">
     <div
-      class="slides js_slides"
+      class="slides"
       style="transform: translateX({horizontalScrollOffset}px)">
       {#each works as work, index}
         <div
