@@ -7,6 +7,8 @@
   .work-description {
     display: grid;
     justify-items: center;
+    /* Workaround for description text weirdly being selected after sliding */
+    user-select: none;
   }
 
   .work-description-content {
