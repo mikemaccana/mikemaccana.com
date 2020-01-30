@@ -174,7 +174,7 @@
   <a
     class="navitem github"
     target="_blank"
-    href="http://github.com/mikemaccana">
+    href="https://github.com/mikemaccana">
     <img alt="" src="/images/icons/github.svg" />
     GitHub
   </a>
