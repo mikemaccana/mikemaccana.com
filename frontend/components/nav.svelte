@@ -91,6 +91,21 @@
 
   a.navitem.stackoverflow {
     padding-right: 43px;
+    position: relative;
+  }
+
+  .bragging {
+    font-family: "Open Sans", "Segoe UI", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 3px 6px;
+    position: absolute;
+    top: 58px;
+    text-transform: uppercase;
+    color: #0078d4;
+    background-color: white;
+    right: 38px;
   }
 
   a.navitem.speakerdeck {
@@ -129,6 +144,7 @@
     href="http://stackoverflow.com/users/123671/mikemaccana">
     <img alt="" src="/images/icons/stack-overflow.svg" />
     StackOverflow
+    <div class="bragging">Top 0.28%</div>
   </a>
 
   <a
