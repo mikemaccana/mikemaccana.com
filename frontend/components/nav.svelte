@@ -179,7 +179,10 @@
     GitHub
   </a>
 
-  <a class="navitem blog" target="_blank" href="https://expeditedssl.com/blog">
+  <a
+    class="navitem blog"
+    target="_blank"
+    href="https://expeditedsecurity.com/blog/">
     <img alt="" src="/images/icons/blog.svg" />
     Blog
   </a>
