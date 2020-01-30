@@ -124,8 +124,8 @@
     padding-right: 70px;
   }
 
-  a.navitem.about {
-    padding-right: 70px;
+  a.navitem.blog {
+    padding-right: 94px;
   }
 
   a.navitem.work {
@@ -177,6 +177,11 @@
     href="http://github.com/mikemaccana">
     <img alt="" src="/images/icons/github.svg" />
     GitHub
+  </a>
+
+  <a class="navitem blog" target="_blank" href="https://expeditedssl.com/blog">
+    <img alt="" src="/images/icons/blog.svg" />
+    Blog
   </a>
 
   <a class="navitem work" href="/">
