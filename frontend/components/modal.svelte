@@ -62,10 +62,6 @@
     font-size: 12pt;
   }
 
-  button {
-    border: 1px solid whiteSmoke;
-  }
-
   h1 {
     margin: 0 0 var(--spacing) 0;
   }
