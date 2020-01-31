@@ -17,6 +17,18 @@
 
   var log = console.log.bind(console);
 
+  // Mobile Edge, Chrome etc will trigger spurious `resize` events on window when a user scrolls up and down.
+  // So we only do window resize work when the width changes.
+  var previousWidth = window.innerWidth;
+  var isWindowWidthChange = function() {
+    log(`Previouswidth is ${previousWidth}, new width is ${window.innerWidth}`);
+    if (window.innerWidth !== previousWidth) {
+      previousWidth = window.innerWidth;
+      return true;
+    }
+    return false;
+  };
+
   var setHorizontalScrollOffset = function() {
     var widthOfWindow = window.innerWidth;
     horizontalScrollOffset =
@@ -50,8 +62,13 @@
   onMount(function() {
     // When the window resizes go to slide 0
     window.addEventListener("resize", function(event) {
-      currentIndex = 0;
-      setHorizontalScrollOffset();
+      if (isWindowWidthChange()) {
+        log(`width has changed`);
+        currentIndex = 0;
+        setHorizontalScrollOffset();
+      } else {
+        log(`Ignoring window height change`);
+      }
     });
 
     window.addEventListener("keyup", function(event) {
