@@ -73,8 +73,8 @@
   .close {
     cursor: pointer;
     position: absolute;
-    right: var(--spacing);
-    top: var(--spacing);
+    right: 12px;
+    top: 12px;
   }
 
   @media screen and (max-width: 850px) {
