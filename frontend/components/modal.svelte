@@ -83,6 +83,8 @@
     }
 
     .modal {
+      /* Mobile devices sometimes hide the top of the page with the address bar, which makes the X unclickable */
+      margin-top: 48px;
       height: 100%;
       align-content: stretch;
     }
