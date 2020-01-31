@@ -1,5 +1,8 @@
 <script>
   import { onMount } from "svelte";
+
+  import debounce from "lodash.debounce";
+
   const LEFT = 37,
     RIGHT = 39;
 
@@ -61,15 +64,19 @@
 
   onMount(function() {
     // When the window resizes go to slide 0
-    window.addEventListener("resize", function(event) {
+    var handleResize = debounce(function(event) {
       if (isWindowWidthChange()) {
         log(`width has changed`);
         currentIndex = 0;
         setHorizontalScrollOffset();
       } else {
-        log(`Ignoring window height change`);
+        log(
+          `Ignoring window height change (probably a mobiel device showing / removing UI)`
+        );
       }
-    });
+    }, 100);
+
+    window.addEventListener("resize", handleResize);
 
     window.addEventListener("keyup", function(event) {
       if (event.keyCode === LEFT) {
