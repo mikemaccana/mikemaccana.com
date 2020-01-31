@@ -3,7 +3,9 @@
   const LEFT = 37,
     RIGHT = 39;
 
-  const slideWidth = 400 + 12 + 12;
+  const PADDING = 12;
+
+  const slideWidth = 400 + PADDING + PADDING;
 
   export let works;
   export let currentIndex;
@@ -22,9 +24,8 @@
       widthOfWindow / 2 -
       // But then adjusted back left, half a grid item away (so center is in middle)
       slideWidth / 2 -
-      // Then adjusted if we've selected a new item
+      // Then adjusted for X items across
       currentIndex * slideWidth;
-    log(`horizontalScrollOffset is ${horizontalScrollOffset}`);
   };
 
   var changeSlide = function(isForward) {
