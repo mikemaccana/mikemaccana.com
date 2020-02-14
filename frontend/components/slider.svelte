@@ -176,7 +176,8 @@
           {index === 0 ? 'first' : ''}">
           <img
             src="/images/work/screenshots/{works[index].slug}-0.{works[index].imageExtension}"
-            alt="Not provided" />
+            alt={works[index].slug}
+            loading="lazy" />
         </div>
       {/each}
     </div>
