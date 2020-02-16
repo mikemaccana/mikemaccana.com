@@ -64,13 +64,15 @@
 
   h1 {
     margin: 0 0 var(--spacing) 0;
+    text-align: center;
+    font-size: 48px;
   }
 
   .close {
     cursor: pointer;
     position: absolute;
-    right: 12px;
-    top: 12px;
+    right: 24px;
+    top: 24px;
   }
 
   @media screen and (max-width: 850px) {
