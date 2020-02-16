@@ -94,5 +94,5 @@
     alt="wide m"
     src="/images/monogram-wide-m.svg" />
   <h1 class={isActive ? 'active' : ''}>Mike MacCana</h1>
-  <h2 class={isActive ? 'active' : ''}>I make software products</h2>
+  <h2 class={isActive ? 'active' : ''}>I create amazing software</h2>
 </div>
