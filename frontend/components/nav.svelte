@@ -131,6 +131,10 @@
   a.navitem.work {
     padding-right: 63px;
   }
+
+  a.navitem.cv {
+    padding-right: 72px;
+  }
 </style>
 
 <Hamburger bind:isMenuActive />
@@ -190,6 +194,13 @@
   <a class="navitem work" href="/">
     <img alt="" src="/images/icons/work.svg" />
     Work
+  </a>
+
+  <a
+    class="navitem cv"
+    href="/downloads/{encodeURIComponent('Mike MacCana CV.pdf')}">
+    <img alt="" src="/images/icons/cv.svg" />
+    CV
   </a>
 
   <img
