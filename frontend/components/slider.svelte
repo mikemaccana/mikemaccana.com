@@ -191,16 +191,25 @@
         changeSlide(false);
       }}>
       <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 30 30"
+        version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        width="50"
-        height="50"
-        viewBox="0 0 501.5 501.5">
-        <g>
-          <path
-            fill="#CCC"
-            d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77
-            55.506L143.56 250.75z" />
-        </g>
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xml:space="preserve"
+        xmlns:serif="http://www.serif.com/"
+        style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.5;">
+        <rect
+          id="Artboard1"
+          x="0"
+          y="0"
+          width="30"
+          height="30"
+          style="fill:none;" />
+        <path
+          d="M20,2l-13,13c0,0 8.667,8.667 13,13"
+          style="fill:none;stroke:#fff;stroke-width:1px;" />
       </svg>
     </span>
   {/if}
@@ -212,16 +221,25 @@
         changeSlide(true);
       }}>
       <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 30 30"
+        version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        width="50"
-        height="50"
-        viewBox="0 0 501.5 501.5">
-        <g>
-          <path
-            fill="#CCC"
-            d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56
-            146.384l55.77-55.507L358.44 250.75z" />
-        </g>
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xml:space="preserve"
+        xmlns:serif="http://www.serif.com/"
+        style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.5;">
+        <rect
+          id="Artboard1"
+          x="0"
+          y="0"
+          width="30"
+          height="30"
+          style="fill:none;" />
+        <path
+          d="M10,2l13,13c0,0 -8.667,8.667 -13,13"
+          style="fill:none;stroke:#fff;stroke-width:1px;" />
       </svg>
     </span>
   {/if}

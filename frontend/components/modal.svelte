@@ -71,6 +71,8 @@
     position: absolute;
     right: 12px;
     top: 12px;
+    height: 50px;
+    width: 50px;
   }
 
   @media screen and (max-width: 850px) {
@@ -122,6 +124,6 @@
         </div>
       </div>
     </div>
-    <img class="close" src="/images/icons/close.png" alt="Close" />
+    <img class="close" src="/images/icons/close.svg" alt="Close" />
   </div>
 </div>
