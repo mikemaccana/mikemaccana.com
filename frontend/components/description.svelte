@@ -15,6 +15,7 @@
     padding: var(--spacing);
     text-align: left;
     grid-template-columns: 7fr 3fr;
+    border-radius: var(--rounded-corners);
   }
 
   .work-title {

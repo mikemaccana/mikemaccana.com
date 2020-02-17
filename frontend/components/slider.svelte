@@ -140,6 +140,7 @@
     width: 100%;
     /*Some images have transparent backgrounds */
     background-color: white;
+    border-radius: var(--rounded-corners);
   }
 
   .previous,
