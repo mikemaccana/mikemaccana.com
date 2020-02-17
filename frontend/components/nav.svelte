@@ -58,13 +58,8 @@
     transform: translateX(0);
   }
 
-  nav.menu-active a {
-    color: whiteSmoke;
-  }
-
   a.navitem img {
     height: 24px;
-    margin-right: 6px;
   }
 
   a,
@@ -74,12 +69,17 @@
     font-family: "Caslon";
     line-height: 36px;
     font-size: 32px;
-    color: transparent;
     text-decoration: none;
     width: 100%;
-    display: block;
+    color: whiteSmoke;
     padding: var(--spacing);
     transition: all 0.2s ease-out;
+    justify-content: right;
+    grid-auto-flow: column;
+    display: grid;
+    position: relative;
+    align-content: center;
+    grid-gap: 12px;
   }
   a:hover {
     color: var(--textcolor);
@@ -91,7 +91,6 @@
 
   a.navitem.stackoverflow {
     padding-right: 43px;
-    position: relative;
   }
 
   .bragging {
@@ -101,7 +100,7 @@
     line-height: 14px;
     padding: 3px 6px;
     position: absolute;
-    top: 58px;
+    top: 95px;
     text-transform: uppercase;
     color: #0078d4;
     background-color: white;
@@ -109,31 +108,31 @@
   }
 
   a.navitem.speakerdeck {
-    padding-right: 43px;
+    padding-right: 38px;
   }
 
   a.navitem.linkedin {
-    padding-right: 80px;
+    padding-right: 90px;
   }
 
   a.navitem.twitter {
-    padding-right: 88px;
+    padding-right: 106px;
   }
 
   a.navitem.github {
-    padding-right: 70px;
+    padding-right: 91px;
   }
 
   a.navitem.blog {
-    padding-right: 94px;
+    padding-right: 124px;
   }
 
   a.navitem.work {
-    padding-right: 63px;
+    padding-right: 102px;
   }
 
   a.navitem.cv {
-    padding-right: 72px;
+    padding-right: 121px;
   }
 </style>
 
