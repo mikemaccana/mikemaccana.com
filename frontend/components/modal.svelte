@@ -90,20 +90,6 @@
     width: 50px;
   }
 
-  /* ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    background-color: #f5f5f5;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border: 2px solid #555555;
-  } */
-
   @media screen and (max-width: 850px) {
     .modal-shade {
       overflow-y: scroll;
