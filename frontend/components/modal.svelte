@@ -7,8 +7,7 @@
 <style>
   :root {
     --modal-height: 500px;
-    /* Modify 'columnWidth' value in works.js if this is changed */
-    --masonry-base: 340px;
+    --masonry-base: 388px;
   }
 
   .modal-shade {
@@ -38,15 +37,46 @@
     max-width: 100%;
     color: whitesmoke;
     margin: 0 auto;
+    grid-template-rows: 56px auto;
   }
 
   .screenshot-container {
     max-width: 100%;
     overflow-y: scroll;
+
+    /* https://codepen.io/chriscoyier/pen/XojXxy */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 900px;
+  }
+
+  .screenshot-container.x-small {
+    height: 300px;
+  }
+
+  .screenshot-container.small {
+    height: 600px;
+  }
+
+  .screenshot-container.medium {
+    height: 800px;
+  }
+
+  .screenshot-container.large {
+    height: 1100px;
+  }
+
+  .screenshot-container.x-large {
+    height: 1700px;
   }
 
   .screenshot-container::-webkit-scrollbar {
     width: 8px;
+  }
+
+  .screenshot-container img {
+    background-color: white;
   }
 
   .screenshot-container::-webkit-scrollbar-track {
@@ -59,8 +89,9 @@
     border: 1px solid var(--midgrey);
   }
 
-  .screenshots * {
-    padding: 12px;
+  .screenshot-container .tile,
+  .screenshot-container a {
+    margin: 6px;
   }
 
   .tile {
@@ -70,13 +101,14 @@
   .tile:first-of-type {
     width: var(--masonry-base);
   }
+
   .tile.description {
     width: var(--masonry-base);
     font-size: 12pt;
   }
 
   h1 {
-    margin: 0 0 var(--spacing) 0;
+    margin: 0;
     text-align: center;
     font-size: 48px;
   }
@@ -111,7 +143,7 @@
       margin: 0 24px 0 0;
     }
 
-    .screenshot-container .screenshots > * {
+    .screenshot-container > * {
       padding: 2px;
     }
   }
@@ -121,22 +153,21 @@
   <div class="modal">
     <div class="content">
       <h1>{works[currentIndex].title}</h1>
-      <div class="screenshot-container">
-        <div class="screenshots">
-          <div class="tile description">
-            {@html works[currentIndex].description}
-          </div>
-          {#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
-            <a
-              href="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
-              target="_blank">
-              <img
-                class="tile"
-                src="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
-                alt={works[currentIndex].slug} />
-            </a>
-          {/each}
+      <div
+        class="screenshot-container {works[currentIndex].displayTip ? works[currentIndex].displayTip : ''}">
+        <div class="tile description">
+          {@html works[currentIndex].description}
         </div>
+        {#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
+          <a
+            href="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
+            target="_blank">
+            <img
+              class="tile"
+              src="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
+              alt={works[currentIndex].slug} />
+          </a>
+        {/each}
       </div>
     </div>
     <img class="close" src="/images/icons/close.svg" alt="Close" />

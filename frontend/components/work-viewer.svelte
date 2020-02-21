@@ -1,7 +1,6 @@
 <script>
   import Slider from "./slider.svelte";
   import Description from "./description.svelte";
-  import Masonry from "../js/thirdparty/masonry/masonry.js";
   import "../js/utils/element-on.js";
   import "../js/utils/get-parent-index.js";
   import { select, selectAll, log } from "../js/utils/basics.js";
@@ -19,16 +18,7 @@
 
     var enableModal = function() {
       log(`starting modal`);
-
       isModalEnabled = true;
-      setTimeout(function() {
-        // Masonry
-        var masonryElement = document.querySelector(".screenshots");
-        new Masonry(masonryElement, {
-          itemSelector: ".tile",
-          columnWidth: 340 / 2
-        });
-      }, NEXT_TICK);
     };
 
     var disableModal = function() {
