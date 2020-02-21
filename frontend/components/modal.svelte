@@ -98,10 +98,6 @@
     width: calc(var(--masonry-base) / 2);
   }
 
-  .tile:first-of-type {
-    width: var(--masonry-base);
-  }
-
   .tile.description {
     width: var(--masonry-base);
     font-size: 12pt;
@@ -123,6 +119,10 @@
   }
 
   @media screen and (max-width: 850px) {
+    h1 {
+      font-size: 24px;
+      line-height: 30px;
+    }
     .modal-shade {
       overflow-y: scroll;
     }
@@ -141,6 +141,25 @@
 
     .modal .content h1 {
       margin: 0 24px 0 0;
+      display: grid;
+      align-items: center;
+    }
+
+    .screenshot-container {
+      display: block;
+      height: auto;
+    }
+
+    .close {
+      right: 12px;
+      top: 12px;
+      height: 24px;
+      width: 24px;
+    }
+
+    .screenshot-container .tile {
+      width: 100%;
+      height: auto;
     }
 
     .screenshot-container > * {
