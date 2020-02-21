@@ -32,7 +32,7 @@
     position: relative;
   }
 
-  .text {
+  .content {
     padding: var(--spacing);
     width: var(--single-column-threshold-width);
     max-width: 100%;
@@ -102,12 +102,12 @@
       align-content: stretch;
     }
 
-    .modal .text {
+    .modal .content {
       width: 100%;
       padding: 12px;
     }
 
-    .modal .text h1 {
+    .modal .content h1 {
       margin: 0 24px 0 0;
     }
 
@@ -119,7 +119,7 @@
 
 <div class="modal-shade" style="display: {isModalEnabled ? 'grid' : 'none'};">
   <div class="modal">
-    <div class="text">
+    <div class="content">
       <h1>{works[currentIndex].title}</h1>
       <div class="screenshot-container">
         <div class="screenshots">
