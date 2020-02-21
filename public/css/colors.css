@@ -1,8 +1,9 @@
 :root {
 	--lightgrey: #b7b7b7;
-	--midgrey: #222;
+	--midgrey: #212121;
 	--scaryred: #b90f00;
 	--shadedgrey: rgba(0, 0, 0, 0.7);
+	--slightlyshadedgrey: rgba(0, 0, 0, 0.2);
 	--screenshots-total-width: 2000px;
 
 	--textcolor: white;

@@ -26,8 +26,8 @@
   .modal {
     z-index: 3;
     grid-row: 1;
-    background-color: black;
-    height: var(--modal-height);
+    background-color: var(--midgrey);
+    height: var(--midgrey);
     opacity: 1;
     position: relative;
   }
@@ -42,8 +42,21 @@
 
   .screenshot-container {
     max-width: 100%;
-
     overflow-y: scroll;
+  }
+
+  .screenshot-container::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .screenshot-container::-webkit-scrollbar-track {
+    background: var(--slightlyshadedgrey);
+    border-radius: 6px;
+  }
+  .screenshot-container::-webkit-scrollbar-thumb {
+    background-color: var(--lightgrey);
+    border-radius: 6px;
+    border: 1px solid var(--midgrey);
   }
 
   .screenshots * {
@@ -76,6 +89,20 @@
     height: 50px;
     width: 50px;
   }
+
+  /* ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid #555555;
+  } */
 
   @media screen and (max-width: 850px) {
     .modal-shade {
