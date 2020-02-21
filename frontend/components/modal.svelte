@@ -89,13 +89,14 @@
     border: 1px solid var(--midgrey);
   }
 
-  .screenshot-container .tile,
-  .screenshot-container a {
+  .screenshot-container .tile {
     margin: 6px;
+    width: var(--masonry-base);
+    display: grid;
   }
 
-  .tile {
-    width: calc(var(--masonry-base) / 2);
+  .tile img {
+    width: 100%;
   }
 
   .tile.description {
@@ -179,10 +180,10 @@
         </div>
         {#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
           <a
+            class="tile"
             href="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
             target="_blank">
             <img
-              class="tile"
               src="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
               alt={works[currentIndex].slug} />
           </a>
