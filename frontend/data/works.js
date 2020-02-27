@@ -274,7 +274,7 @@ var works = [
 		previewImage: `google-10th-birthday-germany.png`,
 		screenshotCount: 2,
 		imageExtension: `png`,
-		displayTip: "small",
+		displayTip: "x-small",
 		client: `google`,
 		title: `Google 10th Birthday Germany`,
 		lede: `A rich, interactive site created to showcase Google's work over the last decade in Germany. `,
