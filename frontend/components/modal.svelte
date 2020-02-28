@@ -69,6 +69,10 @@
   }
 
   .screenshot-container.x-large {
+    height: 1300px;
+  }
+
+  .screenshot-container.xx-large {
     height: 1700px;
   }
 
