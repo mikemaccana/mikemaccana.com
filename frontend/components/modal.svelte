@@ -38,6 +38,7 @@
     color: whitesmoke;
     margin: 0 auto;
     grid-template-rows: 56px auto;
+    grid-gap: 12px;
   }
 
   .screenshot-container {
