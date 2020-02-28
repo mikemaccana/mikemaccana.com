@@ -3,8 +3,6 @@
 
   import debounce from "lodash.debounce";
 
-  const LEFT = 37,
-    RIGHT = 39;
 
   const PADDING = 12;
 
@@ -79,11 +77,11 @@
     window.addEventListener("resize", handleResize);
 
     window.addEventListener("keyup", function(event) {
-      if (event.keyCode === LEFT) {
+      if (event.keyCode === LEFT_KEY) {
         log(`Going back!`);
         changeSlide(false);
       }
-      if (event.keyCode === RIGHT) {
+      if (event.keyCode === RIGHT_KEY) {
         log(`Going forward!`);
         changeSlide(true);
       }
