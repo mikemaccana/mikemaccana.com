@@ -98,7 +98,7 @@ var works = [
 		imageExtension: `png`,
 		displayTip: "xx-large",
 		client: `bazaarvoice`,
-		title: `Bazaarvoice Tips`,
+		title: `Tips`,
 		pubDate: `Fri, 30 Aug 2013 14:30:14 +0000`,
 		lede: `Concieved, and developed a major new application in Bazaarvoice suite.`,
 		description: `
@@ -115,7 +115,7 @@ var works = [
 		screenshotCount: 2,
 		imageExtension: `png`,
 		client: `bazaarvoice`,
-		title: `Bazaarvoice Ratings and Reviews`,
+		title: `Ratings and Reviews`,
 		pubDate: `Fri, 30 Aug 2013 14:34:59 +0000`,
 		lede: `A Facebook version of Bazaarvoice's hugely popular and award-winning Ratings and Reviews app, used on major retailers and brands worldwide.`,
 		description: `
@@ -132,7 +132,7 @@ var works = [
 		imageExtension: `png`,
 		displayTip: "medium",
 		client: `bazaarvoice`,
-		title: `Bazaarvoice Stories`,
+		title: `Stories`,
 		pubDate: `Mon, 12 Aug 2013 08:45:37 +0000`,
 		lede: `A photo-centric Facebook app.`,
 		description: `
@@ -169,7 +169,7 @@ var works = [
 		imageExtension: `png`,
 		displayTip: "small",
 		client: `bazaarvoice`,
-		title: `Bazaarvoice Questions and Answers`,
+		title: `Questions and Answers`,
 		pubDate: `Fri, 30 Aug 2013 14:17:04 +0000`,
 		lede: `Connecting customers with company staff and the wider product community to answer product questions.`,
 		description: `
@@ -216,7 +216,7 @@ var works = [
 		imageExtension: `png`,
 		displayTip: "small",
 		client: `google`,
-		title: `Android 4 Worldwide Launch`,
+		title: `Android 4 Launch`,
 		pubDate: `Tue, 13 Aug 2013 10:39:45 +0000`,
 		lede: `Launch of Android 4 (Ice Cream Sandwich) and the Samsung Galaxy Nexus phone.`,
 		description: `
