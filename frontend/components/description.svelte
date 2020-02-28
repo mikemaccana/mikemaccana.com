@@ -5,7 +5,6 @@
 
 <style>
   .work-description {
-    display: grid;
     justify-items: center;
   }
 
@@ -13,6 +12,7 @@
     background-color: var(--shadedgrey);
     max-width: 600px;
     padding: var(--spacing);
+    grid-gap: var(--spacing);
     text-align: left;
     grid-template-columns: 7fr 3fr;
     border-radius: var(--rounded-corners);
@@ -26,9 +26,9 @@
   }
 
   .work-logo {
-    grid-row: 1;
-    grid-column: 2;
+    grid-area: 1 / 2 / 3 / 3;
     width: 100%;
+    align-self: center;
   }
 
   .work-lede {
