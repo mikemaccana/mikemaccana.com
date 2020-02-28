@@ -1,7 +1,6 @@
 <script>
   import { select, selectAll, log } from "../js/utils/basics.js";
   import { onMount } from "svelte";
-  console.log(`Hello from monogram.svelte`);
 
   let isActive = false;
 

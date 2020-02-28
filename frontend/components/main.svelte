@@ -13,8 +13,6 @@
   var worksWrapper = select(".works-wrapper"),
     workDescription = select(".work-description");
 
-  log(`Hello from main.svelte, works are ${print(works)}`);
-
   var currentIndex = 0;
   var isModalEnabled = false;
 </script>
