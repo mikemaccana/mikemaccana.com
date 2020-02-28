@@ -378,6 +378,7 @@ var works = [
 		previewImage: `doom-the-path.png`,
 		screenshotCount: 4,
 		imageExtension: `png`,
+		displayTip: "medium",
 		client: `doom`,
 		title: `Doom: The Path`,
 		lede: `Released in 1996, one of the most critically acclaimed (and largest) Doom II levels of all time.`,
