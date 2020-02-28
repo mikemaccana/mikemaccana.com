@@ -233,7 +233,7 @@ var works = [
 		screenshotCount: 1,
 		imageExtension: `png`,
 		displayTip: "x-small",
-		client: `google`,
+		client: `opensource`,
 		title: `Agave JS`,
 		pubDate: `Fri, 30 Aug 2013 14:00:16 +0000`,
 		lede: `Safe native methods for modern JavaScript environments.`,
@@ -273,7 +273,7 @@ var works = [
 		imageExtension: `png`,
 		displayTip: "medium",
 		client: `google`,
-		title: `Google Getting American Business Online`,
+		title: `Getting American Business Online`,
 		lede: `Google's worldwide programme to get businesses online`,
 		description: `
 			<p>Google's worldwide programme to get businesses online, aiming to substantially reduce the count of all businesses that don't have an internet presence.</p>
@@ -289,7 +289,7 @@ var works = [
 		imageExtension: `png`,
 		displayTip: "x-small",
 		client: `google`,
-		title: `Google 10th Birthday Germany`,
+		title: `10th Birthday Germany`,
 		lede: `A rich, interactive site created to showcase Google's work over the last decade in Germany. `,
 		description: `
 			<p>A rich, interactive site created to showcase Google's work over the last decade in Germany. </p>
@@ -302,7 +302,6 @@ var works = [
 	{
 		slug: `im-everyone`,
 		previewImage: `im-everyone.png`,
-
 		screenshotCount: 3,
 		imageExtension: `png`,
 		displayTip: "large",
