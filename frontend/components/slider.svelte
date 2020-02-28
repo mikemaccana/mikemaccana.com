@@ -10,8 +10,7 @@
 
   const PADDING = 12;
 
-  // TODO: this number is done by eye. Work out what the actual width of a grid item is.
-  const slideWidth = 400 + 6;
+  const slideWidth = 400;
 
   export let works;
   export let currentIndex;
@@ -107,26 +106,27 @@
   .slides {
     display: grid;
     align-items: center;
-
-    /* Required - removing this causes the slides area to be cut off */
-    width: 9752px;
+    grid-auto-flow: column;
     justify-items: center;
-
+    width: 10000px;
     transition-timing-function: ease;
     transition-duration: 600ms;
   }
 
   .slide {
-    grid-row: 1;
-
-    /*Needs to be defined (or a width set individually on each) for slider buttons to work */
-    width: 400px;
-
     /*Darken and zoom out till selected */
     opacity: 0.3;
     transition: all 0.1s ease-out;
     transform: scale(0.6);
     filter: blur(2px);
+
+    width: 100%;
+    height: 100%;
+
+    align-content: center;
+
+    /* Debugging only */
+    /* border: 1px solid red; */
   }
 
   .slide.selected {
@@ -139,7 +139,7 @@
   .slide img {
     /*Make images fit in container (they're retina) */
     width: 100%;
-    /*Some images have transparent backgrounds */
+    /*Some images have transparent backgrounds*/
     background-color: white;
     border-radius: var(--rounded-corners);
   }
@@ -171,7 +171,8 @@
   <div class="frame">
     <div
       class="slides"
-      style="transform: translateX({horizontalScrollOffset}px)">
+      style="transform: translateX({horizontalScrollOffset}px);
+      grid-template-columns: repeat({works.length}, {slideWidth}px);">
       {#each works as work, index}
         <div
           class="slide {index === currentIndex ? 'selected' : ''}
