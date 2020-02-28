@@ -3,10 +3,15 @@
 
   import debounce from "lodash.debounce";
 
+  var log = console.log.bind(console);
+
+  const LEFT_KEY = 37,
+    RIGHT_KEY = 39;
 
   const PADDING = 12;
 
-  const slideWidth = 400 + PADDING + PADDING;
+  // TODO: this number is done by eye. Work out what the actual width of a grid item is.
+  const slideWidth = 400 + 6;
 
   export let works;
   export let currentIndex;
@@ -15,8 +20,6 @@
 
   $: isFirstSlide = currentIndex === 0;
   $: isLastSlide = currentIndex === works.length - 1;
-
-  var log = console.log.bind(console);
 
   // Mobile Edge, Chrome etc will trigger spurious `resize` events on window when a user scrolls up and down.
   // So we only do window resize work when the width changes.
