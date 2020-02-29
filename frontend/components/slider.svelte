@@ -10,7 +10,7 @@
 
   const PADDING = 12;
 
-  const slideWidth = 400;
+  const SLIDE_WIDTH = 500;
 
   export let works;
   export let currentIndex;
@@ -38,9 +38,9 @@
       // Halfway across screen
       widthOfWindow / 2 -
       // But then adjusted back left, half a grid item away (so center is in middle)
-      slideWidth / 2 -
+      SLIDE_WIDTH / 2 -
       // Then adjusted for X items across
-      currentIndex * slideWidth;
+      currentIndex * SLIDE_WIDTH;
   };
 
   var changeSlide = function(isForward) {
@@ -108,7 +108,7 @@
     align-items: center;
     grid-auto-flow: column;
     justify-items: center;
-    width: 10000px;
+    width: 20000px;
     transition-timing-function: ease;
     transition-duration: 600ms;
   }
@@ -172,7 +172,7 @@
     <div
       class="slides"
       style="transform: translateX({horizontalScrollOffset}px);
-      grid-template-columns: repeat({works.length}, {slideWidth}px);">
+      grid-template-columns: repeat({works.length}, {SLIDE_WIDTH}px);">
       {#each works as work, index}
         <div
           class="slide {index === currentIndex ? 'selected' : ''}
