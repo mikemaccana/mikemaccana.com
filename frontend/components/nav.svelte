@@ -100,7 +100,7 @@
     line-height: 14px;
     padding: 3px 6px;
     position: absolute;
-    top: 95px;
+    top: 110px;
     text-transform: uppercase;
     color: #0078d4;
     background-color: white;
@@ -147,7 +147,7 @@
     href="http://stackoverflow.com/users/123671/mikemaccana">
     <img alt="" src="/images/icons/stack-overflow.svg" />
     StackOverflow
-    <div class="bragging">Top 0.28%</div>
+    <div class="bragging">Top 0.26%</div>
   </a>
 
   <a
