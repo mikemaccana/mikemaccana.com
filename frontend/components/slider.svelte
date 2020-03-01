@@ -178,7 +178,7 @@
           class="slide {index === currentIndex ? 'selected' : ''}
           {index === 0 ? 'first' : ''}">
           <img
-            src="/images/work/screenshots/{works[index].slug}-0.{works[index].imageExtension}"
+            src="/images/work/screenshots/thumbs/{works[index].slug}-0.{works[index].imageExtension}"
             alt={works[index].slug}
             loading="lazy" />
         </div>
