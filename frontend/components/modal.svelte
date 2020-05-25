@@ -82,6 +82,7 @@
 
   .screenshot-container img {
     background-color: white;
+    border-radius: var(--spacing);
   }
 
   .screenshot-container::-webkit-scrollbar-track {
