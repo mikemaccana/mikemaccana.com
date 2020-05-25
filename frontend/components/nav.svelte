@@ -85,9 +85,6 @@
     color: var(--textcolor);
     transform: translateX(5px);
   }
-  .linkedin-tracker {
-    display: none;
-  }
 
   a.navitem.stackoverflow {
     padding-right: 43px;
@@ -203,8 +200,4 @@
     CV
   </a>
 
-  <img
-    class="linkedin-tracker"
-    src="https://www.linkedin.com/profile/view?authToken=zRgB&authType=name&id=13692926"
-    alt="Not provided" />
 </nav>
