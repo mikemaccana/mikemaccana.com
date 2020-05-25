@@ -10,7 +10,8 @@
 
   const PADDING = 12;
 
-  const SLIDE_WIDTH = 500;
+  const SLIDE_WIDTH = 600,
+    SLIDE_HEIGHT = 400;
 
   export let works;
   export let currentIndex;
@@ -121,12 +122,19 @@
     filter: blur(2px);
 
     width: 100%;
-    height: 100%;
+
+    background-size: cover;
 
     align-content: center;
 
     /* Debugging only */
     /* border: 1px solid red; */
+
+    /*Some images have transparent backgrounds*/
+    background-color: white;
+    border-radius: var(--rounded-corners);
+
+    align-content: stretch;
   }
 
   .slide.selected {
@@ -136,12 +144,42 @@
     cursor: pointer;
   }
 
-  .slide img {
-    /*Make images fit in container (they're retina) */
-    width: 100%;
-    /*Some images have transparent backgrounds*/
-    background-color: white;
+  .work-description {
+    background: var(--vertical-fade);
+    justify-items: center;
+    align-content: end;
+  }
+
+  .work-description-content {
+    max-width: 600px;
+    padding: var(--spacing);
+    grid-gap: --calc(var(--spacing) / 4);
+    text-align: left;
+    grid-template-columns: 7fr 3fr;
     border-radius: var(--rounded-corners);
+  }
+
+  .work-title {
+    font-size: 26pt;
+    margin: calc(var(--spacing) / 4) 0;
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .work-logo {
+    grid-area: 1 / 2 / 3 / 3;
+    width: 100%;
+    align-self: center;
+  }
+
+  .work-lede {
+    grid-area: 2 1 3 2;
+  }
+
+  .work-title,
+  .work-logo,
+  .work-lede {
+    float: left;
   }
 
   .previous,
@@ -176,11 +214,19 @@
       {#each works as work, index}
         <div
           class="slide {index === currentIndex ? 'selected' : ''}
-          {index === 0 ? 'first' : ''}">
-          <img
-            src="/images/work/screenshots/thumbs/{works[index].slug}-0.{works[index].imageExtension}"
-            alt={works[index].slug}
-            loading="lazy" />
+          {index === 0 ? 'first' : ''}"
+          style="background-image: url(/images/work/screenshots/thumbs/{works[index].slug}-0.{works[index].imageExtension});
+          min-height: {SLIDE_HEIGHT}px;">
+          <div class="work-description">
+            <div class="work-description-content">
+              <h3 class="work-title">{works[index].title}</h3>
+              <img
+                class="work-logo"
+                src="/images/logos/{works[index].client}.png"
+                alt="Not provided" />
+              <div class="work-lede">{works[index].lede}</div>
+            </div>
+          </div>
         </div>
       {/each}
     </div>

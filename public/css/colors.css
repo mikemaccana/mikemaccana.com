@@ -4,6 +4,8 @@
 	--scaryred: #b90f00;
 	--shadedgrey: rgba(0, 0, 0, 0.7);
 	--slightlyshadedgrey: rgba(0, 0, 0, 0.2);
+
+	--vertical-fade: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0,0,0,0.75) 30%, rgba(0,0,0,0) 100%);
 	--screenshots-total-width: 2000px;
 
 	--textcolor: white;

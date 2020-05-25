@@ -1,6 +1,5 @@
 <script>
   import Slider from "./slider.svelte";
-  import Description from "./description.svelte";
   import "../js/utils/element-on.js";
   import "../js/utils/get-parent-index.js";
   import { select, selectAll, log } from "../js/utils/basics.js";
@@ -26,9 +25,11 @@
     };
 
     // Set up showing work detail when items are clicked
-    body.on("click", ".slide.selected img", function(event) {
-      log(`Clicked active image!`);
-      enableModal();
+    body.addEventListener("click", function(event) {
+      if (event.target.closest(".slide")) {
+        log(`Clicked active image!`);
+        enableModal();
+      }
     });
 
     closeElement.addEventListener("click", function(event) {
@@ -43,5 +44,3 @@
 </style>
 
 <Slider bind:works bind:currentIndex />
-
-<Description bind:works bind:currentIndex />
