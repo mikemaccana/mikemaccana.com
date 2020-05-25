@@ -10,8 +10,8 @@
 
   const PADDING = 12;
 
-  const SLIDE_WIDTH = 600,
-    SLIDE_HEIGHT = 400;
+  const SLIDE_WIDTH = Math.min(600, window.innerWidth),
+    SLIDE_HEIGHT = (SLIDE_WIDTH * 2) / 3;
 
   export let works;
   export let currentIndex;
