@@ -88,6 +88,7 @@
 
   a.navitem.stackoverflow {
     padding-right: 43px;
+    overflow: visible;
   }
 
   .bragging {
