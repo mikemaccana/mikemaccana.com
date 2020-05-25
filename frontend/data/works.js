@@ -325,9 +325,9 @@ var works = [
 		client: `opensource`,
 		title: `Python Docx`,
 		pubDate: `Fri, 30 Aug 2013 14:05:05 +0000`,
-		lede: `The native Python module for the current XML based Microsoft Word document format.`,
+		lede: `The native Python module to create, edit and save Microsoft Word documents.`,
 		description: `
-			<p>The native Python module for the current XML based Microsoft Word document format.</p>
+			<p>The native Python module to create, edit and save Microsoft Word documents.</p>
 			<ul>
 				<li>Thousand of users, and nearly 1000 stars on Github</li>
 				<li>LXML, OpenXML</li>
