@@ -2,9 +2,8 @@
 Description="Renew the cert"
 
 [Timer]
-OnBootSec=3min
-OnUnitActiveSec=monthly
-Unit=renew-cert.service
+OnCalendar=monthly
+Persistent=true
 
 [Install]
 WantedBy=multi-user.target
