@@ -3,3 +3,6 @@ Description="Renew the cert"
 
 [Service]
 ExecStart=/var/www/mikemaccana.com/renew-cert.bash
+
+[Install]
+WantedBy=multi-user.target
