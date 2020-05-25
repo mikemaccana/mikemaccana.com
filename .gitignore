@@ -64,7 +64,6 @@ typings/
 .DS_Store
 node_modules
 public/bundle.*
-package-lock.json
 yarn.lock
 public/js/bundle.js
 public/js/bundle.js.map
