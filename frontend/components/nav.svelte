@@ -92,16 +92,12 @@
   }
 
   .bragging {
-    font-family: "Open Sans", "Segoe UI", sans-serif;
     font-weight: 600;
     font-size: 14px;
     line-height: 14px;
     padding: 3px 6px;
     position: absolute;
     top: 75px;
-    text-transform: uppercase;
-    color: #0078d4;
-    background-color: white;
     right: 38px;
   }
 
