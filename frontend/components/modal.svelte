@@ -136,7 +136,7 @@
 
     .modal {
       /* Mobile devices can hide the top of the page with a dynanmically appearing address bar, which makes the X unclickable */
-      margin-top: 72px;
+      margin-top: 108px;
       height: 100vh;
       align-content: stretch;
     }

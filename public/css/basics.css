@@ -69,25 +69,28 @@ li {
 }
 
 body {
-	left: 0;
 	margin: 0;
 	background-color: black;
 	color: var(--textcolor);
-	overflow-x: hidden;
+	overflow: hidden;
 	background-size: cover;
 	background-image: url("/images/desk-dark.jpg");
 	background-repeat: repeat;
-	height: 100vh;
+	
+	/* https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser */
+	height: -webkit-fill-available;
+
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior */
+	overscroll-behavior: contain;
+	
 	width: 100vw;
 	align-content: center;
 }
 
 /* Hide things until monogram has loaded */
 body.loading .monogram-and-heading {
-	height: 100vh;
 	transition: all 1s ease-in-out;
 	align-content: center;
-	grid-template-rows: 100px 62px 100px;
 }
 
 /* Hide things until monogram has loaded */
@@ -104,17 +107,3 @@ body.loading .work-description {
 	max-width: var(--single-column-threshold-width);
 }
 
-/* Used to stop title and description from jumping around as larger images are shown  */
-body.loading.svelte-goes-here {
-	grid-template-rows: unset;
-}
-
-.svelte-goes-here {
-	grid-template-rows: 200px 500px;
-}
-
-@media screen and (max-width: 850px) {
-	.svelte-goes-here {
-		grid-template-rows: 172px 1fr 224px;
-	}
-}
