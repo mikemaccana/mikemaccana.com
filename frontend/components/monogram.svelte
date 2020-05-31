@@ -67,8 +67,8 @@
   }
 
   h2 {
-    font-size: 64px;
-    line-height: 68px;
+    font-size: 24px;
+    line-height: 32px;
   }
 
   @media screen and (max-width: 850px) {
@@ -93,5 +93,9 @@
     alt="wide m"
     src="/images/monogram-wide-m.svg" />
   <h1 class={isActive ? 'active' : ''}>Mike MacCana</h1>
-  <h2 class={isActive ? 'active' : ''}>I make amazing software</h2>
+  <h2 class={isActive ? 'active' : ''}>
+    Front end, back end, cloud infrastructure.
+    <br />
+    Founding, bootstrapping, hiring, troubleshooting.
+  </h2>
 </div>

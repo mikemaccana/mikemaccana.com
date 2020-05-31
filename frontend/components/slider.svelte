@@ -99,6 +99,10 @@
 <style>
   @import url("../css/colors.css");
   @import url("../css/metrics.css");
+
+  .frame {
+    margin-top: 12px;
+  }
   .slider {
     /* Needed for previous and next buttons to be vertically centered correctly */
     position: relative;
