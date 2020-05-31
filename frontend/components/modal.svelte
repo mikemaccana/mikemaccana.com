@@ -11,109 +11,59 @@
   }
 
   .modal-shade {
-    display: grid;
     width: 100%;
+    min-height: 100vh;
     position: absolute;
-    height: 100%;
     top: 0;
-    bottom: 0;
-    background-color: var(--shadedgrey);
     z-index: 2;
     align-content: center;
-  }
-
-  .modal {
-    z-index: 3;
+    overflow: scroll;
+    padding: 24px;
     grid-row: 1;
     background-color: var(--midgrey);
-    height: var(--midgrey);
-    opacity: 1;
-    position: relative;
-  }
 
-  .content {
+    /* opacity: 1;
+    position: relative;
     padding: var(--spacing);
-    width: var(--single-column-threshold-width);
-    max-width: 100%;
+    width: 100%;
     color: whitesmoke;
     margin: 0 auto;
-    grid-template-rows: 56px auto;
-    grid-gap: 12px;
-  }
-
-  .screenshot-container {
-    max-width: 100%;
-    overflow-y: scroll;
-
-    /* https://codepen.io/chriscoyier/pen/XojXxy */
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 900px;
-  }
-
-  .screenshot-container.x-small {
-    height: 300px;
-  }
-
-  .screenshot-container.small {
-    height: 600px;
-  }
-
-  .screenshot-container.medium {
-    height: 800px;
-  }
-
-  .screenshot-container.large {
-    height: 1100px;
-  }
-
-  .screenshot-container.x-large {
-    height: 1300px;
-  }
-
-  .screenshot-container.xx-large {
-    height: 1700px;
-  }
-
-  .screenshot-container::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .screenshot-container img {
-    background-color: white;
-    border-radius: var(--spacing);
-  }
-
-  .screenshot-container::-webkit-scrollbar-track {
-    background: var(--slightlyshadedgrey);
-    border-radius: 6px;
-  }
-  .screenshot-container::-webkit-scrollbar-thumb {
-    background-color: var(--lightgrey);
-    border-radius: 6px;
-    border: 1px solid var(--midgrey);
-  }
-
-  .screenshot-container .tile {
-    margin: 6px;
-    width: var(--masonry-base);
-    display: grid;
-  }
-
-  .tile img {
-    width: 100%;
-  }
-
-  .tile.description {
-    width: var(--masonry-base);
-    font-size: 12pt;
+    grid-auto-flow: row;
+    grid-gap: 12px; */
   }
 
   h1 {
     margin: 0;
-    text-align: center;
-    font-size: 48px;
+    text-align: left;
+    font-size: 36px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .description {
+    width: 100%;
+    max-width: 600px;
+    font-family: "Caslon";
+    font-size: 14pt;
+    line-height: 18pt;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .screenshot-container {
+    width: 100%;
+
+    /* https://codepen.io/chriscoyier/pen/XojXxy */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  img {
+    width: 50%;
+    object-fit: cover;
+    height: 399px;
+    padding: 12px;
   }
 
   .close {
@@ -124,78 +74,21 @@
     height: 50px;
     width: 50px;
   }
-
-  @media screen and (max-width: 850px) {
-    h1 {
-      font-size: 24px;
-      line-height: 30px;
-    }
-    .modal-shade {
-      overflow-y: scroll;
-    }
-
-    .modal {
-      /* Mobile devices can hide the top of the page with a dynanmically appearing address bar, which makes the X unclickable */
-      margin-top: 108px;
-      height: 100vh;
-      align-content: stretch;
-    }
-
-    .modal .content {
-      width: 100%;
-      padding: 12px;
-    }
-
-    .modal .content h1 {
-      margin: 0 24px 0 0;
-      display: grid;
-      align-items: center;
-    }
-
-    .screenshot-container {
-      display: block;
-      height: auto;
-    }
-
-    .close {
-      right: 12px;
-      top: 12px;
-      height: 24px;
-      width: 24px;
-    }
-
-    .screenshot-container .tile {
-      width: 100%;
-      height: auto;
-    }
-
-    .screenshot-container > * {
-      padding: 2px;
-    }
-  }
 </style>
 
 <div class="modal-shade" style="display: {isModalEnabled ? 'grid' : 'none'};">
-  <div class="modal">
-    <div class="content">
-      <h1>{works[currentIndex].title}</h1>
-      <div
-        class="screenshot-container {works[currentIndex].displayTip ? works[currentIndex].displayTip : ''}">
-        <div class="tile description">
-          {@html works[currentIndex].description}
-        </div>
-        {#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
-          <a
-            class="tile"
-            href="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
-            target="_blank">
-            <img
-              src="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
-              alt={works[currentIndex].slug} />
-          </a>
-        {/each}
-      </div>
-    </div>
-    <img class="close" src="/images/icons/close.svg" alt="Close" />
+  <h1>{works[currentIndex].title}</h1>
+  <section class="description">
+    {@html works[currentIndex].description}
+  </section>
+  <div
+    class="screenshot-container {works[currentIndex].displayTip ? works[currentIndex].displayTip : ''}">
+
+    {#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
+      <img
+        src="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
+        alt={works[currentIndex].slug} />
+    {/each}
   </div>
+  <img class="close" src="/images/icons/close.svg" alt="Close" />
 </div>
