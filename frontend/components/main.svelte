@@ -2,9 +2,10 @@
   import works from "../data/works.js";
   import WorkViewer from "./work-viewer.svelte";
   import Monogram from "./monogram.svelte";
-  import Modal from "./modal.svelte";
+  import WorkDetail from "./work-detail.svelte";
   import Nav from "./nav.svelte";
   import { select, selectAll, log } from "../js/utils/basics.js";
+  import { Router, Route, Link } from "yrv";
 
   var print = function(object) {
     return JSON.stringify(object, null, 2);
@@ -14,7 +15,6 @@
     workDescription = select(".work-description");
 
   var currentIndex = 0;
-  var isModalEnabled = false;
 </script>
 
 <style>
@@ -24,7 +24,13 @@
   @import url("basics.css");
 </style>
 
-<Nav />
-<Monogram />
-<WorkViewer {works} bind:currentIndex bind:isModalEnabled />
-<Modal {works} bind:currentIndex bind:isModalEnabled />
+<Router>
+
+  <Nav />
+  <Monogram />
+  <WorkViewer {works} bind:currentIndex />
+
+  <Route exact path="/:slug" let:router>
+    <WorkDetail {works} />
+  </Route>
+</Router>

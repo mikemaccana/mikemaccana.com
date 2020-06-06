@@ -1,6 +1,8 @@
 <script>
   import { onMount } from "svelte";
 
+  import { Link } from "yrv";
+
   import debounce from "lodash.debounce";
 
   var log = console.log.bind(console);
@@ -216,22 +218,24 @@
       style="transform: translateX({horizontalScrollOffset}px);
       grid-template-columns: repeat({works.length}, {SLIDE_WIDTH}px);">
       {#each works as work, index}
-        <div
-          class="slide {index === currentIndex ? 'selected' : ''}
-          {index === 0 ? 'first' : ''}"
-          style="background-image: url(/images/work/screenshots/thumbs/{works[index].slug}-0.{works[index].imageExtension});
-          min-height: {SLIDE_HEIGHT}px;">
-          <div class="work-description">
-            <div class="work-description-content">
-              <h3 class="work-title">{works[index].title}</h3>
-              <img
-                class="work-logo"
-                src="/images/logos/{works[index].client}.png"
-                alt="Not provided" />
-              <div class="work-lede">{works[index].lede}</div>
+        <Link href="/{work.slug}">
+          <div
+            class="slide {index === currentIndex ? 'selected' : ''}
+            {index === 0 ? 'first' : ''}"
+            style="background-image: url(/images/work/screenshots/thumbs/{work.slug}-0.{work.imageExtension});
+            min-height: {SLIDE_HEIGHT}px;">
+            <div class="work-description">
+              <div class="work-description-content">
+                <h3 class="work-title">{work.title}</h3>
+                <img
+                  class="work-logo"
+                  src="/images/logos/{work.client}.png"
+                  alt="Not provided" />
+                <div class="work-lede">{work.lede}</div>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       {/each}
     </div>
   </div>

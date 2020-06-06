@@ -1,7 +1,10 @@
 <script>
+  import { router, Link } from "yrv";
   export let works;
-  export let currentIndex;
-  export let isModalEnabled;
+
+  export let slug = $router.params.slug;
+
+  const work = works.find(work => work.slug === slug);
 </script>
 
 <style>
@@ -21,15 +24,6 @@
     padding: 24px;
     grid-row: 1;
     background-color: var(--midgrey);
-
-    /* opacity: 1;
-    position: relative;
-    padding: var(--spacing);
-    width: 100%;
-    color: whitesmoke;
-    margin: 0 auto;
-    grid-auto-flow: row;
-    grid-gap: 12px; */
   }
 
   h1 {
@@ -74,21 +68,28 @@
     height: 50px;
     width: 50px;
   }
+
+  @media screen and (max-width: 850px) {
+    img {
+      width: 100%;
+    }
+  }
 </style>
 
-<div class="modal-shade" style="display: {isModalEnabled ? 'grid' : 'none'};">
-  <h1>{works[currentIndex].title}</h1>
+<div class="modal-shade">
+  <h1>{work.title}</h1>
   <section class="description">
-    {@html works[currentIndex].description}
+    {@html work.description}
   </section>
-  <div
-    class="screenshot-container {works[currentIndex].displayTip ? works[currentIndex].displayTip : ''}">
+  <div class="screenshot-container {work.displayTip ? work.displayTip : ''}">
 
-    {#each new Array(works[currentIndex].screenshotCount) as unused, screenshotIndex}
+    {#each new Array(work.screenshotCount) as unused, screenshotIndex}
       <img
-        src="/images/work/screenshots/{works[currentIndex].slug}-{screenshotIndex}.{works[currentIndex].imageExtension}"
-        alt={works[currentIndex].slug} />
+        src="/images/work/screenshots/{work.slug}-{screenshotIndex}.{work.imageExtension}"
+        alt={work.slug} />
     {/each}
   </div>
-  <img class="close" src="/images/icons/close.svg" alt="Close" />
+  <Link href="/">
+    <img class="close" src="/images/icons/close.svg" alt="Close" />
+  </Link>
 </div>
