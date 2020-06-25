@@ -21,8 +21,14 @@
 
   .monogram-and-heading {
     padding: 0 24px;
-    text-align: center;
+    justify-items: left;
+    text-align: left;
     grid-column: 1;
+  }
+
+  .monogram {
+    display: inline-grid;
+    width: 54px;
   }
 
   .tall-m {
@@ -52,6 +58,10 @@
     transform: translateY(0);
   }
 
+  h1 {
+    font-size: 44pt;
+  }
+
   h1,
   h2 {
     margin: calc(var(--spacing) / 4) 0;
@@ -75,6 +85,7 @@
     .monogram-and-heading {
       margin-top: 24px;
     }
+
     h1,
     h2 {
       font-size: 24px;
@@ -84,15 +95,20 @@
 </style>
 
 <div class="monogram-and-heading">
-  <img
-    class="tall-m {isActive ? 'active' : ''}"
-    alt="tall m"
-    src="/images/monogram-tall-m.svg" />
-  <img
-    class="wide-m {isActive ? 'active' : ''}"
-    alt="wide m"
-    src="/images/monogram-wide-m.svg" />
-  <h1 class={isActive ? 'active' : ''}>Mike MacCana</h1>
+
+  <h1 class={isActive ? 'active' : ''}>
+    <div class="monogram">
+      <img
+        class="tall-m {isActive ? 'active' : ''}"
+        alt="tall m"
+        src="/images/monogram-tall-m.svg" />
+      <img
+        class="wide-m {isActive ? 'active' : ''}"
+        alt="wide m"
+        src="/images/monogram-wide-m.svg" />
+    </div>
+    Mike MacCana
+  </h1>
   <h2 class={isActive ? 'active' : ''}>
     Front end, back end, cloud infrastructure.
     <br />

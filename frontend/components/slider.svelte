@@ -139,13 +139,15 @@
     /*Some images have transparent backgrounds*/
     background-color: white;
     border-radius: var(--rounded-corners);
-
     align-content: stretch;
+
+    /* border-radius: 50px; */
+    box-shadow: 20px 20px 60px #0f0f0e, -20px -20px 60px #151514;
   }
 
   .slide.selected {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(0.8);
     filter: none;
     cursor: pointer;
   }
