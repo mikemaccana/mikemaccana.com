@@ -24,14 +24,20 @@
     transition: all 0.5s;
     display: block;
     height: 2px;
-    width: var(--spacing);
-    background: #fff;
-    margin: 4px auto;
+    width: 40px;
+    background: var(--midgrey);
+    margin: 8px auto;
+  }
+
+  .menu-active .hamburger-top,
+  .menu-active .hamburger-middle,
+  .menu-active .hamburger-bottom {
+    background: white;
   }
 
   /* 360 + 45 = 405 */
   .menu-active .hamburger-top {
-    transform: rotate(405deg) translate(4px, 4px);
+    transform: rotate(405deg) translate(10px, -4px);
   }
 
   .menu-active .hamburger-middle {
@@ -40,7 +46,7 @@
 
   /* 360 + 45 = 405 */
   .menu-active .hamburger-bottom {
-    transform: rotate(-405deg) translate(4.5px, -4.5px);
+    transform: rotate(-405deg) translate(18px, -4px);
   }
 </style>
 

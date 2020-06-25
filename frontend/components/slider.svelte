@@ -138,11 +138,9 @@
 
     /*Some images have transparent backgrounds*/
     background-color: white;
-    border-radius: var(--rounded-corners);
     align-content: stretch;
 
-    /* border-radius: 50px; */
-    box-shadow: 20px 20px 60px #0f0f0e, -20px -20px 60px #151514;
+    box-shadow: 20px 20px 60px #c1c1c1, -20px -20px 60px #ffffff;
   }
 
   .slide.selected {

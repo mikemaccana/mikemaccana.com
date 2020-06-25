@@ -26,38 +26,6 @@
     grid-column: 1;
   }
 
-  .monogram {
-    display: inline-grid;
-    width: 54px;
-  }
-
-  .tall-m {
-    width: 30px;
-    transform: translateY(60px);
-  }
-
-  .wide-m {
-    width: 36px;
-    transform: translateY(-60px);
-  }
-
-  .tall-m,
-  .wide-m {
-    justify-self: center;
-    align-self: center;
-    margin-top: calc(var(--spacing) / 4);
-    opacity: 0;
-    transition: all 2s ease-out;
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .tall-m.active,
-  .wide-m.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   h1 {
     font-size: 44pt;
   }
@@ -66,6 +34,7 @@
   h2 {
     margin: calc(var(--spacing) / 4) 0;
     transition: all 4s ease-out;
+    color: var(--midgrey);
   }
 
   h2 {
@@ -96,19 +65,7 @@
 
 <div class="monogram-and-heading">
 
-  <h1 class={isActive ? 'active' : ''}>
-    <div class="monogram">
-      <img
-        class="tall-m {isActive ? 'active' : ''}"
-        alt="tall m"
-        src="/images/monogram-tall-m.svg" />
-      <img
-        class="wide-m {isActive ? 'active' : ''}"
-        alt="wide m"
-        src="/images/monogram-wide-m.svg" />
-    </div>
-    Mike MacCana
-  </h1>
+  <h1 class={isActive ? 'active' : ''}>Mike MacCana</h1>
   <h2 class={isActive ? 'active' : ''}>
     Front end, back end, cloud infrastructure.
     <br />
