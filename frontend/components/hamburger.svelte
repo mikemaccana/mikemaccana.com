@@ -16,7 +16,8 @@
     z-index: 2;
   }
   .menu-active {
-    right: 307px;
+    top: 8px;
+    right: 293px;
   }
   .hamburger-top,
   .hamburger-middle,
