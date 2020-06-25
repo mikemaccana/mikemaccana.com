@@ -140,6 +140,7 @@
     background-color: white;
     align-content: stretch;
 
+    /* https://neumorphism.io/#e3e3e3 */
     box-shadow: 20px 20px 60px #c1c1c1, -20px -20px 60px #ffffff;
   }
 
