@@ -210,6 +210,12 @@
   .previous {
     left: 0;
   }
+
+  @media screen and (max-width: 850px) {
+    .slide {
+      box-shadow: 10px 10px 20px #c1c1c1, -10px -10px 20px #ffffff;
+    }
+  }
 </style>
 
 <div class="slider">
