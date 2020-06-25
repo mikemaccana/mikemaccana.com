@@ -30,10 +30,13 @@
     height: 120%;
     width: 512px;
     z-index: 1;
+    opacity: 0;
+    transition: all 0.5s;
   }
 
   .wedge.menu-active {
     transform: rotate(-4deg) translateX(188px);
+    opacity: 1;
   }
 
   nav {
