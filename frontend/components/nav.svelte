@@ -32,6 +32,7 @@
     z-index: 1;
     opacity: 0;
     transition: all 0.5s;
+    backdrop-filter: blur(20px);
   }
 
   .wedge.menu-active {
