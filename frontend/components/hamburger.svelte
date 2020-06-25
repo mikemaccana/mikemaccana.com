@@ -36,18 +36,16 @@
     background: white;
   }
 
-  /* 360 + 45 = 405 */
   .menu-active .hamburger-top {
-    transform: rotate(405deg) translate(10px, -4px);
+    transform: rotate(45deg) translate(10px, -4px);
   }
 
   .menu-active .hamburger-middle {
     opacity: 0;
   }
 
-  /* 360 + 45 = 405 */
   .menu-active .hamburger-bottom {
-    transform: rotate(-405deg) translate(18px, -4px);
+    transform: rotate(-45deg) translate(18px, -4px);
   }
 </style>
 
