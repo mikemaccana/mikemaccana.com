@@ -12,7 +12,7 @@
 
   const PADDING = 12;
 
-  const SLIDE_WIDTH = Math.min(600, window.innerWidth),
+  const SLIDE_WIDTH = Math.min(800, window.innerWidth),
     SLIDE_HEIGHT = (SLIDE_WIDTH * 2) / 3;
 
   export let works;
@@ -159,7 +159,7 @@
   }
 
   .work-description-content {
-    max-width: 600px;
+    max-width: 800px;
     padding: var(--spacing);
     grid-gap: --calc(var(--spacing) / 4);
     text-align: left;
@@ -220,7 +220,7 @@
       style="transform: translateX({horizontalScrollOffset}px);
       grid-template-columns: repeat({works.length}, {SLIDE_WIDTH}px);">
       {#each works as work, index}
-        <Link href="/{work.slug}">
+        <Link href="/{work.slug}" class="link">
           <div
             class="slide {index === currentIndex ? 'selected' : ''}
             {index === 0 ? 'first' : ''}"

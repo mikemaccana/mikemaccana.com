@@ -68,6 +68,11 @@ li {
 	overflow: initial;
 }
 
+/* svelte-ignore css-unused-selector */
+.slides .link {
+	width: 100%;
+}
+
 body {
 	margin: 0;
 	background-color: black;
@@ -76,13 +81,13 @@ body {
 	background-size: cover;
 	background-image: url("/images/desk-dark.jpg");
 	background-repeat: repeat;
-	
+
 	/* https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser */
 	height: -webkit-fill-available;
 
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior */
 	overscroll-behavior: contain;
-	
+
 	width: 100vw;
 	align-content: center;
 }
@@ -106,4 +111,3 @@ body.loading .work-description {
 	margin: 0 auto;
 	max-width: var(--single-column-threshold-width);
 }
-
