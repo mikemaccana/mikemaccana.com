@@ -266,7 +266,7 @@
           style="fill:none;" />
         <path
           d="M20,2l-13,13c0,0 8.667,8.667 13,13"
-          style="fill:none;stroke:#fff;stroke-width:1px;" />
+          style="fill:none;stroke:#212121;stroke-width:1px;" />
       </svg>
     </span>
   {/if}
@@ -296,7 +296,7 @@
           style="fill:none;" />
         <path
           d="M10,2l13,13c0,0 -8.667,8.667 -13,13"
-          style="fill:none;stroke:#fff;stroke-width:1px;" />
+          style="fill:none;stroke:#212121;stroke-width:1px;" />
       </svg>
     </span>
   {/if}
