@@ -36,6 +36,16 @@
   @import url("metrics.css");
   @import url("basics.css");
   @import url("animations.css");
+
+  .autism {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    margin: 7px;
+    opacity: 0.15;
+  }
 </style>
 
 <Router>
@@ -47,4 +57,5 @@
   <Route exact path="/:slug" let:router>
     <WorkDetail {works} />
   </Route>
+  <img src="images/autism.svg" alt="" class="autism" />
 </Router>
