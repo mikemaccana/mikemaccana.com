@@ -1,7 +1,7 @@
 <script>
   import works from "../data/works.js";
   import WorkViewer from "./work-viewer.svelte";
-  import Monogram from "./monogram.svelte";
+  import Heading from "./heading.svelte";
   import WorkDetail from "./work-detail.svelte";
   import Nav from "./nav.svelte";
   import { select, selectAll, log } from "../js/utils/basics.js";
@@ -39,7 +39,7 @@
 <Router>
 
   <Nav />
-  <Monogram />
+  <Heading />
   <WorkViewer {works} bind:currentIndex />
 
   <Route exact path="/:slug" let:router>
