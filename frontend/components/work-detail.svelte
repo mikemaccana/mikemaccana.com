@@ -55,7 +55,6 @@
   img {
     width: 50%;
     object-fit: cover;
-    height: 399px;
     padding: 12px;
   }
 
