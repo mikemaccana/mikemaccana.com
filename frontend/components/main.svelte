@@ -4,7 +4,7 @@
   import Heading from "./heading.svelte";
   import WorkDetail from "./work-detail.svelte";
   import Nav from "./nav.svelte";
-  import "tocca";
+
   import { select, selectAll, log } from "../js/utils/basics.js";
   import { router, Router, Route, Link } from "yrv";
 
