@@ -112,9 +112,6 @@
 </script>
 
 <style>
-  @import url("../css/colors.css");
-  @import url("../css/metrics.css");
-
   .frame {
     margin-top: 12px;
   }

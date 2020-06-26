@@ -18,9 +18,6 @@
 </script>
 
 <style>
-  @import url("../css/colors.css");
-  @import url("../css/metrics.css");
-
   .wedge {
     transform: rotate(-4deg) translateX(800px);
     top: -26px;

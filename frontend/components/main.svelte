@@ -35,6 +35,7 @@
   @import url("colors.css");
   @import url("metrics.css");
   @import url("basics.css");
+  @import url("animations.css");
 </style>
 
 <Router>

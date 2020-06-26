@@ -23,6 +23,7 @@
     padding: 24px;
     grid-row: 1;
     background-color: var(--midgrey);
+    animation: fadein 300ms;
   }
 
   h1 {

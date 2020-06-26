@@ -16,9 +16,6 @@
 </script>
 
 <style>
-  @import url("../css/colors.css");
-  @import url("../css/metrics.css");
-
   .monogram-and-heading {
     padding: 0 24px;
     justify-items: left;
