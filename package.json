@@ -21,6 +21,7 @@
 		"lodash.debounce": "^4.0.8",
 		"morgan": "~1.10.0",
 		"rollup-plugin-terser": "^6.1.0",
+		"tocca": "^2.0.9",
 		"yrv": "0.0.30"
 	},
 	"devDependencies": {

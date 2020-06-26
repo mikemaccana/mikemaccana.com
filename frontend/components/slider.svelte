@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
-
+  // https://www.npmjs.com/package/tocca
+  import "tocca";
   import { Link } from "yrv";
 
   import debounce from "lodash.debounce";
@@ -47,6 +48,11 @@
   };
 
   var changeSlide = function(isForward) {
+    if (isForward) {
+      log(`Going forward!`);
+    } else {
+      log(`Going backward!`);
+    }
     var adjustment = isForward ? 1 : -1;
     if (isFirstSlide) {
       if (!isForward) {
@@ -74,7 +80,7 @@
         setHorizontalScrollOffset();
       } else {
         log(
-          `Ignoring window height change (probably a mobiel device showing / removing UI)`
+          `Ignoring window height change (probably a mobile device showing / removing UI)`
         );
       }
     }, 100);
@@ -82,14 +88,20 @@
     window.addEventListener("resize", handleResize);
 
     window.addEventListener("keyup", function(event) {
-      if (event.keyCode === LEFT_KEY) {
-        log(`Going back!`);
-        changeSlide(false);
-      }
       if (event.keyCode === RIGHT_KEY) {
-        log(`Going forward!`);
         changeSlide(true);
       }
+      if (event.keyCode === LEFT_KEY) {
+        changeSlide(false);
+      }
+    });
+
+    window.addEventListener("swipeleft", function(e) {
+      changeSlide(true);
+    });
+
+    window.addEventListener("swiperight", function(e) {
+      changeSlide(false);
     });
 
     setHorizontalScrollOffset();
