@@ -64,8 +64,8 @@
     position: absolute;
     right: 24px;
     top: 24px;
-    height: 50px;
-    width: 50px;
+    height: 64px;
+    width: 64px;
   }
 
   @media screen and (max-width: 850px) {
