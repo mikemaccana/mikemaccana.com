@@ -1,5 +1,4 @@
 <script>
-  import Slider from "./slider.svelte";
   import "../js/utils/element-on.js";
   import "../js/utils/get-parent-index.js";
   import { select, selectAll, log } from "../js/utils/basics.js";
