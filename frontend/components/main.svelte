@@ -5,7 +5,19 @@
   import WorkDetail from "./work-detail.svelte";
   import Nav from "./nav.svelte";
   import { select, selectAll, log } from "../js/utils/basics.js";
-  import { Router, Route, Link } from "yrv";
+  import { router, Router, Route, Link } from "yrv";
+
+  let body = window.document.body;
+
+  router.subscribe(event => {
+    if (!event.initial) {
+      if (event.path === "/") {
+        body.style["overflow-y"] = "hidden";
+      } else {
+        body.style["overflow-y"] = "scroll";
+      }
+    }
+  });
 
   var print = function(object) {
     return JSON.stringify(object, null, 2);

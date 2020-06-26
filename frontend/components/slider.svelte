@@ -108,6 +108,7 @@
   .slider {
     /* Needed for previous and next buttons to be vertically centered correctly */
     position: relative;
+    width: 100vw;
   }
 
   .slides {
@@ -118,6 +119,11 @@
     width: 20000px;
     transition-timing-function: ease;
     transition-duration: 600ms;
+  }
+
+  /* Link elements become a elements, but svelte thinks this is unused hence the global */
+  :global(.slides .link) {
+    width: 100%;
   }
 
   .slide {

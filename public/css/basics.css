@@ -4,8 +4,6 @@
 *:before,
 *:after {
 	box-sizing: border-box;
-	/* Everything has layout by default. No clear fixes. */
-	overflow: hidden;
 }
 a,
 a:hover,
@@ -68,19 +66,18 @@ li {
 	overflow: initial;
 }
 
-/* svelte-ignore css-unused-selector */
-.slides .link {
-	width: 100%;
-}
-
 body {
 	margin: 0;
 	background-color: #e3e3e3;
 	color: var(--textcolor);
-	overflow: hidden;
 
 	/* https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser */
 	height: -webkit-fill-available;
+
+	overflow-x: hidden;
+
+	/* Will be tweaked by plugins */
+	overflow-y: hidden;
 
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior */
 	overscroll-behavior: contain;

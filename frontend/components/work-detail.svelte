@@ -20,7 +20,6 @@
     top: 0;
     z-index: 2;
     align-content: center;
-    overflow: scroll;
     padding: 24px;
     grid-row: 1;
     background-color: var(--midgrey);
