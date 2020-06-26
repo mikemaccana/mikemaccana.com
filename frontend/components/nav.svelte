@@ -52,10 +52,10 @@
     right: 0;
     bottom: 0;
     z-index: 1;
-    overflow-y: auto;
     text-align: right;
     transform: translateX(400px);
     width: 308px;
+    overflow: hidden;
   }
 
   nav.menu-active {
