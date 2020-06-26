@@ -28,12 +28,14 @@
     width: 40px;
     background: var(--midgrey);
     margin: 8px auto;
+    box-shadow: 2px 2px 4px #c1c1c1, -2px -2px 4px #ffffff;
   }
 
   .menu-active .hamburger-top,
   .menu-active .hamburger-middle,
   .menu-active .hamburger-bottom {
     background: white;
+    box-shadow: 2px 2px 4px #262626, -2px -2px 4px #343434;
   }
 
   .menu-active .hamburger-top {
