@@ -53,10 +53,14 @@
     flex-wrap: wrap;
   }
 
-  img {
+  .screenshot-container img {
     width: 50%;
     object-fit: cover;
     padding: 12px;
+    /* Some images are transparent */
+    /* background doesn't go into padding */
+    background-color: white;
+    background-clip: content-box;
   }
 
   .close {
