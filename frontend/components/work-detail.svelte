@@ -69,6 +69,7 @@
     right: 24px;
     top: 24px;
     height: 32px;
+    width: 32px;
   }
 
   @media screen and (max-width: 850px) {
