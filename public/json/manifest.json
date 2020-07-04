@@ -5,7 +5,7 @@
 	"description": "Front end, back end, cloud infrastructure. Founding, bootstrapping, hiring, troubleshooting.",
 	"icons": [
 		{
-			"src": "images/m.svg",
+			"src": "/images/m.svg",
 			"sizes": "48x48 72x72 96x96 128x128 256x256 192x192 512x512"
 		}
 	]
