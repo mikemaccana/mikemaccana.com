@@ -10,7 +10,7 @@ var works = [
 		pubDate: `Fri, 30 Aug 2013 14:30:14 +0000`,
 		lede: `Build a SaaS in minutes not months`,
 		description: `
-			<p>Software developers spend between 35 and 95% of their time working on things outside the core value of their products - plugging together disparate technologis from different vendors for things like billing, user management, data management, tracking, CRM, in-app-messaging, and all the other parts of running a working SaaS business. What if, instead of plugging all these things into your code, you could plug your code into a ready-to-go, integrated SaaS business? BoomSaaS was part of Entrpreneur First London 2020 cohort, but didn't get funding after I parted with a cofounder. It's still looking for funding, so get in touch!</p>`
+			<p>Software developers spend between 35% and 95% of their time working on things outside the core value of their products - plugging together disparate technologis from different vendors for things like billing, user management, data management, tracking, CRM, in-app-messaging, and all the other parts of running a working SaaS business. What if, instead of plugging all these things into your code, you could plug your code into a ready-to-go, integrated SaaS business? BoomSaaS was part of Entrpreneur First London 2020 cohort, but didn't get funding after I parted with a cofounder. It's still looking for funding, so get in touch!</p>`,
 	},
 	{
 		slug: `certsimple`,
@@ -22,7 +22,7 @@ var works = [
 		pubDate: `Fri, 30 Aug 2013 14:30:14 +0000`,
 		lede: `The fastest, simplest way to verify websites`,
 		description: `
-			<p>EV verifies a real company runs a website. But due to the verification involved, the average time to get a certificate is 7-10 days. CertSimple uses great UI and live checking of details to issue EV certificates in an average of 5 hours, 40x the speed of the rest of the industry. CertSimple now has over 500 customers and has been featured in TechCrunch, Hacker News and obtained funding from Entrepreneur First's accelerator programme. The tech is full stack node, using yarn workspaces, ES2017 and TypeScript. Exited to ExpeditedSSL in 2020.</p>`
+			<p>EV verifies a real company runs a website. But due to the verification involved, the average time to get a certificate is 7-10 days. CertSimple uses great UI and live checking of details to issue EV certificates in an average of 5 hours, 40x the speed of the rest of the industry. CertSimple now has over 500 customers and has been featured in TechCrunch, Hacker News and obtained funding from Entrepreneur First's accelerator programme. The tech is full stack node, using yarn workspaces, ES2017 and TypeScript. Exited to ExpeditedSSL in 2020.</p>`,
 	},
 	{
 		slug: `mycognition`,
@@ -35,7 +35,7 @@ var works = [
 		lede: `Customer onboarding for cognitive learning product`,
 		description: `
 			<p>A site to promote MyCognition's 'Rise' cognitive development product, and the associated payment and user signup workflow. </p>
-			<p>The billing site used CSS3 transitions, ideal postcodes for automatic address retrieval, Stripe for payment, quaderno for invoicing and EU VAT calculation, and node/express.js for the backend.</p>`
+			<p>The billing site used CSS3 transitions, ideal postcodes for automatic address retrieval, Stripe for payment, quaderno for invoicing and EU VAT calculation, and node/express.js for the backend.</p>`,
 	},
 	{
 		slug: `waves`,
@@ -48,7 +48,7 @@ var works = [
 		lede: `Live alerts for significant changes in Twitter.`,
 		description: `
 			<p>Given a keyword, hashtag or user, Waves monitors Twitter for significant changes in sentiment, volume and related words. </p>
-			<p>Waves alerts to events before you hear about them. When the Prime Minister of the Ukraine resigned, Waves sent out alerts 40 minutes before BBC and Sky had published a story.</p>`
+			<p>Waves alerts to events before you hear about them. When the Prime Minister of the Ukraine resigned, Waves sent out alerts 40 minutes before BBC and Sky had published a story.</p>`,
 	},
 	{
 		slug: `online-wednesday`,
@@ -61,7 +61,7 @@ var works = [
 		pubDate: `Fri, 30 Aug 2013 14:30:14 +0000`,
 		lede: `The products people are talking about right now.`,
 		description: `
-			<p>Online Wednesday is an internal tool used by American Express to discover new products and rank interest in them using Facebook and Twitter.</p>`
+			<p>Online Wednesday is an internal tool used by American Express to discover new products and rank interest in them using Facebook and Twitter.</p>`,
 	},
 	{
 		slug: `firework`,
@@ -75,7 +75,7 @@ var works = [
 		lede: `Cloud deployment startup, getting the right code to your customers as fast as possible. `,
 		description: `
 			<p>Getting the right code to your customers as fast as possible. </p>
-			<p>Firework combines data from version control, deployment, logs, and CI into a single place to help developers understand what version of the code belongs in their environments, then uses best-of-breed deployment techniques to turn minutes into milliseconds.</p>`
+			<p>Firework combines data from version control, deployment, logs, and CI into a single place to help developers understand what version of the code belongs in their environments, then uses best-of-breed deployment techniques to turn minutes into milliseconds.</p>`,
 	},
 	{
 		slug: `uncompromise`,
@@ -89,7 +89,7 @@ var works = [
 		lede: `Microsite for the Surface 2 UK launch.`,
 		description: `
 			<p>Microsite for the Surface 2 UK launch.</p>
-			<p>Lots of CSS3, node.js, Twitter & Instagram APIs and Azure.</p>`
+			<p>Lots of CSS3, node.js, Twitter & Instagram APIs and Azure.</p>`,
 	},
 	{
 		slug: `bazaarvoice-tips`,
@@ -107,7 +107,7 @@ var works = [
 				<li>Conceived and developed new from-scratch product.</li>
 				<li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li>
 				<li>Uses a combination of jQuery Masonry, jQuery TilesGallery and AngularJS</li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `facebook-ratings-and-reviews`,
@@ -123,7 +123,7 @@ var works = [
 			<ul>
 				<li>Responsive design across Mobile, Facebook Page Tab,and Facebook Canvas</li>
 				<li>Async using Tornado and JS</li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `facebook-stories`,
@@ -140,7 +140,7 @@ var works = [
 			<ul>
 				<li>Responsive design for mobile, Page Tab, and Canvas/Raw site.</li>
 				<li>Uses acombinationof jQuery Masonry, jQuery TilesGallery and Mike's PhotoCollage (my own custom-written jQuery Plugin) for tiled layouts.</li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `social-deployer`,
@@ -160,7 +160,7 @@ var works = [
 				<li>Builds autoscaled, load-balanced EC2 environments without any end user input</li>
 				<li>Live updated on progress and other relevant events</li>
 				<li>Async using NodeJS & client side JS. Uses Github, Amazon EC2 libraries, Agave.JS, HTML5 server-sent events.</li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `bazaarvoice-questions-and-answers`,
@@ -174,7 +174,7 @@ var works = [
 		lede: `Connecting customers with company staff and the wider product community to answer product questions.`,
 		description: `
 			<p>Connecting customers with company staff and the wider product community to answer product questions.</p>
-			<p>Facebook platform, leaderboards, responsive design.</p>`
+			<p>Facebook platform, leaderboards, responsive design.</p>`,
 	},
 	{
 		slug: `pamplemousse-js`,
@@ -195,7 +195,7 @@ var works = [
 				<li>Timeouts</li>
 				<li>JSON in, JSON out</li>
 				<li><a href="http://pamplemoussejs.org">http://pamplemoussejs.org</a></li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `ginjs`,
@@ -207,7 +207,7 @@ var works = [
 		pubDate: `Thu, 03 Oct 2013 16:04:11 +0000`,
 		lede: `A regular meetup for London based JavaScript developers. I founded the event and organize the venue, mailing list, ticketing and sponsors.`,
 		description: `
-			<p>A regular meetup for London based JavaScript developers. I founded the event, designed the lovely (responsive) site, and organize the venue, mailing list, ticketing and sponsors.</p>`
+			<p>A regular meetup for London based JavaScript developers. I founded the event, designed the lovely (responsive) site, and organize the venue, mailing list, ticketing and sponsors.</p>`,
 	},
 	{
 		slug: `google-android-4-launch`,
@@ -225,7 +225,7 @@ var works = [
 				<li>Worldwide phone retailer education for Android 4 and Galaxy nexus</li>
 				<li>Quiz and results reporting</li>
 				<li>Entire site internationalized to every Google market</li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `agave-js`,
@@ -244,7 +244,7 @@ var works = [
 				<li>Method names are namespaced to avoid conflicts</li>
 				<li>All methods are non-enumerable using ES5 defineProperty()</li>
 				<li><a href="http://agavejs.org">http://agavejs.org</a></li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `youtube-world-view`,
@@ -264,7 +264,7 @@ var works = [
 				<li>First use of the YouTube Live API</li>
 				<li><a href='http://youtube.com/worldview'>http://youtube.com/worldview</a></li>
 				<li><a href='https://code.google.com/p/social-interviews/'>Source code</a></li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `google-getting-american-business-online`,
@@ -280,7 +280,7 @@ var works = [
 			<ul>
 				<li>Custom layout engine to allow local Google teams to customize the site to their own market (a US state or a country).</li>
 				<li><a href="http://www.gybo.com/">http://www.gybo.com/</a></li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `google-10th-birthday-germany`,
@@ -297,7 +297,7 @@ var works = [
 				<li>Client: Google</li><li>Built in a weekend, advertised nationally on on German TV</li>
 				<li>Custom HTML5 canvas and scenegraph work</li>
 				<li><a href="http://www.10jahregoogle.de/">http://www.10jahregoogle.de/</a></li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `im-everyone`,
@@ -314,7 +314,7 @@ var works = [
 				<li>Completely realtime: both new posts and new comments are constantly pushed to browsers.</li><li>No logins: each unique participant in a conversation is given an an animal avatar to identify themselves. Outside of that single thread that</li>
 				<li>Front page of Hacker News, Reddit, tweeted by @smashingmagazine.</li>
 				<li>Site is closed down - moderation is required to provide a safe environment.</li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `python-docx`,
@@ -332,7 +332,7 @@ var works = [
 				<li>Thousand of users, and nearly 1000 stars on Github</li>
 				<li>LXML, OpenXML</li>
 				<li><a href="https://github.com/mikemaccana/python-docx" target="_blank">https://github.com/mikemaccana/python-docx</a></li>
-			</ul>`
+			</ul>`,
 	},
 	{
 		slug: `linux-and-python`,
@@ -345,7 +345,7 @@ var works = [
 		pubDate: `Fri, 30 Aug 2013 14:05:05 +0000`,
 		lede: `Large scale infrastructure and automation engineer.`,
 		description: `
-			<p>I spent a decade as an infrastructure and automation engineer, working as a Linux and python trainer and consultant at Red Hat (yes, that's me in the default /etc/sudoers file), IBM Global Services' dedicated Linux team, and a variety of financial organizations on large ($450M AUD) projects.</p>`
+			<p>I spent a decade as an infrastructure and automation engineer, working as a Linux and python trainer and consultant at Red Hat (yes, that's me in the default /etc/sudoers file), IBM Global Services' dedicated Linux team, and a variety of financial organizations on large ($450M AUD) projects.</p>`,
 	},
 	{
 		slug: `feature-writer-apc-magazine`,
@@ -370,7 +370,7 @@ var works = [
 			<p>Sourced writers, provided briefs, copy-edited, and interviewed for the first two issues of this Asia/Pacific magazine focusing on Linux and Open Source.</p>
 			
 			<h2>Newspaper and radio</h2>
-			<p>Writing and speaking roles for newspapers (Sydney Morning Herald), and radio (3RRR Melbourne).</p>`
+			<p>Writing and speaking roles for newspapers (Sydney Morning Herald), and radio (3RRR Melbourne).</p>`,
 	},
 	{
 		slug: `doom-the-path`,
@@ -388,8 +388,8 @@ var works = [
 				<li>Custom textures and sounds.</li>
 				<li>Built when I was 15, with a computer that couldn't edit the entire level at once. I built individual chunks, my friend John Graham assembled these together into a full level on his more powerful computer.</li>
 				<li><a href="http://www.doomworld.com/idgames/?id=7427">Download from DoomWorld</a></li>
-			</ul>`
-	}
+			</ul>`,
+	},
 ];
 
 export default works;
