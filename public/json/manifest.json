@@ -1,0 +1,11 @@
+{
+	"name": "Mike MacCana",
+	"display": "standalone",
+	"background_color": "#b7b7b7",
+	"description": "Front end, back end, cloud infrastructure. Founding, bootstrapping, hiring, troubleshooting.",
+	"icons": [
+		{
+			"src": "images/m.svg"
+		}
+	]
+}
