@@ -59,14 +59,12 @@
     transform: translateX(0);
   }
 
-  a.navitem img {
+  /* Globals because the 'Link' elements don't have the component-specific styles applied */
+  :global(nav a.navitem img) {
     height: 24px;
   }
 
-  a,
-  a:hover,
-  a:active,
-  a:visited {
+  :global(nav a, nav a:hover, nav a:active, nav a:visited) {
     font-family: "Caslon";
     line-height: 36px;
     font-size: 32px;
@@ -82,7 +80,7 @@
     align-content: center;
     grid-gap: 12px;
   }
-  a:hover {
+  :global(nav a:hover) {
     color: var(--textcolor);
     transform: translateX(5px);
   }
