@@ -142,7 +142,7 @@
     href="http://stackoverflow.com/users/123671/mikemaccana">
     <img alt="" src="/images/icons/stack-overflow.svg" />
     StackOverflow
-    <div class="bragging">Top 0.15%</div>
+    <div class="bragging">Top 0.14%</div>
   </a>
 
   <a
@@ -175,6 +175,7 @@
     href="https://github.com/mikemaccana">
     <img alt="" src="/images/icons/github.svg" />
     GitHub
+    <div class="bragging">2020 Arctic Code Vault</div>
   </a>
 
   <a
