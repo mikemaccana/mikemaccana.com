@@ -97,11 +97,11 @@
       }
     });
 
-    window.addEventListener("swipeleft", function(e) {
+    window.addEventListener("swipeleft", function(event) {
       changeSlide(true);
     });
 
-    window.addEventListener("swiperight", function(e) {
+    window.addEventListener("swiperight", function(event) {
       changeSlide(false);
     });
 
