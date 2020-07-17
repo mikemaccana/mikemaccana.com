@@ -6,7 +6,7 @@
   import Nav from "./nav.svelte";
   import Blog from "./blog.svelte";
 
-  import { select, selectAll, log } from "../js/utils/basics.js";
+  import { select, selectAll, log, print } from "../js/utils/basics.js";
   import { router, Router, Route, Link } from "yrv";
 
   let body = window.document.body;
@@ -20,10 +20,6 @@
       }
     }
   });
-
-  var print = function(object) {
-    return JSON.stringify(object, null, 2);
-  };
 
   var worksWrapper = select(".works-wrapper"),
     workDescription = select(".work-description");
