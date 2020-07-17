@@ -1,7 +1,7 @@
 <script>
   import Hamburger from "./hamburger.svelte";
   import { onMount } from "svelte";
-
+  import { Link } from "yrv";
   var isMenuActive = false;
 
   onMount(function() {
@@ -118,7 +118,7 @@
     padding-right: 91px;
   }
 
-  a.navitem.blog {
+  :global(nav a.navitem.blog) {
     padding-right: 124px;
   }
 
@@ -178,13 +178,10 @@
     <div class="bragging">2020 Arctic Code Vault</div>
   </a>
 
-  <a
-    class="navitem blog"
-    target="_blank"
-    href="https://expeditedsecurity.com/blog/">
+  <Link class="navitem blog" target="_blank" href="/blog">
     <img alt="" src="/images/icons/blog.svg" />
     Blog
-  </a>
+  </Link>
 
   <a class="navitem work" href="/">
     <img alt="" src="/images/icons/work.svg" />

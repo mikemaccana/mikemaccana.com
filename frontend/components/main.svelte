@@ -4,6 +4,7 @@
   import Heading from "./heading.svelte";
   import WorkDetail from "./work-detail.svelte";
   import Nav from "./nav.svelte";
+  import Blog from "./blog.svelte";
 
   import { select, selectAll, log } from "../js/utils/basics.js";
   import { router, Router, Route, Link } from "yrv";
@@ -54,8 +55,14 @@
   <Heading />
   <WorkViewer {works} bind:currentIndex />
 
+  <!-- Must come first, everything else is a route -->
+  <Route exact path="/blog" let:router>
+    <Blog />
+  </Route>
+
   <Route exact path="/:slug" let:router>
     <WorkDetail {works} />
   </Route>
+
   <img src="images/autism.svg" alt="" class="autism" />
 </Router>
