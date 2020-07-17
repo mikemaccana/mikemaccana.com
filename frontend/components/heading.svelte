@@ -5,8 +5,6 @@
   let isActive = false;
 
   onMount(function() {
-    log("Drawing monogram");
-
     setTimeout(function() {
       document.body.classList.remove("loading");
     }, 0);
