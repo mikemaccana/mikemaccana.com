@@ -1,3 +1,8 @@
+<script>
+  export let isMenuActive;
+  isMenuActive = false;
+</script>
+
 <style>
   div {
     position: absolute;

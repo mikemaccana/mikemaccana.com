@@ -9,6 +9,8 @@
   import { select, selectAll, log, print } from "../js/utils/basics.js";
   import { router, Router, Route, Link } from "yrv";
 
+  let isMenuActive = false;
+
   let body = window.document.body;
 
   router.subscribe(event => {
@@ -47,13 +49,13 @@
 
 <Router>
 
-  <Nav />
+  <Nav bind:isMenuActive />
   <Heading />
   <WorkViewer {works} bind:currentIndex />
 
   <!-- Must come first, everything else is a route -->
   <Route exact path="/blog" let:router>
-    <Blog />
+    <Blog bind:isMenuActive />
   </Route>
 
   <Route exact path="/:slug" let:router>

@@ -2,7 +2,7 @@
   import Hamburger from "./hamburger.svelte";
   import { onMount } from "svelte";
   import { Link } from "yrv";
-  var isMenuActive = false;
+  export let isMenuActive;
 
   onMount(function() {
     var log = console.log.bind(console),
