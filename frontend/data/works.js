@@ -10,7 +10,9 @@ var works = [
 		pubDate: `Fri, 30 Aug 2013 14:30:14 +0000`,
 		lede: `Build a SaaS in minutes not months`,
 		description: `
-			<p>Software developers spend between 35% and 95% of their time working on things outside the core value of their products - plugging together disparate technologis from different vendors for things like billing, user management, data management, tracking, CRM, in-app-messaging, and all the other parts of running a working SaaS business. What if, instead of plugging all these things into your code, you could plug your code into a ready-to-go, integrated SaaS business? BoomSaaS was part of Entrpreneur First London 2020 cohort, but didn't get funding after I parted with a cofounder. It's still looking for funding, so get in touch!</p>`,
+			<p>SaaS developers spend between 35% and 95% of their time working on things outside the core value of their products - plugging together disparate technologies from different vendors for things like billing, user management, data management, tracking, CRM, in-app-messaging, and all the other parts of running a working SaaS business.</p> 
+			<p>
+			What if, instead of plugging all these things into your code, you could plug your code into a ready-to-go, integrated SaaS business? BoomSaaS was part of Entrpreneur First London 2020 cohort, but didn't get funding after I parted with a cofounder. It's still looking for funding, so get in touch!</p>`,
 	},
 	{
 		slug: `certsimple`,
