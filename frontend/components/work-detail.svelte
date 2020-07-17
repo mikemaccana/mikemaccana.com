@@ -89,6 +89,7 @@
     {#each new Array(work.screenshotCount) as unused, screenshotIndex}
       <img
         src="/images/work/screenshots/{work.slug}-{screenshotIndex}.{work.imageExtension}"
+        loading="lazy"
         alt={work.slug} />
     {/each}
   </div>

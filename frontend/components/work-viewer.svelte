@@ -253,7 +253,8 @@
                 <img
                   class="work-logo"
                   src="/images/logos/{work.client}.png"
-                  alt="Not provided" />
+                  alt={work.title}
+                  loading="lazy" />
                 <div class="work-lede">{work.lede}</div>
               </div>
             </div>
