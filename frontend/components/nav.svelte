@@ -18,6 +18,15 @@
 </script>
 
 <style>
+  /* The wedge, because it's rotated, goes out of bounds, and makes scrollbars appear. .wedge-restrictor element stops that. */
+  .wedge-restrictor {
+    top: 0;
+    right: 0;
+    position: absolute;
+    height: -webkit-fill-available;
+    width: 512px;
+    overflow: hidden;
+  }
   .wedge {
     transform: rotate(-4deg) translateX(800px);
     top: -26px;
@@ -131,7 +140,9 @@
 
 <Hamburger bind:isMenuActive />
 
-<div class="wedge {isMenuActive ? 'menu-active' : ''}" />
+<div class="wedge-restrictor">
+  <div class="wedge {isMenuActive ? 'menu-active' : ''}" />
+</div>
 <nav class="vertical {isMenuActive ? 'menu-active' : ''}">
 
   <a

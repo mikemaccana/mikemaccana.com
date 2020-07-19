@@ -1,5 +1,6 @@
 <script>
   import works from "../data/works.js";
+  import articles from "../data/articles.js";
   import WorkViewer from "./work-viewer.svelte";
   import Heading from "./heading.svelte";
   import WorkDetail from "./work-detail.svelte";
@@ -55,7 +56,7 @@
 
   <!-- Must come first, everything else is a route -->
   <Route exact path="/blog" let:router>
-    <Blog bind:isMenuActive />
+    <Blog bind:isMenuActive {articles} />
   </Route>
 
   <Route exact path="/:slug" let:router>

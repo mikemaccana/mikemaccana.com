@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="924px" height="290px" viewBox="0 0 924 290" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(80.000000, 80.000000)">
+                <g id="bottom-area" transform="translate(0.000000, 80.000000)" stroke="#979797" fill="#F2F2F2" sketch:type="MSShapeGroup">
+                    <path d="M820,-3.55271368e-15 L820,500.007 C820,505.525982 815.513782,510 810.00133,510 L9.9986696,510 C4.47655686,510 0,505.527459 0,500.007 L0,0 L820,0 Z"></path>
+                </g>
+                <path d="M820,80 L820,9.99299964 C820,4.47254122 815.523443,0 810.00133,0 L9.9986696,0 C4.4862179,0 0,4.47401833 0,9.99299964 L0,80 L820,80 Z" id="top-area" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup"></path>
+                <g id="reload" transform="translate(665.000000, 25.000000)" fill="#FFFFFF" sketch:type="MSShapeGroup">
+                    <path d="M31.3808738,4.71582524 L27.7641748,8.33262136 C25.8005825,6.36912621 23.0882524,5.15485437 20.092233,5.15485437 C14.1000971,5.15485437 9.24252427,10.0146602 9.24252427,16.0068932 C9.24252427,16.0084466 9.24252427,16.0053398 9.24252427,16.0068932 L13.4572816,16.0068932 L6.72504854,22.7365049 L0,16.0068932 L4.12757282,16.0068932 C4.12757282,16.0061165 4.12757282,16.0074757 4.12757282,16.0068932 C4.12757282,7.18980583 11.2752427,0.0399029126 20.092233,0.0399029126 C24.5006796,0.0399029126 28.4919417,1.82679612 31.3808738,4.71582524 L31.3808738,4.71582524 Z M40,15.4494175 L33.2749515,8.71970874 L26.5427184,15.4494175 L30.7574757,15.4494175 C30.7574757,15.4509709 30.7574757,15.447767 30.7574757,15.4494175 C30.7574757,21.4416505 25.8999029,26.3014563 19.907767,26.3014563 C16.9117476,26.3014563 14.1993204,25.0870874 12.2358252,23.1236893 L8.61912621,26.7404854 C11.5082524,29.6295146 15.4994175,31.4164078 19.907767,31.4164078 C28.7246602,31.4164078 35.8724272,24.2665049 35.8724272,15.4495146 C35.8724272,15.448835 35.8724272,15.4502913 35.8724272,15.4495146 L40,15.4495146 L40,15.4494175 Z" id="refresh-3-icon"></path>
+                </g>
+                <g id="window-controls" transform="translate(30.000000, 30.000000)" fill="#FFFFFF" sketch:type="MSShapeGroup">
+                    <circle id="Oval-1" cx="10" cy="10" r="10"></circle>
+                    <circle id="Oval-1" cx="70" cy="10" r="10"></circle>
+                    <circle id="Oval-1" cx="40" cy="10" r="10"></circle>
+                </g>
+                <rect id="address-bar" fill="#FFFFFF" sketch:type="MSShapeGroup" x="140" y="20" width="505" height="40"></rect>
+                <g id="arrow" transform="translate(715.000000, 30.000000)" stroke="#FFFFFF" stroke-width="5" sketch:type="MSShapeGroup">
+                    <path d="M12.5,22.5 L2.5,12.5" id="Line" stroke-linecap="square"></path>
+                    <path d="M2.5,12.5 L12.5,2.5" id="Line" stroke-linecap="square"></path>
+                    <path d="M2.5,12.5 L27.5,12.5" id="Line"></path>
+                </g>
+                <g id="arrow-copy" transform="translate(765.000000, 42.500000) rotate(-180.000000) translate(-765.000000, -42.500000) translate(750.000000, 30.000000)" stroke="#FFFFFF" stroke-width="5" sketch:type="MSShapeGroup">
+                    <path d="M12.5,22.5 L2.5,12.5" id="Line" stroke-linecap="square"></path>
+                    <path d="M2.5,12.5 L12.5,2.5" id="Line" stroke-linecap="square"></path>
+                    <path d="M2.5,12.5 L27.5,12.5" id="Line"></path>
+                </g>
+            </g>
+            <text id="BROWSER-UI" sketch:type="MSTextLayer" font-family="Helvetica" font-size="14" font-weight="normal" fill="#B9B9B9">
+                <tspan x="460" y="127">BROWSER UI</tspan>
+            </text>
+            <text id="CONTENT-AREA" sketch:type="MSTextLayer" font-family="Helvetica" font-size="14" font-weight="normal" fill="#B9B9B9">
+                <tspan x="452" y="205">CONTENT AREA</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="563px" height="334px" viewBox="0 0 563 334" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>variant-a</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="500" height="300"></rect>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <mask id="mask-3" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="500" height="300" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="variant-a">
+            <g transform="translate(31.000000, 18.000000)">
+                <g id="Rectangle-1">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use stroke="#C9C9C9" mask="url(#mask-3)" stroke-width="2" fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <text id="Collect-8-stamps-for" font-family="Avenir-Heavy, Avenir" font-size="24" font-weight="600" fill="#4A4A4A">
+                    <tspan x="38.204" y="47">Collect 8 stamps for a FREE car wash!</tspan>
+                </text>
+                <text id="Nunes-Car-Wash-Inc." font-family="Avenir-Heavy, Avenir" font-size="18" font-weight="600" fill="#4A4A4A">
+                    <tspan x="163.19" y="22">Nunes Car Wash Inc.</tspan>
+                </text>
+                <text id="Terms-and-Conditions" font-family="Avenir-Heavy, Avenir" font-size="12" font-weight="600" fill="#4A4A4A">
+                    <tspan x="40" y="272">Terms and Conditions: offer is void in State of Nebraska. Cannot be used in </tspan>
+                    <tspan x="40" y="288">conjunction with any other offers  </tspan>
+                </text>
+                <g id="Group" transform="translate(61.000000, 66.000000)" fill="#FFFFFF">
+                    <ellipse id="Oval-1" cx="140" cy="42" rx="42" ry="42"></ellipse>
+                    <ellipse id="Oval-1" cx="42" cy="42" rx="42" ry="42"></ellipse>
+                    <ellipse id="Oval-1" cx="238" cy="42" rx="42" ry="42"></ellipse>
+                    <ellipse id="Oval-1" cx="336" cy="42" rx="42" ry="42"></ellipse>
+                    <ellipse id="Oval-1" cx="42" cy="136" rx="42" ry="42"></ellipse>
+                    <ellipse id="Oval-1" cx="140" cy="136" rx="42" ry="42"></ellipse>
+                    <ellipse id="Oval-1" cx="238" cy="136" rx="42" ry="42"></ellipse>
+                    <ellipse id="Oval-1" cx="336" cy="136" rx="42" ry="42"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

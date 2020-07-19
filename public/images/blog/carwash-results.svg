@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="696px" height="500px" viewBox="0 0 696 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>carwash-results</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="344" y="52" width="155" height="340"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="155" height="340" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="154" y="202" width="155" height="190"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="155" height="190" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="0" y="0" width="92" height="55"></rect>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <mask id="mask-7" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="92" height="55" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <rect id="path-8" x="0" y="0" width="92" height="55"></rect>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-9">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="92" height="55" fill="white">
+            <use xlink:href="#path-8"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="carwash-results">
+            <use id="Rectangle-3" stroke="#125032" mask="url(#mask-2)" stroke-width="2" fill="#15A960" xlink:href="#path-1"></use>
+            <use id="Rectangle-3" stroke="#979797" mask="url(#mask-4)" stroke-width="2" fill="#D8D8D8" xlink:href="#path-3"></use>
+            <text id="34%" font-family="Avenir-Heavy, Avenir" font-size="54" font-weight="600" fill="#FFFFFF">
+                <tspan x="365.043" y="235">34%</tspan>
+                <tspan x="368.9" y="309" font-size="20">completion</tspan>
+            </text>
+            <text id="19%" font-family="Avenir-Heavy, Avenir" font-size="36" font-weight="600" fill="#484848">
+                <tspan x="194.362" y="306">19%</tspan>
+                <tspan x="179.4" y="355" font-size="20">completion</tspan>
+            </text>
+            <g id="variant-a" transform="translate(193.000000, 416.000000)">
+                <g id="Rectangle-1">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                    <use stroke="#C9C9C9" mask="url(#mask-7)" stroke-width="2" fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-5"></use>
+                </g>
+                <text id="Collect-8-stamps-for" font-family="Avenir-Heavy, Avenir" font-size="4.4" font-weight="600" fill="#4A4A4A">
+                    <tspan x="7.1704" y="8.21666667">Collect 8 stamps for a FREE car wash!</tspan>
+                </text>
+                <text id="Nunes-Car-Wash-Inc." font-family="Avenir-Heavy, Avenir" font-size="3.3" font-weight="600" fill="#4A4A4A">
+                    <tspan x="30.0845" y="3.73333333">Nunes Car Wash Inc.</tspan>
+                </text>
+                <text id="Terms-and-Conditions" font-family="Avenir-Heavy, Avenir" font-size="2.2" font-weight="600" fill="#4A4A4A">
+                    <tspan x="7.36" y="49.6666667">Terms and Conditions: offer is void in State of Nebraska. Cannot be used in </tspan>
+                    <tspan x="7.36" y="52.6666667">conjunction with any other offers  </tspan>
+                </text>
+                <g id="Group" transform="translate(11.224000, 12.100000)" fill="#FFFFFF">
+                    <ellipse id="Oval-1" cx="25.76" cy="7.7" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="7.728" cy="7.7" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="43.792" cy="7.7" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="61.824" cy="7.7" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="7.728" cy="24.9333333" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="25.76" cy="24.9333333" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="43.792" cy="24.9333333" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="61.824" cy="24.9333333" rx="7.728" ry="7.7"></ellipse>
+                </g>
+            </g>
+            <g id="variant-b" transform="translate(376.000000, 416.000000)">
+                <g id="Rectangle-1">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-9)" xlink:href="#path-8"></use>
+                    <use stroke="#C9C9C9" mask="url(#mask-10)" stroke-width="2" fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-8"></use>
+                </g>
+                <text id="Collect-10-stamps-fo" font-family="Avenir-Heavy, Avenir" font-size="4.4" font-weight="600" fill="#4A4A4A">
+                    <tspan x="5.868" y="8.21666667">Collect 10 stamps for a FREE car wash!</tspan>
+                </text>
+                <text id="Nunes-Car-Wash-Inc." font-family="Avenir-Heavy, Avenir" font-size="3.3" font-weight="600" fill="#4A4A4A">
+                    <tspan x="30.0845" y="3.73333333">Nunes Car Wash Inc.</tspan>
+                </text>
+                <text id="Terms-and-Conditions" font-family="Avenir-Heavy, Avenir" font-size="2.2" font-weight="600" fill="#4A4A4A">
+                    <tspan x="7.36" y="49.6666667">Terms and Conditions: offer is void in State of Nebraska. Cannot be used in </tspan>
+                    <tspan x="7.36" y="52.6666667">conjunction with any other offers  </tspan>
+                </text>
+                <g id="Group" transform="translate(2.208000, 12.650000)" fill="#FFFFFF">
+                    <ellipse id="Oval-1" cx="43.792" cy="7.7" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="25.76" cy="7.7" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="61.824" cy="7.7" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="79.856" cy="7.7" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="7.728" cy="7.7" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="7.728" cy="24.9333333" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="25.76" cy="24.9333333" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="43.792" cy="24.9333333" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="61.824" cy="24.9333333" rx="7.728" ry="7.7"></ellipse>
+                    <ellipse id="Oval-1" cx="79.856" cy="24.9333333" rx="7.728" ry="7.7"></ellipse>
+                </g>
+                <g id="Group-3" transform="translate(9.970060, 21.114707) rotate(23.000000) translate(-9.970060, -21.114707) translate(3.470060, 14.614707)">
+                    <ellipse id="Oval-19" fill-opacity="0.519021739" fill="#000000" cx="6.072" cy="6.05" rx="6.072" ry="6.05"></ellipse>
+                    <text id="Nunes" font-family="Avenir-Heavy, Avenir" font-size="3.66666667" font-weight="600" fill="#FFFFFF">
+                        <tspan x="0.641666667" y="7.3">Nunes</tspan>
+                    </text>
+                </g>
+                <g id="Group-3" transform="translate(28.587717, 20.830059) rotate(-23.000000) translate(-28.587717, -20.830059) translate(22.087717, 14.330059)">
+                    <ellipse id="Oval-19" fill-opacity="0.519021739" fill="#000000" cx="6.072" cy="6.05" rx="6.072" ry="6.05"></ellipse>
+                    <text id="Nunes" font-family="Avenir-Heavy, Avenir" font-size="3.66666667" font-weight="600" fill="#FFFFFF">
+                        <tspan x="0.641666667" y="7.3">Nunes</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
