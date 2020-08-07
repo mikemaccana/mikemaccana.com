@@ -65,11 +65,12 @@
   }
 
   :root {
-    --gunmetal-blue: #4f6977;
-    --gray-blue: #558bad;
-    --blue-neon: #6feef8;
-    --smoky-dark-blue: #32457f;
-    --black: #555;
+    --gunmetal-blue: #4f6977EE;
+    --gray-blue: #558badEE;
+    --blue-neon: #6feef8EE;
+    --smoky-dark-blue: #32457fEE;
+    --black: #555555EE;
+    --mid-blue: #2781ceEE;
   }
 
   .blog-post:nth-child(5n + 1) header {
