@@ -2,21 +2,20 @@
   import { select, selectAll, log } from "../js/utils/basics.js";
   import { onMount } from "svelte";
 
-  let isActive = false;
+  export let title;
+  export let subtitles;
 
   onMount(function() {
     setTimeout(function() {
       document.body.classList.remove("loading");
     }, 0);
-
-    isActive = true;
   });
 </script>
 
 <style>
-  .monogram-and-heading {
+  header {
     padding: 0 24px;
-    justify-items: left;
+    align-content: center;
     text-align: left;
     grid-column: 1;
   }
@@ -33,20 +32,13 @@
   }
 
   h2 {
-    opacity: 0;
-  }
-
-  h2.active {
     opacity: 1;
-  }
-
-  h2 {
     font-size: 24px;
     line-height: 32px;
   }
 
   @media screen and (max-width: 850px) {
-    .monogram-and-heading {
+    header {
       margin-top: 24px;
     }
 
@@ -61,12 +53,9 @@
   }
 </style>
 
-<div class="monogram-and-heading">
-
-  <h1 class={isActive ? 'active' : ''}>Mike MacCana</h1>
-  <h2 class={isActive ? 'active' : ''}>
-    Front end, back end, cloud infrastructure.
-    <br />
-    Founding, bootstrapping, hiring, troubleshooting.
-  </h2>
-</div>
+<header>
+  <h1>{title}</h1>
+  {#each subtitles as subtitle}
+    <h2>{subtitle}</h2>
+  {/each}
+</header>

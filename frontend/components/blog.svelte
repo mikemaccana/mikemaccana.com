@@ -1,4 +1,6 @@
 <script>
+  import Heading from "./heading.svelte";
+
   export let isMenuActive;
   export let articles;
   isMenuActive = false;
@@ -8,6 +10,9 @@
     var dateStringBits = dateString.split(" ");
     return `${Number(dateStringBits[0])} ${dateStringBits.splice(1).join(" ")}`;
   };
+
+  const title = "Blog";
+  const subtitles = ["Musings on technology"];
 </script>
 
 <style>
@@ -26,25 +31,21 @@
     right: 0;
     bottom: 0;
     background-color: #e3e3e3;
+    grid-template-rows: 512px auto;
   }
 
   .blog > header {
     height: 100px;
     margin: 128px 0;
   }
-  h1,
+
   h2,
   p {
     color: var(--midgrey);
   }
 
-  h1,
   h2 {
     margin: 12px 24px;
-  }
-
-  h1 {
-    font-size: 58px;
   }
 
   .blog-posts h2 {
@@ -108,19 +109,17 @@
     background: linear-gradient(135deg, var(--smoky-dark-blue), var(--black));
   }
 
-  /* @media screen and (max-width: 850px) {
-    a.blog-post {
-      width: 50%;
+  @media screen and (max-width: 850px) {
+    .blog-posts {
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
     }
-  }*/
+  }
 </style>
 
 <div class="blog">
 
-  <header>
-    <h1>Blog</h1>
-    <h2>Front end, back end, cloud infrastructure.</h2>
-  </header>
+  <Heading {title} {subtitles} />
 
   <div class="blog-posts">
 

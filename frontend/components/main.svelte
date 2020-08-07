@@ -28,6 +28,12 @@
     workDescription = select(".work-description");
 
   var currentIndex = 0;
+
+  const title = "Mike MacCana";
+  const subtitles = [
+    "Front end, back end, cloud infrastructure.",
+    "Founding, bootstrapping, hiring, troubleshooting."
+  ];
 </script>
 
 <style>
@@ -51,7 +57,7 @@
 <Router>
 
   <Nav bind:isMenuActive />
-  <Heading />
+  <Heading {title} {subtitles} />
   <WorkViewer {works} bind:currentIndex />
 
   <!-- Must come first, everything else is a route -->
