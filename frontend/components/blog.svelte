@@ -11,6 +11,14 @@
 </script>
 
 <style>
+  :root {
+    --gunmetal-blue: #4f6977ee;
+    --gray-blue: #558badee;
+    --blue-neon: #6feef8ee;
+    --smoky-dark-blue: #32457fee;
+    --black: #555555ee;
+    --mid-blue: #2781ceee;
+  }
   .blog {
     position: absolute;
     top: 0;
@@ -64,36 +72,31 @@
     text-align: center;
   }
 
-  :root {
-    --gunmetal-blue: #4f6977EE;
-    --gray-blue: #558badEE;
-    --blue-neon: #6feef8EE;
-    --smoky-dark-blue: #32457fEE;
-    --black: #555555EE;
-    --mid-blue: #2781ceEE;
+  h2 {
+    margin: 24px;
   }
 
   .blog-post:nth-child(5n + 1) header {
     background: linear-gradient(135deg, var(--mid-blue), var(--black));
   }
-  .blog-post:nth-child(5n + 2) header{
+  .blog-post:nth-child(5n + 2) header {
     background: linear-gradient(135deg, var(--gunmetal-blue), var(--black));
   }
-  .blog-post:nth-child(5n + 3) header{
+  .blog-post:nth-child(5n + 3) header {
     background: linear-gradient(135deg, var(--gray-blue), var(--black));
   }
-  .blog-post:nth-child(5n + 4) header{
+  .blog-post:nth-child(5n + 4) header {
     background: linear-gradient(135deg, var(--blue-neon), var(--black));
   }
   .blog-post:nth-child(5n + 5) header {
     background: linear-gradient(135deg, var(--smoky-dark-blue), var(--black));
-  } 
+  }
 
   /* @media screen and (max-width: 850px) {
     a.blog-post {
       width: 50%;
     }
-  }
+  }*/
 </style>
 
 <div class="blog">
