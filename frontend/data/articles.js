@@ -89,7 +89,7 @@ let articles = [
 		image: `chrome-no-ev.png`,
 		title: `Chrome will no longer show verification markers - CertSimple is shutting down.`,
 		description: `Thanks for everything`,
-		date: `14 Jun 2018`,
+		date: `14 Jun 2019`,
 	},
 	{
 		slug: `nginx-brotli`,
