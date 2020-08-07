@@ -12,12 +12,12 @@
 
 <style>
   :root {
-    --gunmetal-blue: #4f6977ee;
-    --gray-blue: #558badee;
-    --blue-neon: #6feef8ee;
-    --smoky-dark-blue: #32457fee;
-    --black: #555555ee;
-    --mid-blue: #2781ceee;
+    --gunmetal-blue: #d8d8d8e0;
+    --gray-blue: #cececee0;
+    --blue-neon: #a2a2a2e0;
+    --smoky-dark-blue: #e6e8eee0;
+    --black: #e8e7e7e0;
+    --mid-blue: #efefefe0;
   }
   .blog {
     position: absolute;
@@ -25,8 +25,32 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #444;
+    background-color: #e3e3e3;
   }
+
+  .blog > header {
+    height: 100px;
+    margin: 128px 0;
+  }
+  h1,
+  h2,
+  p {
+    color: var(--midgrey);
+  }
+
+  h1,
+  h2 {
+    margin: 12px 24px;
+  }
+
+  h1 {
+    font-size: 58px;
+  }
+
+  .blog-posts h2 {
+    font-size: 26pt;
+  }
+
   .blog-posts {
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: row;
@@ -38,14 +62,13 @@
   }
 
   a.blog-post {
-    /* border: solid 1px red; */
     width: 100%;
     height: 400px;
     display: grid;
     justify-items: center;
 
-    /* specified inline */
-    /* background: url(""); */
+    /* background is specified inline */
+    filter: grayscale(1);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -56,7 +79,7 @@
     position: relative;
   }
 
-  /* Shades background image */
+  /* Shade background image */
   a.blog-post header {
     width: 100%;
     height: 100%;
@@ -65,15 +88,8 @@
     left: 0;
     display: grid;
     position: absolute;
-    /* opacity: 0.93;
-    background-color: #222; */
-
     align-content: center;
     text-align: center;
-  }
-
-  h2 {
-    margin: 24px;
   }
 
   .blog-post:nth-child(5n + 1) header {
@@ -100,7 +116,11 @@
 </style>
 
 <div class="blog">
-  <h1>blog</h1>
+
+  <header>
+    <h1>Blog</h1>
+    <h2>Front end, back end, cloud infrastructure.</h2>
+  </header>
 
   <div class="blog-posts">
 
