@@ -126,7 +126,7 @@
     {#each articles as article, index}
       <a
         class="blog-post {article.slug}"
-        href="/blog/{article.slug}"
+        href={article.isOldBlog ? `https://expeditedsecurity.com/blog/${article.slug}` : `/blog/${article.slug}`}
         style="background-image: url(/images/blog/{article.image})">
         <header>
           <h2>{article.title}</h2>

@@ -90,6 +90,7 @@ let articles = [
 		title: `Things new programmers miss about programming (that have nothing to do with code)`,
 		description: `How to go from a good programmer to a CTO`,
 		date: `07 Aug 2020`,
+		isOldBlog: false,
 	},
 	{
 		slug: `chrome-verification-markers`,
@@ -97,6 +98,7 @@ let articles = [
 		title: `Chrome will no longer show verification markers - CertSimple is shutting down.`,
 		description: `Thanks for everything`,
 		date: `14 Jun 2019`,
+		isOldBlog: false,
 	},
 	{
 		slug: `nginx-brotli`,
@@ -105,6 +107,7 @@ let articles = [
 		description: `And other horses**t.`,
 		date: `4 Apr 2017`,
 		updatedDate: `25 Jun 2018`,
+		isOldBlog: true,
 	},
 	{
 		slug: `onion-ev-ssl`,
@@ -112,6 +115,7 @@ let articles = [
 		title: `Onion TLS/SSL certificate updates`,
 		description: `Streamlining verification for Onion sites.`,
 		date: `26 Mar 2018`,
+		isOldBlog: true,
 	},
 	{
 		slug: `break-the-web`,
@@ -119,6 +123,7 @@ let articles = [
 		title: `Break the web.`,
 		description: `Favoring a bigger future over a tiny past.`,
 		date: `9 Mar 2018`,
+		isOldBlog: true,
 	},
 	{
 		slug: `deploy-node-on-linux`,
@@ -126,6 +131,7 @@ let articles = [
 		title: `The ultimate guide to deploying your node app on Linux`,
 		description: `This time we do the work for you.`,
 		date: `12 Feb 2018`,
+		isOldBlog: true,
 	},
 	{
 		slug: `err-cert-common-name-invalid`,
@@ -133,6 +139,7 @@ let articles = [
 		title: `CERT COMMON NAME INVALID doesn't mean what you think it does`,
 		description: `Standards change, error codes don't`,
 		date: `9 Feb 2018`,
+		isOldBlog: true,
 	},
 	{
 		slug: `haproxy-http2-dynamic-load-balancing-ssl`,
@@ -140,6 +147,7 @@ let articles = [
 		description: `A load balancer with HTTP/2 and dynamic reconfig.`,
 		title: `HAProxy in 2018`,
 		date: `8 Jan 2018`,
+		isOldBlog: true,
 	},
 	{
 		slug: `debugging-and-troubleshooting-javascript-async-await`,
@@ -147,6 +155,7 @@ let articles = [
 		title: `How to diagnose and troubleshoot JavaScript async/await issues`,
 		description: ``,
 		date: `19 Sep 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `browser-security-indicators`,
@@ -154,6 +163,7 @@ let articles = [
 		title: `Chrome's 'Secure' indicator was designed to make users proceed on any HTTPS site`,
 		description: `Research pushes users to continue rather than understand`,
 		date: `02 Aug 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `ev-https-sole-proprietor`,
@@ -161,6 +171,7 @@ let articles = [
 		title: `Better HTTPS verification for smaller companies`,
 		description: `Going straight to face to face verification for sole proprietors and partnerships.`,
 		date: `25 Jul 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `flattening-javascript-async-await`,
@@ -169,6 +180,7 @@ let articles = [
 		description: `Using 'await' instead of callbacks and .then()`,
 		date: `10 Jul 2017`,
 		updatedDate: `02 Aug 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `javascript-equals-async-await`,
@@ -176,6 +188,7 @@ let articles = [
 		title: `ES2017's async/await is the best thing to ever happen to JavaScript`,
 		description: `No callbacks, no .then()`,
 		date: `20 Jun 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `ecc-https-certificate-support`,
@@ -183,6 +196,7 @@ let articles = [
 		title: `ECDSA HTTPS certificates are faster and more secure. Here's where you (still) can't use them.`,
 		description: `Where to go - and where not to - when you want something better than RSA`,
 		date: `17 May 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `ev-https-france-japan-malaysia`,
@@ -190,6 +204,7 @@ let articles = [
 		title: `Adding EV HTTPS prechecks for 7 new countries, and a new US state`,
 		description: `🇯🇵 🇲🇾 🇫🇷 🇨🇭 🇸🇰 🇲🇩 🇬🇬 and 🤠`,
 		date: `13 Apr 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `nginx-http2-load-balancing-config`,
@@ -197,6 +212,7 @@ let articles = [
 		title: `An nginx config for 2017`,
 		description: `With HTTP/2 in every browser, load balancing with automatic failover, IPv6, a sorry page, separate blog server, HTML5 SSE and A+ HTTPS.`,
 		date: `13 Feb 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `certsimple-v5-doing-business-as-ev-https`,
@@ -204,6 +220,7 @@ let articles = [
 		title: `CertSimple 5: 'Doing Business As' support, instant rekeying, flat pricing`,
 		description: `Getting closer to our goal`,
 		date: `30 Jan 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `single-multi-domain-https-certificates-are-the-same-thing`,
@@ -211,6 +228,7 @@ let articles = [
 		title: `Ignore your CA: 'Single domain' and 'multi domain' HTTPS certificates are the same thing`,
 		description: `Ending an arbitrary distinction that wastes everyone's time`,
 		date: `5 Jan 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `your-connection-to-this-site-is-not-private`,
@@ -218,6 +236,7 @@ let articles = [
 		title: `It's happened: current Chrome is warning users about insecure pages`,
 		description: `First transition in Google's HTTPS-everywhere plans is done`,
 		date: `2 Sep 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `make-ecc-https-cert`,
@@ -225,6 +244,7 @@ let articles = [
 		title: `CertSimple now defaults to ECC`,
 		description: `Build a custom ECC keypair with a single paste on Unix or Windows`,
 		date: `25 Jul 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `safe-curves-and-openssl`,
@@ -232,6 +252,7 @@ let articles = [
 		title: `Safe ECC curves for HTTPS are coming sooner than you think`,
 		description: `Making ECC better by simplifying it`,
 		date: `25 Jul 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `certsimple-version-4`,
@@ -239,6 +260,7 @@ let articles = [
 		title: `Automating the non-automatable`,
 		description: `How to compel your users with the endowed progress effect`,
 		date: `11 Jul 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `product-development-for-non-us-markets`,
@@ -246,6 +268,7 @@ let articles = [
 		title: `Find love overseas`,
 		description: `Simple ways to make people outside the US love your product`,
 		date: `12 Jun 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `https-certificate-chains`,
@@ -253,6 +276,7 @@ let articles = [
 		title: `Why you're always at least two steps down your HTTPS certificate chain`,
 		description: `And everything else you always wanted to know about certificate chains.`,
 		date: `4 May 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `encryption-everywhere`,
@@ -260,6 +284,7 @@ let articles = [
 		title: `Encryption Everywhere: Symantec announce free DV certs via partners.`,
 		description: `We told you.`,
 		date: `15 Mar 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `reddit-math-crypto`,
@@ -267,6 +292,7 @@ let articles = [
 		title: `5700 upvotes later: be careful about crypto advice from Reddit.`,
 		description: `Watch out where you get our advice from`,
 		date: `11 Feb 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `unix-things-web-developers-struggle-with`,
@@ -274,6 +300,7 @@ let articles = [
 		title: `Unix things web developers often struggle with - and how to fix them`,
 		description: `And how to fix them`,
 		date: `11 Feb 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `site-seal-ssl`,
@@ -281,6 +308,7 @@ let articles = [
 		title: `Why 'site seals' are even worse than you thought`,
 		description: `Ultimately benefit the vendor more than their customers`,
 		date: `28 Jan 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `ssl-why-do-i-need-it`,
@@ -288,6 +316,7 @@ let articles = [
 		title: `HTTPS provides more than just privacy`,
 		description: `Identity, SEO, HTML5, and not having your content modified`,
 		date: `25 Jan 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `ssl-or-tls`,
@@ -295,6 +324,7 @@ let articles = [
 		title: `Why people who know better still say 'SSL'. And 'hoverboard'.`,
 		description: `It's 17 years since TLS was standardised. Is it time to move on?`,
 		date: `13 Jan 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `domain-validated-ssl-google-com-mg`,
@@ -302,6 +332,7 @@ let articles = [
 		title: `Domain validated HTTPS certs issued for google.com.mg and google.com.im`,
 		description: `This isn't Google, but they're not fake - that's just what DV HTTPS is.`,
 		date: `11 Jan 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `openssl-shortcuts`,
@@ -309,6 +340,7 @@ let articles = [
 		title: `You won't remember the options for OpenSSL, so here's bash shortcuts for everything.`,
 		description: `Save a bunch of time by pasting this into your .bash_profile`,
 		date: `4 Jan 2016`,
+		isOldBlog: true,
 	},
 	{
 		slug: `obsolete-cipher-suite-and-things-web-developers-should-know-about-ssl`,
@@ -316,6 +348,7 @@ let articles = [
 		title: `What web developers should know about HTTPS but probably don't.`,
 		description: `The most common questions we get from developers who already know their stuff`,
 		date: `21 Dec 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `control-the-ssl-cas-your-browser-trusts`,
@@ -323,6 +356,7 @@ let articles = [
 		title: `Who your browser trusts, and how to control it.`,
 		description: `Don't want to trust Lenovo, Dell or the Chinese givernment? You don't have to.`,
 		date: `21 Dec 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `domain-validated-ssl-will-be-free`,
@@ -330,6 +364,7 @@ let articles = [
 		title: `Domain validated HTTPS will soon be free from the large CAs`,
 		description: `Upcoming plans revealed from two of the largest commercial CAs`,
 		date: `20 Nov 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `ssl-wireshark-mac-osx`,
@@ -337,6 +372,7 @@ let articles = [
 		title: `Wireshark 2 is the simplest way to inspect HTTPS on your Mac`,
 		description: `Avoid setting up proxies using only Chrome and Wireshark`,
 		date: `19 Nov 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `certsimple-version-3`,
@@ -344,6 +380,7 @@ let articles = [
 		title: `CertSimple 3: realtime EV HTTPS validation, webcrypto, and Delaware!`,
 		description: `More industry firsts as we further disrupt a stagnant industry`,
 		date: `12 Nov 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `node-js-ssl-labs`,
@@ -351,6 +388,7 @@ let articles = [
 		title: `node.js v4 gets an A+ for SSL Labs with no configuration`,
 		description: `We could have written a blog article about how to configure node, or we could just configure node for everybody.`,
 		date: `29 Oct 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `localhost-ssl-fix`,
@@ -358,6 +396,7 @@ let articles = [
 		title: `Never see localhost HTTPS warnings again`,
 		description: `Setting up working localhost on your Mac takes 5 minutes.`,
 		date: `17 Sep 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `csp-shenanigans`,
@@ -365,6 +404,7 @@ let articles = [
 		title: `Practical prevention of web shenanigans with Content Security Policy`,
 		description: `Save a bunch of time by leveraging known CSP settings for Stripe, YouTube, Twitter and other popular embedded JavaScript apps`,
 		date: `1 Sep 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `ev-ssl-outside-the-us`,
@@ -372,6 +412,7 @@ let articles = [
 		title: `How we fixed EV validation outside the US`,
 		description: `Sweden loves us.`,
 		date: `18 Aug 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `domain-validated-ssl`,
@@ -379,6 +420,7 @@ let articles = [
 		title: `Why we don't sell domain validated HTTPS certificates`,
 		description: `Knowing whose private key you're encrypting with is important`,
 		date: `17 Aug 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `new-ssl-tools`,
@@ -386,6 +428,7 @@ let articles = [
 		title: `HTTPS tools we wish we\'d known about earlier`,
 		description: `...and that you'll wish you knew about earlier too`,
 		date: `20 July 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `dv-ssl-in-microsoft-edge`,
@@ -393,6 +436,7 @@ let articles = [
 		title: `Edge uses a hollow gray lock for domain validated HTTPS`,
 		description: `Joins Safari in reducing security indicators for domain validated HTTPS`,
 		date: `20 July 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `are-ev-ssl-certificates-worth-it`,
@@ -401,6 +445,7 @@ let articles = [
 		description: `You deserve a better explanation of EV than a CA yelling 'trust' at you. `,
 		date: `2 July 2015`,
 		updatedDate: `11 Jan 2017`,
+		isOldBlog: true,
 	},
 	{
 		slug: `seal-in-search`,
@@ -408,6 +453,7 @@ let articles = [
 		title: `Strange things are afoot with Symantec\'s search results injection`,
 		description: `Company pulls report used for single-size study to justify fake SEO after being called on it`,
 		date: `1 July 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `checking-orders-before-you-pay`,
@@ -415,6 +461,7 @@ let articles = [
 		title: `Checking your order before you pay`,
 		description: `We're moving more of the validation to the front of the process`,
 		date: `5 June 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `sgc-ssl-certificates`,
@@ -422,6 +469,7 @@ let articles = [
 		title: `Symantec stopped upselling IE5 support in 2015`,
 		description: `It runs on Windows 3.1 and until recently Symantec wanted $500 to support it.`,
 		date: `19 May 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `chrome-outdated-cryptography`,
@@ -429,6 +477,7 @@ let articles = [
 		title: `Why your 'A' grade HTTPS is 'outdated cryptography' on Chrome`,
 		description: `The difference between SSL Labs and Chrome Security UI`,
 		date: `14 May 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `six-weeks-in`,
@@ -436,6 +485,7 @@ let articles = [
 		title: `Six weeks in`,
 		description: `Our first few weeks of CertSimple`,
 		date: `5 May 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `recreating-unix-rosetta-stone`,
@@ -443,6 +493,7 @@ let articles = [
 		title: `We\'re recreating the Unix Rosetta Stone for 2015`,
 		description: `Bringing back the classic with modern OSs and commands`,
 		date: `29 April 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `measuring-ssl-rsa-keys`,
@@ -450,6 +501,7 @@ let articles = [
 		title: `So you're making an RSA key for an HTTPS certificate. What key size do you use?`,
 		description: `Or: why you probably don't want a 4096 bit RSA cert`,
 		date: `23 April 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `junk-free-whois`,
@@ -457,6 +509,7 @@ let articles = [
 		title: `Why there\'s junk in your whois results, and how you can get rid of it`,
 		description: `YOU.DONT.HAVE.TO.READ.ALL.THESE.FAKE.RESULTS.ABOUT.MICROSOFT.COM`,
 		date: `22 April 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `fortune-500-ssl`,
@@ -464,6 +517,7 @@ let articles = [
 		title: `EV HTTPS in the Fortune 500`,
 		description: `How many companies use EV and who they are`,
 		date: `16 April 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `openssl-csr-command`,
@@ -471,6 +525,7 @@ let articles = [
 		title: `Your OpenSSL CSR command is out of date`,
 		description: `Here's what 'openssl req' looks like in 2015`,
 		date: `13 April 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `node-ssl-config`,
@@ -478,6 +533,7 @@ let articles = [
 		title: `Implementing Mozilla\'s recommended HTTPS settings on node & npm`,
 		description: `We ported Mozilla's guidelines to node`,
 		date: `31 March 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `a-plus-node-js-ssl`,
@@ -485,6 +541,7 @@ let articles = [
 		title: `How to get A+ on the SSL Labs test in node.js`,
 		description: `Actually, go read our next article because we just patched node to include these as default!`,
 		date: `24 March 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `wildcard-ev-certificate`,
@@ -492,6 +549,7 @@ let articles = [
 		title: `Why can\'t I get a wildcard EV certificate?`,
 		description: `The short answer: bankofamerica.com-fraud.ph`,
 		date: `15 March 2015`,
+		isOldBlog: true,
 	},
 	{
 		slug: `do-ev-ssl-certificates-have-better-encryption`,
@@ -499,6 +557,7 @@ let articles = [
 		title: `Do EV certificates provide better encryption than non-EV certificates?`,
 		description: `No. The security benefit is matching public keys to identity.`,
 		date: `6 March 2015`,
+		isOldBlog: true,
 	},
 ];
 
