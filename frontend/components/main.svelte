@@ -1,7 +1,7 @@
 <script>
   import works from "../data/works.js";
   import articles from "../data/articles.js";
-  import WorkViewer from "./work-viewer.svelte";
+  import WorkViewer from "./works.svelte";
   import Heading from "./heading.svelte";
   import WorkDetail from "./work-detail.svelte";
   import Nav from "./nav.svelte";
@@ -58,7 +58,9 @@
 
   <Nav bind:isMenuActive />
   <Heading {title} {subtitles} />
-  <WorkViewer {works} bind:currentIndex />
+  <Route exact path="/" let:router>
+    <WorkViewer {works} bind:currentIndex />
+  </Route>
 
   <!-- Must come first, everything else is a route -->
   <Route exact path="/blog" let:router>
