@@ -65,9 +65,16 @@
     <Blog bind:isMenuActive {articles} />
   </Route>
 
-  <Route exact path="/:slug" let:router>
+  <Route exact path="/blog/:slug" let:router>
+    <!-- <WorkDetail {works} /> -->
+    I am a blog article {router.slug}
+  </Route>
+
+  <Route exact path="/work/:slug" let:router>
     <WorkDetail {works} />
   </Route>
+
+  <Route fallback>Not found</Route>
 
   <img src="images/autism.svg" alt="" class="autism" />
 </Router>

@@ -241,7 +241,7 @@
       style="transform: translateX({horizontalScrollOffset}px);
       grid-template-columns: repeat({works.length}, {SLIDE_WIDTH}px);">
       {#each works as work, index}
-        <Link href="/{work.slug}" class="link">
+        <Link href="/work/{work.slug}" class="link">
           <div
             class="slide {index === currentIndex ? 'selected' : ''}
             {index === 0 ? 'first' : ''}"

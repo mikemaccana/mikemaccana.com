@@ -1,6 +1,6 @@
 <script>
   import Heading from "./heading.svelte";
-
+  import { Link } from "yrv";
   export let isMenuActive;
   export let articles;
   isMenuActive = false;
@@ -34,10 +34,10 @@
     grid-template-rows: 512px auto;
   }
 
-  .blog > header {
+  /* .blog > header {
     height: 100px;
     margin: 128px 0;
-  }
+  } */
 
   h2,
   p {
@@ -58,11 +58,11 @@
   }
 
   /* Highlight most recent blog post */
-  a.blog-post:first-of-type {
+  :global(.link.blog-post:first-of-type) {
     grid-area: 1 / 1 / 2 / 3;
   }
 
-  a.blog-post {
+  :global(.link.blog-post) {
     width: 100%;
     height: 400px;
     display: grid;
@@ -81,7 +81,7 @@
   }
 
   /* Shade background image */
-  a.blog-post header {
+  :global(.link.blog-post header) {
     width: 100%;
     height: 100%;
 
@@ -93,19 +93,19 @@
     text-align: center;
   }
 
-  .blog-post:nth-child(5n + 1) header {
+  :global(.link.blog-post:nth-child(5n + 1) header) {
     background: linear-gradient(135deg, var(--mid-blue), var(--black));
   }
-  .blog-post:nth-child(5n + 2) header {
+  :global(.link.blog-post:nth-child(5n + 2) header) {
     background: linear-gradient(135deg, var(--gunmetal-blue), var(--black));
   }
-  .blog-post:nth-child(5n + 3) header {
+  :global(.link.blog-post:nth-child(5n + 3) header) {
     background: linear-gradient(135deg, var(--gray-blue), var(--black));
   }
-  .blog-post:nth-child(5n + 4) header {
+  :global(.link.blog-post:nth-child(5n + 4) header) {
     background: linear-gradient(135deg, var(--blue-neon), var(--black));
   }
-  .blog-post:nth-child(5n + 5) header {
+  :global(.link.blog-post:nth-child(5n + 5) header) {
     background: linear-gradient(135deg, var(--smoky-dark-blue), var(--black));
   }
 
@@ -124,15 +124,15 @@
   <div class="blog-posts">
 
     {#each articles as article, index}
-      <a
-        class="blog-post {article.slug}"
+      <Link
+        class="blog-post {article.slug} link"
         href={article.isOldBlog ? `https://expeditedsecurity.com/blog/${article.slug}` : `/blog/${article.slug}`}
         style="background-image: url(/images/blog/{article.image})">
         <header>
           <h2>{article.title}</h2>
           <p class="byline">{toPrettyDate(article.date)}</p>
         </header>
-      </a>
+      </Link>
     {/each}
 
   </div>
