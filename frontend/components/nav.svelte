@@ -31,7 +31,8 @@
     transform: rotate(-4deg) translateX(800px);
     top: -26px;
     background-color: #212121ed;
-    position: absolute;
+    z-index: 2;
+    position: fixed;
     right: 0;
     height: 120%;
     width: 512px;
