@@ -3,6 +3,7 @@
   import articles from "../data/articles.js";
   import WorkViewer from "./works.svelte";
   import Heading from "./heading.svelte";
+  import Article from "./article.svelte";
   import WorkDetail from "./work-detail.svelte";
   import Nav from "./nav.svelte";
   import Blog from "./blog.svelte";
@@ -68,8 +69,7 @@
   </Route>
 
   <Route exact path="/blog/:slug" let:router>
-    <!-- <WorkDetail {works} /> -->
-    I am a blog article {router.slug}
+    <Article {articles} />
   </Route>
 
   <Route exact path="/work/:slug" let:router>
