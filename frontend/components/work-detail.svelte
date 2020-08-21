@@ -4,6 +4,8 @@
 
   export let slug = $router.params.slug;
 
+  const STATIC_DIR = "/_static";
+
   const work = works.find(work => work.slug === slug);
 </script>
 
@@ -88,12 +90,12 @@
 
     {#each new Array(work.screenshotCount) as unused, screenshotIndex}
       <img
-        src="/images/work/screenshots/{work.slug}-{screenshotIndex}.{work.imageExtension}"
+        src="{STATIC_DIR}/images/work/screenshots/{work.slug}-{screenshotIndex}.{work.imageExtension}"
         loading="lazy"
         alt={work.slug} />
     {/each}
   </div>
   <Link href="/">
-    <img class="close" src="/images/icons/close.svg" alt="Close" />
+    <img class="close" src="{STATIC_DIR}/images/icons/close.svg" alt="Close" />
   </Link>
 </div>

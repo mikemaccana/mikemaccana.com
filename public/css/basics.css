@@ -3,19 +3,19 @@
 *,
 *:before,
 *:after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 a,
 a:hover,
 a:active,
 a:visited {
-	color: var(--textcolor);
-	text-decoration: none;
+  color: var(--textcolor);
+  text-decoration: none;
 }
 
 body {
-	/* Workaround for description text weirdly being selected after sliding */
-	user-select: none;
+  /* Workaround for description text weirdly being selected after sliding */
+  user-select: none;
 }
 
 body,
@@ -23,18 +23,18 @@ nav,
 .hamburger,
 .content,
 .symbol {
-	transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 strong {
-	color: var(--othertextcolor);
+  color: var(--othertextcolor);
 }
 
 h1,
 h2,
 h3 {
-	font-family: "Caslon";
-	font-weight: 400;
+  font-family: "Caslon";
+  font-weight: 400;
 }
 
 h1,
@@ -43,7 +43,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: var(--textcolor);
+  color: var(--textcolor);
 }
 
 /* Not p as it's weird */
@@ -55,54 +55,64 @@ section,
 figure,
 form,
 div,
-q,
 header,
 footer,
 button,
 .button {
-	display: grid;
+  display: grid;
+}
+
+q {
+  font-size: 30px;
+  letter-spacing: -0.014em;
+  line-height: 44px;
+  margin-bottom: -0.46em;
+  padding-left: 32px;
+  font-style: italic;
+  display: block;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 li {
-	overflow: initial;
+  overflow: initial;
 }
 
 body {
-	margin: 0;
-	background-color: #e3e3e3;
-	color: var(--textcolor);
+  margin: 0;
+  background-color: #e3e3e3;
+  color: var(--textcolor);
 
-	/* https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser */
-	height: -webkit-fill-available;
+  /* https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser */
+  height: -webkit-fill-available;
 
-	overflow-x: hidden;
+  overflow-x: hidden;
 
-	/* Will be tweaked by plugins */
-	overflow-y: hidden;
+  /* Will be tweaked by plugins */
+  overflow-y: hidden;
 
-	/* https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior */
-	overscroll-behavior: contain;
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior */
+  overscroll-behavior: contain;
 
-	width: 100vw;
-	align-content: center;
+  width: 100vw;
+  align-content: center;
 }
 
 /* Hide things until monogram has loaded */
 body.loading .monogram-and-heading {
-	transition: all 1s ease-in-out;
-	align-content: center;
+  transition: all 1s ease-in-out;
+  align-content: center;
 }
 
 /* Hide things until monogram has loaded */
 body.loading .slider,
 body.loading .work-description {
-	visibility: hidden;
-	/* Centers monogram until content has loaded */
-	transform: translateY(40%);
-	transition: all 1s ease-in-out;
+  visibility: hidden;
+  /* Centers monogram until content has loaded */
+  transform: translateY(40%);
+  transition: all 1s ease-in-out;
 }
 
 .about-me {
-	margin: 0 auto;
-	max-width: var(--single-column-threshold-width);
+  margin: 0 auto;
+  max-width: var(--single-column-threshold-width);
 }

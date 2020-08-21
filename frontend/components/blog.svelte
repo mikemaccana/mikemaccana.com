@@ -5,6 +5,8 @@
   export let articles;
   isMenuActive = false;
 
+  const STATIC_DIR = "/_static";
+
   // Eg, "6 March 2015" to "6th March 2015"
   let toPrettyDate = function(dateString) {
     var dateStringBits = dateString.split(" ");
@@ -122,7 +124,7 @@
       <Link
         class="blog-post {article.slug} link"
         href={article.isOldBlog ? `https://expeditedsecurity.com/blog/${article.slug}` : `/blog/${article.slug}`}
-        style="background-image: url(/images/blog/{article.image})">
+        style="background-image: url({STATIC_DIR}/images/blog/{article.image})">
         <header>
           <h2>{article.title}</h2>
           <p class="byline">{toPrettyDate(article.date)}</p>

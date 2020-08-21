@@ -12,6 +12,8 @@
   export let works;
   export let currentIndex;
 
+  const STATIC_DIR = "/_static";
+
   const LEFT_KEY = 37,
     RIGHT_KEY = 39;
 
@@ -245,14 +247,14 @@
           <div
             class="slide {index === currentIndex ? 'selected' : ''}
             {index === 0 ? 'first' : ''}"
-            style="background-image: url(/images/work/screenshots/thumbs/{work.slug}-0.{work.imageExtension});
+            style="background-image: url({STATIC_DIR}/images/work/screenshots/thumbs/{work.slug}-0.{work.imageExtension});
             min-height: {SLIDE_HEIGHT}px;">
             <div class="work-description">
               <div class="work-description-content">
                 <h3 class="work-title">{work.title}</h3>
                 <img
                   class="work-logo"
-                  src="/images/logos/{work.client}.png"
+                  src="{STATIC_DIR}/images/logos/{work.client}.png"
                   alt={work.title}
                   loading="lazy" />
                 <div class="work-lede">{work.lede}</div>

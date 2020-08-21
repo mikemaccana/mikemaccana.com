@@ -4,6 +4,8 @@
   import { Link } from "yrv";
   export let isMenuActive;
 
+  const STATIC_DIR = "/_static";
+
   onMount(function() {
     var log = console.log.bind(console),
       select = document.querySelector.bind(document),
@@ -150,7 +152,7 @@
     class="navitem stackoverflow"
     target="_blank"
     href="http://stackoverflow.com/users/123671/mikemaccana">
-    <img alt="" src="/images/icons/stack-overflow.svg" />
+    <img alt="" src="{STATIC_DIR}/images/icons/stack-overflow.svg" />
     StackOverflow
     <div class="bragging">Top 0.14%</div>
   </a>
@@ -159,7 +161,7 @@
     class="navitem speakerdeck"
     target="_blank"
     href="https://speakerdeck.com/mikemaccana">
-    <img alt="" src="/images/icons/speaker-deck.svg" />
+    <img alt="" src="{STATIC_DIR}/images/icons/speaker-deck.svg" />
     Speaker Deck
   </a>
 
@@ -167,7 +169,7 @@
     class="navitem linkedin"
     target="_blank"
     href="https://www.linkedin.com/in/mikemaccana">
-    <img alt="" src="/images/icons/linkedin.svg" />
+    <img alt="" src="{STATIC_DIR}/images/icons/linkedin.svg" />
     LinkedIn
   </a>
 
@@ -175,7 +177,7 @@
     class="navitem twitter"
     target="_blank"
     href="https://twitter.com/mikemaccana">
-    <img alt="" src="/images/icons/twitter.svg" />
+    <img alt="" src="{STATIC_DIR}/images/icons/twitter.svg" />
     Twitter
   </a>
 
@@ -183,18 +185,18 @@
     class="navitem github"
     target="_blank"
     href="https://github.com/mikemaccana">
-    <img alt="" src="/images/icons/github.svg" />
+    <img alt="" src="{STATIC_DIR}/images/icons/github.svg" />
     GitHub
     <div class="bragging">2020 Arctic Code Vault</div>
   </a>
 
   <Link class="navitem blog" target="_blank" href="/blog">
-    <img alt="" src="/images/icons/blog.svg" />
+    <img alt="" src="{STATIC_DIR}/images/icons/blog.svg" />
     Blog
   </Link>
 
   <a class="navitem work" href="/">
-    <img alt="" src="/images/icons/work.svg" />
+    <img alt="" src="{STATIC_DIR}/images/icons/work.svg" />
     Work
   </a>
 
@@ -202,7 +204,7 @@
     class="navitem cv"
     download
     href="/downloads/{encodeURIComponent('Mike MacCana CV.pdf')}">
-    <img alt="" src="/images/icons/cv.svg" />
+    <img alt="" src="{STATIC_DIR}/images/icons/cv.svg" />
     CV
   </a>
 

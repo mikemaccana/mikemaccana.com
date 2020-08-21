@@ -1,17 +1,17 @@
 {
-	"name": "Mike MacCana",
-	"display": "standalone",
-	"background_color": "#b7b7b7",
-	"start_url": "/",
-	"description": "Front end, back end, cloud infrastructure. Founding, bootstrapping, hiring, troubleshooting.",
-	"icons": [
-		{
-			"src": "/images/m.svg",
-			"sizes": "192x192"
-		},
-		{
-			"src": "/images/m.svg",
-			"sizes": "512x512"
-		}
-	]
+  "name": "Mike MacCana",
+  "display": "standalone",
+  "background_color": "#b7b7b7",
+  "start_url": "/",
+  "description": "Front end, back end, cloud infrastructure. Founding, bootstrapping, hiring, troubleshooting.",
+  "icons": [
+    {
+      "src": "/_static/images/m.svg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/_static/images/m.svg",
+      "sizes": "512x512"
+    }
+  ]
 }
