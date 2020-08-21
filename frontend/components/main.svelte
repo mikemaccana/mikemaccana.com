@@ -57,8 +57,8 @@
 <Router>
 
   <Nav bind:isMenuActive />
-  <Heading {title} {subtitles} />
   <Route exact path="/" let:router>
+    <Heading {title} {subtitles} />
     <WorkViewer {works} bind:currentIndex />
   </Route>
 
