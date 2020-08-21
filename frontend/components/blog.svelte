@@ -34,11 +34,6 @@
     grid-template-rows: 512px auto;
   }
 
-  /* .blog > header {
-    height: 100px;
-    margin: 128px 0;
-  } */
-
   h2,
   p {
     color: var(--midgrey);
