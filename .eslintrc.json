@@ -20,9 +20,17 @@
     "__dcid": true,
     "__Cascade": true
   },
-  "plugins": ["must-use-await"],
+  "plugins": [
+    "must-use-await"
+  ],
   "rules": {
-    "indent": ["error", "space", { "SwitchCase": 1 }],
+    "indent": [
+      "error",
+      "space",
+      {
+        "SwitchCase": 1
+      }
+    ],
     "must-use-await/must-use-await": 1, // 1 warn, 2 error
     "linebreak-style": "off",
     "quotes": "off",
