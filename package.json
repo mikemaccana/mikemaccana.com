@@ -10,12 +10,12 @@
     "dev": "run-p start autobuild"
   },
   "dependencies": {
-    "@architect/architect": "^6.5.4",
+    "@architect/architect": "^6.5.5",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "cookie-parser": "~1.4.5",
     "debug": "~4.1.1",
-    "eslint": "^7.1.0",
+    "eslint": "^7.7.0",
     "eslint-plugin-must-use-await": "^1.1.2",
     "hbs": "^4.1.1",
     "http-errors": "~1.7.3",
@@ -23,7 +23,7 @@
     "marked": "^1.1.1",
     "morgan": "~1.10.0",
     "rollup-plugin-terser": "^6.1.0",
-    "superagent": "^6.0.0",
+    "superagent": "^6.1.0",
     "tocca": "^2.0.9",
     "yrv": "0.0.30"
   },
@@ -34,6 +34,6 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-svelte": "^5.1.1",
     "serve": "^11.3.2",
-    "svelte": "^3.23.0"
+    "svelte": "^3.24.1"
   }
 }
