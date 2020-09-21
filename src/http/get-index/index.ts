@@ -1,25 +1,32 @@
 const log = console.log.bind(console);
 
+import { StatusCodes } from "./status-codes.ts";
+
 const STATIC_DIR = "/_static";
 
-function layout(title, bodyContents) {
+export interface ObjectLiteral {
+  [key: string]: any;
+}
+
+
+function layout(title: string, bodyContents: string) {
   return `<!DOCTYPE html>
-<html>
+    <html>
 
-<head>
-  <meta charset='utf8'>
-  <title>Mike MacCana | ${title}</title>
-  <link rel='stylesheet' href='${STATIC_DIR}/css/bundle.css'>
-  <link rel="icon" href="${STATIC_DIR}/images/m.svg" sizes="any" type="image/svg+xml">
-  <link rel="manifest" href="${STATIC_DIR}/json/manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-</head>
+    <head>
+      <meta charset='utf8'>
+      <title>Mike MacCana | ${title}</title>
+      <link rel='stylesheet' href='${STATIC_DIR}/css/bundle.css'>
+      <link rel="icon" href="${STATIC_DIR}/images/m.svg" sizes="any" type="image/svg+xml">
+      <link rel="manifest" href="${STATIC_DIR}/json/manifest.json">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    </head>
 
-<body class="loading">
-  ${bodyContents}
-  <script src='${STATIC_DIR}/js/bundle.js'></script>
-</body>
-</html>`;
+    <body class="loading">
+      ${bodyContents}
+      <script src='${STATIC_DIR}/js/bundle.js'></script>
+    </body>
+    </html>`;
 }
 
 const WORK_SLUGS = [
@@ -116,11 +123,12 @@ WORK_SLUGS.forEach((slug) => ROUTES.push(`/work/${slug}`));
 BLOG_SLUGS.forEach((slug) => ROUTES.push(`/blog/${slug}`));
 
 // learn more about HTTP functions here: https://arc.codes/primitives/http
-exports.handler = async function http(request) {
-  if (!ROUTES.includes(request.path)) {
-    log(`Request to non-existent route ${request.path}`);
+export async function handler(request:ObjectLiteral) {
+  if (!ROUTES.includes(request.rawPath)) {
+    log(`Request to non-existent route ${request.rawPath}`);
     return {
-      statusCode: 404,
+      isBase64Encoded: false,
+      statusCode: StatusCodes.NOT_FOUND,
       headers: {
         "Content-Type": "text/html; charset=utf8",
       },
@@ -129,11 +137,13 @@ exports.handler = async function http(request) {
   }
 
   return {
+    isBase64Encoded: false,
+    statusCode: StatusCodes.OK,
+    body: layout(`work`, `<div class="svelte-goes-here"></div>`),
     headers: {
       "cache-control":
         "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0",
-      "content-type": "text/html; charset=utf8",
+      "Content-Type": "text/html; charset=utf8",
     },
-    body: layout(`work`, `<div class="svelte-goes-here"></div>`),
   };
 };
