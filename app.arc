@@ -2,6 +2,6 @@
 init
 
 @http
-get /
+get /*
 
 @static
