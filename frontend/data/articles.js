@@ -84,14 +84,14 @@ let articles = [
 	// 	description: `Setting up working localhost on Windows takes 5 minutes.`,
 	// 	date: `30 Aug 2018`
 	// },
-	{
-		slug: `things-new-programmers-miss-about-coding`,
-		image: `things-new-programmers-miss-about-coding.png`,
-		title: `Things new programmers miss about programming (that have nothing to do with code)`,
-		description: `How to go from a good programmer to a CTO`,
-		date: `07 Aug 2020`,
-		isOldBlog: false,
-	},
+	// {
+	// 	slug: `things-new-programmers-miss-about-coding`,
+	// 	image: `things-new-programmers-miss-about-coding.png`,
+	// 	title: `Things new programmers miss about programming (that have nothing to do with code)`,
+	// 	description: `How to go from a good programmer to a CTO`,
+	// 	date: `07 Aug 2020`,
+	// 	isOldBlog: false,
+	// },
 	{
 		slug: `chrome-verification-markers`,
 		image: `chrome-no-ev.png`,
