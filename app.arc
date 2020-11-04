@@ -1,6 +1,8 @@
 @app
 init
 
+@cdn
+
 @http
 get /*
 
