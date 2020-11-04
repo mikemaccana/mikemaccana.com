@@ -4,4 +4,4 @@
 
 Runs on `http://localhost`
 
-Deploy with `cloud-config.yaml` as User Data
+Deploy with `npx arc deploy production`
