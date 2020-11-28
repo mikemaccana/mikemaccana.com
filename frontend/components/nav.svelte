@@ -6,13 +6,13 @@
 
   const STATIC_DIR = "/_static";
 
-  onMount(function() {
+  onMount(function () {
     var log = console.log.bind(console),
       select = document.querySelector.bind(document),
       selectAll = document.querySelectorAll.bind(document);
 
     // Clicking ☰ button displays nav
-    select(".hamburger").addEventListener("click", function(event) {
+    select(".hamburger").addEventListener("click", function (event) {
       isMenuActive = !isMenuActive;
       event.preventDefault();
     });
@@ -108,7 +108,7 @@
     line-height: 14px;
     padding: 3px 6px;
     position: absolute;
-    top: 75px;
+    top: 82px;
     right: 38px;
   }
 
@@ -147,7 +147,6 @@
   <div class="wedge {isMenuActive ? 'menu-active' : ''}" />
 </div>
 <nav class="vertical {isMenuActive ? 'menu-active' : ''}">
-
   <a
     class="navitem stackoverflow"
     target="_blank"
@@ -207,5 +206,4 @@
     <img alt="" src="{STATIC_DIR}/images/icons/cv.svg" />
     CV
   </a>
-
 </nav>
