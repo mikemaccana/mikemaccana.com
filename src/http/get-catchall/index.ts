@@ -1,5 +1,7 @@
 const log = console.log.bind(console);
 
+// Weird deno will fail here if '.ts' is removed
+// TODO: update deno?
 import { StatusCodes } from "./status-codes.ts";
 
 const STATIC_DIR = "/_static";
@@ -7,7 +9,6 @@ const STATIC_DIR = "/_static";
 export interface ObjectLiteral {
   [key: string]: any;
 }
-
 
 function layout(title: string, bodyContents: string) {
   return `<!DOCTYPE html>
@@ -129,7 +130,7 @@ WORK_SLUGS.forEach((slug) => ROUTES.push(`/work/${slug}`));
 BLOG_SLUGS.forEach((slug) => ROUTES.push(`/blog/${slug}`));
 
 // learn more about HTTP functions here: https://arc.codes/primitives/http
-export async function handler(request:ObjectLiteral) {
+export async function handler(request: ObjectLiteral) {
   if (!ROUTES.includes(request.rawPath)) {
     log(`Request to non-existent route ${request.rawPath}`);
     return {
@@ -152,4 +153,4 @@ export async function handler(request:ObjectLiteral) {
       "Content-Type": "text/html; charset=utf8",
     },
   };
-};
+}
