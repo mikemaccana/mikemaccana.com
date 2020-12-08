@@ -2,7 +2,6 @@ node_modules
 
 # Added by svelte template
 .DS_Store
-yarn.lock
 public/js/bundle.js
 public/js/bundle.js.map
 public/css/bundle.css
