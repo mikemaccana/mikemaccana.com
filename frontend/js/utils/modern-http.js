@@ -1,7 +1,10 @@
+const log = console.log.bind(console);
+
 const contentTypeHandlers = {
   "application/json": (response) => response.json(),
   "text/plain": (response) => response.text(),
   "text/markdown": (response) => response.text(),
+  "text/html": (response) => response.text(),
 };
 
 export const http = {
@@ -12,7 +15,7 @@ export const http = {
       // Sadly we can't override the inbuilt useless raw 'body'
       response.decodedBody = await contentTypeHandlers[contentType](response);
     } else {
-      log(`Unknown content type`);
+      log(`Unknown content type: ${contentType}`);
     }
     if (!response.ok) {
       throw new Error(`oh no response didn't work`);
