@@ -88,7 +88,7 @@ let articles = [
   {
     slug: `how-to-automate-scary-things`,
     image: `x.png`,
-    title: `x`,
+    title: `How to automate scary things`,
     description: `x`,
     date: `12 Dec 2020`,
     isOldBlog: false,
@@ -96,7 +96,7 @@ let articles = [
   {
     slug: `how-to-work-with-people-outside-your-organisation`,
     image: `x.png`,
-    title: `x`,
+    title: `How to work on technical issues with people outside your organisation`,
     description: `x`,
     date: `12 Dec 2020`,
     isOldBlog: false,
@@ -104,7 +104,7 @@ let articles = [
   {
     slug: `speeding-up-ci-by-not-doing-things`,
     image: `x.png`,
-    title: `x`,
+    title: `Speeding up CI but not doing things`,
     description: `x`,
     date: `12 Dec 2020`,
     isOldBlog: false,
@@ -112,7 +112,7 @@ let articles = [
   {
     slug: `the-fail-safe-pattern`,
     image: `x.png`,
-    title: `x`,
+    title: `The failsafe / scheduler pattern`,
     description: `x`,
     date: `12 Dec 2020`,
     isOldBlog: false,
@@ -120,7 +120,7 @@ let articles = [
   {
     slug: `use-links-in-your-comments`,
     image: `x.png`,
-    title: `x`,
+    title: `Use links in your comments`,
     description: `x`,
     date: `12 Dec 2020`,
     isOldBlog: false,
@@ -128,7 +128,7 @@ let articles = [
   {
     slug: `using-vs-understanding-git`,
     image: `x.png`,
-    title: `x`,
+    title: `Using vs understanding git`,
     description: `x`,
     date: `12 Dec 2020`,
     isOldBlog: false,
