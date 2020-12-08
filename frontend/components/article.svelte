@@ -14,14 +14,14 @@
 
   const STATIC_DIR = "/_static";
 
-  let article = articles.find(article => article.slug === slug);
+  let article = articles.find((article) => article.slug === slug);
   let title = article.title;
   let subtitles = [article.description];
 
   let articleHtml = "";
 
   //
-  (async function() {
+  (async function () {
     const response = await http.get(`${STATIC_DIR}/markdown/${slug}.md`);
 
     articleHtml = parseMarkdown(response.decodedBody);
@@ -46,9 +46,10 @@
   }
   .column {
     padding: 0 32px;
-
     max-width: 800px;
+    margin-bottom: 512px;
   }
+  /* TODO - why are these global? I guess because they're dynamic? */
   :global(.blog article .column > *) {
     color: var(--midgrey);
     display: block;
@@ -68,13 +69,33 @@
     line-height: 32px;
   }
 
+  :global(.blog article p, .blog article li) {
+    font-size: 21px;
+    line-height: 32px;
+  }
+
   :global(.blog article p) {
-    margin-top: 2em;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
-    font-size: 21px;
-    line-height: 32px;
+    margin-top: 2em;
+  }
+
+  :global(.blog article .the-point) {
+    font-size: 52px;
+    line-height: 64px;
+    text-align: center;
+    margin-bottom: 32px;
+    margin-left: -128px;
+    margin-right: -128px;
+    margin-top: 64px;
+  }
+
+  :global(.blog article a, .blog article a:hover, .blog article a:active, .blog
+      article
+      a:visited) {
+    color: var(--midgrey);
+    text-decoration: underline;
   }
 </style>
 
@@ -85,7 +106,6 @@
     <div class="column">
       {@html articleHtml}
     </div>
-
   </article>
 </div>
 >
