@@ -57,7 +57,13 @@ const WORK_SLUGS = [
 ];
 
 let BLOG_SLUGS = [
-  "things-new-programmers-miss-about-coding",
+  "how-to-automate-scary-things",
+  "how-to-work-with-people-outside-your-organisation",
+  "speeding-up-ci-by-not-doing-things.markdown",
+  "the-fail-safe-pattern",
+  "using-vs-understanding-git",
+  "use-links-in-your-comments",
+
   "chrome-verification-markers",
   "nginx-brotli",
   "onion-ev-ssl",
