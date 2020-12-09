@@ -4,10 +4,12 @@
   "version": "3.0.0",
   "private": true,
   "scripts": {
-    "start": "npx arc sandbox",
-    "build": "rollup -c",
     "autobuild": "rollup -c -w",
-    "dev": "run-p start autobuild"
+    "deploy": "arc deploy production",
+    "dev": "run-p start autobuild",
+    "build": "rollup -c",
+    "lint": "eslint . --fix --ext .js,.ts",
+    "start": "arc sandbox"
   },
   "dependencies": {
     "@architect/architect": "^8.3.6",
