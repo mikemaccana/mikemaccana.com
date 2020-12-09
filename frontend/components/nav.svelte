@@ -153,7 +153,7 @@
     href="http://stackoverflow.com/users/123671/mikemaccana">
     <img alt="" src="{STATIC_DIR}/images/icons/stack-overflow.svg" />
     StackOverflow
-    <div class="bragging">Top 0.14%</div>
+    <div class="bragging">Top 0.12%</div>
   </a>
 
   <a
