@@ -4,6 +4,10 @@ const log = console.log.bind(console);
 // TODO: update deno?
 import { StatusCodes } from "./status-codes.ts";
 
+import articles from "../../../frontend/data/articles.js";
+
+const articleSlugs = articles.map((article: ObjectLiteral) => article.slug);
+
 const STATIC_DIR = "/_static";
 
 export interface ObjectLiteral {
@@ -57,77 +61,9 @@ const WORK_SLUGS = [
   "doom-the-path",
 ];
 
-let BLOG_SLUGS = [
-  "how-to-automate-scary-things",
-  "how-to-work-with-people-outside-your-organisation",
-  "speeding-up-ci-by-not-doing-things.markdown",
-  "the-fail-safe-pattern",
-  "using-vs-understanding-git",
-  "use-links-in-your-comments",
-
-  "chrome-verification-markers",
-  "nginx-brotli",
-  "onion-ev-ssl",
-  "break-the-web",
-  "deploy-node-on-linux",
-  "err-cert-common-name-invalid",
-  "haproxy-http2-dynamic-load-balancing-ssl",
-  "debugging-and-troubleshooting-javascript-async-await",
-  "browser-security-indicators",
-  "ev-https-sole-proprietor",
-  "flattening-javascript-async-await",
-  "javascript-equals-async-await",
-  "ecc-https-certificate-support",
-  "ev-https-france-japan-malaysia",
-  "nginx-http2-load-balancing-config",
-  "certsimple-v5-doing-business-as-ev-https",
-  "single-multi-domain-https-certificates-are-the-same-thing",
-  "your-connection-to-this-site-is-not-private",
-  "make-ecc-https-cert",
-  "safe-curves-and-openssl",
-  "certsimple-version-4",
-  "product-development-for-non-us-markets",
-  "https-certificate-chains",
-  "encryption-everywhere",
-  "reddit-math-crypto",
-  "unix-things-web-developers-struggle-with",
-  "site-seal-ssl",
-  "ssl-why-do-i-need-it",
-  "ssl-or-tls",
-  "domain-validated-ssl-google-com-mg",
-  "openssl-shortcuts",
-  "obsolete-cipher-suite-and-things-web-developers-should-know-about-ssl",
-  "control-the-ssl-cas-your-browser-trusts",
-  "domain-validated-ssl-will-be-free",
-  "ssl-wireshark-mac-osx",
-  "certsimple-version-3",
-  "node-js-ssl-labs",
-  "localhost-ssl-fix",
-  "csp-shenanigans",
-  "ev-ssl-outside-the-us",
-  "domain-validated-ssl",
-  "new-ssl-tools",
-  "dv-ssl-in-microsoft-edge",
-  "are-ev-ssl-certificates-worth-it",
-  "seal-in-search",
-  "checking-orders-before-you-pay",
-  "sgc-ssl-certificates",
-  "chrome-outdated-cryptography",
-  "six-weeks-in",
-  "recreating-unix-rosetta-stone",
-  "measuring-ssl-rsa-keys",
-  "junk-free-whois",
-  "fortune-500-ssl",
-  "openssl-csr-command",
-  "node-ssl-config",
-  "a-plus-node-js-ssl",
-  "wildcard-ev-certificate",
-  "do-ev-ssl-certificates-have-better-encryption",
-];
-
 const ROUTES = ["/", "/blog", "/works"];
-WORK_SLUGS.forEach((slug) => ROUTES.push(`/work/${slug}`));
-BLOG_SLUGS.forEach((slug) => ROUTES.push(`/blog/${slug}`));
+log(`Adding ${articleSlugs.length} slugs`);
+articleSlugs.forEach((slug: string) => ROUTES.push(`/blog/${slug}`));
 
 // learn more about HTTP functions here: https://arc.codes/primitives/http
 export async function handler(request: ObjectLiteral) {
