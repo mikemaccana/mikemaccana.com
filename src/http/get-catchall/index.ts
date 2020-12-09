@@ -10,6 +10,8 @@ const articleSlugs = articles.map((article: ObjectLiteral) => article.slug);
 
 const STATIC_DIR = "/_static";
 
+const DENO_VERSION = Deno.version.deno;
+
 export interface ObjectLiteral {
   [key: string]: any;
 }
@@ -87,6 +89,7 @@ export async function handler(request: ObjectLiteral) {
       "cache-control":
         "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0",
       "Content-Type": "text/html; charset=utf8",
+      "x-powered-by": DENO_VERSION,
     },
   };
 }
