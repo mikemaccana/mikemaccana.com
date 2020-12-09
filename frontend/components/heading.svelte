@@ -5,8 +5,8 @@
   export let title;
   export let subtitles;
 
-  onMount(function() {
-    setTimeout(function() {
+  onMount(function () {
+    setTimeout(function () {
       document.body.classList.remove("loading");
     }, 0);
   });
@@ -18,6 +18,11 @@
     align-content: center;
     text-align: left;
     grid-column: 1;
+
+    /* Gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(45deg, #868686 0%, #4f4f4f 40%);
   }
 
   h1 {
