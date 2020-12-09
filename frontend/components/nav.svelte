@@ -202,7 +202,7 @@
   <a
     class="navitem cv"
     download
-    href="/downloads/{encodeURIComponent('Mike MacCana CV.pdf')}">
+    href="{STATIC_DIR}/downloads/{encodeURIComponent('Mike MacCana CV.pdf')}">
     <img alt="" src="{STATIC_DIR}/images/icons/cv.svg" />
     CV
   </a>
