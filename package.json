@@ -11,11 +11,15 @@
   },
   "dependencies": {
     "@architect/architect": "^8.3.6",
+    "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
     "cookie-parser": "~1.4.5",
     "debug": "~4.1.1",
-    "eslint": "^7.7.0",
+    "eslint": "^7.15.0",
     "eslint-plugin-must-use-await": "^1.1.2",
     "hbs": "^4.1.1",
     "http-errors": "~1.7.3",
@@ -23,18 +27,16 @@
     "lodash.debounce": "^4.0.8",
     "marked": "^1.1.1",
     "morgan": "~1.10.0",
-    "rollup-plugin-terser": "^6.1.0",
-    "superagent": "^6.1.0",
-    "tocca": "^2.0.9",
-    "yrv": "0.0.30"
-  },
-  "devDependencies": {
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.10.9",
+    "rollup": "^2.34.2",
     "rollup-plugin-buble": "^0.19.8",
-    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-svelte": "^5.1.1",
+    "rollup-plugin-terser": "^6.1.0",
     "serve": "^11.3.2",
-    "svelte": "^3.24.1"
+    "superagent": "^6.1.0",
+    "svelte": "^3.24.1",
+    "tocca": "^2.0.9",
+    "typescript": "^4.1.2",
+    "yrv": "0.0.30"
   }
 }

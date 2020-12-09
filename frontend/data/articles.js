@@ -466,7 +466,7 @@ let articles = [
   {
     slug: `new-ssl-tools`,
     image: `new-ssl-tools.png`,
-    title: `HTTPS tools we wish we\'d known about earlier`,
+    title: `HTTPS tools we wish we'd known about earlier`,
     description: `...and that you'll wish you knew about earlier too`,
     date: `20 July 2015`,
     isOldBlog: true,
@@ -491,7 +491,7 @@ let articles = [
   {
     slug: `seal-in-search`,
     image: `seal-in-search/seal-in-search-missing-citation.png`,
-    title: `Strange things are afoot with Symantec\'s search results injection`,
+    title: `Strange things are afoot with Symantec's search results injection`,
     description: `Company pulls report used for single-size study to justify fake SEO after being called on it`,
     date: `1 July 2015`,
     isOldBlog: true,
@@ -531,7 +531,7 @@ let articles = [
   {
     slug: `recreating-unix-rosetta-stone`,
     image: `command-line-rosetta-stone-operating-systems.png`,
-    title: `We\'re recreating the Unix Rosetta Stone for 2015`,
+    title: `We're recreating the Unix Rosetta Stone for 2015`,
     description: `Bringing back the classic with modern OSs and commands`,
     date: `29 April 2015`,
     isOldBlog: true,
@@ -547,7 +547,7 @@ let articles = [
   {
     slug: `junk-free-whois`,
     image: `whois-small.png`,
-    title: `Why there\'s junk in your whois results, and how you can get rid of it`,
+    title: `Why there's junk in your whois results, and how you can get rid of it`,
     description: `YOU.DONT.HAVE.TO.READ.ALL.THESE.FAKE.RESULTS.ABOUT.MICROSOFT.COM`,
     date: `22 April 2015`,
     isOldBlog: true,
@@ -571,7 +571,7 @@ let articles = [
   {
     slug: `node-ssl-config`,
     image: `npm-logo.svg`,
-    title: `Implementing Mozilla\'s recommended HTTPS settings on node & npm`,
+    title: `Implementing Mozilla's recommended HTTPS settings on node & npm`,
     description: `We ported Mozilla's guidelines to node`,
     date: `31 March 2015`,
     isOldBlog: true,
@@ -587,7 +587,7 @@ let articles = [
   {
     slug: `wildcard-ev-certificate`,
     image: `wildcard-phishing.png`,
-    title: `Why can\'t I get a wildcard EV certificate?`,
+    title: `Why can't I get a wildcard EV certificate?`,
     description: `The short answer: bankofamerica.com-fraud.ph`,
     date: `15 March 2015`,
     isOldBlog: true,

@@ -1,11 +1,11 @@
 <script>
   import { router, Link } from "yrv";
   import Heading from "./heading.svelte";
-  import { http } from "../js/utils/modern-http.js";
+  import { http } from "../ts/utils/modern-http.ts";
   import * as marked from "marked";
   export let slug = $router.params.slug;
   export let articles;
-  const log = console.log.bind(console);
+  import { log, print } from "../ts/utils/basics.ts";
 
   const parseMarkdown = marked.default;
 
@@ -24,7 +24,8 @@
   (async function () {
     const response = await http.get(`${STATIC_DIR}/markdown/${slug}.md`);
 
-    articleHtml = parseMarkdown(response.decodedBody);
+
+    articleHtml = parseMarkdown(response.body);
   })();
 </script>
 

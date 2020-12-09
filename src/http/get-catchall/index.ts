@@ -5,16 +5,22 @@ const log = console.log.bind(console);
 import { StatusCodes } from "./status-codes.ts";
 
 import articles from "../../../frontend/data/articles.js";
+import works from "../../../frontend/data/works.js";
 
-const articleSlugs = articles.map((article: ObjectLiteral) => article.slug);
+import ObjectLiteral from "../../../frontend/ts/utils/object-literal.ts";
+
+function getSlugs(array: ObjectLiteral[]): string[] {
+  return array.map((item: ObjectLiteral) => {
+    return item.slug;
+  });
+}
+
+const articleSlugs = getSlugs(articles);
+const workSlugs = getSlugs(works);
 
 const STATIC_DIR = "/_static";
 
 const DENO_VERSION = Deno.version.deno;
-
-export interface ObjectLiteral {
-  [key: string]: any;
-}
 
 function layout(title: string, bodyContents: string) {
   return `<!DOCTYPE html>
@@ -35,40 +41,12 @@ function layout(title: string, bodyContents: string) {
     </body>
     </html>`;
 }
-
-const WORK_SLUGS = [
-  "boomsaas",
-  "certsimple",
-  "mycognition",
-  "waves",
-  "online-wednesday",
-  "firework",
-  "uncompromise",
-  "bazaarvoice-tips",
-  "facebook-ratings-and-reviews",
-  "facebook-stories",
-  "social-deployer",
-  "bazaarvoice-questions-and-answers",
-  "pamplemousse-js",
-  "ginjs",
-  "google-android-4-launch",
-  "agave-js",
-  "youtube-world-view",
-  "google-getting-american-business-online",
-  "google-10th-birthday-germany",
-  "im-everyone",
-  "python-docx",
-  "linux-and-python",
-  "feature-writer-apc-magazine",
-  "doom-the-path",
-];
-
 const ROUTES = ["/", "/blog", "/works"];
-log(`Adding ${articleSlugs.length} slugs`);
 articleSlugs.forEach((slug: string) => ROUTES.push(`/blog/${slug}`));
+workSlugs.forEach((slug: string) => ROUTES.push(`/work/${slug}`));
 
 // learn more about HTTP functions here: https://arc.codes/primitives/http
-export async function handler(request: ObjectLiteral) {
+export async function handler(request: ObjectLiteral): Promise<ObjectLiteral> {
   if (!ROUTES.includes(request.rawPath)) {
     log(`Request to non-existent route ${request.rawPath}`);
     return {

@@ -8,14 +8,14 @@
   import Nav from "./nav.svelte";
   import Blog from "./blog.svelte";
 
-  import { select, selectAll, log, print } from "../js/utils/basics.js";
+  import { select, selectAll, log, print } from "../ts/utils/basics.ts";
   import { router, Router, Route, Link } from "yrv";
 
   let isMenuActive = false;
 
   let body = window.document.body;
 
-  router.subscribe(event => {
+  router.subscribe((event) => {
     if (!event.initial) {
       if (event.path === "/") {
         body.style["overflow-y"] = "hidden";
@@ -33,7 +33,7 @@
   const title = "Mike MacCana";
   const subtitles = [
     "Front end, back end, cloud infrastructure.",
-    "Founding, bootstrapping, hiring, troubleshooting."
+    "Founding, bootstrapping, hiring, troubleshooting.",
   ];
 </script>
 
@@ -46,7 +46,6 @@
 </style>
 
 <Router>
-
   <Nav bind:isMenuActive />
   <Route exact path="/" let:router>
     <Heading {title} {subtitles} />
@@ -67,5 +66,4 @@
   </Route>
 
   <Route fallback>Not found</Route>
-
 </Router>

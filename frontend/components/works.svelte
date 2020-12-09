@@ -1,7 +1,7 @@
 <script>
   import "../js/utils/element-on.js";
   import "../js/utils/get-parent-index.js";
-  import { select, selectAll, log } from "../js/utils/basics.js";
+  import { select, selectAll, log } from "../ts/utils/basics.ts";
   import { onMount } from "svelte";
   // https://www.npmjs.com/package/tocca
   import "tocca";
@@ -30,7 +30,7 @@
   // Mobile Edge, Chrome etc will trigger spurious `resize` events on window when a user scrolls up and down.
   // So we only do window resize work when the width changes.
   var previousWidth = window.innerWidth;
-  var isWindowWidthChange = function() {
+  var isWindowWidthChange = function () {
     log(`Previouswidth is ${previousWidth}, new width is ${window.innerWidth}`);
     if (window.innerWidth !== previousWidth) {
       previousWidth = window.innerWidth;
@@ -39,7 +39,7 @@
     return false;
   };
 
-  var setHorizontalScrollOffset = function() {
+  var setHorizontalScrollOffset = function () {
     var widthOfWindow = window.innerWidth;
     horizontalScrollOffset =
       // Halfway across screen
@@ -50,7 +50,7 @@
       currentIndex * SLIDE_WIDTH;
   };
 
-  var changeSlide = function(isForward) {
+  var changeSlide = function (isForward) {
     if (isForward) {
       log(`Going forward!`);
     } else {
@@ -74,9 +74,9 @@
     log(`currentIndex is now ${currentIndex}`);
   };
 
-  onMount(function() {
+  onMount(function () {
     // When the window resizes go to slide 0
-    var handleResize = debounce(function(event) {
+    var handleResize = debounce(function (event) {
       if (isWindowWidthChange()) {
         log(`width has changed`);
         currentIndex = 0;
@@ -90,7 +90,7 @@
 
     window.addEventListener("resize", handleResize);
 
-    window.addEventListener("keyup", function(event) {
+    window.addEventListener("keyup", function (event) {
       if (event.keyCode === RIGHT_KEY) {
         changeSlide(true);
       }
@@ -99,11 +99,11 @@
       }
     });
 
-    window.addEventListener("swipeleft", function(event) {
+    window.addEventListener("swipeleft", function (event) {
       changeSlide(true);
     });
 
-    window.addEventListener("swiperight", function(event) {
+    window.addEventListener("swiperight", function (event) {
       changeSlide(false);
     });
 
@@ -269,7 +269,7 @@
   {#if !isFirstSlide}
     <span
       class="previous"
-      on:click={function() {
+      on:click={function () {
         log(`Clicked back!`);
         changeSlide(false);
       }}>
@@ -299,7 +299,7 @@
   {#if !isLastSlide}
     <span
       class="next"
-      on:click={function() {
+      on:click={function () {
         log(`Clicked forward!`);
         changeSlide(true);
       }}>

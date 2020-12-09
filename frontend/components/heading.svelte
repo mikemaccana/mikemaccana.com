@@ -1,5 +1,5 @@
 <script>
-  import { select, selectAll, log } from "../js/utils/basics.js";
+  import { select, selectAll, log } from "../ts/utils/basics.ts";
   import { onMount } from "svelte";
 
   export let title;
