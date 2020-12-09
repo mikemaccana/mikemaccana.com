@@ -1,0 +1,4 @@
+// https://stackoverflow.com/questions/65115527/how-can-i-avoid-the-an-import-path-cannot-end-with-ts-extension-error-in-vs-c
+{
+  "deno.enable": true,
+}

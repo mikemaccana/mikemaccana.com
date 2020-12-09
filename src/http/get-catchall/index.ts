@@ -1,7 +1,7 @@
 const log = console.log.bind(console);
 
-// Weird deno will fail here if '.ts' is removed
-// TODO: update deno?
+// Note: you\ll need 'deno' for vscode installed to avoid a warning here
+// https://stackoverflow.com/questions/65115527/how-can-i-avoid-the-an-import-path-cannot-end-with-ts-extension-error-in-vs-c
 import { StatusCodes } from "./status-codes.ts";
 
 import articles from "../../../frontend/data/articles.js";
