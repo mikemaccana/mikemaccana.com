@@ -24,13 +24,7 @@
     "must-use-await"
   ],
   "rules": {
-    "indent": [
-      "error",
-      "space",
-      {
-        "SwitchCase": 1
-      }
-    ],
+    "indent": ["error", 2],
     "must-use-await/must-use-await": 1, // 1 warn, 2 error
     "linebreak-style": "off",
     "quotes": "off",
