@@ -9,7 +9,7 @@ import works from "../../../frontend/data/works.js";
 
 import ObjectLiteral from "../../../frontend/ts/utils/object-literal.ts";
 
-function getSlugs(array: ObjectLiteral[]): string[] {
+function getSlugs(array: Array<ObjectLiteral>): Array<string> {
   return array.map((item: ObjectLiteral) => {
     return item.slug;
   });

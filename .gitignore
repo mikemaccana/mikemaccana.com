@@ -1,10 +1,13 @@
+# Dependencies
 node_modules
 
-# Added by svelte template
+# SvelteKit build output
+public/
+.svelte-kit/
+
+# System files
 .DS_Store
-public/js/bundle.js
-public/js/bundle.js.map
-public/css/bundle.css
-public/css/bundle.css.map
+
+# Old AWS SAM config (if no longer used, these can stay)
 sam.yaml
 sam.json

@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import json from "@rollup/plugin-json";
 import { terser } from "rollup-plugin-terser";
+import fs from "fs";
 
 const isProduction = process.env.NODE_ENV === "production";
 const isDevelopment = !isProduction;
@@ -18,14 +19,27 @@ export default {
   plugins: [
     json(),
     svelte({
-      // enable run-time checks when not in production
-      dev: isDevelopment,
-      // we'll extract any component CSS out into
-      // a separate file — better for performance
-      css: (css) => {
-        css.write("public/css/bundle.css");
+      compilerOptions: {
+        // enable run-time checks when not in production
+        dev: isDevelopment,
       },
+      emitCss: true,
     }),
+
+    // Custom plugin to write CSS
+    {
+      name: "write-css",
+      generateBundle(options, bundle) {
+        for (const [fileName, chunk] of Object.entries(bundle)) {
+          if (fileName.endsWith(".css")) {
+            const cssPath = "public/css/bundle.css";
+            fs.mkdirSync("public/css", { recursive: true });
+            fs.writeFileSync(cssPath, chunk.source);
+            delete bundle[fileName]; // Remove CSS from bundle output
+          }
+        }
+      },
+    },
 
     typescript({ sourceMap: isDevelopment }),
 
