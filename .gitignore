@@ -7,7 +7,3 @@ public/
 
 # System files
 .DS_Store
-
-# Old AWS SAM config (if no longer used, these can stay)
-sam.yaml
-sam.json
