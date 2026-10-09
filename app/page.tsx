@@ -23,7 +23,7 @@ export default function HomePage() {
         <p>
           I teach how financial products work. I am the author of{" "}
           <a href="/solana-book">Building Financial Software on Solana</a>, speak regularly on
-          blockchain and finance topics for Quicknode, and maintain the most comprehensive library of financial programs on the most active blockchain.</p>
+          blockchain and finance topics for Quicknode, and maintain <a href="/open-source">the most comprehensive library of financial programs</a> on the most active blockchain.</p>
           <p>Before that, I created the four-day
           at Solana Foundation training program, which has been taught all over the world from blockhain clubs in Romania to Ivy League universities in the US, and I maintained the blockchain training that was
           the highest-retention content on solana.com. I also co-created and presented the Solana Developer
