@@ -9,7 +9,7 @@ export default function InvestmentsPage() {
   return (
     <main>
       <section className="section">
-        <p className="kicker">04 Investments</p>
+        <p className="kicker">03 Investments</p>
         <h2>Angel investments</h2>
         <p>I back companies in onchain finance.</p>
         <h3>

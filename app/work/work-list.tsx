@@ -5,6 +5,19 @@ import type { WorkItem } from "./works";
 
 const tagOrder = ["finance", "consumer", "crypto", "blockchain", "AI", "infrastructure", "Y Combinator", "exit"];
 
+function withLinks(text: string) {
+  return text.split(/(\[[^\]]+\]\([^)]+\))/).map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    return match ? (
+      <a key={index} href={match[2]}>
+        {match[1]}
+      </a>
+    ) : (
+      part
+    );
+  });
+}
+
 function orderedTags(works: WorkItem[]): string[] {
   const present = new Set(works.flatMap((work) => work.tags ?? []));
   const known = tagOrder.filter((tag) => present.has(tag));
@@ -118,7 +131,7 @@ export function WorkList({ works }: { works: WorkItem[] }) {
               {work.body.split("\n").map((line, index) => (
                 <Fragment key={index}>
                   {index > 0 ? <br /> : null}
-                  {line}
+                  {withLinks(line)}
                 </Fragment>
               ))}
             </p>

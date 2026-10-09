@@ -9,7 +9,7 @@ export default function AwardsPage() {
   return (
     <main>
       <section className="section">
-        <p className="kicker">05 Awards</p>
+        <p className="kicker">04 Awards</p>
         <h2>Recognition</h2>
         <ul className="rows awards">
           <li>
@@ -33,7 +33,7 @@ export default function AwardsPage() {
           </li>
           <li>
             <span className="when">Stack Overflow</span>
-            <span>Top 0.1% of developers worldwide.</span>
+            <span>Top 0.1% of developers worldwide. Currently ranked #190 of around 3 million users.</span>
           </li>
           <li>
             <span className="when">Solana</span>

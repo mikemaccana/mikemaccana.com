@@ -3,9 +3,8 @@
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/book", label: "Book" },
+  { href: "/solana-book", label: "Book" },
   { href: "/speaking", label: "Speaking" },
-  { href: "/advisory", label: "Advisory" },
   { href: "/investments", label: "Investments" },
   { href: "/work", label: "Work" },
   { href: "/open-source", label: "Open source" },
@@ -38,5 +37,16 @@ export function Nav() {
         ))}
       </nav>
     </header>
+  );
+}
+
+export function Footer() {
+  const pathname = usePathname();
+
+  return (
+    <footer className="site">
+      <span>&copy; {new Date().getFullYear()} Mike MacCana</span>
+      {isCurrent(pathname, "/contact") ? null : <a href="/contact">Contact</a>}
+    </footer>
   );
 }

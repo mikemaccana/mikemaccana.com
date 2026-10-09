@@ -1,61 +1,71 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Speaking · Mike MacCana",
-  description: "Talks on onchain finance.",
+  title: "Speaking and advisory · Mike MacCana",
+  description: "Talks on onchain finance, plus training, retainers, and expert-witness work.",
 };
 
 export default function SpeakingPage() {
   return (
     <main>
       <section className="section">
-        <p className="kicker">02 Speaking</p>
+        <p className="kicker">02 Speaking and advisory</p>
         <h2>Talks</h2>
         <p>
           I speak about onchain finance to two rooms: people who run markets, and people who build them. The
-          subject is how products clear, settle, and hold risk on a public ledger.
+          subject is how products clear, settle, and hold risk on a public ledger. This includes managed funds,
+          prediction markets, options, and lending.
         </p>
         <p>
-          To book a talk, email{" "}
-          <a href="mailto:mike.maccana@gmail.com?subject=Speaking">mike.maccana@gmail.com</a>.
+          I lead Solana content for <a href="https://www.youtube.com/@Quicknode">Quicknode on YouTube</a>. On the
+          Solana Foundation channel I co-created and presented the{" "}
+          <a href="https://www.youtube.com/watch?v=amAq-WHAFs8">2024 Developer Bootcamp</a>. I have also taught
+          Solana Fall School, taught for <a href="https://www.youtube.com/watch?v=x7OoYpoWAVM">TURBIN3</a>, and
+          published with Helius. A set of those talks is collected{" "}
+          <a href="https://www.youtube.com/playlist?list=PLkCOPM6TVt0Rp_kQYEoOCyqj-Y-2bjLvv">in one playlist</a>.
         </p>
         <p>
           <a className="cta" href="mailto:mike.maccana@gmail.com?subject=Speaking">
             Book me to speak
           </a>
         </p>
-        <h3>Live Speaking</h3>
-        <ul className="rows">
+        <h3>What I&apos;ve been talking about recently</h3>
+        <ul className="points">
           <li>
-            <span className="when">Markets</span>
-            <span>Tokenized equities and oracle-free options.</span>
+            How financial products, such as equities exchanges, options trading, and lending markets, work as onchain
+            programs (&lsquo;smart contracts&rsquo;).
           </li>
+          <li>Securely handling assets onchain.</li>
           <li>
-            <span className="when">Structure</span>
-            <span>24/7 market structure and settlement.</span>
-          </li>
-          <li>
-            <span className="when">TradFi</span>
-            <span>What traditional finance can borrow from onchain market design.</span>
+            What changes when finance moves from monolithic assets, market hours, and humans to fractionalized, 24/7
+            global, and agentic trading.
           </li>
         </ul>
         <h3>Conferences</h3>
         <ul className="rows">
           <li>
             <span className="when">2026</span>
+            <span>Solar (Solana China). &ldquo;Operating a Parimutuel Betting Market.&rdquo;</span>
+          </li>
+          <li>
+            <span className="when">2026</span>
+            <span>Solana Fall School. &ldquo;Building a Managed Fund.&rdquo;</span>
+          </li>
+          <li>
+            <span className="when">2026</span>
             <span>Solana Accelerate, Miami. &ldquo;How to get Everything you Ever Wanted.&rdquo;</span>
           </li>
           <li>
             <span className="when">2025</span>
-            <span>Solana Breakpoint.</span>
+            <span>Solana Breakpoint, Colosseum Stage. &ldquo;Smart contract basics.&rdquo;</span>
           </li>
           <li>
             <span className="when">2024</span>
-            <span>Solana Breakpoint.</span>
+            <span>Solana Breakpoint, Colosseum Stage. &ldquo;Smart contract basics.&rdquo;</span>
           </li>
           <li>
             <span className="when">2023</span>
-            <span>Solana Breakpoint.</span>
+            <span>Solana Breakpoint. &ldquo;Solana basics for Everyone.&rdquo;</span>
           </li>
           <li>
             <span className="when">2018</span>
@@ -67,27 +77,24 @@ export default function SpeakingPage() {
           </li>
           <li>
             <span className="when">2015</span>
-            <span>
-              Node Interactive, Portland, December 8-9. The Node Foundation&apos;s flagship event. &ldquo;NPM
-              Everywhere.&rdquo;
-            </span>
+            <span>Node Interactive. &ldquo;NPM Everywhere.&rdquo;</span>
           </li>
           <li>
             <span className="when">2012</span>
             <span>Norton Rose Fulbright. Open source licensing and the law.</span>
           </li>
         </ul>
-        <h3>On video</h3>
+        <h3>Advisory</h3>
+        <p>Clients hire me for this after hearing me speak.</p>
+        <ul className="points">
+          <li>I train teams working on onchain markets, credit, and anything else that moves money.</li>
+          <li>I work as an advisor and a fractional CTO, including blockchain strategy advisory.</li>
+          <li>I take expert-witness work when a matter depends on how financial software behaves.</li>
+        </ul>
         <p>
-          Most of the speaking is on video. I lead Solana content for{" "}
-          <a href="https://www.youtube.com/@Quicknode">Quicknode on YouTube</a>: managed funds, prediction markets,
-          options, and lending. More video is on{" "}
-          <a href="https://x.com/QuicknodeSolana">Quicknode Solana</a>. On the Solana Foundation channel I
-          co-created and presented the{" "}
-          <a href="https://www.youtube.com/watch?v=amAq-WHAFs8">2024 Developer Bootcamp</a>. I have also taught Solana Fall School, taught for{" "}
-          <a href="https://www.youtube.com/watch?v=x7OoYpoWAVM">TURBIN3</a>, and published with Helius, including the
-          introduction of <a href="https://solanakite.org/">Kite</a>. A set of those talks is collected{" "}
-          <a href="https://www.youtube.com/playlist?list=PLkCOPM6TVt0Rp_kQYEoOCyqj-Y-2bjLvv">in one playlist</a>.
+          <a className="cta" href="mailto:mike.maccana@gmail.com?subject=Advisory">
+            Get in touch
+          </a>
         </p>
       </section>
     </main>

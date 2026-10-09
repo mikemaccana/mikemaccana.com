@@ -20,6 +20,7 @@ export type WorkItem = {
   logo?: string;
   /** Show the title even when a logo is present. Use when the logo does not spell the title. */
   showTitle?: boolean;
+  /** Supports [text](url) links. */
   body?: string;
   points?: WorkPoint[];
   shots?: Shot[];
@@ -37,36 +38,23 @@ export const openSource: WorkItem[] = [
     years: "2025 to present",
     title: "Solana Program Examples",
     role: "Maintainer",
-    showTitle: true,
     href: "https://github.com/quicknode/solana-program-examples",
-    logo: "/images/logos/opensource.png",
-    body: "I maintain the largest examples of financial software on the world's most active blockchain. The repo started as small example programs and had fallen into disrepair. I forked it, fixed the broken code, ported it to Anchor 2 and Quasar, and added examples for exchanges, options trading, parimutuel betting, and other kinds of financial products.",
+    body: "I maintain the largest examples of financial software on the world's most active blockchain. The repo started as small single-feature example programs and had fallen into disrepair. I forked it, fixed the broken code, ported it to Anchor 2 and Quasar, and added examples for exchanges, options trading, parimutuel betting, and other kinds of financial products.",
     shots: [
       {
-        src: "/images/work/screenshots/solana-program-examples-readme.png",
-        alt: "README for Solana Program Examples",
+        src: "/images/work/screenshots/solana-program-examples-banner.png",
+        alt: "Quicknode Solana Program Examples banner",
         wide: true,
       },
     ],
   },
   {
-    years: "2013",
+    years: "2009 to present",
     title: "python-docx",
-    role: "Open source",
-    showTitle: true,
+    role: "Creator",
     href: "https://github.com/mikemaccana/python-docx",
-    logo: "/images/logos/opensource.png",
-    body: "The Python library for creating, editing, and saving Microsoft Word documents. Microsoft uses it to read Word files in its own AI tools.",
+    body: "The Python library for creating, editing, and saving Microsoft Word documents. I [created python-docx in 2009](https://stackoverflow.com/questions/116139/how-can-i-search-a-word-in-a-word-2007-docx-file/1979864#1979864) after needing a native way to read Word documents in Python. Microsoft uses it to read Word files in [its own AI tools](https://github.com/microsoft/markitdown/blob/main/packages/markitdown-ocr/pyproject.toml).",
     shots: shots("python-docx", 1, "python-docx"),
-  },
-  {
-    years: "2013",
-    title: "gin.js",
-    role: "Founder",
-    showTitle: true,
-    logo: "/images/logos/js.png",
-    body: "A meetup for London JavaScript developers. I founded it, designed the site, and ran the venue, the mailing list, ticketing, and sponsors.",
-    shots: shots("ginjs", 2, "gin.js"),
   },
 ];
 
@@ -78,7 +66,7 @@ export const works: WorkItem[] = [
     tags: ["finance", "Y Combinator", "crypto", "blockchain", "AI"],
     href: "https://www.quicknode.com/",
     logo: "/logos/quicknode.svg",
-    body: "I lead Solana content at Quicknode, including writing and video on building onchain programs. Quicknode is a Y Combinator company.",
+    body: "I create blockchain finance content at Quicknode.",
     shots: [
       {
         src: "/images/quicknode-speaking-1.jpg",

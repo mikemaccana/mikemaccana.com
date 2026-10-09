@@ -38,8 +38,17 @@ a:hover {
 
 .wrap {
   max-width: 760px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  padding: 1.35rem 1.25rem 5rem;
+  padding: 1.35rem 1.25rem;
+}
+
+.wrap > main {
+  flex: 1 0 auto;
 }
 
 .nav {
@@ -352,6 +361,9 @@ a.logo-link:hover {
 }
 
 footer.site {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
   margin-top: 4rem;
   padding-top: 1rem;
   border-top: 1px solid var(--line);
@@ -447,7 +459,27 @@ cite {
   font-size: 0.95rem;
 }
 
+.book {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.book > .cover {
+  margin: 0;
+}
+
+.book h2 {
+  margin-top: 0;
+}
+
 @media (max-width: 640px) {
+  .book {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
   ol.toc li,
   ul.rows li,
   ul.rows.awards li {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
-import { Nav } from "./nav";
+import { Footer, Nav } from "./nav";
 
 const display = Instrument_Serif({
   subsets: ["latin"],
@@ -39,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="wrap">
           <Nav />
           {children}
+          <Footer />
         </div>
       </body>
     </html>
