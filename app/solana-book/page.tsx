@@ -26,7 +26,7 @@ export default function BookPage() {
             <h2>The Solana Finance Book</h2>
             <p>
               I am the author of <a href={bookUrl}>Building Financial Software on Solana</a>, also known as the Solana
-              Book.
+              Finance Book or just The Solana Book.
             </p>
             <blockquote>
               <p>

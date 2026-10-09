@@ -85,7 +85,7 @@ export default function SpeakingPage() {
           </li>
         </ul>
         <h3>Advisory</h3>
-        <p>Clients hire me for this after hearing me speak.</p>
+        <p>For teams putting these ideas into practice:</p>
         <ul className="points">
           <li>I train teams working on onchain markets, credit, and anything else that moves money.</li>
           <li>I work as an advisor and a fractional CTO, including blockchain strategy advisory.</li>

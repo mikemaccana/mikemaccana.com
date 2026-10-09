@@ -23,11 +23,13 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mike MacCana",
-  description: "I teach finance concepts, and I am available as a speaker.",
+  title: "Mike MacCana · Blockchain finance writer and speaker",
+  description:
+    "Mike MacCana writes and speaks about blockchain finance. Author of Building Financial Software on Solana, the Solana Finance Book.",
   openGraph: {
-    title: "Mike MacCana",
-    description: "I teach finance concepts, and I am available as a speaker.",
+    title: "Mike MacCana · Blockchain finance writer and speaker",
+    description:
+      "Mike MacCana writes and speaks about blockchain finance. Author of Building Financial Software on Solana, the Solana Finance Book.",
     images: [{ url: "/images/mike.jpg", width: 1200, height: 1200, alt: "Mike MacCana" }],
   },
 };

@@ -39,7 +39,7 @@ export const openSource: WorkItem[] = [
     title: "Solana Program Examples",
     role: "Maintainer",
     href: "https://github.com/quicknode/solana-program-examples",
-    body: "I maintain the largest examples of financial software on the world's most active blockchain. The repo started as small single-feature example programs and had fallen into disrepair. I forked it, fixed the broken code, ported it to Anchor 2 and Quasar, and added examples for exchanges, options trading, parimutuel betting, and other kinds of financial products.",
+    body: "I maintain the [largest examples of financial software on the world's most active blockchain](https://github.com/quicknode/solana-program-examples). The repo started as small single-feature example programs and had fallen into disrepair. I forked it, fixed the broken code, ported it to Anchor 2 and Quasar, and added examples for exchanges, options trading, parimutuel betting, and other kinds of financial products.",
     shots: [
       {
         src: "/images/work/screenshots/solana-program-examples-banner.png",
@@ -225,7 +225,7 @@ export const works: WorkItem[] = [
   {
     years: "2012 to 2013",
     title: "Bazaarvoice",
-    role: "Senior developer, London and Austin",
+    role: "Senior Developer",
     tags: ["consumer"],
     logo: "/images/logos/bazaarvoice.png",
     points: [

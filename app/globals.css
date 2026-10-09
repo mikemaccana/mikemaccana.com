@@ -82,6 +82,11 @@ a:hover {
   text-underline-offset: 0.25em;
 }
 
+.nav a:hover,
+.nav nav a:hover {
+  color: var(--bg);
+}
+
 .hero {
   display: grid;
   grid-template-columns: 128px 1fr;
@@ -411,10 +416,6 @@ blockquote p {
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
   margin: 0.25rem 0 0.5rem;
-}
-
-.shots.single {
-  grid-template-columns: 1fr;
 }
 
 .shots.wide {
