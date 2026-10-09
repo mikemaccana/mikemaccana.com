@@ -1,9 +1,4 @@
-# Dependencies
 node_modules
-
-# SvelteKit build output
-public/
-.svelte-kit/
-
-# System files
+.next
+out
 .DS_Store

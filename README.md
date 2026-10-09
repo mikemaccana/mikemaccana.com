@@ -1,7 +1,10 @@
-# My personal site
+# mikemaccana.com
 
-`npm run dev`
+Personal site. Next.js.
 
-Runs on `http://localhost:3333`
+```bash
+npm install
+npm run dev
+```
 
-Deploy with `npx arc deploy production`
+The dev server runs at http://localhost:3333. Port 3000 is already in use on this machine.
