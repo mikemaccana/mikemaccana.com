@@ -139,6 +139,12 @@ h1 {
   padding-top: 1.15rem;
 }
 
+main > .section:first-child {
+  border-top: none;
+  margin-top: 2.5rem;
+  padding-top: 0;
+}
+
 .kicker {
   font-family: var(--mono);
   font-size: 0.72rem;
