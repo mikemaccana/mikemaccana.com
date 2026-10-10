@@ -19,7 +19,9 @@ export default function SpeakingPage() {
         <p>
           I lead Solana content for <a href="https://www.youtube.com/@Quicknode">Quicknode on YouTube</a>. On the
           Solana Foundation channel I co-created and presented the{" "}
-          <a href="https://www.youtube.com/watch?v=amAq-WHAFs8">2024 Developer Bootcamp</a>. I have also taught
+          <a href="https://www.youtube.com/watch?v=amAq-WHAFs8">2024 Developer Bootcamp</a>, watched over 330,000
+          times. I also created the Solana Foundation training program, which has been taught everywhere from
+          blockchain clubs in Romania to Ivy League universities in the US. I have taught
           Solana Fall School, taught for <a href="https://www.youtube.com/watch?v=x7OoYpoWAVM">TURBIN3</a>, and
           published with Helius. A set of those talks is collected{" "}
           <a href="https://www.youtube.com/playlist?list=PLkCOPM6TVt0Rp_kQYEoOCyqj-Y-2bjLvv">in one playlist</a>.
