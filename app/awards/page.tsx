@@ -9,7 +9,7 @@ export default function AwardsPage() {
   return (
     <main>
       <section className="section">
-        <p className="kicker">04 Awards</p>
+        <p className="kicker">Awards</p>
         <h2>Recognition</h2>
         <ul className="rows awards">
           <li>

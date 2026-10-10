@@ -13,7 +13,7 @@ export default function BookPage() {
   return (
     <main>
       <section className="section">
-        <p className="kicker">01 Book</p>
+        <p className="kicker">Book</p>
         <div className="book">
           <img
             className="cover"

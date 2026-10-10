@@ -9,7 +9,7 @@ export default function ContactPage() {
   return (
     <main>
       <section className="section">
-        <p className="kicker">05 Contact</p>
+        <p className="kicker">Contact</p>
         <h2>Contact</h2>
         <ul className="rows">
           <li>
