@@ -12,7 +12,7 @@ export default function HomePage() {
         />
         <div>
           <h1>Mike MacCana</h1>
-          <p className="lede">I speak about blockchain finance concepts.</p>
+          <p className="lede">Blockchain finance educator</p>
           <p className="place">New York</p>
         </div>
       </div>
