@@ -71,30 +71,41 @@ export function WorkList({ works }: { works: WorkItem[] }) {
             : shown.length > 1 && shown.every((shot) => shot.phone)
               ? "shots phones"
               : "shots";
-        const compactLogo =
-          work.logo === "/logos/daisie.png" ||
-          work.logo === "/images/logos/boomsaas.png" ||
-          work.logo === "/images/logos/bazaarvoice.png" ||
-          work.logo === "/images/logos/redhat.png";
-        const logo = work.logo ? (
-          <img
-            className={
-              compactLogo
-                ? "logo compact"
-                : work.logo.startsWith("/images/logos/")
-                  ? "logo legacy"
-                  : "logo"
-            }
-            src={work.logo}
-            alt={work.showTitle ? "" : work.title}
-            loading="lazy"
-            decoding="async"
-          />
-        ) : null;
+        const logoItems =
+          work.logos ?? (work.logo ? [{ src: work.logo, alt: work.showTitle ? "" : work.title }] : []);
+        const logoImages = logoItems.map((item) => {
+          const compact =
+            logoItems.length === 1 &&
+            (item.src === "/logos/daisie.png" ||
+              item.src === "/images/logos/bazaarvoice.png" ||
+              item.src === "/images/logos/redhat.png");
+          const logoClass =
+            item.src === "/images/logos/imeveryone.png"
+              ? "logo"
+              : item.src === "/images/logos/boomsaas.png"
+                ? "logo mid"
+                : compact
+                  ? "logo compact"
+                  : item.src.startsWith("/images/logos/")
+                    ? "logo legacy"
+                    : "logo";
+          return (
+            <img
+              key={item.src}
+              className={logoClass}
+              src={item.src}
+              alt={item.alt}
+              loading="lazy"
+              decoding="async"
+            />
+          );
+        });
+        const logo =
+          logoImages.length > 1 ? <div className="logo-row">{logoImages}</div> : (logoImages[0] ?? null);
         return (
           <article className="work" key={`${work.years}-${work.title}`}>
           <p className="when">{work.years}</p>
-          {work.logo && !work.showTitle ? (
+          {logoItems.length > 0 && !work.showTitle ? (
             work.href ? (
               <a className="logo-link" href={work.href}>
                 {logo}

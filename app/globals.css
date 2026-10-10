@@ -258,6 +258,17 @@ ol.toc li::before {
   margin: 0.15rem 0 0.2rem;
 }
 
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  margin: 0 0 0.85rem;
+}
+
+.logo-row .logo {
+  margin: 0;
+}
+
 .logo {
   display: block;
   height: 32px;
@@ -267,6 +278,10 @@ ol.toc li::before {
 
 .logo.legacy {
   height: 48px;
+}
+
+.logo.mid {
+  height: 36px;
 }
 
 .logo.compact {

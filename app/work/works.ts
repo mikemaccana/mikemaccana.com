@@ -18,6 +18,8 @@ export type WorkItem = {
   tags?: string[];
   href?: string;
   logo?: string;
+  /** More than one logo, when the entry covers more than one publication. */
+  logos?: { src: string; alt: string }[];
   /** Show the title even when a logo is present. Use when the logo does not spell the title. */
   showTitle?: boolean;
   /** Supports [text](url) links. */
@@ -330,7 +332,10 @@ export const works: WorkItem[] = [
     title: "Technical journalism",
     role: "Feature writer and columnist",
     showTitle: true,
-    logo: "/images/logos/apc.png",
+    logos: [
+      { src: "/images/logos/apc.png", alt: "APC" },
+      { src: "/images/logos/pca.gif", alt: "PC Authority" },
+    ],
     body: "Feature writer at APC, columnist at PC Authority, 40,000 words of Linux Pocketbook, and founding editor of Australian Linux Journal.",
     shots: shots("feature-writer-apc-magazine", 4, "Technical journalism", "jpeg"),
   },

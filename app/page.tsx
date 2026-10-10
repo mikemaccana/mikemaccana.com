@@ -25,7 +25,7 @@ export default function HomePage() {
           <a href="/solana-book">Building Financial Software on Solana</a>, maintain <a href="/open-source">the most comprehensive library of financial programs</a> on <a href="https://classic.artemis.ai/asset/solana">the most active blockchain</a> and speak regularly on blockchain and finance topics for Quicknode.
         </p>
         <p>
-          I am available as a speaker, and have spoken about technology at conferences for more than 25 years including Solana Breakpoint, Solana Accelerate, and the Digicert Cryptography Forum. Before blockchain I worked across cryptography, finance and technology, including Man Group, Credit Suisse, CMC Invest, Google, and Red Hat - and I've lived on three continents. As a result, I'm capable of expressing cutting edge topics in technology and finance to a wide variety of audiences, including yours.
+          I am available as a speaker, and have spoken about technology at conferences for more than 25 years including Breakpoint, Accelerate, and the Digicert Cryptography Forum. Before blockchain I worked across cryptography, finance and technology, including Man Group, Credit Suisse, CMC Invest, Google, and Red Hat - and I've lived on three continents. As a result, I'm capable of expressing cutting edge topics in technology and finance to a wide variety of audiences, including yours.
         </p>
         <p>
           <a className="cta" href="/speaking">
