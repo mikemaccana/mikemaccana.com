@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const bookUrl = "https://solanabook.org";
-const amazonUrl = "https://www.amazon.com/s?k=9798997472207";
+const amazonUrl = "https://www.amazon.com/dp/B0HMJSSB95";
 
 export const metadata: Metadata = {
   title: "Book · Mike MacCana",
