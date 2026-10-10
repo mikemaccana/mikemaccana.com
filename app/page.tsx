@@ -21,17 +21,16 @@ export default function HomePage() {
         <p className="kicker">About</p>
         <h2>I speak and write about finance and technology.</h2>
         <p>
-          I teach how financial products work. I am the author of{" "}
+          I teach how financial products work on blockchains. I am the author of{" "}
           <a href="/solana-book">Building Financial Software on Solana</a>, speak regularly on
-          blockchain and finance topics for Quicknode, and maintain <a href="/open-source">the most comprehensive library of financial programs</a> on the most active blockchain.</p>
+          blockchain and finance topics for Quicknode, and maintain <a href="/open-source">the most comprehensive library of financial programs</a> on <a href="https://classic.artemis.ai/asset/solana">the most active blockchain</a>.</p>
           <p>Before that, I created the four-day
           at Solana Foundation training program, which has been taught all over the world from blockhain clubs in Romania to Ivy League universities in the US, and I maintained the blockchain training that was
           the highest-retention content on solana.com. I also co-created and presented the Solana Developer
           Bootcamp, watched over 330,000 times.
         </p>
         <p>
-          I am available as a speaker. I have spoken about technology at conferences for more than 25 years. I
-          have spoken at Solana Breakpoint, Solana Accelerate, and the Digicert Cryptography Forum.
+          I am available as a speaker, and have spoken about technology at conferences for more than 25 years including Solana Breakpoint, Solana Accelerate, and the Digicert Cryptography Forum.
         </p>
         <p>
           <a className="cta" href="/speaking">

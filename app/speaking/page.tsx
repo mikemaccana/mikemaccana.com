@@ -12,7 +12,7 @@ export default function SpeakingPage() {
         <p className="kicker">02 Speaking and advisory</p>
         <h2>Talks</h2>
         <p>
-          I speak about onchain finance to two rooms: people who run markets, and people who build them. The
+          I speak about onchain finance to the people who run markets and the people who build them. The
           subject is how products clear, settle, and hold risk on a public ledger. This includes managed funds,
           prediction markets, options, and lending.
         </p>
