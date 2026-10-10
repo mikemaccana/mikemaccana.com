@@ -10,7 +10,7 @@ export default function InvestmentsPage() {
     <main>
       <section className="section">
         <p className="kicker">Investments</p>
-        <h2>Angel investments</h2>
+        <h1 className="page-title">Angel investments</h1>
         <p>I back companies in onchain finance.</p>
         <h3>
           <a href="https://www.pyra.fi/">Pyra</a>

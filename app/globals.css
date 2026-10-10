@@ -492,10 +492,6 @@ cite {
   margin: 0;
 }
 
-.book h2 {
-  margin-top: 0;
-}
-
 @media (max-width: 640px) {
   .book {
     grid-template-columns: 1fr;

@@ -10,14 +10,15 @@ export default function SpeakingPage() {
     <main>
       <section className="section">
         <p className="kicker">Speaking and advisory</p>
-        <h2>Talks</h2>
+        <h1 className="page-title">Talks</h1>
         <p>
           I speak about onchain finance to the people who run markets and the people who build them. The
           subject is how products clear, settle, and hold risk on a public ledger. This includes exchanges, managed funds,
           prediction markets, options, and lending.
         </p>
         <p>
-          I lead Solana content for <a href="https://www.youtube.com/@Quicknode">Quicknode on YouTube</a>. I
+          I lead Solana content for <a href="https://www.youtube.com/@Quicknode">Quicknode on YouTube</a> (144K
+          subscribers). I
           created the{" "}
           <a href="https://github.com/solana-developers/professional-education">Solana Foundation training program</a>,
           taught from blockchain clubs in Romania to Ivy League
