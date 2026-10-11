@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/book", label: "Book" },
+  { href: "/book", label: "The Solana Book" },
   { href: "/speaking", label: "Speaking" },
   { href: "/work", label: "Work" },
   { href: "/awards", label: "Awards" },
