@@ -68,15 +68,15 @@ export default function SpeakingPage() {
           </li>
           <li>
             <span className="when">2025</span>
-            <span>Breakpoint, Colosseum Stage. &ldquo;Smart contract basics.&rdquo;</span>
+            <span>Breakpoint, Colosseum Stage. &ldquo;How to Build Anything You Want on Solana.&rdquo;</span>
           </li>
           <li>
             <span className="when">2024</span>
-            <span>Breakpoint, Colosseum Stage. &ldquo;Smart contract basics.&rdquo;</span>
+            <span>Breakpoint, Colosseum Stage. &ldquo;Build your first Solana program in 30 minutes.&rdquo;</span>
           </li>
           <li>
             <span className="when">2023</span>
-            <span>Breakpoint. &ldquo;Solana basics for Everyone.&rdquo;</span>
+            <span>Breakpoint. &ldquo;Solana basics for Everyone.&rdquo; and MCd the Developer stage.</span>
           </li>
           <li>
             <span className="when">2018</span>
