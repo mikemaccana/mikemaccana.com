@@ -13,14 +13,14 @@ export default function BookPage() {
   return (
     <main>
       <p className="kicker page-kicker">Book</p>
-      <h1 className="page-title">The Solana finance book</h1>
+      <h1 className="page-title">The Solana Book</h1>
       <div className="book">
         <img
           className="cover"
           src="/images/book-cover.png"
           alt="Cover of Building Financial Software on Solana, by Mike MacCana"
-          width={744}
-          height={969}
+          width={716}
+          height={915}
         />
         <div>
           <p>
