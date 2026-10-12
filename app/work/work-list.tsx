@@ -195,9 +195,16 @@ export function WorkList({ works }: { works: WorkItem[] }) {
               {shown.map((shot) => (
                 <img
                   key={shot.src}
-                  className={shot.phone ? "phone" : undefined}
+                  className={shot.contain ? "contain" : shot.phone ? "phone" : undefined}
                   src={shot.src}
                   alt={shot.alt}
+                  width={shot.width}
+                  height={shot.height}
+                  style={
+                    shot.contain && shot.width && shot.height
+                      ? { aspectRatio: `${shot.width} / ${shot.height}` }
+                      : undefined
+                  }
                   loading="lazy"
                   decoding="async"
                 />

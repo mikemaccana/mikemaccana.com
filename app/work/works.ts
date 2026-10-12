@@ -3,6 +3,9 @@ export type Shot = {
   alt: string;
   phone?: boolean;
   wide?: boolean;
+  contain?: boolean;
+  width?: number;
+  height?: number;
 };
 
 export type WorkPoint = {
@@ -46,7 +49,9 @@ export const openSource: WorkItem[] = [
       {
         src: "/images/work/screenshots/solana-program-examples-banner.png",
         alt: "Quicknode Solana Program Examples banner",
-        wide: true,
+        contain: true,
+        width: 3840,
+        height: 1456,
       },
     ],
   },

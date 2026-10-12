@@ -578,6 +578,12 @@ blockquote p {
   background: #111;
 }
 
+.shots img.contain {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
 .shots.wide img {
   aspect-ratio: auto;
   height: auto;

@@ -54,7 +54,7 @@ export default function SpeakingPage() {
         </ul>
         <LinkedHeading title="Talks and appearances" level="h3">Talks and appearances</LinkedHeading>
         <p>
-          This is a small selection of talks from the last 25 years, separate from my formal training sessions.
+          This is a small selection of talks from the last 25 years.
         </p>
         <SpeakingList />
         <LinkedHeading title="Advisory" level="h3">Advisory</LinkedHeading>
