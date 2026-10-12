@@ -170,6 +170,56 @@ h3 {
   margin: 1.6rem 0 0.6rem;
 }
 
+.linked-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.linked-heading > h1,
+.linked-heading > h2,
+.linked-heading > h3 {
+  min-width: 0;
+}
+
+.copy-anchor-link {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  opacity: 0.2;
+  transition: opacity 120ms ease, color 120ms ease;
+}
+
+.copy-anchor-link svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.copy-anchor-link:hover {
+  color: var(--fg);
+  background: none;
+  opacity: 0.9;
+}
+
+.copy-anchor-link:focus-visible {
+  color: var(--fg);
+  opacity: 1;
+  outline: 1px solid var(--muted);
+  outline-offset: 2px;
+}
+
 p {
   margin: 0 0 1rem;
 }
@@ -196,6 +246,44 @@ ul.rows li {
 
 ul.rows.awards li {
   grid-template-columns: 9.5rem 1fr;
+}
+
+ul.rows.speaking-rows li {
+  grid-template-columns: 3.5rem minmax(8rem, 1fr) minmax(10rem, 1.3fr) 8rem 8rem;
+}
+
+ul.rows.speaking-rows .speaking-head {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.speaking-city {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  padding-top: 0.28rem;
+}
+
+.speaking-tags {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.2rem;
+  padding-top: 0.28rem;
+}
+
+.speaking-tags .tag-button {
+  cursor: pointer;
+}
+
+.speaking-key {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.68rem;
 }
 
 ol.toc {
@@ -280,6 +368,36 @@ ol.toc li::before {
   height: 48px;
 }
 
+.logo.make-us-proud {
+  height: 36px;
+}
+
+.logo.apc {
+  height: 30px;
+}
+
+.logo.pca {
+  filter: grayscale(1) contrast(100) invert(1);
+}
+
+.work-logo-heading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  min-height: 32px;
+  margin: 0 0 0.85rem;
+}
+
+.work-logo-heading .logo-link {
+  flex: 0 1 auto;
+}
+
+.work-logo-heading > .logo,
+.work-logo-heading > .logo-row {
+  margin: 0;
+}
+
 .logo.mid {
   height: 36px;
 }
@@ -352,7 +470,7 @@ a.logo-link:hover {
 }
 
 .tag-clear {
-  margin-left: 0.45rem;
+  margin-left: 0.3rem;
   font-family: var(--serif);
   font-style: italic;
   font-size: 1.05rem;
@@ -372,6 +490,13 @@ a.logo-link:hover {
   color: var(--bg);
 }
 
+.tag-filter-affiliations {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  flex: 0 0 100%;
+}
+
 .tags {
   font-family: var(--mono);
   font-size: 0.68rem;
@@ -382,7 +507,7 @@ a.logo-link:hover {
 }
 
 .role {
-  color: var(--muted);
+  color: var(--fg);
   margin-bottom: 0.7rem;
 }
 
@@ -503,6 +628,63 @@ cite {
   ul.rows.awards li {
     grid-template-columns: 1fr;
     gap: 0.15rem;
+  }
+
+  ul.rows.speaking-rows .speaking-head {
+    display: none;
+  }
+
+  ul.rows.speaking-rows li {
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 0.15rem 0.75rem;
+  }
+
+  ul.rows.speaking-rows .when {
+    grid-row: span 4;
+  }
+
+  ul.rows.speaking-rows .speaking-city {
+    grid-column: 2;
+    padding-top: 0;
+  }
+
+  ul.rows.speaking-rows .speaking-tags {
+    grid-column: 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.2rem 0.55rem;
+    padding-top: 0;
+  }
+
+  ul.rows.speaking-rows li > span:nth-child(2)::before,
+  ul.rows.speaking-rows li > span:nth-child(3)::before,
+  ul.rows.speaking-rows li > span:nth-child(4)::before,
+  ul.rows.speaking-rows li > span:nth-child(5)::before {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  ul.rows.speaking-rows li > span:nth-child(2)::before {
+    content: "Event";
+  }
+
+  ul.rows.speaking-rows li > span:nth-child(3)::before {
+    content: "Talk";
+  }
+
+  ul.rows.speaking-rows li > span:nth-child(3):empty::before {
+    content: none;
+  }
+
+  ul.rows.speaking-rows li > span:nth-child(4)::before {
+    content: "Tags";
+  }
+
+  ul.rows.speaking-rows li > span:nth-child(5)::before {
+    content: "Location";
   }
 
   .nav {

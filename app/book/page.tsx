@@ -42,6 +42,10 @@ export default function BookPage() {
             <a className="cta" href={amazonUrl}>
               Buy on Amazon
             </a>
+            {" "}
+            <a className="cta" href={bookUrl}>
+              Download digital
+            </a>
           </p>
         </div>
       </div>

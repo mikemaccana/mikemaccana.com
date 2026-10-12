@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useState } from "react";
+import { CopyAnchorLink, headingId } from "../linked-heading";
 import type { WorkItem } from "./works";
 
 const tagOrder = ["finance", "consumer", "crypto", "blockchain", "AI", "infrastructure", "Y Combinator", "exit"];
@@ -42,8 +43,22 @@ export function WorkList({ works }: { works: WorkItem[] }) {
   return (
     <>
       <div className="tag-bar" role="group" aria-label="Filter">
-        {tags.length > 0 ? <span className="tag-label">Filter</span> : null}
-        {tags.map((tag) => (
+        {tags.length > 0 ? (
+          <span className="tag-label">
+            Filter
+            {selected.length > 0 ? (
+              <button
+                type="button"
+                className="tag-clear"
+                aria-label="Clear filters"
+                onClick={() => setSelected([])}
+              >
+                (clear)
+              </button>
+            ) : null}
+          </span>
+        ) : null}
+        {tags.filter((tag) => !["Y Combinator", "exit", "Entrepreneur First"].includes(tag)).map((tag) => (
           <button
             key={tag}
             type="button"
@@ -54,11 +69,19 @@ export function WorkList({ works }: { works: WorkItem[] }) {
             {tag}
           </button>
         ))}
-        {selected.length > 0 ? (
-          <button type="button" className="tag-clear" onClick={() => setSelected([])}>
-            Clear all
-          </button>
-        ) : null}
+        <div className="tag-filter-affiliations">
+          {["Y Combinator", "exit", "Entrepreneur First"].filter((tag) => tags.includes(tag)).map((tag) => (
+            <button
+              key={tag}
+              type="button"
+              className={selected.includes(tag) ? "tag-button is-on" : "tag-button"}
+              aria-pressed={selected.includes(tag)}
+              onClick={() => toggle(tag)}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
       </div>
 
       {visible.map((work) => {
@@ -82,6 +105,12 @@ export function WorkList({ works }: { works: WorkItem[] }) {
           const logoClass =
             item.src === "/images/logos/imeveryone.png"
               ? "logo"
+              : item.src === "/images/logos/make-us-proud.png"
+                ? "logo make-us-proud"
+              : item.src === "/images/logos/apc.png"
+                ? "logo legacy apc"
+              : item.src === "/images/logos/pca.gif"
+                ? "logo legacy pca"
               : item.src === "/images/logos/boomsaas.png"
                 ? "logo mid"
                 : compact
@@ -102,23 +131,22 @@ export function WorkList({ works }: { works: WorkItem[] }) {
         });
         const logo =
           logoImages.length > 1 ? <div className="logo-row">{logoImages}</div> : (logoImages[0] ?? null);
+        const workAnchor = headingId(work.title);
+        const hasLogo = logoItems.length > 0;
         return (
-          <article className="work" key={`${work.years}-${work.title}`}>
+          <article className="work" id={workAnchor} key={`${work.years}-${work.title}`}>
           <p className="when">{work.years}</p>
-          {logoItems.length > 0 && !work.showTitle ? (
-            work.href ? (
-              <a className="logo-link" href={work.href}>
-                {logo}
-              </a>
-            ) : (
-              logo
-            )
-          ) : (
-            <>
-              {logo}
-              <h3>{work.href ? <a href={work.href}>{work.title}</a> : work.title}</h3>
-            </>
-          )}
+          <div className="work-logo-heading">
+            {hasLogo
+              ? work.href && !work.showTitle
+                ? <a className="logo-link" href={work.href}>{logo}</a>
+                : logo
+              : <h3>{work.href ? <a href={work.href}>{work.title}</a> : work.title}</h3>}
+            <CopyAnchorLink anchor={workAnchor} title={work.title} />
+          </div>
+          {hasLogo && work.showTitle ? (
+            <h3>{work.href ? <a href={work.href}>{work.title}</a> : work.title}</h3>
+          ) : null}
           {work.role ? <p className="role">{work.role}</p> : null}
           {work.tags ? (
             <p className="tags">

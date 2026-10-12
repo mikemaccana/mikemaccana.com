@@ -13,12 +13,12 @@ export default function ContactPage() {
         <h1 className="page-title">Contact</h1>
         <ul className="rows">
           <li>
-            <span className="when">Email</span>
-            <a href="mailto:mike.maccana@gmail.com">mike.maccana@gmail.com</a>
-          </li>
-          <li>
             <span className="when">X (best)</span>
             <a href="https://x.com/mikemaccana">@mikemaccana</a>
+          </li>
+          <li>
+            <span className="when">Email</span>
+            <a href="mailto:mike.maccana@gmail.com">mike.maccana@gmail.com</a>
           </li>
           <li>
             <span className="when">Telegram</span>

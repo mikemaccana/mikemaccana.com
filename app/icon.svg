@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#000" />
+  <defs>
+    <path
+      id="jetbrains-m"
+      d="M76 0L76 730L194 730L270 494Q281 462 290 430.5Q299 399 303 382Q308 399 316 430.5Q324 462 334 495L406 730L524 730L524 0L436 0L436 265Q436 309 439 365Q442 421 447 479.5Q452 538 457.5 591.5Q463 645 467 685L349 320L254 320L135 685Q140 646 145 594.5Q150 543 154 485.5Q158 428 161 371Q164 314 164 265L164 0Z"
+    />
+  </defs>
+  <g fill="#fff" transform="translate(-20 423.9) scale(0.46 -0.46)">
+    <use href="#jetbrains-m" />
+    <use href="#jetbrains-m" transform="translate(600 0)" />
+  </g>
+</svg>

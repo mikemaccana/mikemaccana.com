@@ -88,11 +88,11 @@ export const works: WorkItem[] = [
   {
     years: "2023 to 2024",
     title: "Solana Foundation",
-    role: "Developer Education Advocate",
+    role: "Developer Education",
     tags: ["crypto", "blockchain"],
     href: "https://solana.org/",
     logo: "/logos/solana-foundation.svg",
-    body: "I created a four-day Solana training program, taught to hundreds of students from Romania to US Ivy League universities. I co-created and presented the 2024 Developer Bootcamp. I was responsible for the Solana developer courses, the highest-retention content on solana.com, and ran a team of six Superteam contributors who maintained them. I wrote solana-helpers, about 30,000 downloads a week, and Kite, the TypeScript library on top of Solana Kit.",
+    body: "I ran education at the Solana Foundation, where I created a four-day Solana training program taught to hundreds of students from Romania to US Ivy League universities. I co-created and presented the 2024 Developer Bootcamp. I was responsible for the Solana developer courses, the highest-retention content on solana.com, and ran a team of six Superteam contributors who maintained them. I wrote solana-helpers, about 30,000 downloads a week.",
     shots: [
       {
         src: "/images/columbia-blockchain-club.jpg",
@@ -108,6 +108,11 @@ export const works: WorkItem[] = [
     tags: ["finance", "crypto", "blockchain"],
     body: "CTO of Portal Payments. Two prizes at the Solana Sandstorm hackathon. We built a novel key recovery mechanism that allowed wallets to be recovered with cryptographically secure yet memorable phrases, and solved the “sent to wrong account” problem by creating an identity token displayed when entering a recipient address.",
     shots: [
+      {
+        src: "/images/portal-verified-recipient.png",
+        alt: "Portal Wallet transfer screen showing a verified named recipient",
+        phone: true,
+      },
       {
         src: "/images/portal-home.jpg",
         alt: "Portal Payments home, with a dollar balance and named recipients",
@@ -133,20 +138,50 @@ export const works: WorkItem[] = [
     href: "https://www.cmcinvest.com/en-gb/",
     logo: "/logos/cmc.svg",
     body: "Technical lead and advisor on CMC Invest, the CMC Markets iPhone app for shares, ETFs, and funds in the UK.",
-    shots: [{ src: "/images/cmc-invest.jpg", alt: "CMC Invest on iPhone", phone: true }],
+    shots: [
+      {
+        src: "/images/cmc-invest-home.webp",
+        alt: "CMC Invest home screen with a portfolio balance and account options",
+        phone: true,
+      },
+      {
+        src: "/images/cmc-invest-asset.webp",
+        alt: "CMC Invest Vodafone share detail with price chart and buy or sell controls",
+        phone: true,
+      },
+      {
+        src: "/images/cmc-invest-esg-overview-2022.png",
+        alt: "CMC Invest ESG tab for Sainsbury, showing its ESG risk score and controversy category",
+        phone: true,
+      },
+      {
+        src: "/images/cmc-invest-esg-involvement-2022.png",
+        alt: "CMC Invest BP product-involvement screen, showing ratings for areas including oil and gas",
+        phone: true,
+      },
+      {
+        src: "/images/cmc-invest-community-2022.jpg",
+        alt: "CMC Invest community feature-feedback page shown on an iPhone",
+        phone: true,
+      },
+    ],
   },
   {
     years: "2021",
     title: "Humanloop",
-    role: "First engineer",
+    role: "Engineer",
     tags: ["Y Combinator", "exit", "AI", "infrastructure"],
     href: "https://humanloop.com/",
     logo: "/logos/humanloop.svg",
-    body: "First engineer at Humanloop, a Y Combinator company. The product was a document interface for tagging and classification: highlight a word or phrase, apply a label, and train from those marks.\nHumanloop exited to Anthropic in 2025.",
+    body: "First engineer at Humanloop, a Y Combinator company. The product was a machine-learning classification model that engaged human subject-matter experts to push into cases where the model's existing training data was incomplete. The product was a document interface for those humans in the loop to interact with the model.\nHumanloop exited to Anthropic in 2025.",
     shots: [
       {
-        src: "/images/humanloop-copilot.jpg",
-        alt: "Humanloop prompt editor, with a chat template and a live session",
+        src: "/images/humanloop-classification.png",
+        alt: "Humanloop document-labeling interface with entities highlighted for classification",
+      },
+      {
+        src: "/images/humanloop-label-comment-2021.png",
+        alt: "Humanloop 2021 annotation interface with a comment about combining HVAC labels",
       },
     ],
   },
@@ -157,12 +192,35 @@ export const works: WorkItem[] = [
     tags: ["consumer"],
     href: "https://www.daisie.com/",
     logo: "/logos/daisie.png",
-    body: "Engineering lead for a team of six and 160,000 users. I made search results deterministic, migrated the chat backend with no downtime, shipped the first revenue feature, live workshops, and cut CI from 42 minutes to 2.",
+    body: "Engineering lead for a team of six and 160,000 users. I made search results deterministic, migrated the chat backend with no downtime, shipped the first revenue-generating feature (live workshops), and cut CI from 42 minutes to 2.",
+    shots: [
+      {
+        src: "/images/daisie-workshop-2021.png",
+        alt: "Daisie workshop detail screen for a short-film class, captured from its 2021 App Store listing",
+        phone: true,
+      },
+      {
+        src: "/images/daisie-browse-2021.png",
+        alt: "Daisie Browse screen listing upcoming workshops, captured from its 2021 App Store listing",
+        phone: true,
+      },
+      {
+        src: "/images/daisie-mobile-2021.png",
+        alt: "Daisie 2021 app screens showing a live creator call and the Browse schedule",
+        phone: true,
+      },
+      {
+        src: "/images/daisie-phones-2021.png",
+        alt: "Daisie 2021 photography room welcome and live chat screens on overlapping phones",
+        phone: true,
+      },
+    ],
   },
   {
     years: "2018 to 2020",
     title: "BoomSaaS",
     role: "Founder",
+    tags: ["Entrepreneur First"],
     logo: "/images/logos/boomsaas.png",
     body: "Entrepreneur First, London. The idea was to plug a product into an integrated SaaS business instead of assembling billing, users, CRM, and messaging by hand. It did not continue after a cofounder split.",
     shots: shots("boomsaas", 8, "BoomSaaS"),
@@ -171,15 +229,16 @@ export const works: WorkItem[] = [
     years: "2015 to 2020",
     title: "CertSimple",
     role: "Founder",
-    tags: ["finance", "exit", "crypto"],
+    tags: ["finance", "crypto", "Entrepreneur First", "Y Combinator", "exit"],
     logo: "/images/logos/certsimple.png",
-    body: "I founded CertSimple, used by Monzo, Buzzfeed, and most London fintechs. Verifying the legal entity behind a website, for display in the “green bar” browsers showed at the time, took up to a month. I invented a process that reduced the time to a few minutes. The company reached £22k a month, was featured in TechCrunch, and was part of Entrepreneur First.\nCertSimple exited, selling its core technology to DigiCert, and sold the name and brand to Expedited Security in January 2020.",
+    body: "I founded CertSimple, used by Monzo, Buzzfeed, and most London fintechs. Verifying the legal entity behind a website, for display in the “green bar” browsers showed at the time, took up to a month. I invented a process that reduced the time to a few minutes. The company reached £22k a month, was featured in TechCrunch, and was part of Entrepreneur First. Y Combinator flew me to Mountain View for final founder interviews in 2016, but I wasn't selected for the cohort.\nCertSimple exited, selling its core technology to DigiCert, and sold the name and brand to Expedited Security in January 2020.",
     shots: shots("certsimple", 5, "CertSimple"),
   },
   {
     years: "2014 to 2015",
     title: "Make Us Proud",
     role: "Tech lead",
+    logo: "/images/logos/make-us-proud.png",
     tags: ["consumer"],
     points: [
       {
@@ -187,17 +246,16 @@ export const works: WorkItem[] = [
         text: "A site for MyCognition's Rise cognitive training product, and the payment and signup flow around it. Node, Stripe, and Quaderno.",
       },
       {
-        label: "Microsoft Surface 2",
-        text: "Microsite for the Surface 2 UK launch. CSS, Node, the Twitter and Instagram APIs, and Azure.",
+        label: "Microsoft Surface 2 launch campaign site",
+        text: "CSS, Node, and Azure, with Twitter and Instagram API integrations.",
       },
     ],
     shots: [
-      { src: "/images/work/screenshots/mycognition-0.png", alt: "MyCognition Rise" },
-      { src: "/images/work/screenshots/uncompromise-1.png", alt: "Microsoft Surface 2" },
-      ...shots("mycognition", 10, "MyCognition Rise").slice(1),
+      {
+        src: "/images/work/screenshots/uncompromise-4.png",
+        alt: "Surface 2 tablets and keyboard on the Work, play anywhere microsite",
+      },
       { src: "/images/work/screenshots/uncompromise-0.png", alt: "Microsoft Surface 2" },
-      ...shots("uncompromise", 5, "Microsoft Surface 2").slice(2),
-      { src: "/images/work/screenshots/uncompromise-5.png", alt: "Microsoft Surface 2" },
     ],
   },
   {
@@ -299,7 +357,7 @@ export const works: WorkItem[] = [
     role: "Low-latency trading engineer",
     tags: ["finance"],
     logo: "/logos/credit-suisse.svg",
-    body: "Co-located index arbitrage.",
+    body: "Co-located index arbitrage for high-frequency trading. Mainly low-level Linux kernel tuning and network engineering.",
   },
   {
     years: "2008 to 2009",
@@ -312,11 +370,10 @@ export const works: WorkItem[] = [
   {
     years: "2006 to 2008",
     title: "IBM Global Services",
-    role: "Linux team",
+    role: "IBM Linux Services",
     tags: ["infrastructure"],
-    showTitle: true,
     logo: "/logos/ibm.svg",
-    body: "Privilege revalidation for 75,000 accounts. Led a team of six on the Telstra Enterprise Data Warehouse.",
+    body: "Built a system to audit and resolve privilege revalidation for 75,000 people's user accounts. Led a team of six to build the Telstra Enterprise Data Warehouse for one of the largest companies in Asia.",
   },
   {
     years: "2003 to 2005",
@@ -336,7 +393,7 @@ export const works: WorkItem[] = [
       { src: "/images/logos/apc.png", alt: "APC" },
       { src: "/images/logos/pca.gif", alt: "PC Authority" },
     ],
-    body: "Feature writer at APC, columnist at PC Authority, 40,000 words of Linux Pocketbook, and founding editor of Australian Linux Journal.",
+    body: "Feature writer at APC, columnist at PC Authority, 40,000 words of Linux Pocketbook.",
     shots: shots("feature-writer-apc-magazine", 4, "Technical journalism", "jpeg"),
   },
   {
@@ -344,7 +401,8 @@ export const works: WorkItem[] = [
     title: "Cybersource",
     role: "Technical specialist",
     tags: ["infrastructure"],
-    body: "Small Business Linux Server appliance, and a five-day Red Hat administration course the company later sold.",
+    logo: "/images/logos/cybersource-white-on-black.png",
+    body: "Built the Small Business Linux Server appliance, a turnkey local email / file sharing device, and created a five-day Red Hat administration course the company later sold the rights to.",
   },
   {
     years: "1996",

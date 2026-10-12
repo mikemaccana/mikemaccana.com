@@ -24,6 +24,12 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mikemaccana.com"),
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "1024x1024" },
+    ],
+  },
   title: "Mike MacCana · Blockchain finance writer and speaker",
   description:
     "Mike MacCana writes and speaks about blockchain finance. Author of Building Financial Software on Solana, the Solana Finance Book.",

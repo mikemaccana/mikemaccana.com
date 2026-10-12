@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { LinkedHeading } from "../linked-heading";
+import { SpeakingList } from "./speaking-list";
 
 export const metadata: Metadata = {
   title: "Speaking and advisory · Mike MacCana",
@@ -36,7 +38,9 @@ export default function SpeakingPage() {
             Book me to speak
           </a>
         </p>
-        <h3>What I&apos;ve been talking about recently</h3>
+        <LinkedHeading title="What I've been talking about recently" level="h3">
+          What I&apos;ve been talking about recently
+        </LinkedHeading>
         <ul className="points">
           <li>
             How financial products, such as equities exchanges, options trading, and lending markets, work as onchain
@@ -48,54 +52,12 @@ export default function SpeakingPage() {
             global, and agentic trading.
           </li>
         </ul>
-        <h3>Conferences</h3>
-        <ul className="rows">
-          <li>
-            <span className="when">2026</span>
-            <span>Superteam USA. &ldquo;Encrypted onchain elections.&rdquo;</span>
-          </li>
-          <li>
-            <span className="when">2026</span>
-            <span>Solar (Solana China). &ldquo;Operating a Parimutuel Betting Market.&rdquo;</span>
-          </li>
-          <li>
-            <span className="when">2026</span>
-            <span>Solana Fall School. &ldquo;Building a Managed Fund.&rdquo;</span>
-          </li>
-          <li>
-            <span className="when">2026</span>
-            <span>Accelerate, Miami. &ldquo;How to get Everything you Ever Wanted.&rdquo;</span>
-          </li>
-          <li>
-            <span className="when">2025</span>
-            <span>Breakpoint, Colosseum Stage. &ldquo;How to Build Anything You Want on Solana.&rdquo;</span>
-          </li>
-          <li>
-            <span className="when">2024</span>
-            <span>Breakpoint, Colosseum Stage. &ldquo;Build your first Solana program in 30 minutes.&rdquo;</span>
-          </li>
-          <li>
-            <span className="when">2023</span>
-            <span>Breakpoint. &ldquo;Solana basics for Everyone.&rdquo; and MCd the Developer stage.</span>
-          </li>
-          <li>
-            <span className="when">2018</span>
-            <span>Odessa JS. &ldquo;Deploying your JS app in 2018.&rdquo;</span>
-          </li>
-          <li>
-            <span className="when">2017</span>
-            <span>Digicert Cryptography Forum. &ldquo;The webcrypto API.&rdquo;</span>
-          </li>
-          <li>
-            <span className="when">2015</span>
-            <span>Node Interactive. &ldquo;NPM Everywhere.&rdquo;</span>
-          </li>
-          <li>
-            <span className="when">2012</span>
-            <span>Norton Rose Fulbright. Open source licensing and the law.</span>
-          </li>
-        </ul>
-        <h3>Advisory</h3>
+        <LinkedHeading title="Talks and appearances" level="h3">Talks and appearances</LinkedHeading>
+        <p>
+          This is a small selection of talks from the last 25 years, separate from my formal training sessions.
+        </p>
+        <SpeakingList />
+        <LinkedHeading title="Advisory" level="h3">Advisory</LinkedHeading>
         <p>For teams putting these ideas into practice:</p>
         <ul className="points">
           <li>I train teams working on onchain markets, credit, and derivatives.</li>
