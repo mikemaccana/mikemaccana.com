@@ -94,15 +94,18 @@ export const works: WorkItem[] = [
     years: "2023 to 2024",
     title: "Solana Foundation",
     role: "Developer Education",
-    tags: ["crypto", "blockchain"],
+    tags: ["finance", "crypto", "blockchain"],
     href: "https://solana.org/",
     logo: "/logos/solana-foundation.svg",
     body: "I ran education at the Solana Foundation, where I created a four-day Solana training program taught to hundreds of students from Romania to US Ivy League universities. I co-created and presented the 2024 Developer Bootcamp. I was responsible for the Solana developer courses, the highest-retention content on solana.com, and ran a team of six Superteam contributors who maintained them. I wrote solana-helpers, about 30,000 downloads a week.",
     shots: [
       {
+        src: "/images/solana-foundation-professional-education-2.png",
+        alt: "Diagram explaining an SPL token transfer through Solana programs and accounts",
+      },
+      {
         src: "/images/columbia-blockchain-club.jpg",
         alt: "Teaching the Columbia Blockchain Club for the Solana Foundation",
-        wide: true,
       },
     ],
   },

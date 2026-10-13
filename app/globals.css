@@ -393,8 +393,11 @@ ol.toc li::before {
   flex: 0 1 auto;
 }
 
-.work-logo-heading > .logo,
-.work-logo-heading > .logo-row {
+.work-logo-heading .logo {
+  margin: 0;
+}
+
+.work-logo-heading > h3 {
   margin: 0;
 }
 
