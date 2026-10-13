@@ -60,7 +60,7 @@ export const openSource: WorkItem[] = [
     title: "python-docx",
     role: "Creator",
     href: "https://github.com/mikemaccana/python-docx",
-    body: "The Python library for creating, editing, and saving Microsoft Word documents. I [created python-docx in 2009](https://stackoverflow.com/questions/116139/how-can-i-search-a-word-in-a-word-2007-docx-file/1979864#1979864) after needing a native way to read Word documents in Python. Microsoft uses it to read Word files in [its own AI tools](https://github.com/microsoft/markitdown/blob/main/packages/markitdown-ocr/pyproject.toml).",
+    body: "The Python library for creating, editing, and saving Microsoft Word documents. I [created python-docx in 2009](https://stackoverflow.com/questions/116139/how-can-i-search-a-word-in-a-word-2007-docx-file/1979864#1979864) after needing a native way to read Word documents in Python. It has [~998 million total downloads](https://pepy.tech/projects/python-docx). Microsoft uses it to read Word files in [its own AI tools](https://github.com/microsoft/markitdown/blob/main/packages/markitdown-ocr/pyproject.toml).",
     shots: shots("python-docx", 1, "python-docx"),
   },
 ];
