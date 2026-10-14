@@ -261,10 +261,13 @@ export const works: WorkItem[] = [
     ],
     shots: [
       {
-        src: "/images/work/screenshots/uncompromise-4.png",
-        alt: "Surface 2 tablets and keyboard on the Work, play anywhere microsite",
+        src: "/images/work/screenshots/uncompromise-2.png",
+        alt: "Will and James featured on the Uncompromise microsite",
       },
-      { src: "/images/work/screenshots/uncompromise-0.png", alt: "Microsoft Surface 2" },
+      {
+        src: "/images/work/screenshots/uncompromise-3.png",
+        alt: "Jenny Scott featured on the Uncompromise microsite",
+      },
     ],
   },
   {
@@ -281,7 +284,16 @@ export const works: WorkItem[] = [
         text: "Online Wednesday was an internal tool for American Express to find products people were talking about and rank interest using Facebook and Twitter.",
       },
     ],
-    shots: shots("waves", 6, "Waves"),
+    shots: [
+      {
+        src: "/images/work/screenshots/waves-1.png",
+        alt: "Waves welcome screen introducing monitor setup",
+      },
+      {
+        src: "/images/work/screenshots/waves-5.png",
+        alt: "Waves dashboard showing one hour of sentiment data",
+      },
+    ],
   },
   {
     years: "2013 to 2014",
