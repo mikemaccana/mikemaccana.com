@@ -114,6 +114,7 @@ export const works: WorkItem[] = [
     title: "Portal Payments",
     role: "CTO",
     tags: ["finance", "crypto", "blockchain"],
+    logo: "/logos/portal-payments.svg",
     body: "CTO of Portal Payments. Two prizes at the Solana Sandstorm hackathon. We built a novel key recovery mechanism that allowed wallets to be recovered with cryptographically secure yet memorable phrases, and solved the “sent to wrong account” problem by creating an identity token displayed when entering a recipient address.",
     shots: [
       {
