@@ -10,7 +10,7 @@ export default function AwardsPage() {
     <main>
       <section className="section">
         <p className="kicker">Awards</p>
-        <h2>Recognition</h2>
+        <h1 className="page-title">Recognition</h1>
         <ul className="rows awards">
           <li>
             <span className="when">Arctic Code Vault</span>
@@ -26,9 +26,8 @@ export default function AwardsPage() {
           <li>
             <span className="when">python-docx</span>
             <span>
-              The Python library for Word documents, now used by 85,000 people. Microsoft uses it to read Word files
-              in its own AI tools.{" "}
-              <a href="https://github.com/mikemaccana/python-docx">github.com/mikemaccana/python-docx</a>
+              I created python-docx in 2009. The Python library for Word documents is now used by millions of people.
+              Microsoft uses it to read Word files in its own AI tools.
             </span>
           </li>
           <li>

@@ -12,7 +12,6 @@ export default function WorkPage() {
     <main>
       <p className="kicker page-kicker">Work</p>
       <h1 className="page-title">Work history</h1>
-      <p>Companies and projects, with the dates, logos, and screenshots.</p>
       <WorkList works={works} />
     </main>
   );

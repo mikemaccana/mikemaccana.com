@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       { source: "/blog", destination: "/work", permanent: false },
       { source: "/blog/:slug", destination: "/work", permanent: false },
       { source: "/archive", destination: "/work", permanent: false },
+      { source: "/solana-book", destination: "/book", permanent: true },
     ];
   },
 };

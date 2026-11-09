@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 88" fill="#fff">
+  <svg x="0" y="0" width="88" height="88" viewBox="0 0 256 256">
+    <g transform="matrix(0.79263,0,0,0.925621,-347.494,-289.158)">
+      <g transform="matrix(0.821508,0,0,0.703475,194.553,129.548)">
+        <g opacity="0.97">
+          <g transform="matrix(0.454674,-0.261962,0.261962,0.454674,206.105,210.167)">
+            <path d="M407.921,432.815L537.763,657.709L278.078,657.709L407.921,432.815Z" />
+          </g>
+          <g transform="matrix(-0.453363,0.264224,-0.264224,-0.453363,781.5,701.324)">
+            <path d="M407.921,432.815L537.763,657.709L278.078,657.709L407.921,432.815Z" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+  <text x="96" y="58" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="38" font-weight="400">Portal Payments</text>
+</svg>
