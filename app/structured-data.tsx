@@ -11,7 +11,7 @@ export const bookId = `${siteUrl}/book#book`;
 // - wikidataId: the Q number of the Wikidata item, for example "Q123456789"
 // - amazonAuthorUrl: the Amazon Author Central page, for example
 //   "https://www.amazon.com/stores/author/B0XXXXXXXX"
-const wikidataId = "";
+const wikidataId = "Q142223677";
 const amazonAuthorUrl = "";
 
 export const isbn = "9798997472207";
