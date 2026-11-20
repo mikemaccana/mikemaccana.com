@@ -37,6 +37,10 @@ export default function SpeakingPage() {
           <a className="cta" href="mailto:mike.maccana@gmail.com?subject=Speaking">
             Book me to speak
           </a>
+          {" "}
+          <a className="cta" href="/speaking/kit">
+            Speaker kit
+          </a>
         </p>
         <LinkedHeading title="What I've been talking about recently" level="h3">
           What I&apos;ve been talking about recently
