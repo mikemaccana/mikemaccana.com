@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Footer, Nav } from "./nav";
+import { JsonLd, person, website } from "./structured-data";
 
 const display = Instrument_Serif({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
+        <JsonLd data={{ "@graph": [person, website] }} />
         <div className="wrap">
           <Nav />
           {children}

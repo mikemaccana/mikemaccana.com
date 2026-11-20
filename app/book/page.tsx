@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
-const bookUrl = "https://solanabook.org";
-const amazonUrl = "https://www.amazon.com/dp/B0HMJSSB95";
+import { amazonUrl, barnesAndNobleUrl, book, bookUrl, isbn, JsonLd } from "../structured-data";
 
 export const metadata: Metadata = {
   title: "Book · Mike MacCana",
@@ -12,6 +11,7 @@ export const metadata: Metadata = {
 export default function BookPage() {
   return (
     <main>
+      <JsonLd data={book} />
       <p className="kicker page-kicker">Book</p>
       <h1 className="page-title">The Solana Book</h1>
       <div className="book">
@@ -43,10 +43,15 @@ export default function BookPage() {
               Buy on Amazon
             </a>
             {" "}
+            <a className="cta" href={barnesAndNobleUrl}>
+              Buy at Barnes &amp; Noble
+            </a>
+            {" "}
             <a className="cta" href={bookUrl}>
               Download digital
             </a>
           </p>
+          <p className="muted">Paperback ISBN {isbn}</p>
         </div>
       </div>
     </main>

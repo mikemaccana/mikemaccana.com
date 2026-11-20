@@ -712,3 +712,30 @@ cite {
     height: 96px;
   }
 }
+
+.kit-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 0 0 1.25rem;
+}
+
+.kit-photos a {
+  display: block;
+  text-decoration: none;
+}
+
+.kit-photos a:hover {
+  background: none;
+  color: inherit;
+}
+
+.kit-photos img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  background: #111;
+  margin-bottom: 0.35rem;
+}
