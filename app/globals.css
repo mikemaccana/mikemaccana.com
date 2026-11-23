@@ -13,20 +13,41 @@
 }
 
 html {
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--fg);
+  min-height: 100%;
+  min-height: -webkit-fill-available;
 }
 
 body {
+  position: relative;
+  z-index: 0;
   margin: 0;
-  background-color: var(--bg);
-  background-image: linear-gradient(155deg, #070807 0%, #070807 50%, #0C241C 78%, #0F3B2E 112%);
-  background-attachment: fixed;
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: transparent;
   color: var(--fg);
   font-family: var(--serif);
   font-size: 1.0625rem;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
+}
+
+/* iOS Safari drops background-attachment: fixed short of the screen edge.
+   A fixed layer sized to the large viewport, plus the home-indicator inset,
+   paints the gradient through that gap. */
+body::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(100lvh + env(safe-area-inset-bottom, 0px));
+  background-image: linear-gradient(155deg, #070807 0%, #070807 50%, #0C241C 78%, #0F3B2E 112%);
+  pointer-events: none;
 }
 
 a {
