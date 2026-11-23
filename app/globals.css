@@ -1,8 +1,8 @@
 :root {
-  --bg: #000;
-  --fg: #f0e8dc;
-  --muted: #a89f93;
-  --line: rgba(240, 232, 220, 0.16);
+  --bg: #070807;
+  --fg: #F3E9D8;
+  --muted: #D4CBC0;
+  --line: rgba(243, 233, 216, 0.28);
   --display: var(--font-display), "Instrument Serif", Georgia, serif;
   --serif: var(--font-body), "Source Serif 4", Georgia, serif;
   --mono: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
@@ -19,7 +19,9 @@ html {
 
 body {
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: linear-gradient(155deg, #070807 0%, #070807 50%, #0C241C 78%, #0F3B2E 112%);
+  background-attachment: fixed;
   color: var(--fg);
   font-family: var(--serif);
   font-size: 1.0625rem;
@@ -100,7 +102,7 @@ a:hover {
   height: 128px;
   object-fit: cover;
   display: block;
-  border: 1px solid rgba(240, 232, 220, 0.18);
+  border: 3px solid var(--fg);
   border-radius: 50%;
 }
 
@@ -316,9 +318,9 @@ ol.toc li::before {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid rgba(240, 232, 220, 0.18);
+  border: 1px solid var(--line);
   margin: 0 0 1.25rem;
-  background: #111;
+  background: var(--bg);
 }
 
 .phone {
@@ -577,8 +579,8 @@ blockquote p {
   object-fit: cover;
   object-position: center;
   display: block;
-  border: 1px solid rgba(240, 232, 220, 0.18);
-  background: #111;
+  border: 1px solid var(--line);
+  background: var(--bg);
 }
 
 .shots img.contain {
@@ -736,6 +738,6 @@ cite {
   height: 180px;
   object-fit: contain;
   border: 1px solid var(--line);
-  background: #111;
+  background: var(--bg);
   margin-bottom: 0.35rem;
 }
