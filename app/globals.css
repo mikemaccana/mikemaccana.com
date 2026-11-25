@@ -13,7 +13,9 @@
 }
 
 html {
-  background-color: var(--bg);
+  /* The canvas color. iOS paints this behind the Safari toolbar, where a
+     fixed layer gets clipped. Match the end of the gradient so that strip is green. */
+  background-color: #0F3B2E;
   color: var(--fg);
   min-height: 100%;
   min-height: -webkit-fill-available;
@@ -45,8 +47,9 @@ body::before {
   left: 0;
   right: 0;
   top: 0;
-  height: calc(100lvh + env(safe-area-inset-bottom, 0px));
-  background-image: linear-gradient(155deg, #070807 0%, #070807 50%, #0C241C 78%, #0F3B2E 112%);
+  bottom: calc(env(safe-area-inset-bottom, 0px) * -1 - 140px);
+  height: auto;
+  background-image: linear-gradient(155deg, #070807 0%, #070807 48%, #0C241C 74%, #0F3B2E 100%);
   pointer-events: none;
 }
 
