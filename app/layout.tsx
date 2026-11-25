@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Instrument_Serif, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Footer, Nav } from "./nav";
@@ -40,13 +40,6 @@ export const metadata: Metadata = {
       "Mike MacCana writes and speaks about blockchain finance. Author of Building Financial Software on Solana, the Solana Finance Book.",
     images: [{ url: "/images/mike.jpg", width: 1200, height: 1200, alt: "Mike MacCana" }],
   },
-};
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
-  themeColor: "#0F3B2E",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
