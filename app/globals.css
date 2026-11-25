@@ -47,9 +47,9 @@ body::before {
   left: 0;
   right: 0;
   top: 0;
-  bottom: calc(env(safe-area-inset-bottom, 0px) * -1 - 140px);
+  bottom: 0;
   height: auto;
-  background-image: linear-gradient(155deg, #070807 0%, #070807 48%, #0C241C 74%, #0F3B2E 100%);
+  background-image: linear-gradient(155deg, #070807 0%, #070807 46%, #0C241C 72%, #0F3B2E 100%);
   pointer-events: none;
 }
 
